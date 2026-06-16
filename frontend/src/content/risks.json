@@ -1,0 +1,189 @@
+{
+  "id": "risks",
+  "title": "Risks & Responsibility",
+  "description": "The risks AI poses to children's cognitive and social development, student data privacy, and equity — and how teachers can navigate them responsibly.",
+  "sections": [
+    {
+      "id": "cognitive-risks",
+      "title": "Cognitive Risks to Children",
+      "summary": "How AI use may affect children's thinking, memory, and capacity for independent reasoning.",
+      "tags": ["child development", "cognition"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Children's brains are not smaller adult brains — they are actively developing. The cognitive habits children form during their school years shape how they think for life. AI introduces risks to this development that deserve serious, evidence-informed consideration."
+        },
+        {
+          "type": "heading",
+          "content": "Critical thinking and independent reasoning"
+        },
+        {
+          "type": "text",
+          "content": "Learning to think critically involves encountering problems, experiencing uncertainty, making mistakes, and working through them. This productive struggle is not a failure state — it is the mechanism by which understanding is built."
+        },
+        {
+          "type": "risk",
+          "title": "Bypassing productive struggle",
+          "content": "When AI provides instant answers, it can eliminate the struggle that drives learning. Students who routinely outsource thinking to AI may not develop the cognitive resilience and problem-solving skills that schooling is designed to build. Research on desirable difficulties (Bjork, 1994) shows that conditions making learning feel harder often produce stronger, more durable knowledge."
+        },
+        {
+          "type": "heading",
+          "content": "Memory and retrieval"
+        },
+        {
+          "type": "text",
+          "content": "Memory is not a passive storage system — it is an active process that strengthens through use. Retrieval practice (trying to recall information from memory) is one of the most well-evidenced techniques for building long-term retention."
+        },
+        {
+          "type": "risk",
+          "title": "The Google effect — amplified",
+          "content": "Research on 'cognitive offloading' (Sparrow et al., 2011) showed that people are less likely to remember information they believe they can easily look up. AI makes offloading even easier and more tempting. If students treat AI as an external memory, they may develop shallower knowledge structures and reduced capacity for independent recall."
+        },
+        {
+          "type": "heading",
+          "content": "Attention and depth of engagement"
+        },
+        {
+          "type": "text",
+          "content": "Deep learning requires sustained attention. AI tools that produce instant, digestible outputs may further condition students toward surface-level engagement — scanning, prompting, and accepting rather than reading, analysing, and questioning."
+        },
+        {
+          "type": "pedagogy",
+          "title": "Willingham on knowledge and thinking",
+          "content": "Daniel Willingham's research on cognitive science in education emphasises that thinking is built on a foundation of knowledge stored in long-term memory. AI that removes the effort of building that foundation may produce students who are fluent at navigating AI but poorly equipped to think without it."
+        }
+      ]
+    },
+    {
+      "id": "social-risks",
+      "title": "Social & Emotional Risks to Children",
+      "summary": "How AI interaction may affect children's emotional development, relationships, and sense of identity.",
+      "tags": ["child development", "social"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Social and emotional development is one of the core functions of schooling. Children learn to relate to others, manage emotions, navigate disagreement, and build identity through interaction with peers and trusted adults. AI introduces risks to each of these developmental processes."
+        },
+        {
+          "type": "heading",
+          "content": "Empathy and social cognition"
+        },
+        {
+          "type": "text",
+          "content": "Empathy develops through experience — seeing other people's faces, reading emotional cues, learning that other people have inner lives different from your own. This is Vygotsky's zone of proximal development applied to social learning: you develop through interaction with others."
+        },
+        {
+          "type": "risk",
+          "title": "AI cannot model human relationships",
+          "content": "AI responds in ways that mimic empathy but are not empathy. A chatbot that says 'That sounds hard' has not understood anything — it has produced a statistically plausible response. Children who increasingly interact with AI for emotional support may have fewer opportunities to develop genuine social cognition."
+        },
+        {
+          "type": "heading",
+          "content": "Identity and self-expression"
+        },
+        {
+          "type": "text",
+          "content": "Writing, creating, and expressing ideas are acts of identity formation. When students use AI to produce their written work, they may be outsourcing a developmental process, not just a task. The essay a student struggles through says something about who they are and what they think. An AI-generated essay says something about what the AI predicted they might think."
+        },
+        {
+          "type": "heading",
+          "content": "Relationships with AI"
+        },
+        {
+          "type": "text",
+          "content": "Some AI companions and tutors are designed to be warm, consistent, and available 24/7. These qualities are appealing — especially to children who feel anxious or lonely. The concern is not that children will mistake AI for a person, but that interactions with AI may provide a substitute for the harder, richer, less predictable work of human relationships."
+        },
+        {
+          "type": "risk",
+          "title": "Motivation and autonomy",
+          "content": "Self-determination theory (Deci & Ryan, 2000) identifies autonomy, competence, and relatedness as core human needs that motivate learning. AI that does tasks for students undermines competence (they didn't do it themselves) and potentially relatedness (they worked alone with a machine). Both are likely to reduce intrinsic motivation over time."
+        }
+      ]
+    },
+    {
+      "id": "data-privacy",
+      "title": "Data Privacy & Student Safety",
+      "summary": "What teachers need to know about AI tools and the data they collect — especially when children are involved.",
+      "tags": ["privacy", "safeguarding"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Data privacy is not a technical concern — it is a safeguarding concern. When AI tools are used in educational settings, student data may be collected, stored, and processed in ways that carry real risks."
+        },
+        {
+          "type": "heading",
+          "content": "What data AI tools collect"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Prompts and conversations entered into the tool",
+            "Usage patterns and interaction history",
+            "Account information (where accounts are created)",
+            "In some cases, uploaded documents or images"
+          ]
+        },
+        {
+          "type": "risk",
+          "title": "Never enter identifiable student data into public AI tools",
+          "content": "Names, learning needs, behavioural information, family circumstances, or any information that could identify a student should never be entered into a consumer AI tool. Most consumer-facing AI tools (including free-tier versions of ChatGPT, Gemini, etc.) use conversation data to improve their models. This is a potential GDPR violation and a safeguarding risk."
+        },
+        {
+          "type": "heading",
+          "content": "Age restrictions"
+        },
+        {
+          "type": "text",
+          "content": "Most major AI tools have minimum age requirements — typically 13 or 18. These are not arbitrary. They relate to data protection law and consent requirements. Teachers should check the terms of service of any AI tool before using it with students."
+        },
+        {
+          "type": "heading",
+          "content": "Questions to ask before using any AI tool with students"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Does the tool have an education or school version with stronger data protections?",
+            "What is the minimum age requirement?",
+            "Where is data stored, and for how long?",
+            "Is this tool approved by my school or local authority?",
+            "Have I informed parents and obtained appropriate consent?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "equity-access",
+      "title": "Equity & Access",
+      "summary": "How AI may widen educational inequalities — and what teachers can do about it.",
+      "tags": ["equity"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "AI is not equally accessible. The best AI tools often require paid subscriptions. Access to devices and reliable internet is uneven. This means that AI adoption in education risks amplifying existing inequalities rather than reducing them."
+        },
+        {
+          "type": "heading",
+          "content": "The access gap"
+        },
+        {
+          "type": "text",
+          "content": "Students from higher-income families are more likely to have home devices, fast internet, and parents who model and support AI use. If AI fluency becomes a significant advantage — in homework, preparation, self-study — then students without access start from a further disadvantage."
+        },
+        {
+          "type": "heading",
+          "content": "Language and cultural bias"
+        },
+        {
+          "type": "text",
+          "content": "AI is trained predominantly on English-language content from Western sources. Students whose first language is not English, or whose cultural context is not well-represented in training data, may find AI tools less useful, less accurate, or culturally misaligned."
+        },
+        {
+          "type": "callout",
+          "title": "Classroom implication",
+          "content": "If you set tasks that can be completed using AI, consider whether all students have equal access to AI tools. If not, the task may inadvertently advantage some students over others."
+        }
+      ]
+    }
+  ]
+}

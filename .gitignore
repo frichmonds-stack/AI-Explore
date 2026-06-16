@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Build output
+frontend/build/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+
+# OS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Claude Code local settings (contains auto-approved commands, may include secrets)
+.claude/settings.local.json

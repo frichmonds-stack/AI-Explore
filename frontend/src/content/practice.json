@@ -1,0 +1,195 @@
+{
+  "id": "practice",
+  "title": "AI in Your Teaching Practice",
+  "description": "Practical applications of AI across the four domains of teaching — admin, classroom, curriculum, and assessment. Each is explored through the lens of what genuinely serves teachers and students.",
+  "sections": [
+    {
+      "id": "admin",
+      "title": "Administration",
+      "summary": "How AI can reduce the administrative burden on teachers — the area where it offers the clearest benefits with the fewest risks to students.",
+      "tags": ["admin", "efficiency"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Administration is the area where AI offers the most straightforward benefits for teachers. Tasks like drafting communications, writing reports, and summarising documentation are time-consuming and formulaic — exactly what AI handles well. And crucially, these tasks carry relatively few risks to student learning or development."
+        },
+        {
+          "type": "heading",
+          "content": "What AI can help with"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Drafting parent and carer communications — newsletters, letters home, update emails",
+            "Generating first drafts of student reports (with teacher review and personalisation)",
+            "Summarising meeting notes or documents",
+            "Creating templates for common school documents",
+            "Writing policy documents or professional correspondence"
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "How to use AI for report writing"
+        },
+        {
+          "type": "text",
+          "content": "AI works best as a starting point, not a final product. For report writing, provide AI with anonymised notes about a student (never names or identifying details in public tools), the relevant curriculum standards, and your school's reporting style. Use the output as a scaffold that you personalise and verify — not as a finished report."
+        },
+        {
+          "type": "risk",
+          "title": "Never enter student names or identifying information",
+          "content": "When using consumer AI tools for admin tasks, replace all student names with placeholders (e.g. 'Student A'). Never include details about learning needs, family circumstances, or behaviour that could identify a child."
+        },
+        {
+          "type": "callout",
+          "title": "Time saving in context",
+          "content": "If AI saves you 30 minutes on report drafting, that time is only well-spent if you use it for something that genuinely benefits students — not simply to increase output. Administrative efficiency is most valuable when it protects space for professional relationships and teaching quality."
+        }
+      ]
+    },
+    {
+      "id": "classroom",
+      "title": "Classroom Practice",
+      "summary": "AI applications in the classroom — differentiation, engagement, and support tools — alongside the risks of introducing AI into direct learning.",
+      "tags": ["classroom", "pedagogy"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "The classroom is where AI carries the most complexity. The potential benefits — differentiation, accessibility, engagement — are real. So are the risks to learning, development, and equity. Teachers need to navigate this carefully."
+        },
+        {
+          "type": "heading",
+          "content": "Differentiation"
+        },
+        {
+          "type": "text",
+          "content": "AI can generate multiple versions of the same content at different reading levels, in different formats, or with varying levels of scaffolding. This is one of its most practically useful classroom applications — generating differentiated resources that would otherwise take significant preparation time."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Simplify a text to a lower reading age",
+            "Add vocabulary support or glossaries to existing materials",
+            "Generate worked examples at different levels of difficulty",
+            "Produce visual descriptions for students with visual impairments"
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "AI as a classroom tool for students"
+        },
+        {
+          "type": "text",
+          "content": "Some schools are introducing AI tools for students to use directly — as research aids, writing assistants, or tutors. If you are considering this, it is worth thinking carefully about what type of learning you are trying to support and whether AI serves or undermines that."
+        },
+        {
+          "type": "risk",
+          "title": "AI tutors and dependency",
+          "content": "AI tutors can provide patient, on-demand support for students who are stuck. But there is a meaningful difference between a student who asks AI to explain a concept and one who asks AI to do the task. The former can support learning; the latter often replaces it. Structuring tasks to make this distinction explicit is the teacher's responsibility."
+        },
+        {
+          "type": "pedagogy",
+          "title": "Vygotsky and the zone of proximal development",
+          "content": "Vygotsky's ZPD describes the space between what a student can do independently and what they can do with support. Good scaffolding helps students reach the upper boundary of that zone before fading. AI can provide scaffolding — but unlike a teacher, it doesn't know when to fade, and it rarely pushes students beyond their current comfort level."
+        }
+      ]
+    },
+    {
+      "id": "curriculum",
+      "title": "Curriculum Planning",
+      "summary": "Using AI to plan lessons, curate resources, and align to curriculum standards — and where professional judgement remains essential.",
+      "tags": ["planning", "curriculum"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Curriculum planning is time-intensive, and AI can genuinely help — with generating outlines, finding examples, and suggesting resource types. But curriculum design requires deep professional knowledge of students, context, and learning progression. AI doesn't have this knowledge, and its outputs should be treated as a starting scaffold, not a finished plan."
+        },
+        {
+          "type": "heading",
+          "content": "Where AI is useful in planning"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Generating unit outlines or lesson plan templates",
+            "Suggesting learning objectives for a given topic",
+            "Brainstorming activities, examples, or analogies",
+            "Summarising or extracting key points from curriculum documents",
+            "Identifying cross-curricular connections"
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "Where you must apply professional judgement"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sequencing — AI doesn't know your students' prior knowledge",
+            "Pacing — AI doesn't know your school calendar or the realities of your class",
+            "Appropriateness — AI may suggest activities that are theoretically sound but practically unworkable",
+            "Cultural relevance — AI's suggestions often default to generic or Anglo-centric examples"
+          ]
+        },
+        {
+          "type": "callout",
+          "title": "The 'curriculum on a Friday afternoon' problem",
+          "content": "AI is most dangerous in curriculum planning when it becomes a shortcut for exhausted teachers rather than a tool for creative ones. An AI-generated lesson plan accepted without modification is not a professional plan — it is outsourced planning. The teacher is still professionally responsible for everything that happens in their classroom."
+        }
+      ]
+    },
+    {
+      "id": "assessment",
+      "title": "Assessment & Feedback",
+      "summary": "AI in assessment — from generating feedback to marking assistance — and the significant professional and ethical questions this raises.",
+      "tags": ["assessment", "feedback"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Assessment is perhaps the most contested area of AI use in education. AI can generate feedback quickly and at scale. But assessment is not just a process of producing comments — it is a professional act of judgement about a student's understanding, and it is fundamentally relational."
+        },
+        {
+          "type": "heading",
+          "content": "What AI can do in assessment"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Generate rubrics or success criteria for a task",
+            "Produce first-draft feedback comments for teacher review",
+            "Suggest question stems for formative checks",
+            "Identify common patterns in student responses (where bulk analysis is possible)",
+            "Generate model answers or worked examples"
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "What AI cannot do in assessment"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Know whether a student wrote their own work",
+            "Understand a student's individual learning journey",
+            "Apply nuanced professional judgement about a student's needs",
+            "Detect subtleties of misunderstanding that an experienced teacher would notice",
+            "Bear professional responsibility for assessment decisions"
+          ]
+        },
+        {
+          "type": "risk",
+          "title": "Feedback as a developmental relationship",
+          "content": "Feedback from a trusted teacher is not just information — it is a relational act that communicates 'I see you, I know your work, and I believe you can improve.' AI-generated feedback, however accurate, cannot replicate this. For some students, particularly those who struggle, the relationship embedded in feedback is as important as the content of it."
+        },
+        {
+          "type": "heading",
+          "content": "Academic integrity"
+        },
+        {
+          "type": "text",
+          "content": "AI-generated student work is now common. AI detection tools exist but are unreliable and can flag genuine student writing as AI-generated, with serious consequences for innocent students. Schools need clear, communicable policies on AI use in assessments — and teachers need to be equipped to have honest conversations with students about it."
+        }
+      ]
+    }
+  ]
+}

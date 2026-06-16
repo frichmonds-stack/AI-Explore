@@ -1,0 +1,167 @@
+{
+  "id": "pedagogies",
+  "title": "Teaching Pedagogies & AI",
+  "description": "How established teaching approaches interact with AI — where AI can support good pedagogy and where it risks undermining it.",
+  "sections": [
+    {
+      "id": "constructivism",
+      "title": "Constructivism & Inquiry-Based Learning",
+      "summary": "How AI intersects with learning through exploration, questioning, and building understanding from experience.",
+      "tags": ["constructivism", "inquiry"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Constructivism, associated with Piaget and Vygotsky, holds that learners build knowledge actively — through experience, exploration, and making meaning from what they encounter. Inquiry-based learning is its practical expression: students investigate questions, test ideas, and construct understanding rather than receive it."
+        },
+        {
+          "type": "heading",
+          "content": "Where AI can support constructivist approaches"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Providing background information quickly so students can focus cognitive effort on analysis rather than recall",
+            "Generating multiple perspectives on a topic for students to evaluate and synthesise",
+            "Acting as a research starting point — not a research conclusion",
+            "Helping students articulate and refine their own thinking through dialogue prompts"
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "Where AI undermines constructivist learning"
+        },
+        {
+          "type": "risk",
+          "title": "Skipping the construction",
+          "content": "Constructivism requires that students do the building. If AI produces the synthesis, the explanation, or the conclusion that the student was supposed to construct, the learning doesn't transfer. The product (an essay, a summary, an explanation) is not the point — the process of making it is. AI that shortcuts this process removes the pedagogy from the lesson."
+        },
+        {
+          "type": "pedagogy",
+          "title": "Design principle",
+          "content": "In constructivist tasks, position AI as a resource to interrogate, not a source to accept. Ask students to question AI outputs, identify what's missing, and add what the AI couldn't know from its own experience."
+        }
+      ]
+    },
+    {
+      "id": "socratic",
+      "title": "Socratic Method & Critical Dialogue",
+      "summary": "How AI can support or undermine the practice of questioning, reasoning, and intellectual challenge.",
+      "tags": ["dialogue", "critical thinking"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "The Socratic method uses questioning to expose assumptions, test reasoning, and guide students toward deeper understanding. It is fundamentally dialogic — it requires a human who can adapt, push back, and tolerate the uncertainty of not knowing the answer in advance."
+        },
+        {
+          "type": "heading",
+          "content": "AI as a Socratic interlocutor — the limits"
+        },
+        {
+          "type": "text",
+          "content": "AI can simulate Socratic dialogue — it can ask follow-up questions, probe assumptions, and present counterarguments. But it differs from genuine Socratic dialogue in important ways: it does not hold genuine uncertainty, it cannot be persuaded, and it generates responses rather than thinking through them."
+        },
+        {
+          "type": "callout",
+          "title": "A useful classroom technique",
+          "content": "Rather than asking AI to explain something, students can be asked to explain it to AI — and then evaluate how AI responds. Does AI's response suggest the explanation was clear? Does AI's follow-up question reveal a gap? This reversal keeps the student in the active role."
+        },
+        {
+          "type": "heading",
+          "content": "Critical evaluation of AI outputs as a Socratic exercise"
+        },
+        {
+          "type": "text",
+          "content": "AI outputs make excellent raw material for Socratic questioning. Presenting students with AI-generated text and asking 'What's missing here?', 'What assumptions is this making?', or 'Can you find evidence for this claim?' is a way of using AI to practise the very critical skills it might otherwise erode."
+        }
+      ]
+    },
+    {
+      "id": "udl",
+      "title": "Universal Design for Learning (UDL)",
+      "summary": "How AI aligns with UDL principles — and where it can genuinely expand access for all learners.",
+      "tags": ["UDL", "inclusion", "accessibility"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Universal Design for Learning (UDL) is a framework for designing learning experiences that are accessible to all students from the outset, rather than retrofitting accommodations for individual needs. It calls for multiple means of representation, engagement, and expression."
+        },
+        {
+          "type": "heading",
+          "content": "Where AI strongly supports UDL"
+        },
+        {
+          "type": "text",
+          "content": "AI is one of the most significant accessibility tools in recent memory. Its ability to transform content — adjusting reading levels, translating languages, converting text to structured formats, generating audio descriptions, or providing simplified explanations on demand — directly supports UDL's principle of multiple means of representation."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Rewrite a passage at a lower reading level for students with reading difficulties",
+            "Provide text in a student's home language alongside English",
+            "Generate alternative explanations using different analogies or examples",
+            "Create structured outlines for students who need additional scaffolding",
+            "Describe images or diagrams in text for students with visual impairments"
+          ]
+        },
+        {
+          "type": "pedagogy",
+          "title": "UDL and proactive design",
+          "content": "AI is most powerful for UDL when it is used proactively in planning — building accessible versions of materials from the start — rather than reactively, as a last-minute accommodation. Teachers who use AI to create differentiated resources before a lesson design inclusivity in; those who only use it in response to student difficulties design it out."
+        },
+        {
+          "type": "heading",
+          "content": "A note of caution"
+        },
+        {
+          "type": "text",
+          "content": "UDL's third principle — multiple means of expression — is where care is needed. If AI generates the expression (the writing, the explanation, the response), it has not expanded how a student can express their understanding. It has replaced their expression. Supporting expression means helping students find their own voice, in their own way — not generating a voice for them."
+        }
+      ]
+    },
+    {
+      "id": "supports-vs-undermines",
+      "title": "Where AI Supports vs. Undermines Learning",
+      "summary": "A practical framework for deciding when AI helps and when it gets in the way of good teaching.",
+      "tags": ["framework", "decision-making"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "The central question for any AI application in teaching is not 'Can AI do this?' but 'Does this serve learning?' These are very different questions. AI can do a great deal that does not serve learning — and there are things that serve learning precisely because AI cannot do them."
+        },
+        {
+          "type": "heading",
+          "content": "AI likely supports learning when..."
+        },
+        {
+          "type": "list",
+          "items": [
+            "It reduces time spent on administrative or logistical tasks, freeing teachers for relationships and teaching",
+            "It helps students access content that was previously inaccessible to them (due to reading level, language, format)",
+            "It provides information that students then analyse, question, or build upon",
+            "It supports a teacher's planning by generating starting points, not finished products",
+            "It is used transparently, with students aware they are interacting with AI"
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "AI likely undermines learning when..."
+        },
+        {
+          "type": "list",
+          "items": [
+            "It does the intellectual work the student was supposed to do",
+            "It replaces human feedback with generated comments that have no relational basis",
+            "It is used covertly — either by students without teacher knowledge, or by teachers without student or parent awareness",
+            "It becomes a default response to disengagement rather than an investigation of its cause",
+            "It removes the productive struggle that is central to building understanding"
+          ]
+        },
+        {
+          "type": "callout",
+          "title": "A useful test",
+          "content": "Before introducing AI into any part of your teaching practice, ask: 'Who is doing the thinking here?' If the answer is AI, and the thinking was supposed to be done by a student, that's a signal to reconsider. If the answer is AI, and the thinking was supposed to be done by a teacher on a task that doesn't require pedagogical judgement, that may well be a good use of the tool."
+        }
+      ]
+    }
+  ]
+}

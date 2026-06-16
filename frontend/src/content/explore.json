@@ -1,0 +1,103 @@
+{
+  "id": "explore",
+  "title": "Explore Further",
+  "description": "Optional deeper reading for teachers who want to go further — tool guides, curated research, and recommended readings.",
+  "sections": [
+    {
+      "id": "tool-guides",
+      "title": "AI Tools: What They Are and Who They're For",
+      "summary": "A brief, practical overview of the major AI tools teachers are likely to encounter.",
+      "tags": ["tools", "overview"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "The AI landscape is crowded and changes rapidly. This overview focuses on the tools most commonly encountered by teachers, with a brief description of what each does and what to be aware of."
+        },
+        {
+          "type": "heading",
+          "content": "ChatGPT (OpenAI)"
+        },
+        {
+          "type": "text",
+          "content": "The most widely used general-purpose AI chatbot. Excellent for drafting text, answering questions, and generating ideas. The free version (GPT-3.5) is capable but older; GPT-4 and later versions are significantly more capable. ChatGPT for Education and the Teams plan offer stronger data protections than the free tier."
+        },
+        {
+          "type": "heading",
+          "content": "Microsoft Copilot"
+        },
+        {
+          "type": "text",
+          "content": "Microsoft's AI assistant, built on GPT-4 and integrated into Microsoft 365 (Word, Excel, Outlook, Teams). Schools already using Microsoft 365 may find Copilot the most practical entry point, as it works within tools teachers already use and can be configured with school-level data governance."
+        },
+        {
+          "type": "heading",
+          "content": "Google Gemini"
+        },
+        {
+          "type": "text",
+          "content": "Google's AI model, integrated into Google Workspace (Docs, Slides, Gmail). Like Copilot for Microsoft users, Gemini is most relevant to schools already in the Google ecosystem. Google Workspace for Education has GDPR-focused data commitments that the consumer version does not."
+        },
+        {
+          "type": "heading",
+          "content": "NotebookLM (Google)"
+        },
+        {
+          "type": "text",
+          "content": "A research and note-taking AI that works specifically with documents you upload. Unlike general chatbots, NotebookLM only uses information from your supplied sources — reducing hallucination risk. Useful for teachers analysing curriculum documents, research papers, or school data."
+        },
+        {
+          "type": "callout",
+          "title": "A changing landscape",
+          "content": "AI tools change rapidly — new versions, new products, and new policies appear regularly. Any guide becomes outdated quickly. The most important thing is not knowledge of specific tools but the capacity to evaluate any AI tool critically: What data does it collect? Who made it? What are its terms of service? What does it do well and poorly?"
+        }
+      ]
+    },
+    {
+      "id": "research-readings",
+      "title": "Recommended Research & Reading",
+      "summary": "Curated readings for teachers who want to explore the evidence base behind AI in education.",
+      "tags": ["research", "reading"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "The research base on AI in education is growing rapidly, but is also uneven. Some claims about AI's educational benefits are ahead of the evidence. Below are foundational works and current sources we consider worth reading."
+        },
+        {
+          "type": "heading",
+          "content": "On how children learn"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Willingham, D. (2009). Why Don't Students Like School? — Accessible cognitive science applied to classroom teaching. The chapter on memory and knowledge is particularly relevant to AI discussions.",
+            "Bjork, R. (1994). Memory and metamemory considerations in the training of human beings — foundational work on desirable difficulties and productive struggle.",
+            "Deci, E. & Ryan, R. (2000). The 'what' and 'why' of goal pursuits — self-determination theory and intrinsic motivation."
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "On AI and cognition"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Sparrow, B., Liu, J., & Wegner, D. (2011). Google effects on memory: Cognitive consequences of having information at our fingertips. Science, 333(6043) — the original 'Google effect' study, now even more relevant to AI.",
+            "Vygotsky, L. (1978). Mind in Society — foundational work on social learning and the zone of proximal development."
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "On AI in education (recent)"
+        },
+        {
+          "type": "list",
+          "items": [
+            "OECD (2023). Generative AI and the Future of Education — a policy-level analysis of AI's implications for education systems.",
+            "UNESCO (2023). Guidance for Generative AI in Education and Research — practical guidance for educational institutions.",
+            "Selwyn, N. (2019). Should Robots Replace Teachers? — a critical examination of AI's role in education; balanced and accessible."
+          ]
+        }
+      ]
+    }
+  ]
+}

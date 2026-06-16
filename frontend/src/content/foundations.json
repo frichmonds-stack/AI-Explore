@@ -1,0 +1,200 @@
+{
+  "id": "foundations",
+  "title": "AI Foundations",
+  "description": "A plain-language introduction to what AI is, how it works, what it can do, and where it falls short. No technical background required.",
+  "sections": [
+    {
+      "id": "what-is-ai",
+      "title": "What Is AI?",
+      "summary": "A plain-language explanation of artificial intelligence — what it is and what it isn't.",
+      "tags": ["overview"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Artificial intelligence (AI) refers to computer systems that can perform tasks that typically require human-like thinking — things like recognising images, understanding language, generating text, or making recommendations."
+        },
+        {
+          "type": "text",
+          "content": "Despite the name, AI is not truly intelligent in the way humans are. It doesn't understand the world, have opinions, or experience anything. It is software — sophisticated software — but software nonetheless."
+        },
+        {
+          "type": "heading",
+          "content": "Two things AI is not"
+        },
+        {
+          "type": "list",
+          "items": [
+            "AI is not a robot. Most AI has no physical form — it runs on servers and is accessed through apps and websites.",
+            "AI is not all-knowing. It has real, significant limitations (covered in later sections). It can be wrong, biased, and confidently incorrect."
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "A helpful analogy"
+        },
+        {
+          "type": "text",
+          "content": "Think of AI like a very well-read assistant who has consumed enormous amounts of text, images, and data — but has never lived a day in the real world. It can tell you what a broken arm feels like based on what it has read, but it has never felt pain. This distinction matters when AI is used with children, who are still building their own understanding of the world."
+        },
+        {
+          "type": "risk",
+          "title": "Worth keeping in mind",
+          "content": "Because AI mimics human language so convincingly, students (and adults) often attribute qualities to it that it doesn't have — empathy, intent, understanding. This anthropomorphisation can affect how children relate to AI tools and each other."
+        }
+      ]
+    },
+    {
+      "id": "how-it-works",
+      "title": "How Does AI Work?",
+      "summary": "A conceptual overview of how modern AI systems learn from data — no code or maths required.",
+      "tags": ["conceptual"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Most modern AI tools — including tools like ChatGPT and Google's Gemini — are built on a technology called large language models (LLMs). Understanding the basics of how they work helps make sense of both their capabilities and their failures."
+        },
+        {
+          "type": "heading",
+          "content": "Learning from patterns"
+        },
+        {
+          "type": "text",
+          "content": "LLMs are trained on vast quantities of text — books, websites, articles, conversations — scraped from the internet and other sources. Through this process, they learn statistical patterns: which words tend to follow which other words, how ideas connect, what different writing styles look like."
+        },
+        {
+          "type": "text",
+          "content": "This is fundamentally different from how humans learn. A child learns that fire is hot by touching something warm. An AI learns the word \"hot\" by observing that it frequently appears near words like \"fire\", \"burn\", and \"stove\"."
+        },
+        {
+          "type": "heading",
+          "content": "What training data means for teachers"
+        },
+        {
+          "type": "list",
+          "items": [
+            "AI reflects what was in its training data — including biases, gaps, and outdated information.",
+            "Training data has a cutoff date. AI tools may not know about recent events.",
+            "The internet over-represents certain languages, cultures, and viewpoints. AI inherits this imbalance."
+          ]
+        },
+        {
+          "type": "pedagogy",
+          "title": "Cognitive load and pattern learning",
+          "content": "Cognitive science (Willingham, 2009) tells us that learning requires effort — struggle, retrieval practice, and working through confusion. AI's instant, fluent answers can short-circuit this productive struggle, providing students with outputs without the cognitive work that builds lasting understanding."
+        }
+      ]
+    },
+    {
+      "id": "what-can-ai-do",
+      "title": "What Can AI Do?",
+      "summary": "An honest look at AI's genuine capabilities — what it does well and why.",
+      "tags": ["capabilities"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "AI has genuine, impressive capabilities that are worth understanding — not to hype them, but because understanding what AI can do helps you make better decisions about when and whether to use it."
+        },
+        {
+          "type": "heading",
+          "content": "Language and text"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Drafting and editing written content (emails, reports, summaries)",
+            "Translating between languages",
+            "Summarising long documents",
+            "Answering questions in natural language",
+            "Adapting text for different reading levels or audiences"
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "Analysis and organisation"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Identifying themes and patterns in text",
+            "Suggesting structures for documents or plans",
+            "Generating lists, outlines, and frameworks quickly"
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "Creative support"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Generating ideas, examples, and variations",
+            "Writing in different styles or voices",
+            "Creating images from text descriptions (image-generation AI)"
+          ]
+        },
+        {
+          "type": "callout",
+          "title": "A note on speed",
+          "content": "One of AI's most notable features is speed. Tasks that take a teacher an hour — drafting a parent newsletter, generating differentiated worksheet versions — can take an AI seconds. This is genuinely useful. The question is always: what's the cost?"
+        }
+      ]
+    },
+    {
+      "id": "where-ai-fails",
+      "title": "Where AI Falls Short",
+      "summary": "The significant limitations and failure modes every teacher should know before using AI with or around students.",
+      "tags": ["limitations", "critical"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Understanding AI's limitations is just as important as understanding its capabilities — perhaps more so. These are not minor edge cases. They are structural properties of how AI works."
+        },
+        {
+          "type": "heading",
+          "content": "Hallucination"
+        },
+        {
+          "type": "text",
+          "content": "AI can generate text that is fluent, confident, and completely wrong. This is called hallucination. It may invent facts, fabricate research citations, or state incorrect information as though it were certain. This happens because AI is optimised to produce plausible-sounding text — not accurate text."
+        },
+        {
+          "type": "risk",
+          "title": "Risk to students",
+          "content": "Students using AI for research or homework may receive and reproduce incorrect information without knowing it. Younger students in particular may not have the subject knowledge to identify errors. Critical evaluation of AI outputs must be explicitly taught."
+        },
+        {
+          "type": "heading",
+          "content": "Bias"
+        },
+        {
+          "type": "text",
+          "content": "AI learns from human-generated data, which contains human biases. These can manifest as stereotypes about gender, race, culture, and socioeconomic status. AI may produce content that reflects or reinforces these biases in subtle ways."
+        },
+        {
+          "type": "heading",
+          "content": "No understanding of context"
+        },
+        {
+          "type": "text",
+          "content": "AI has no understanding of your school, your students, your community, or your professional context. A generated lesson plan may be educationally inappropriate, culturally insensitive, or simply miss the point for your class. Generic outputs require professional judgement to adapt."
+        },
+        {
+          "type": "heading",
+          "content": "Privacy and data"
+        },
+        {
+          "type": "text",
+          "content": "Many AI tools process data on external servers. Anything entered into a public AI tool — student names, learning needs, family circumstances — may be stored, used for training, or accessible to third parties. This has serious implications for GDPR and student welfare."
+        },
+        {
+          "type": "heading",
+          "content": "Over-reliance"
+        },
+        {
+          "type": "text",
+          "content": "AI is easy to use and often produces outputs that feel good enough. The risk is that it becomes a substitute for professional thinking rather than a support for it. AI should extend a teacher's capacity, not replace their judgement."
+        }
+      ]
+    }
+  ]
+}
