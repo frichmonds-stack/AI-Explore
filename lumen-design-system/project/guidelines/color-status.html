@@ -1,0 +1,20 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="CEWA status palette" subtitle="The five approval states & their tokens" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;padding:20px;background:var(--surface-page);font-family:var(--font-sans);}
+  .rows{display:flex;flex-direction:column;gap:9px;}
+  .r{display:flex;align-items:center;gap:12px;}
+  .pill{display:inline-flex;align-items:center;gap:.5em;font-size:13px;font-weight:600;padding:.42em .8em;border-radius:var(--radius-pill);}
+  .dot{width:9px;height:9px;border-radius:50%;}
+  .desc{font-size:13px;color:var(--text-muted);}
+  .tok{font-family:var(--font-mono);font-size:10px;color:var(--text-faint);margin-left:auto;}
+</style></head>
+<body>
+<div class="rows">
+  <div class="r"><span class="pill" style="background:var(--status-approved-bg);color:var(--status-approved-fg)"><span class="dot" style="background:var(--status-approved-dot)"></span>CEWA Approved</span><span class="desc">Cleared for use in schools</span><span class="tok">--status-approved-*</span></div>
+  <div class="r"><span class="pill" style="background:var(--status-pilot-bg);color:var(--status-pilot-fg)"><span class="dot" style="background:var(--status-pilot-dot)"></span>Pilot</span><span class="desc">Approved for guided classroom pilots</span><span class="tok">--status-pilot-*</span></div>
+  <div class="r"><span class="pill" style="background:var(--status-review-bg);color:var(--status-review-fg)"><span class="dot" style="background:var(--status-review-dot)"></span>Under Review</span><span class="desc">Being evaluated by the CEWA AI team</span><span class="tok">--status-review-*</span></div>
+  <div class="r"><span class="pill" style="background:var(--status-restricted-bg);color:var(--status-restricted-fg)"><span class="dot" style="background:var(--status-restricted-dot)"></span>Not Approved</span><span class="desc">Not for student-facing use</span><span class="tok">--status-restricted-*</span></div>
+  <div class="r"><span class="pill" style="background:var(--status-unreviewed-bg);color:var(--status-unreviewed-fg)"><span class="dot" style="background:var(--status-unreviewed-dot)"></span>Not Yet Reviewed</span><span class="desc">No assessment yet — use judgement</span><span class="tok">--status-unreviewed-*</span></div>
+</div>
+</body></html>

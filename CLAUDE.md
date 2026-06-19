@@ -15,7 +15,7 @@ git log --oneline -5
 ## Tech Stack
 | Layer | Choice | Notes |
 |---|---|---|
-| Frontend | React (CRA) | `/frontend` |
+| Frontend | React + Vite | `/frontend` |
 | Routing | React Router v7 | Client-side, all routes in `frontend/src/App.js` |
 | UI | DaisyUI + Tailwind CSS | Always use DaisyUI components — no custom from scratch |
 | Content | JSON in `/frontend/src/content/` | One file per track; never hardcode strings in components |
@@ -42,8 +42,15 @@ Tracks: `foundations` · `risks` · `practice` · `pedagogies` · `explore`
 ## Dev
 ```bash
 cd frontend && npm start
+# Runs at http://localhost:5173
 ```
 
 ## Procedures
 - Close-out: `.claude/close-out.md`
 - Project background (purpose, audience, content architecture): `.claude/project-context.md`
+
+## Planning
+- Backlog: `.claude/BACKLOG.md`
+- Decisions log: `.claude/DECISIONS.md`
+- Open threads: `.claude/THREADS.md`
+- Content & display architecture: `.claude/content-architecture.md`

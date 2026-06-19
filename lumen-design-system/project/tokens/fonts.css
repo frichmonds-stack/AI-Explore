@@ -1,0 +1,11 @@
+/* Lumen webfonts — loaded from Google Fonts CDN.
+   Newsreader  → editorial display serif (warm, magazine)
+   Hanken Grotesk → humanist UI/body sans (friendly, professional)
+   IBM Plex Mono → labels, eyebrows, status text, tags
+   NOTE: served from Google's CDN (no local binaries shipped). If you need
+   offline/self-hosted binaries, drop ttf/woff2 here and replace these @imports
+   with @font-face rules pointing at the local files. */
+
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');

@@ -1,0 +1,19 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Semantic" subtitle="Success, warning, danger, info — warm-leaning" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;padding:20px;background:var(--surface-card);font-family:var(--font-sans);}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .c{border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border-subtle);}
+  .c .bar{height:46px;}
+  .c .soft{height:30px;display:flex;align-items:center;padding:0 10px;font-size:12px;font-weight:600;}
+  .c .name{padding:6px 10px;font-size:12px;color:var(--text-strong);font-weight:600;}
+  .c .tok{padding:0 10px 8px;font-family:var(--font-mono);font-size:10px;color:var(--text-faint);}
+</style></head>
+<body>
+<div class="grid">
+  <div class="c"><div class="bar" style="background:var(--success-600)"></div><div class="soft" style="background:var(--success-100);color:var(--success-700)">Approved</div><div class="name">Success</div><div class="tok">--success-600</div></div>
+  <div class="c"><div class="bar" style="background:var(--warning-600)"></div><div class="soft" style="background:var(--warning-100);color:var(--warning-700)">Review</div><div class="name">Warning</div><div class="tok">--warning-600</div></div>
+  <div class="c"><div class="bar" style="background:var(--danger-600)"></div><div class="soft" style="background:var(--danger-100);color:var(--danger-700)">Restricted</div><div class="name">Danger</div><div class="tok">--danger-600</div></div>
+  <div class="c"><div class="bar" style="background:var(--info-600)"></div><div class="soft" style="background:var(--info-100);color:var(--info-700)">Pilot</div><div class="name">Info</div><div class="tok">--info-600</div></div>
+</div>
+</body></html>

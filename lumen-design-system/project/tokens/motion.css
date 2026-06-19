@@ -1,0 +1,20 @@
+/* ============================================================
+   LUMEN · MOTION — calm, unhurried, never bouncy
+   ============================================================ */
+
+:root {
+  --ease-standard: cubic-bezier(0.32, 0.08, 0.24, 1);   /* @kind other */
+  --ease-out:      cubic-bezier(0.16, 0.84, 0.44, 1);   /* @kind other */
+  --ease-in:       cubic-bezier(0.45, 0, 0.7, 0.35);   /* @kind other */
+
+  --dur-fast:   120ms; /* @kind other */
+  --dur-base:   200ms; /* @kind other */
+  --dur-slow:   320ms; /* @kind other */
+  --dur-slower: 480ms; /* @kind other */
+
+  /* Default interactive transition */
+  --transition-base: all var(--dur-base) var(--ease-standard);
+  --transition-hover: transform var(--dur-base) var(--ease-out),
+                      box-shadow var(--dur-base) var(--ease-out),
+                      background-color var(--dur-fast) var(--ease-standard);
+}

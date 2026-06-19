@@ -7,6 +7,13 @@
       "runtimeArgs": ["start"],
       "port": 5173,
       "cwd": "frontend"
+    },
+    {
+      "name": "lumen",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "5175"],
+      "port": 5175,
+      "cwd": "lumen-design-system/project"
     }
   ]
 }

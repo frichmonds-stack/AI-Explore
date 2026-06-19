@@ -1,0 +1,33 @@
+{
+  "_source": "CEWA Approved Technology List — update this file when the sheet changes",
+  "_lastUpdated": "2026-06-19",
+  "tools": {
+    "chatgpt":              { "status": "approved-conditions", "notes": "Under no circumstances should personal or sensitive information be uploaded. Not for use by students under 13." },
+    "gemini":               { "status": "approved-conditions", "notes": "Listed as Google Bard. Privacy policy states not intended for use by anyone under 18 — staff only. Contact CEWA service desk to enable SSO." },
+    "notebooklm":           { "status": "not-approved",        "notes": "Not approved for CEWA use. Use Microsoft OneNote (stored within CEWA tenant) as an alternative. Contact CIO for more information." },
+    "canva-ai":             { "status": "approved-conditions", "notes": "Use Canva for Education and sign in with CEWA credentials. Dream Lab (AI image generation) not for use by students under 13." },
+    "microsoft-copilot":    { "status": "approved-conditions", "notes": "Microsoft 365 Copilot is in pilot for 100 CEWA staff. Must use logged-in version for Enterprise Data Protection. Copilot Chat is fully approved." },
+    "adobe-firefly":        { "status": "approved-conditions", "notes": "Children under 13 may use under teacher supervision with Creative Cloud. Never upload student photos or photos with personal/sensitive information." },
+    "chalkie-ai":           { "status": "approved-conditions", "notes": "Use Google SSO for authentication. Do not upload student personal or sensitive information. Must abide by CEWA's Generative AI Framework." },
+    "microsoft-reading-coach": { "status": "approved",        "notes": "CEWA approved. Part of the Microsoft 365 Education suite." },
+    "quillbot":             { "status": "approved-conditions", "notes": "May only use Team Plan — schools may not use the free version." },
+    "seqta-ai-assist":      { "status": "approved-conditions", "notes": "Check accuracy of AI-generated content. Use professional judgement on appropriateness for the intended lesson." },
+    "wayground":            { "status": "approved-conditions", "notes": "Use CEWA SSO. Do not use personal or sensitive information — data stored offshore in the USA." },
+    "turnitin":             { "status": "approved",            "notes": "Be mindful of student information in submitted work. Includes Turnitin Draft Coach." },
+    "speechify":            { "status": "approved-conditions", "notes": "May be used with caution." },
+    "nurture-ai":           { "status": "approved-conditions", "notes": "CEWA pilot Jan–Jun 2025 for pilot schools only. Check with your school's digital team for current status." },
+    "deepseek":             { "status": "not-approved",        "notes": "Not approved for CEWA use as per prime memo 7th February 2025." },
+    "capcut":               { "status": "not-approved",        "notes": "High risk — significant privacy, biometric and intellectual property concerns particularly regarding student use." },
+    "khanmigo":             { "status": "not-reviewed",        "notes": "Not on CEWA approved technology list." },
+    "diffit":               { "status": "not-reviewed",        "notes": "Not on CEWA approved technology list." },
+    "curipod":              { "status": "not-reviewed",        "notes": "Not on CEWA approved technology list." },
+    "twee":                 { "status": "not-reviewed",        "notes": "Not on CEWA approved technology list." },
+    "magicschool":          { "status": "not-reviewed",        "notes": "Not on CEWA approved technology list." },
+    "claude":               { "status": "not-reviewed",        "notes": "Not on CEWA approved technology list." },
+    "perplexity":           { "status": "not-reviewed",        "notes": "Not on CEWA approved technology list." },
+    "gamma":                { "status": "not-reviewed",        "notes": "Not on CEWA approved technology list." },
+    "schoolai":             { "status": "not-reviewed",        "notes": "Not on CEWA approved technology list." },
+    "eduaide":              { "status": "not-reviewed",        "notes": "Not on CEWA approved technology list." },
+    "suno":                 { "status": "not-approved",        "notes": "Does not meet CEWA privacy or security requirements. Invasive and excessive data collection practices." }
+  }
+}

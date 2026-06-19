@@ -1,0 +1,105 @@
+<!-- @dsCard group="Lumen Platform" viewport="1280x880" name="Lumen — interactive platform" subtitle="Home → AI Tools directory → Tool detail (click through)" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumen — AI for Catholic educators</title>
+<link rel="icon" href="../../assets/lumen-icon-tile.svg">
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="kit.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script src="data.js"></script>
+<script src="icons.js"></script>
+<script type="text/babel" data-presets="react" src="Home.jsx"></script>
+<script type="text/babel" data-presets="react" src="Directory.jsx"></script>
+<script type="text/babel" data-presets="react" src="ToolDetail.jsx"></script>
+<style>
+  html, body { margin: 0; }
+  .kit-toast {
+    position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%) translateY(8px);
+    background: var(--pine-800); color: #fff; font-family: var(--font-sans); font-size: 14px; font-weight: 600;
+    padding: 12px 18px; border-radius: var(--radius-pill); box-shadow: var(--shadow-lg);
+    opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 60;
+    display: flex; align-items: center; gap: .5em;
+  }
+  .kit-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<div class="kit-toast" id="toast"></div>
+<script type="text/babel" data-presets="react">
+const { useState, useEffect } = React;
+const I = window.LucideIcon;
+
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  el.innerHTML = '';
+  const tick = document.createElement('span'); tick.textContent = '✓'; el.appendChild(tick);
+  el.appendChild(document.createTextNode(' ' + msg));
+  el.classList.add('show');
+  clearTimeout(window.__t); window.__t = setTimeout(() => el.classList.remove('show'), 1900);
+}
+
+function App() {
+  const DS = window.LumenDesignSystem_e93e62;
+  const { Navbar, Button, Avatar } = DS;
+  const [view, setView] = useState({ name: 'home' });
+  useEffect(() => { window.scrollTo({ top: 0 }); }, [view]);
+
+  const openTool = (id) => setView({ name: 'detail', toolId: id });
+  const browse = () => setView({ name: 'directory' });
+  const home = () => setView({ name: 'home' });
+  const openTrack = (t) => showToast('“' + t.title + '” track — coming soon in this prototype');
+
+  const links = [
+    { label: 'Home', active: view.name === 'home', onClick: (e) => { e.preventDefault(); home(); } },
+    { label: 'AI Tools', active: view.name !== 'home', onClick: (e) => { e.preventDefault(); browse(); } },
+    { label: 'Learning tracks', onClick: (e) => { e.preventDefault(); home(); } },
+    { label: 'About', onClick: (e) => e.preventDefault() },
+  ];
+
+  let screen;
+  if (view.name === 'home') screen = <window.Home onBrowse={browse} onOpenTool={openTool} onOpenTrack={openTrack} />;
+  else if (view.name === 'directory') screen = <window.Directory onOpenTool={openTool} />;
+  else screen = <window.ToolDetail toolId={view.toolId} onBack={browse} onOpenTool={openTool} />;
+
+  return (
+    <div>
+      <div style={{ position: 'sticky', top: 0, zIndex: 50 }}>
+        <Navbar
+          links={links}
+          brandHref="#"
+          right={<>
+            <Button variant="ghost" size="sm" onClick={() => showToast('Sign-in is mocked in this prototype')}>Sign in</Button>
+            <Avatar name="Jane Teacher" />
+          </>}
+        />
+      </div>
+      {screen}
+      <footer style={{ background: 'var(--pine-800)', color: 'rgba(255,255,255,.7)', padding: '40px 0', marginTop: 0 }}>
+        <div className="kit-container" style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap', fontSize: 14 }}>
+          <span style={{ fontFamily: 'var(--font-display)', color: '#fff', fontSize: 20, fontWeight: 600 }}>Lumen</span>
+          <span style={{ opacity: .6 }}>·</span>
+          <span>A professional learning platform from Catholic Education Western Australia.</span>
+          <span style={{ marginLeft: 'auto', fontFamily: 'var(--font-mono)', fontSize: 12, opacity: .6 }}>Reviewed quarterly · Prototype</span>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+const tryMount = () => {
+  if (!window.Home || !window.Directory || !window.ToolDetail || !window.LumenDesignSystem_e93e62) {
+    return setTimeout(tryMount, 30);
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+};
+tryMount();
+</script>
+</body>
+</html>

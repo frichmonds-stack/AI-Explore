@@ -1,3 +1,51 @@
+/* Lumen design system tokens — must come before tailwindcss import */
+@import './lumen/tokens/fonts.css';
+@import './lumen/tokens/colors.css';
+@import './lumen/tokens/typography.css';
+@import './lumen/tokens/spacing.css';
+@import './lumen/tokens/elevation.css';
+@import './lumen/tokens/motion.css';
+@import './lumen/tokens/base.css';
+
 @import "tailwindcss";
 @plugin "daisyui";
 @plugin "@tailwindcss/typography";
+
+/* Bridge Lumen tokens → DaisyUI so DaisyUI components pick up Lumen's palette */
+[data-theme="light"], [data-theme="light"] * {
+  color-scheme: light;
+}
+
+:root, [data-theme="light"] {
+  --color-base-100: var(--paper-50);
+  --color-base-200: var(--paper-100);
+  --color-base-300: var(--paper-200);
+  --color-base-content: var(--ink-700);
+  --color-primary: var(--pine-600);
+  --color-primary-content: var(--white);
+  --color-secondary: var(--clay-500);
+  --color-secondary-content: var(--white);
+  --color-accent: var(--ochre-400);
+  --color-accent-content: var(--ink-900);
+  --color-neutral: var(--ink-700);
+  --color-neutral-content: var(--white);
+  --color-info: var(--info-600);
+  --color-info-content: var(--white);
+  --color-success: var(--success-600);
+  --color-success-content: var(--white);
+  --color-warning: var(--warning-600);
+  --color-warning-content: var(--white);
+  --color-error: var(--danger-600);
+  --color-error-content: var(--white);
+
+  --rounded-btn: var(--radius-pill);
+  --rounded-box: var(--radius-lg);
+  --rounded-badge: var(--radius-pill);
+}
+
+/* Lumen nav */
+.lmn-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}

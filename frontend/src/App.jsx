@@ -1,16 +1,22 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Layout from './layouts/Layout';
 import HomePage from './pages/HomePage';
 import TrackPage from './pages/TrackPage';
 import SectionPage from './pages/SectionPage';
 import NotFoundPage from './pages/NotFoundPage';
+import ToolsPage from './pages/ToolsPage';
+import ToolDetailPage from './pages/ToolDetailPage';
+import ExplainerPage from './pages/ExplainerPage';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
+          <Route path="tools" element={<ToolsPage />} />
+          <Route path="tools/:toolId" element={<ToolDetailPage />} />
+          <Route path="explainer/:category" element={<ExplainerPage />} />
           <Route path="foundations" element={<TrackPage trackId="foundations" />} />
           <Route path="foundations/:sectionId" element={<SectionPage trackId="foundations" />} />
           <Route path="risks" element={<TrackPage trackId="risks" />} />
@@ -24,7 +30,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

@@ -1,0 +1,119 @@
+/* ============================================================
+   LUMEN · COLOR TOKENS
+   Warm, calm, considered. Eucalyptus pine + clay + ochre on paper.
+   Deliberately NOT corporate blue.
+   ============================================================ */
+
+:root {
+  /* ---- Pine (primary) — eucalyptus green, calm growth & learning ---- */
+  --pine-50:  #EEF4F0;
+  --pine-100: #D7E6DD;
+  --pine-200: #B0CCBD;
+  --pine-300: #82AE96;
+  --pine-400: #548E73;
+  --pine-500: #357159;
+  --pine-600: #2A5E4A;   /* primary */
+  --pine-700: #224C3D;
+  --pine-800: #1B3B30;
+  --pine-900: #12291F;
+
+  /* ---- Clay (accent) — warm terracotta, approachable ---- */
+  --clay-50:  #FBF1EC;
+  --clay-100: #F5DDD0;
+  --clay-200: #E9BBA3;
+  --clay-300: #DC9576;
+  --clay-400: #CF7551;
+  --clay-500: #C25E3C;   /* accent */
+  --clay-600: #A84B2E;
+  --clay-700: #883B25;
+  --clay-800: #6B2F20;
+  --clay-900: #4F241A;
+
+  /* ---- Ochre (highlight) — muted gold, small warm accents ---- */
+  --ochre-100: #F6EACB;
+  --ochre-200: #ECD49B;
+  --ochre-300: #DFBA66;
+  --ochre-400: #D0A23F;
+  --ochre-500: #BB8B2C;
+  --ochre-600: #9A7022;
+
+  /* ---- Paper neutrals — warm, magazine-like ---- */
+  --paper-50:  #FBF8F2;   /* page background */
+  --paper-100: #F6F1E7;   /* sunken surfaces */
+  --paper-200: #EFE8D9;   /* subtle fills */
+  --paper-300: #E7E0D2;   /* borders / hairlines */
+  --paper-400: #D6CCB9;
+
+  /* ---- Ink — warm near-black through muted ---- */
+  --ink-900: #20251F;     /* strong headings */
+  --ink-800: #2C322A;
+  --ink-700: #3A4039;     /* body text */
+  --ink-600: #4F564C;
+  --ink-500: #6B7268;     /* muted / captions */
+  --ink-400: #8B927F;     /* faint / placeholders */
+  --white:   #FFFFFF;
+
+  /* ---- Semantic hues (calm, warm-leaning) ---- */
+  --success-600: #2F7D54;  --success-100: #DCEEE2;  --success-700: #245F40;
+  --warning-600: #B9821F;  --warning-100: #F7EACB;  --warning-700: #8C6116;
+  --danger-600:  #BD432F;  --danger-100:  #F6DDD6;  --danger-700:  #8E311F;
+  --info-600:    #3E7C86;  --info-100:    #D8EAEC;  --info-700:    #2C5A62;
+
+  /* ============================================================
+     SEMANTIC ALIASES — use these in components, not raw scales
+     ============================================================ */
+  --color-primary:        var(--pine-600);
+  --color-primary-hover:  var(--pine-700);
+  --color-primary-active: var(--pine-800);
+  --color-primary-soft:   var(--pine-50);
+  --color-primary-on:     var(--white);
+
+  --color-accent:         var(--clay-500);
+  --color-accent-hover:   var(--clay-600);
+  --color-accent-soft:    var(--clay-50);
+  --color-accent-on:      var(--white);
+
+  --color-highlight:      var(--ochre-400);
+
+  --surface-page:    var(--paper-50);
+  --surface-card:    var(--white);
+  --surface-sunken:  var(--paper-100);
+  --surface-raised:  var(--paper-200);
+  --surface-inverse: var(--pine-800);
+
+  --border-subtle:  var(--paper-300);
+  --border-strong:  var(--paper-400);
+  --border-focus:   var(--pine-500);
+
+  --text-strong:    var(--ink-900);
+  --text-body:      var(--ink-700);
+  --text-muted:     var(--ink-500);
+  --text-faint:     var(--ink-400);
+  --text-on-primary: var(--white);
+  --text-link:      var(--pine-600);
+
+  /* ---- CEWA tool approval status ---- */
+  --status-approved-fg:   var(--success-700);
+  --status-approved-bg:   var(--success-100);
+  --status-approved-dot:  var(--success-600);
+
+  --status-review-fg:     var(--warning-700);
+  --status-review-bg:     var(--warning-100);
+  --status-review-dot:    var(--warning-600);
+
+  --status-pilot-fg:      var(--info-700);
+  --status-pilot-bg:      var(--info-100);
+  --status-pilot-dot:     var(--info-600);
+
+  --status-conditional-fg: var(--warning-700);
+  --status-conditional-bg: var(--warning-100);
+  --status-conditional-dot:var(--warning-600);
+
+  --status-restricted-fg: var(--danger-700);
+  --status-restricted-bg: var(--danger-100);
+  --status-restricted-dot:var(--danger-600);
+
+  --status-unreviewed-fg: var(--ink-600);
+  --status-unreviewed-bg: var(--paper-200);
+  --status-unreviewed-dot:var(--ink-400);
+}

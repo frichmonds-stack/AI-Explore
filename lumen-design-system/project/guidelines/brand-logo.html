@@ -1,0 +1,40 @@
+<!-- @dsCard group="Brand" viewport="700x230" name="Logo & lockups" subtitle="Halo mark + Newsreader wordmark" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;padding:24px;background:var(--surface-card);font-family:var(--font-sans);}
+  .grid{display:flex;gap:20px;align-items:stretch;flex-wrap:wrap;}
+  .cell{flex:1;min-width:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+        padding:22px;border:1px solid var(--border-subtle);border-radius:var(--radius-lg);}
+  .cell.dark{background:var(--pine-800);border-color:var(--pine-800);}
+  .lockup{display:flex;align-items:center;gap:10px;}
+  .word{font-family:var(--font-display);font-weight:600;font-size:30px;letter-spacing:-.01em;color:var(--text-strong);}
+  .dark .word{color:#fff;}
+  .cap{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);}
+  .dark .cap{color:rgba(255,255,255,.5);}
+  .tile{width:64px;height:64px;border-radius:18px;background:var(--pine-700);display:flex;align-items:center;justify-content:center;}
+</style></head>
+<body>
+<div class="grid">
+  <div class="cell">
+    <div class="lockup">
+      <svg width="38" height="38" viewBox="0 0 96 96" fill="none"><circle cx="48" cy="48" r="30" stroke="#2A5E4A" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="135 53" transform="rotate(-58 48 48)"/><circle cx="48" cy="48" r="10.5" fill="#C25E3C"/></svg>
+      <span class="word">Lumen</span>
+    </div>
+    <span class="cap">Primary lockup</span>
+  </div>
+  <div class="cell dark">
+    <div class="lockup">
+      <svg width="38" height="38" viewBox="0 0 96 96" fill="none"><circle cx="48" cy="48" r="30" stroke="#F6EACB" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="135 53" transform="rotate(-58 48 48)"/><circle cx="48" cy="48" r="10.5" fill="#CF7551"/></svg>
+      <span class="word">Lumen</span>
+    </div>
+    <span class="cap">On pine</span>
+  </div>
+  <div class="cell">
+    <div class="tile">
+      <svg width="40" height="40" viewBox="0 0 96 96" fill="none"><circle cx="48" cy="48" r="27" stroke="#F6EACB" stroke-width="6.5" fill="none" stroke-linecap="round" stroke-dasharray="120 50" transform="rotate(-58 48 48)"/><circle cx="48" cy="48" r="10.5" fill="#C25E3C"/></svg>
+    </div>
+    <span class="cap">App tile</span>
+  </div>
+</div>
+<div style="margin-top:16px;font-size:12px;color:var(--text-muted)">The mark is a <b style="color:var(--text-strong)">halo of light</b> around a warm focal point — illumination & focus. Pair only with Newsreader 600. Clear space ≥ the mark's height.</div>
+</body></html>
