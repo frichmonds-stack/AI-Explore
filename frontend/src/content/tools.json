@@ -1,24 +1,24 @@
 {
   "meta": {
     "pedagogyFrameworks": [
-      { "id": "cognitive-load",    "label": "Cognitive Load Theory",       "shortLabel": "Cognitive Load",   "author": "Sweller" },
-      { "id": "depth-of-knowledge","label": "Depth of Knowledge",          "shortLabel": "Depth of Knowledge","author": "Webb" },
-      { "id": "udl",               "label": "Universal Design for Learning","shortLabel": "UDL",              "author": "CAST" },
-      { "id": "differentiation",   "label": "Differentiated Instruction",  "shortLabel": "Differentiation",  "author": "Tomlinson" },
-      { "id": "visible-learning",  "label": "Visible Learning",            "shortLabel": "Visible Learning", "author": "Hattie" },
-      { "id": "blooms",            "label": "Bloom's Taxonomy",            "shortLabel": "Bloom's Taxonomy", "author": "Bloom" }
+      { "id": "cognitive-load",    "label": "Cognitive Load Theory",        "shortLabel": "Cognitive Load",    "author": "Sweller",   "description": "Minimise the mental effort required to process new material. When extraneous load is reduced — through clearer worked examples, better chunking, and fewer distractions — students can direct more attention to understanding. AI can handle low-value cognitive tasks so teachers and students focus on what matters." },
+      { "id": "depth-of-knowledge","label": "Depth of Knowledge",           "shortLabel": "Depth of Knowledge","author": "Webb",      "description": "A framework that moves students from surface recall (DOK 1) through skill application (DOK 2) and strategic thinking (DOK 3) to extended reasoning and real-world transfer (DOK 4). AI tools can generate tasks at specific DOK levels, helping teachers design intentional progressions beyond surface recall." },
+      { "id": "udl",               "label": "Universal Design for Learning","shortLabel": "UDL",               "author": "CAST",      "description": "Design lessons from the outset with multiple means of engagement, representation, and expression. AI can rapidly produce alternative formats and differentiated materials, making the UDL principle of proactive flexibility practical at classroom scale without adding hours of preparation." },
+      { "id": "differentiation",   "label": "Differentiated Instruction",  "shortLabel": "Differentiation",  "author": "Tomlinson", "description": "Match content, process, and product to each learner's readiness, interest, and learning profile. AI can instantly produce levelled texts, tiered tasks, and scaffolded resources — reducing the time cost that has historically made sustained differentiation difficult to maintain." },
+      { "id": "visible-learning",  "label": "Visible Learning",            "shortLabel": "Visible Learning",  "author": "Hattie",    "description": "Hattie's synthesis of 1,400+ meta-analyses identifies the instructional moves that most reliably accelerate learning: specific feedback, deliberate practice, metacognitive reflection, goal-setting. AI can speed up the feedback cycle and help students make their own thinking visible." },
+      { "id": "blooms",            "label": "Bloom's Taxonomy",            "shortLabel": "Bloom's Taxonomy", "author": "Bloom",     "description": "A hierarchy of cognitive skills — Remembering, Understanding, Applying, Analysing, Evaluating, Creating — that helps teachers design tasks with intentional depth. AI can generate questions and activities mapped to specific Bloom's levels, pushing students beyond surface recall toward higher-order thinking." }
     ],
     "useCategories": [
-      { "id": "lesson-planning",     "label": "Lesson Planning" },
-      { "id": "assessment-feedback", "label": "Assessment & Feedback" },
-      { "id": "differentiation",     "label": "Differentiation" },
-      { "id": "student-research",    "label": "Student Research" },
-      { "id": "creative-projects",   "label": "Creative Projects" },
-      { "id": "reading-literacy",    "label": "Reading & Literacy" },
-      { "id": "writing-support",     "label": "Writing Support" },
-      { "id": "class-engagement",    "label": "Class Engagement" },
-      { "id": "admin-communication", "label": "Admin & Communication" },
-      { "id": "professional-learning","label": "Professional Learning" }
+      { "id": "lesson-planning",      "label": "Lesson Planning",         "description": "Draft lesson outlines, generate learning intentions, build activity sequences, and construct unit plans faster — then refine the AI output to your class context and curriculum requirements." },
+      { "id": "assessment-feedback",  "label": "Assessment & Feedback",  "description": "Generate rubric drafts, create quiz and test questions, produce feedback comment starters, and speed up the marking and reporting cycle without reducing the quality of the response." },
+      { "id": "differentiation",      "label": "Differentiation",        "description": "Adapt the same curriculum content for different readiness levels, produce tiered tasks, and create accessible versions of texts and activities in the time it used to take to do one version." },
+      { "id": "student-research",     "label": "Student Research",       "description": "Support students to interrogate sources, synthesise information, ask better questions, and build research skills — with AI as a thinking partner rather than a shortcut to answers." },
+      { "id": "creative-projects",    "label": "Creative Projects",      "description": "Generate visual assets, draft story starters, produce design options, explore creative variations, and support creative work across Arts, English, and cross-curricular projects." },
+      { "id": "reading-literacy",     "label": "Reading & Literacy",     "description": "Generate levelled reading texts, create comprehension questions, produce vocabulary scaffolds, and build literacy materials matched to where students actually are." },
+      { "id": "writing-support",      "label": "Writing Support",        "description": "Produce writing frames and model texts, give structural feedback on drafts, scaffold the planning-to-draft process, and help students produce more polished work with less intervention per student." },
+      { "id": "class-engagement",     "label": "Class Engagement",       "description": "Create interactive activities, discussion prompts, warm-up tasks, and formative checks that make thinking visible and keep students actively participating in learning." },
+      { "id": "admin-communication",  "label": "Admin & Communication",  "description": "Draft newsletters, parent communications, report comment starters, meeting agendas, and internal documentation more consistently and in less time." },
+      { "id": "professional-learning","label": "Professional Learning",  "description": "Engage with research and professional reading more efficiently, prepare for appraisal conversations, explore pedagogical ideas, and reflect on your teaching practice." }
     ],
     "bands": [
       { "id": "early-childhood", "label": "Early Childhood", "years": "K–2" },

@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect, useRef } from 'react';
 import { ToolCard } from '../lumen/ToolCard';
 import { ToolSpotlight } from '../lumen/ToolSpotlight';
+import { StatusBadge } from '../lumen/StatusBadge';
 import toolsData from '../content/tools.json';
 
 const { tools, meta } = toolsData;
@@ -19,7 +20,10 @@ const statusOf = (t) => cewaStatusMap[t.cewaStatus] || 'unreviewed';
 function FilterBar({ label, options, value, onChange }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-      <span className="lumen-eyebrow">{label}</span>
+      <span style={{
+        fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
+        textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 'var(--weight-medium)',
+      }}>{label}</span>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}>
         <button
           onClick={() => onChange(ALL)}
@@ -73,7 +77,42 @@ function ToolGrid({ items, selectedId, onSelect }) {
   );
 }
 
-const firstFeatured = tools.find((t) => t.featured) || tools[0];
+function StatusFooter() {
+  const statuses = [
+    ['approved',    'Cleared for use on CEWA school devices and networks.'],
+    ['conditional', 'Approved for CEWA use — specific conditions apply. Read them before using.'],
+    ['review',      'Under CEWA evaluation. Avoid on school devices until a decision is published.'],
+    ['restricted',  'Explicitly blocked on CEWA devices. Do not use on school networks.'],
+    ['unreviewed',  'Not yet assessed by CEWA. Suitable for personal devices; professional judgement required.'],
+  ];
+  return (
+    <div style={{
+      marginTop: 'var(--space-12)',
+      padding: 'var(--space-5)',
+      background: 'var(--paper-50)',
+      border: '1px solid var(--border-subtle)',
+      borderRadius: 'var(--radius-lg)',
+    }}>
+      <p style={{
+        fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
+        textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 'var(--weight-medium)',
+        marginBottom: 'var(--space-3)',
+      }}>About CEWA device status</p>
+      <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-4)' }}>
+        CEWA assesses tools against its approved software list. Status applies to school-managed devices and networks.
+        Tools used on personal devices remain at the teacher's professional discretion.
+      </p>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+        {statuses.map(([s, desc]) => (
+          <div key={s} style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-3)' }}>
+            <StatusBadge status={s} showTip={false} />
+            <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', margin: 0, lineHeight: 1.5, paddingTop: 2 }}>{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function ToolsPage() {
   const [useCategory, setUseCategory] = useState(ALL);
@@ -82,21 +121,16 @@ export default function ToolsPage() {
   const [role, setRole] = useState(ALL);
   const [pedagogy, setPedagogy] = useState(ALL);
   const [cewaStatus, setCewaStatus] = useState(ALL);
+  const [filtersExpanded, setFiltersExpanded] = useState(false);
 
-  const [selectedId, setSelectedId] = useState(firstFeatured?.id ?? null);
-  const [spotlightOpen, setSpotlightOpen] = useState(true);
+  // Spotlight: no tool selected on load — appears on first card click.
+  const [selectedId, setSelectedId] = useState(null);
+  const [spotlightOpen, setSpotlightOpen] = useState(false);
   const expandScrollY = useRef(0);
-  // Ignore scroll-to-minimise briefly after a deliberate expand, so the
-  // browser's focus-scroll (from clicking a card button) can't instantly
-  // collapse the panel it just opened.
   const suppressMinimiseUntil = useRef(0);
 
   const markExpanded = () => {
     expandScrollY.current = window.scrollY;
-    // Expanding grows the (in-flow, sticky) panel above the scroll position, so
-    // scroll-anchoring bumps scrollY to keep the grid visually stable. Suppress
-    // minimise until the expand animation + anchoring settle, then re-baseline to
-    // the adjusted position so only genuine user scrolling minimises.
     suppressMinimiseUntil.current = Date.now() + 420;
     setTimeout(() => { expandScrollY.current = window.scrollY; }, 400);
   };
@@ -114,10 +148,10 @@ export default function ToolsPage() {
   const featured = filtered.filter((t) => t.featured);
   const rest = filtered.filter((t) => !t.featured);
 
-  // Keep the spotlight in sync with the filtered grid: if the selected tool is
-  // filtered out, follow on to the first visible tool (never leave it empty).
+  // If the selected tool is filtered out, follow to the first visible tool.
+  // Guard: only runs after a tool has been selected (selectedId !== null).
   useEffect(() => {
-    if (filtered.length === 0) return;
+    if (!selectedId || filtered.length === 0) return;
     if (!filtered.some((t) => t.id === selectedId)) setSelectedId(filtered[0].id);
   }, [filtered, selectedId]);
 
@@ -127,7 +161,6 @@ export default function ToolsPage() {
     markExpanded();
   };
 
-  // Minimise on scroll; clicking a card (or the bar) re-expands.
   useEffect(() => {
     const onScroll = () => {
       if (Date.now() < suppressMinimiseUntil.current) return;
@@ -143,66 +176,113 @@ export default function ToolsPage() {
     || tools.find((t) => t.id === selectedId)
     || null;
 
-  const activeFilters = [useCategory, band, subject, role, pedagogy, cewaStatus].filter(f => f !== ALL).length;
+  const secondaryActive = [band, subject, role, pedagogy, cewaStatus].filter(f => f !== ALL).length;
+  const activeFilters = (useCategory !== ALL ? 1 : 0) + secondaryActive;
+
+  // Auto-expand secondary filters if any are active so the active pill stays visible.
+  useEffect(() => {
+    if (secondaryActive > 0) setFiltersExpanded(true);
+  }, [secondaryActive]);
 
   return (
     <div>
       {/* Header */}
       <div style={{ marginBottom: 'var(--space-6)' }}>
-        <p className="lumen-eyebrow" style={{ marginBottom: 'var(--space-2)' }}>AI Tools Library</p>
+        <p style={{
+          fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
+          textTransform: 'uppercase', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)',
+          marginBottom: 'var(--space-2)',
+        }}>AI Tools Library</p>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', color: 'var(--text-strong)', fontWeight: 'var(--weight-semibold)', marginBottom: 'var(--space-3)' }}>
           Find the right tool for your teaching
         </h1>
-        <p style={{ fontSize: 'var(--text-md)', color: 'var(--text-muted)', maxWidth: '640px' }}>
-          Browse by what you teach, who you teach, and how you teach. Pick any tool to see how it fits your classroom.
+        <p style={{ fontSize: 'var(--text-md)', color: 'var(--text-muted)', maxWidth: '640px', lineHeight: 'var(--leading-relaxed)' }}>
+          Browse by what you need to do. Click any tool to see how it fits your classroom.
         </p>
       </div>
 
-      {/* Persistent spotlight */}
-      <ToolSpotlight
-        tool={selectedTool}
-        meta={meta}
-        status={selectedTool ? statusOf(selectedTool) : 'unreviewed'}
-        open={spotlightOpen}
-        onToggle={() => {
-          setSpotlightOpen((o) => {
-            const next = !o;
-            if (next) markExpanded();
-            return next;
-          });
-        }}
-      />
+      {/* Spotlight — invitation hint before first selection; full panel after */}
+      {!selectedTool ? (
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 'var(--space-3)',
+          padding: 'var(--space-4) var(--space-5)',
+          background: 'color-mix(in srgb, var(--pine-50) 70%, transparent)',
+          border: '1px dashed var(--pine-200)',
+          borderRadius: 'var(--radius-lg)',
+          marginBottom: 'var(--space-6)',
+        }}>
+          <span style={{ fontSize: 16, opacity: 0.45, lineHeight: 1 }}>↓</span>
+          <p style={{
+            fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
+            textTransform: 'uppercase', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)', margin: 0,
+          }}>Click any tool below to see details here</p>
+        </div>
+      ) : (
+        <ToolSpotlight
+          tool={selectedTool}
+          meta={meta}
+          status={statusOf(selectedTool)}
+          open={spotlightOpen}
+          onToggle={() => {
+            setSpotlightOpen((o) => {
+              const next = !o;
+              if (next) markExpanded();
+              return next;
+            });
+          }}
+        />
+      )}
 
       {/* Filters */}
       <div style={{
         background: 'var(--surface-card)', border: '1px solid var(--border-subtle)',
         borderRadius: 'var(--radius-lg)', padding: 'var(--space-5)',
-        display: 'flex', flexDirection: 'column', gap: 'var(--space-5)',
         marginBottom: 'var(--space-8)',
       }}>
+        {/* Primary filter — always visible */}
         <FilterBar label="What you need" options={meta.useCategories} value={useCategory} onChange={setUseCategory} />
-        <FilterBar label="Year band" options={meta.bands} value={band} onChange={setBand} />
-        <FilterBar label="Subject" options={meta.subjects.map(s => ({ id: s, label: s }))} value={subject} onChange={setSubject} />
-        <FilterBar label="Teaching role" options={meta.roles.map(r => ({ id: r, label: r }))} value={role} onChange={setRole} />
-        <FilterBar label="Pedagogical approach" options={meta.pedagogyFrameworks} value={pedagogy} onChange={setPedagogy} />
-        <FilterBar label="CEWA status" options={meta.cewaStatuses} value={cewaStatus} onChange={setCewaStatus} />
+
+        {/* Secondary filters — collapsible */}
+        {filtersExpanded && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-5)', marginTop: 'var(--space-5)', paddingTop: 'var(--space-5)', borderTop: '1px solid var(--border-subtle)' }}>
+            <FilterBar label="Year band" options={meta.bands} value={band} onChange={setBand} />
+            <FilterBar label="Subject" options={meta.subjects.map(s => ({ id: s, label: s }))} value={subject} onChange={setSubject} />
+            <FilterBar label="Teaching role" options={meta.roles.map(r => ({ id: r, label: r }))} value={role} onChange={setRole} />
+            <FilterBar label="Pedagogical approach" options={meta.pedagogyFrameworks} value={pedagogy} onChange={setPedagogy} />
+            <FilterBar label="CEWA status" options={meta.cewaStatuses} value={cewaStatus} onChange={setCewaStatus} />
+          </div>
+        )}
+
+        {/* Toggle row */}
+        <div style={{ marginTop: 'var(--space-4)', paddingTop: 'var(--space-4)', borderTop: '1px solid var(--border-subtle)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <button
+            onClick={() => setFiltersExpanded((v) => !v)}
+            style={{
+              fontFamily: 'var(--font-sans)', fontSize: 'var(--text-sm)', fontWeight: 'var(--weight-medium)',
+              color: 'var(--pine-700)', background: 'none', border: 'none', cursor: 'pointer', padding: 0,
+              display: 'flex', alignItems: 'center', gap: 'var(--space-1)',
+            }}
+          >
+            {filtersExpanded
+              ? 'Hide filters ▲'
+              : `More filters${secondaryActive > 0 ? ` (${secondaryActive} active)` : ''} ▼`}
+          </button>
+          {activeFilters > 0 && (
+            <button
+              onClick={() => { setUseCategory(ALL); setBand(ALL); setSubject(ALL); setRole(ALL); setPedagogy(ALL); setCewaStatus(ALL); }}
+              style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-sans)' }}
+            >
+              Clear all
+            </button>
+          )}
+        </div>
       </div>
 
       {/* Results count */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 'var(--space-5)' }}>
-        <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)' }}>
-          {filtered.length} {filtered.length === 1 ? 'tool' : 'tools'}
-          {activeFilters > 0 ? ` matching your filters` : ''}
-        </p>
-        {activeFilters > 0 && (
-          <button
-            onClick={() => { setUseCategory(ALL); setBand(ALL); setSubject(ALL); setRole(ALL); setPedagogy(ALL); setCewaStatus(ALL); }}
-            style={{ fontSize: 'var(--text-sm)', color: 'var(--pine-600)', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-sans)', fontWeight: 'var(--weight-medium)' }}
-          >
-            Clear filters
-          </button>
-        )}
-      </div>
+      <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', marginBottom: 'var(--space-5)' }}>
+        {filtered.length} {filtered.length === 1 ? 'tool' : 'tools'}
+        {activeFilters > 0 ? ' matching your filters' : ''}
+      </p>
 
       {filtered.length === 0 && (
         <div style={{ textAlign: 'center', padding: 'var(--space-10) 0', color: 'var(--text-muted)' }}>
@@ -213,8 +293,14 @@ export default function ToolsPage() {
 
       {/* Featured */}
       {featured.length > 0 && (
-        <div style={{ marginBottom: 'var(--space-8)' }}>
-          <p className="lumen-eyebrow" style={{ marginBottom: 'var(--space-4)' }}>Featured</p>
+        <div style={{ marginBottom: 'var(--space-10)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: 'var(--space-4)' }}>
+            <p style={{
+              fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
+              textTransform: 'uppercase', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)', margin: 0,
+            }}>Featured</p>
+            <div style={{ flex: 1, height: 1, background: 'var(--border-subtle)' }} />
+          </div>
           <ToolGrid items={featured} selectedId={selectedId} onSelect={selectTool} />
         </div>
       )}
@@ -223,11 +309,19 @@ export default function ToolsPage() {
       {rest.length > 0 && (
         <div>
           {featured.length > 0 && (
-            <p className="lumen-eyebrow" style={{ marginBottom: 'var(--space-4)' }}>All tools</p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: 'var(--space-4)' }}>
+              <p style={{
+                fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
+                textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 'var(--weight-medium)', margin: 0,
+              }}>All tools</p>
+              <div style={{ flex: 1, height: 1, background: 'var(--border-subtle)' }} />
+            </div>
           )}
           <ToolGrid items={rest} selectedId={selectedId} onSelect={selectTool} />
         </div>
       )}
+
+      <StatusFooter />
     </div>
   );
 }

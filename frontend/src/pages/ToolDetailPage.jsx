@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import toolsData from '../content/tools.json';
 import { StatusBadge } from '../lumen/StatusBadge';
+import { ArrowRight } from '../lumen/ToolCard';
 
 const { tools, meta } = toolsData;
 
@@ -12,6 +13,75 @@ const cewaStatusMap = {
   'not-reviewed': 'unreviewed',
 };
 
+const ROLE_DESC = {
+  'Administration': 'The operational side of school life — drafting communications, managing documentation, and handling the organisational tasks that sit alongside teaching.',
+  'Classroom': 'Direct teaching and learning — lesson delivery, student interaction, formative checks, and real-time instructional decisions.',
+  'Curriculum': 'Curriculum design and planning — building units of work, sequencing learning, writing learning intentions, and aligning to the Australian Curriculum.',
+  'Assessment': 'Designing, delivering, and responding to assessment — from formative checks through to summative tasks, rubrics, and report writing.',
+  'Professional Learning': 'Your own growth as an educator — engaging with research, preparing for appraisal conversations, exploring new approaches, and developing practice.',
+  'Creativity & Media': 'Creative and media-rich projects — visual arts, digital storytelling, design, photography, video, and media production across subject areas.',
+};
+
+const CEWA_DETAIL = {
+  approved: {
+    summary: 'This tool has been reviewed and cleared for use on CEWA school devices and networks.',
+    guidance: 'You can use this on school-managed devices. Still apply professional judgement around student data, age-appropriateness, and how student work is stored.',
+  },
+  conditional: {
+    summary: 'CEWA has approved this tool for school use, but specific conditions apply.',
+    guidance: 'Read the conditions carefully before using on school devices. Restrictions commonly relate to student age, data storage location, or particular features within the tool.',
+  },
+  review: {
+    summary: 'CEWA is currently evaluating this tool — no decision has been made yet.',
+    guidance: 'Avoid using on school-managed devices until the review is complete. Use on personal devices is at your own professional discretion.',
+  },
+  restricted: {
+    summary: 'CEWA has explicitly blocked this tool from school devices and networks.',
+    guidance: 'Do not use this tool on school devices or within school networks. This restriction applies to both teachers and students.',
+  },
+  unreviewed: {
+    summary: 'This tool has not yet been assessed by CEWA.',
+    guidance: 'Use professional judgement. Appropriate for personal devices; avoid school-managed devices until reviewed. Check vendor privacy policies before using with student data.',
+  },
+};
+
+function SectionLabel({ children }) {
+  return (
+    <p style={{
+      fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
+      textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 'var(--weight-medium)', margin: 0,
+    }}>{children}</p>
+  );
+}
+
+function Section({ label, children }) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)', paddingBottom: 'var(--space-6)', borderBottom: '1px solid var(--border-subtle)' }}>
+      <SectionLabel>{label}</SectionLabel>
+      {children}
+    </div>
+  );
+}
+
+function TagCard({ tag, description, linkTo, linkClass }) {
+  return (
+    <div style={{
+      padding: 'var(--space-4)',
+      background: 'var(--surface-card)',
+      border: '1px solid var(--border-subtle)',
+      borderRadius: 'var(--radius-md)',
+      display: 'flex', flexDirection: 'column', gap: 'var(--space-2)',
+    }}>
+      <Link className={linkClass} to={linkTo} style={{ alignSelf: 'flex-start' }}>{tag}</Link>
+      {description && (
+        <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)', margin: 0 }}>
+          {description}
+        </p>
+      )}
+    </div>
+  );
+}
+
 export default function ToolDetailPage() {
   const { toolId } = useParams();
   const tool = tools.find((t) => t.id === toolId);
@@ -22,54 +92,182 @@ export default function ToolDetailPage() {
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', color: 'var(--text-strong)', marginBottom: 'var(--space-3)' }}>
           Tool not found
         </h1>
-        <Link to="/tools" style={{ color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)' }}>← Back to the tools library</Link>
+        <Link to="/tools" style={{ color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)', fontSize: 'var(--text-sm)' }}>
+          ← Back to the tools library
+        </Link>
       </div>
     );
   }
 
-  return (
-    <div style={{ maxWidth: 720 }}>
-      <div className="breadcrumbs text-sm mb-4" style={{ color: 'var(--text-muted)' }}>
-        <ul>
-          <li><Link to="/tools">AI Tools</Link></li>
-          <li>{tool.name}</li>
-        </ul>
-      </div>
+  const status = cewaStatusMap[tool.cewaStatus] || 'unreviewed';
+  const statusDetail = CEWA_DETAIL[status];
+  const useCats = (tool.useCategories || []).map(id => meta.useCategories.find(u => u.id === id)).filter(Boolean);
+  const peds = (tool.pedagogies || []).map(id => meta.pedagogyFrameworks.find(p => p.id === id)).filter(Boolean);
 
+  return (
+    <div style={{ maxWidth: 760 }}>
+
+      {/* Breadcrumb */}
+      <nav style={{ marginBottom: 'var(--space-5)', display: 'flex', alignItems: 'center', gap: 'var(--space-2)', fontSize: 'var(--text-sm)', color: 'var(--text-muted)' }}>
+        <Link to="/tools" style={{ color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)' }}>AI Tools</Link>
+        <span>›</span>
+        <span>{tool.name}</span>
+      </nav>
+
+      {/* Header */}
       <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'var(--space-4)', marginBottom: 'var(--space-5)' }}>
-        <div style={{ width: 56, height: 56, borderRadius: 'var(--radius-md)', flexShrink: 0, background: 'var(--pine-50)', border: '1px solid var(--pine-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', fontFamily: 'var(--font-display)', fontWeight: 'var(--weight-semibold)', fontSize: 24, color: 'var(--pine-700)' }}>
+        <div style={{
+          width: 64, height: 64, borderRadius: 'var(--radius-md)', flexShrink: 0,
+          background: 'var(--pine-50)', border: '1px solid var(--pine-100)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          overflow: 'hidden', fontFamily: 'var(--font-display)', fontWeight: 'var(--weight-semibold)',
+          fontSize: 26, color: 'var(--pine-700)',
+        }}>
           {tool.logo ? <img src={tool.logo} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : tool.name.trim()[0]}
         </div>
-        <div style={{ flex: 1 }}>
-          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', color: 'var(--text-strong)', fontWeight: 'var(--weight-semibold)', lineHeight: 1.1 }}>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', color: 'var(--text-strong)', fontWeight: 'var(--weight-semibold)', lineHeight: 1.1, marginBottom: 4 }}>
             {tool.name}
           </h1>
-          <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-sm)', color: 'var(--text-muted)', marginTop: 4 }}>{tool.vendor}</p>
+          {tool.vendor && (
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-sm)', color: 'var(--text-muted)', margin: 0 }}>{tool.vendor}</p>
+          )}
         </div>
-        <StatusBadge status={cewaStatusMap[tool.cewaStatus] || 'unreviewed'} />
+        <StatusBadge status={status} />
       </div>
 
-      <p style={{ fontSize: 'var(--text-md)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-5)' }}>
+      {/* Description */}
+      <p style={{ fontSize: 'var(--text-md)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-7)' }}>
         {tool.description}
       </p>
 
-      <div style={{ padding: 'var(--space-5)', background: 'var(--surface-card)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-lg)', marginBottom: 'var(--space-6)' }}>
-        <p className="lumen-eyebrow" style={{ marginBottom: 'var(--space-2)' }}>Full guide in development</p>
-        <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)' }}>
-          A complete guide for {tool.name} — setup, classroom examples, approval conditions, risks, and pedagogy deep-dives — is being written. For now, the notes below summarise the essentials.
-        </p>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)' }}>
+
+        {/* Why it's useful */}
         {tool.notes && (
-          <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)', marginTop: 'var(--space-3)', paddingTop: 'var(--space-3)', borderTop: '1px solid var(--border-subtle)' }}>
-            {tool.notes}
-          </p>
+          <Section label="Why it may be useful">
+            <p style={{
+              fontSize: 'var(--text-sm)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)', margin: 0,
+              padding: 'var(--space-4)', background: 'var(--paper-50)',
+              borderLeft: '3px solid var(--pine-200)', borderRadius: 'var(--radius-sm)',
+            }}>
+              {tool.notes}
+            </p>
+          </Section>
         )}
+
+        {/* CEWA Status */}
+        <Section label="CEWA device status">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', padding: 'var(--space-4)', background: 'var(--surface-card)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
+              <StatusBadge status={status} />
+            </div>
+            <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)', margin: 0, fontWeight: 'var(--weight-medium)' }}>
+              {statusDetail.summary}
+            </p>
+            <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', lineHeight: 'var(--leading-relaxed)', margin: 0 }}>
+              {statusDetail.guidance}
+            </p>
+          </div>
+        </Section>
+
+        {/* Use categories */}
+        {useCats.length > 0 && (
+          <Section label="What you can do with this tool">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+              {useCats.map((u) => (
+                <TagCard
+                  key={u.id}
+                  tag={u.label}
+                  description={u.description}
+                  linkTo="/explainer/uses"
+                  linkClass="lmn-tool__use"
+                />
+              ))}
+            </div>
+          </Section>
+        )}
+
+        {/* Roles */}
+        {(tool.roles || []).length > 0 && (
+          <Section label="For your role">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+              {tool.roles.map((r) => (
+                <TagCard
+                  key={r}
+                  tag={r}
+                  description={ROLE_DESC[r]}
+                  linkTo="/explainer/roles"
+                  linkClass="lmn-tool__rolepill"
+                />
+              ))}
+            </div>
+          </Section>
+        )}
+
+        {/* Pedagogies */}
+        {peds.length > 0 && (
+          <Section label="Teaching approaches">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+              {peds.map((p) => (
+                <div key={p.id} style={{
+                  padding: 'var(--space-4)', background: 'var(--surface-card)',
+                  border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)',
+                  display: 'flex', flexDirection: 'column', gap: 'var(--space-2)',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <Link className="lmn-tool__ped" to="/explainer/pedagogies" title={p.label} style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--weight-semibold)' }}>
+                      {p.label} <ArrowRight />
+                    </Link>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', color: 'var(--text-muted)' }}>{p.author}</span>
+                  </div>
+                  {p.description && (
+                    <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)', margin: 0 }}>
+                      {p.description}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </Section>
+        )}
+
+        {/* Setup placeholder */}
+        <Section label="Setup & access">
+          <div style={{
+            padding: 'var(--space-4)', background: 'var(--surface-card)',
+            border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)',
+          }}>
+            <p style={{
+              fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
+              textTransform: 'uppercase', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)',
+              marginBottom: 'var(--space-2)',
+            }}>Setup guide coming soon</p>
+            <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', lineHeight: 'var(--leading-relaxed)', margin: 0 }}>
+              A step-by-step classroom setup guide for {tool.name} is being written, including account setup, student access, and integration with CEWA systems. In the meantime, visit the vendor's help centre via the link below.
+            </p>
+          </div>
+        </Section>
+
       </div>
 
-      <div style={{ display: 'flex', gap: 'var(--space-3)', alignItems: 'center' }}>
-        <a href={tool.url} target="_blank" rel="noopener noreferrer" style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--weight-semibold)', color: '#fff', background: 'var(--pine-600)', borderRadius: 'var(--radius-pill)', padding: '.55em 1.15em', textDecoration: 'none' }}>
+      {/* Footer */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)', marginTop: 'var(--space-6)', paddingTop: 'var(--space-6)', borderTop: '1px solid var(--border-subtle)' }}>
+        <a
+          href={tool.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            fontSize: 'var(--text-sm)', fontWeight: 'var(--weight-semibold)', color: '#fff',
+            background: 'var(--pine-600)', borderRadius: 'var(--radius-pill)',
+            padding: '.55em 1.15em', textDecoration: 'none',
+          }}
+        >
           Visit {tool.name} ↗
         </a>
-        <Link to="/tools" style={{ fontSize: 'var(--text-sm)', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)' }}>← Back to library</Link>
+        <Link to="/tools" style={{ fontSize: 'var(--text-sm)', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)' }}>
+          ← Back to library
+        </Link>
       </div>
     </div>
   );
