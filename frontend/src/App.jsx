@@ -7,6 +7,11 @@ import NotFoundPage from './pages/NotFoundPage';
 import ToolsPage from './pages/ToolsPage';
 import ToolDetailPage from './pages/ToolDetailPage';
 import ExplainerPage from './pages/ExplainerPage';
+import GuidesPage from './pages/GuidesPage';
+import GuidePage from './pages/GuidePage';
+import LearnPage from './pages/LearnPage';
+import CapabilitiesPage from './pages/CapabilitiesPage';
+import CapabilityPage from './pages/CapabilityPage';
 
 function App() {
   return (
@@ -14,9 +19,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
+          <Route path="guides" element={<GuidesPage />} />
+          <Route path="guides/:guideId" element={<GuidePage />} />
           <Route path="tools" element={<ToolsPage />} />
           <Route path="tools/:toolId" element={<ToolDetailPage />} />
           <Route path="explainer/:category" element={<ExplainerPage />} />
+          <Route path="learn" element={<LearnPage />} />
+          <Route path="learn/capabilities" element={<CapabilitiesPage />} />
+          <Route path="learn/capabilities/:capabilityId" element={<CapabilityPage />} />
           <Route path="foundations" element={<TrackPage trackId="foundations" />} />
           <Route path="foundations/:sectionId" element={<SectionPage trackId="foundations" />} />
           <Route path="risks" element={<TrackPage trackId="risks" />} />

@@ -1,6 +1,6 @@
 {
   "id": "risks",
-  "title": "Risks & Responsibility",
+  "title": "AI Safety",
   "description": "The risks AI poses to children's cognitive and social development, student data privacy, and equity — and how teachers can navigate them responsibly.",
   "sections": [
     {
@@ -182,6 +182,51 @@
           "type": "callout",
           "title": "Classroom implication",
           "content": "If you set tasks that can be completed using AI, consider whether all students have equal access to AI tools. If not, the task may inadvertently advantage some students over others."
+        }
+      ]
+    },
+    {
+      "id": "when-ai-serves-learning",
+      "title": "When AI Serves Learning",
+      "summary": "A simple test for any AI use in teaching: does it serve learning, or just produce a result?",
+      "tags": ["responsible use", "judgement"],
+      "blocks": [
+        {
+          "type": "text",
+          "content": "Underneath every decision about AI in teaching is the same fault line. The central question is not 'Can AI do this?' but 'Does this serve learning?' They are very different questions. AI can do a great deal that does not serve learning — and some things serve learning precisely because AI cannot do them."
+        },
+        {
+          "type": "heading",
+          "content": "AI likely supports learning when…"
+        },
+        {
+          "type": "list",
+          "items": [
+            "It reduces time on administrative or logistical tasks, freeing teachers for relationships and teaching",
+            "It helps students access content previously out of reach (reading level, language, format)",
+            "It provides information that students then analyse, question or build upon",
+            "It supports planning by generating starting points, not finished products",
+            "It is used transparently, with students aware they are working with AI"
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "AI likely undermines learning when…"
+        },
+        {
+          "type": "list",
+          "items": [
+            "It does the intellectual work the student was supposed to do",
+            "It replaces human feedback with generated comments that have no relational basis",
+            "It is used covertly — by students without teacher knowledge, or by teachers without student or parent awareness",
+            "It becomes the default response to disengagement rather than an investigation of its cause",
+            "It removes the productive struggle that is central to building understanding"
+          ]
+        },
+        {
+          "type": "callout",
+          "title": "The one question to keep asking",
+          "content": "Before introducing AI into any part of your practice, ask: 'Who is doing the thinking here?' If it's AI, and the thinking was meant to be the student's, reconsider. If it's AI, and the thinking was a teacher task that needs no pedagogical judgement, it may be exactly the right use of the tool."
         }
       ]
     }

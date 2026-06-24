@@ -103,6 +103,7 @@ export default function ToolDetailPage() {
   const statusDetail = CEWA_DETAIL[status];
   const useCats = (tool.useCategories || []).map(id => meta.useCategories.find(u => u.id === id)).filter(Boolean);
   const peds = (tool.pedagogies || []).map(id => meta.pedagogyFrameworks.find(p => p.id === id)).filter(Boolean);
+  const accessTier = tool.access ? (meta.accessTiers || []).find(a => a.id === tool.access) : null;
 
   return (
     <div style={{ maxWidth: 760 }}>
@@ -171,6 +172,58 @@ export default function ToolDetailPage() {
           </div>
         </Section>
 
+        {/* Availability & access — secondary "tell me more" info, detail page only */}
+        {(tool.cewaProvided || accessTier) && (
+          <Section label="Availability & access">
+            {tool.cewaProvided && (
+              <div style={{
+                display: 'flex', flexDirection: 'column', gap: 'var(--space-2)',
+                padding: 'var(--space-4)', background: 'var(--pine-50)',
+                border: '1px solid var(--pine-100)', borderRadius: 'var(--radius-md)',
+              }}>
+                <span style={{
+                  alignSelf: 'flex-start', fontFamily: 'var(--font-sans)', fontSize: 'var(--text-xs)',
+                  fontWeight: 'var(--weight-semibold)', color: '#fff', background: 'var(--pine-600)',
+                  borderRadius: 'var(--radius-pill)', padding: '.3em .8em',
+                }}>In your CEWA toolkit</span>
+                <p style={{ fontSize: 'var(--text-sm)', color: 'var(--pine-800)', fontWeight: 'var(--weight-semibold)', margin: 0 }}>
+                  Likely already available to you — no separate signup or cost.
+                </p>
+                {tool.accessNote && (
+                  <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)', margin: 0 }}>
+                    {tool.accessNote}
+                  </p>
+                )}
+              </div>
+            )}
+
+            {accessTier && (
+              <div style={{
+                display: 'flex', flexDirection: 'column', gap: 'var(--space-2)',
+                padding: 'var(--space-4)', background: 'var(--surface-card)',
+                border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)',
+              }}>
+                <SectionLabel>Cost</SectionLabel>
+                <p style={{ fontSize: 'var(--text-md)', color: 'var(--text-strong)', fontWeight: 'var(--weight-semibold)', margin: 0 }}>
+                  {accessTier.label}
+                </p>
+                <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', lineHeight: 'var(--leading-relaxed)', margin: 0 }}>
+                  {accessTier.description}
+                </p>
+                {tool.accessNote && !tool.cewaProvided && (
+                  <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)', margin: 0 }}>
+                    {tool.accessNote}
+                  </p>
+                )}
+              </div>
+            )}
+
+            <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', lineHeight: 'var(--leading-relaxed)', margin: 0, fontStyle: 'italic' }}>
+              Pricing and what's provisioned change often, and not every tool here is confirmed against the current CEWA stack — check with your school's digital team before relying on this. Free or provided doesn't mean cleared for student data; the CEWA device status above is the gate that matters there.
+            </p>
+          </Section>
+        )}
+
         {/* Use categories */}
         {useCats.length > 0 && (
           <Section label="What you can do with this tool">
@@ -233,7 +286,7 @@ export default function ToolDetailPage() {
         )}
 
         {/* Setup placeholder */}
-        <Section label="Setup & access">
+        <Section label="Setup guide">
           <div style={{
             padding: 'var(--space-4)', background: 'var(--surface-card)',
             border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)',

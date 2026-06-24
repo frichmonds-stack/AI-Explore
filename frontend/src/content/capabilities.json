@@ -1,0 +1,112 @@
+{
+  "note": "AI capabilities — grouped by what the AI does. eduUses are useCategory ids (from tools.json); tools are tool ids (from tools.json). Display labels resolve from tools.json meta so there's one source of truth.",
+  "capabilities": [
+    {
+      "id": "text-generation",
+      "name": "Text generation & rewriting",
+      "icon": "✍️",
+      "summary": "Drafts, rewrites and adapts written text — from a blank page to a polished version.",
+      "what": "The most familiar AI capability: producing and reshaping written language. Give it a purpose, an audience and some source material and it will draft, restructure, simplify, expand or restyle text. It is a fast first-drafter and a tireless reviser — but it writes what is plausible, not what is true, so the judgement stays with you.",
+      "eduUses": ["lesson-planning", "writing-support", "admin-communication", "differentiation"],
+      "tools": ["chatgpt", "claude", "gemini", "microsoft-copilot", "magicschool", "eduaide", "diffit", "twee"],
+      "safety": "Never paste student names or identifying details into a consumer tool when drafting reports or communications — anonymise first."
+    },
+    {
+      "id": "summarising",
+      "name": "Summarising & explaining",
+      "icon": "📝",
+      "summary": "Condenses long material and re-explains it at the level you need.",
+      "what": "Takes something long or dense — an article, a policy, a set of notes — and produces a shorter version, a plain-language explanation, or an alternative analogy. Most useful when you bring the source yourself, so the summary is grounded in a document you trust rather than the model's general memory.",
+      "eduUses": ["professional-learning", "student-research", "reading-literacy"],
+      "tools": ["notebooklm", "chatgpt", "claude", "microsoft-copilot", "perplexity"],
+      "safety": "Summaries can quietly drop nuance or introduce errors — check the original before relying on anything important."
+    },
+    {
+      "id": "research",
+      "name": "Search & research",
+      "icon": "🔎",
+      "summary": "Answers questions with sources you can follow and check.",
+      "what": "A newer breed of AI that searches live sources and answers with citations, rather than generating from memory alone. Better suited to current information and fact-checking because it shows its working — though the sources still need a human eye, and not every citation actually says what the answer claims.",
+      "eduUses": ["student-research", "professional-learning", "lesson-planning"],
+      "tools": ["perplexity", "notebooklm", "gemini"],
+      "safety": "Treat it as a research starting point, not a settled answer — open the sources and verify before passing anything to students."
+    },
+    {
+      "id": "tutoring",
+      "name": "Chatbots & tutoring",
+      "icon": "💬",
+      "summary": "Conversational tools that explain, prompt and practise with students.",
+      "what": "Conversational AI that holds a back-and-forth — answering questions, walking through worked examples, or acting as a patient practice partner. Purpose-built education versions are designed to guide students toward answers rather than hand them over. The pedagogy depends entirely on whether it supports thinking or replaces it.",
+      "eduUses": ["student-research", "differentiation", "class-engagement"],
+      "tools": ["khanmigo", "schoolai", "chatgpt", "microsoft-reading-coach"],
+      "safety": "Student-facing chatbots need real scrutiny — age-appropriateness, data handling, and approval for student use, not just teacher use."
+    },
+    {
+      "id": "image-generation",
+      "name": "Image generation",
+      "icon": "🎨",
+      "summary": "Creates illustrations, diagrams and visual stimulus from a description.",
+      "what": "Produces original images from a text prompt — illustrations, stimulus pictures, mood boards, simple diagrams. Useful for visual resources and creative provocation; weaker on accurate diagrams, text-in-images and anything requiring factual precision.",
+      "eduUses": ["creative-projects", "class-engagement", "reading-literacy"],
+      "tools": ["adobe-firefly", "canva-ai", "gemini"],
+      "safety": "Check generated images for bias and inappropriate content before classroom use, and prefer tools with content-safe, education-appropriate models."
+    },
+    {
+      "id": "slides",
+      "name": "Slides & presentations",
+      "icon": "📊",
+      "summary": "Turns an outline or topic into a structured slide deck.",
+      "what": "Generates presentation decks — layout, structure and starter content — from a prompt or an existing document. A fast way to a first draft of a lesson deck or PD session that you then refine, rather than a finished resource.",
+      "eduUses": ["lesson-planning", "class-engagement", "professional-learning"],
+      "tools": ["gamma", "canva-ai", "curipod"]
+    },
+    {
+      "id": "media",
+      "name": "Video & audio",
+      "icon": "🎬",
+      "summary": "Generates or edits video, narration, speech and music.",
+      "what": "Covers a family of media tasks: editing or generating short video, turning text into spoken audio, narrating resources for accessibility, and even composing music. Powerful for accessibility and creative work; verify rights, accuracy and appropriateness before sharing.",
+      "eduUses": ["creative-projects", "class-engagement", "reading-literacy"],
+      "tools": ["capcut", "canva-ai", "speechify", "suno"]
+    },
+    {
+      "id": "data-analysis",
+      "name": "Data analysis",
+      "icon": "📈",
+      "summary": "Finds patterns and summarises spreadsheets and datasets.",
+      "what": "Reads structured data — spreadsheets, exports, tables — and surfaces summaries, trends and charts in plain language. Useful for making sense of class or assessment data quickly, but treat its conclusions as prompts to look closer, not as findings.",
+      "eduUses": ["assessment-feedback", "admin-communication", "professional-learning"],
+      "tools": ["microsoft-copilot", "chatgpt", "gemini"],
+      "safety": "Student performance and wellbeing data is sensitive — keep it in school-approved, enterprise tools, never consumer ones."
+    },
+    {
+      "id": "automation",
+      "name": "Coding & automation",
+      "icon": "⚙️",
+      "summary": "Writes small scripts and automates repetitive digital tasks.",
+      "what": "Generates code and helps automate fiddly, repetitive digital work — formatting, bulk edits, simple scripts — even for people who don't code. Most relevant for reclaiming time on admin, with the same rule as ever: check what it produced before you run it.",
+      "eduUses": ["admin-communication", "professional-learning"],
+      "tools": ["claude", "chatgpt", "deepseek"]
+    },
+    {
+      "id": "feedback-analysis",
+      "name": "Feedback & integrity checks",
+      "icon": "✅",
+      "summary": "Drafts feedback, checks writing, and flags possible AI or copied work.",
+      "what": "Analyses student writing to draft feedback, check grammar and clarity, or flag possible plagiarism and AI-generated text. Genuinely time-saving on the drafting side; the detection side is unreliable and should never be the sole basis for an integrity decision.",
+      "eduUses": ["assessment-feedback", "writing-support"],
+      "tools": ["turnitin", "chalkie-ai", "magicschool", "quillbot"],
+      "safety": "AI-detection tools produce false positives that can wrongly accuse students — treat any flag as a conversation starter, never as proof."
+    },
+    {
+      "id": "interactive",
+      "name": "Interactive activities & quizzes",
+      "icon": "🎯",
+      "summary": "Builds quizzes, games and interactive lesson activities.",
+      "what": "Generates interactive content — quizzes, polls, games and activity sequences — often ready to run with a class. A quick route to formative checks and engagement tasks, provided you verify the questions and answer keys yourself.",
+      "eduUses": ["class-engagement", "assessment-feedback"],
+      "tools": ["wayground", "curipod", "magicschool"],
+      "safety": "Always check AI-generated answer keys before use — a confidently wrong key teaches the error."
+    }
+  ]
+}

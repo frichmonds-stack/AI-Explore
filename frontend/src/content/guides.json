@@ -1,0 +1,218 @@
+{
+  "meta": {
+    "note": "Guides reuse the taxonomy in tools.json (useCategories, pedagogyFrameworks, roles, bands, subjects). Only guide-specific axes live here.",
+    "difficulties": [
+      { "id": "starter",   "label": "Starter",   "description": "No prior AI experience needed. Follow along step by step." },
+      { "id": "confident", "label": "Confident", "description": "You've used AI a little and want to do something more deliberate." },
+      { "id": "advanced",  "label": "Advanced",  "description": "You're comfortable prompting and want to refine technique." }
+    ]
+  },
+  "guides": [
+    {
+      "id": "differentiate-a-reading-task",
+      "title": "Differentiate a reading task for mixed abilities",
+      "summary": "Turn one text into three reading levels — and matched questions — in about ten minutes.",
+      "useCategory": "differentiation",
+      "roles": ["Classroom", "Curriculum"],
+      "bands": ["primary", "middle"],
+      "subjects": ["English", "HASS", "Cross-curricular"],
+      "time": "10 minutes",
+      "difficulty": "starter",
+      "tools": ["chatgpt", "claude", "diffit"],
+      "pedagogies": ["differentiation", "udl"],
+      "featured": true,
+      "outcome": "Three versions of the same source text pitched at different reading ages, each with comprehension questions, ready to print or paste into your planning.",
+      "concept": { "label": "Why AI is good at rewriting — and where it slips", "trackId": "foundations", "sectionId": "what-ai-can-do" },
+      "steps": [
+        {
+          "title": "Bring your own text",
+          "detail": "Start from a text you already trust and have the right to use — a passage from a class novel, a vetted article, or one you wrote. Paste it in rather than asking AI to invent facts, which keeps you in control of accuracy.",
+          "prompt": "Here is a text I use with my Year 5 class. I want to keep the meaning and key vocabulary but produce three reading levels. [paste text]"
+        },
+        {
+          "title": "Ask for levels, not just 'easier'",
+          "detail": "Name the levels you actually teach to. Concrete targets give far better output than 'simplify this'.",
+          "prompt": "Produce three versions: (1) two years below grade level, (2) at grade level, (3) one year above with richer vocabulary. Keep each to a similar length. Preserve these key terms: [list]."
+        },
+        {
+          "title": "Generate matched questions",
+          "detail": "Ask for questions that work across all three versions so the class can discuss together even when reading different texts.",
+          "prompt": "Now write four comprehension questions that suit all three versions — two literal, one inferential, one evaluative."
+        },
+        {
+          "title": "Read it back as the teacher",
+          "detail": "Skim each version for meaning drift, lost nuance, or vocabulary you didn't want changed. This is the step AI cannot do for you.",
+          "tip": "If a version flattens an idea you care about, paste that sentence back and ask for a revision rather than regenerating the whole thing."
+        }
+      ],
+      "safety": {
+        "title": "Keep students out of the prompt",
+        "content": "Differentiation is often driven by specific children's needs. Never enter student names, diagnoses, or identifying details into a consumer AI tool. Describe the level you need ('two years below grade'), not the child. The output is a resource — your professional judgement about who receives which version stays offline."
+      },
+      "pedagogyNote": {
+        "framework": "udl",
+        "content": "Offering the same content at multiple entry points is the Universal Design for Learning principle of multiple means of representation. AI makes this practical at classroom scale — but UDL asks you to plan the variation deliberately, not to lower expectations for some students. Keep the thinking demand constant across levels; vary only the access."
+      },
+      "verify": [
+        "Each version actually preserves the meaning, not just shorter sentences",
+        "Key vocabulary you flagged survived the rewrite",
+        "The 'above level' version genuinely stretches, rather than just adding length",
+        "Questions are answerable from every version"
+      ],
+      "next": ["scaffold-a-writing-task", "quiz-across-thinking-levels"]
+    },
+    {
+      "id": "report-comments-that-sound-like-you",
+      "title": "Write report comments that still sound like you",
+      "summary": "Move from evidence notes to a consistent, personal first draft — without handing your voice to a machine.",
+      "useCategory": "admin-communication",
+      "roles": ["Administration", "Assessment"],
+      "bands": ["primary", "middle", "senior"],
+      "subjects": ["Cross-curricular"],
+      "time": "15 minutes",
+      "difficulty": "starter",
+      "tools": ["microsoft-copilot", "chatgpt", "claude"],
+      "pedagogies": ["visible-learning"],
+      "featured": true,
+      "outcome": "A first-draft comment for each student that reflects your evidence and your tone, ready for you to personalise and verify.",
+      "concept": { "label": "What a model 'remembers' between comments", "trackId": "foundations", "sectionId": "how-ai-works" },
+      "steps": [
+        {
+          "title": "Anonymise your evidence first",
+          "detail": "Replace every name with a placeholder before anything goes near the tool. Work from achievement against criteria, not from anything that identifies the child.",
+          "prompt": "I'll give you anonymised notes for 'Student A' against our reporting criteria. Draft a comment in a warm, specific, professional tone. [paste anonymised notes]"
+        },
+        {
+          "title": "Teach it your voice once",
+          "detail": "Paste two or three comments you wrote yourself in previous years. The tool will mirror your sentence length, warmth and structure far better than any style adjective.",
+          "prompt": "Match the voice of these comments I wrote: [paste 2–3 examples]. Use the same structure: strength, area for growth, next step."
+        },
+        {
+          "title": "Batch, then break the sameness",
+          "detail": "Generate drafts for several students, then ask the tool to vary openings so the set doesn't read as templated.",
+          "prompt": "Draft comments for these five anonymised students. Vary the opening sentence of each so they don't all start the same way."
+        },
+        {
+          "title": "Re-personalise every comment",
+          "detail": "Swap names back in, add the specific moment only you witnessed, and cut anything that isn't true. A comment is a promise to a family — you sign it, not the tool.",
+          "tip": "If a draft praises something you didn't actually observe, delete it. Plausible is not the same as true."
+        }
+      ],
+      "safety": {
+        "title": "A report is identifying data — protect it",
+        "content": "Student names, needs, and behaviour combined are sensitive personal information. Keep all of it out of consumer tools: anonymise before, re-personalise after, and never paste a finished report containing real names back in for 'polishing'. Check whether your school provides an enterprise tool with data protections before doing this at scale."
+      },
+      "pedagogyNote": {
+        "framework": "visible-learning",
+        "content": "Hattie's work puts specific, actionable feedback among the highest-impact moves a teacher makes. A report comment is feedback to both student and family — so the 'next step' line matters more than the praise. Use the time AI saves on phrasing to sharpen what each child should do next, which is the part only you can judge."
+      },
+      "verify": [
+        "Every claim is something you actually observed",
+        "No real names or identifying details were ever entered",
+        "The 'next step' is specific and achievable, not generic",
+        "It reads in your voice, not a corporate one"
+      ],
+      "next": ["build-a-rubric-from-a-task-sheet", "draft-a-parent-update"]
+    },
+    {
+      "id": "build-a-rubric-from-a-task-sheet",
+      "title": "Build a rubric from a task sheet",
+      "summary": "Turn the assignment you've already written into a clear, level-tagged marking rubric.",
+      "useCategory": "assessment-feedback",
+      "roles": ["Assessment", "Curriculum"],
+      "bands": ["middle", "senior"],
+      "subjects": ["English", "HASS", "Science", "Cross-curricular"],
+      "time": "20 minutes",
+      "difficulty": "confident",
+      "tools": ["claude", "chatgpt", "magicschool"],
+      "pedagogies": ["depth-of-knowledge", "blooms"],
+      "featured": false,
+      "outcome": "A draft rubric whose criteria come from your task and whose level descriptors are written in language students can act on.",
+      "concept": { "label": "Why AI invents plausible-but-wrong detail", "trackId": "foundations", "sectionId": "limitations" },
+      "steps": [
+        {
+          "title": "Feed it the real task",
+          "detail": "Paste the actual assignment and any standards you mark against. A rubric grown from your task beats a generic one every time.",
+          "prompt": "Here is the assessment task and the standards it addresses. Draft a rubric with 4 criteria and 4 levels. [paste task + standards]"
+        },
+        {
+          "title": "Anchor the levels to thinking, not effort",
+          "detail": "Ask for descriptors that describe the quality of thinking at each level, so the rubric rewards understanding rather than word count.",
+          "prompt": "Make the level descriptors describe quality of reasoning and evidence use, not amount of work. Avoid words like 'some', 'good', 'excellent' on their own."
+        },
+        {
+          "title": "Pressure-test the top and bottom",
+          "detail": "Ask the tool to write a sample response at the highest and lowest level, then check whether your rubric actually distinguishes them.",
+          "prompt": "Write a short sample response at the top level and one at the bottom level, so I can check the rubric separates them clearly."
+        },
+        {
+          "title": "Mark one real script against it",
+          "detail": "Run a single piece of genuine student work through your own marking with the draft rubric. Where you hesitate, the descriptor needs work — fix it before you mark the set."
+        }
+      ],
+      "safety": {
+        "title": "Don't outsource the judgement",
+        "content": "A rubric is a tool for your professional judgement, not a replacement for it. Never paste identifiable student work into a consumer tool to 'auto-mark' it, and treat any AI-suggested grade as a prompt to look more closely yourself — assessment decisions, and responsibility for them, stay with the teacher."
+      },
+      "pedagogyNote": {
+        "framework": "depth-of-knowledge",
+        "content": "Webb's Depth of Knowledge helps you check a rubric rewards more than recall. Ask whether your top level requires strategic or extended reasoning (DOK 3–4) rather than just more correct facts (DOK 1). AI can draft descriptors at each level, but you decide what depth the task is really for."
+      },
+      "verify": [
+        "Criteria come from your task, not a generic template",
+        "Top and bottom levels are genuinely distinguishable",
+        "Descriptors reward thinking, not volume or effort",
+        "You could hand it to a student and they'd know what to improve"
+      ],
+      "next": ["quiz-across-thinking-levels", "report-comments-that-sound-like-you"]
+    },
+    {
+      "id": "quiz-across-thinking-levels",
+      "title": "Make a quiz that climbs the thinking levels",
+      "summary": "Generate formative questions that move beyond recall — fast, and mapped to Bloom's.",
+      "useCategory": "assessment-feedback",
+      "roles": ["Classroom", "Assessment"],
+      "bands": ["primary", "middle", "senior"],
+      "subjects": ["Science", "Mathematics", "HASS", "English"],
+      "time": "10 minutes",
+      "difficulty": "starter",
+      "tools": ["chatgpt", "gemini", "magicschool"],
+      "pedagogies": ["blooms", "cognitive-load"],
+      "featured": true,
+      "outcome": "A short formative quiz with questions deliberately spread across thinking levels, plus an answer key you've checked.",
+      "concept": { "label": "Why you must check every AI answer key", "trackId": "foundations", "sectionId": "limitations" },
+      "steps": [
+        {
+          "title": "Name the topic and the spread",
+          "detail": "Tell the tool the exact content and ask for a deliberate spread of question types rather than 'ten questions'.",
+          "prompt": "Create 8 questions on [topic] for Year 8: 2 remembering, 2 understanding, 2 applying, 2 analysing. Label each with its level."
+        },
+        {
+          "title": "Demand an answer key with reasoning",
+          "detail": "Ask for worked answers, not just letters, so you can check the tool's reasoning — and reuse it for feedback.",
+          "prompt": "Provide a full answer key with one line of reasoning per question."
+        },
+        {
+          "title": "Verify every answer yourself",
+          "detail": "AI is confidently wrong often enough that an unchecked key is a real risk. Work the questions yourself or check against a trusted source before it reaches students.",
+          "tip": "Maths and anything with a single right answer is where AI most often slips — check those first."
+        }
+      ],
+      "safety": {
+        "title": "Check before it reaches students",
+        "content": "An AI answer key can be wrong with total confidence. A wrong key marked as correct teaches the error and erodes trust. Always verify questions and answers yourself before use — and if students will use the AI tool directly, make sure it's age-appropriate and approved for them, not just for you."
+      },
+      "pedagogyNote": {
+        "framework": "blooms",
+        "content": "Bloom's taxonomy is most useful here as a deliberate spread: a quiz that's all recall tells you who memorised, not who understood. Asking AI to label each question by level makes the cognitive demand visible, so you can see at a glance whether your check actually probes higher-order thinking."
+      },
+      "verify": [
+        "Every answer in the key is actually correct",
+        "Questions genuinely sit at the level they're labelled",
+        "Language suits the year level you teach",
+        "The quiz checks understanding, not just recall"
+      ],
+      "next": ["build-a-rubric-from-a-task-sheet", "differentiate-a-reading-task"]
+    }
+  ]
+}

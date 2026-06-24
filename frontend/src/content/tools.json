@@ -38,11 +38,20 @@
       { "id": "under-review",        "label": "Under Review",  "description": "CEWA assessment in progress — avoid for now" },
       { "id": "not-approved",        "label": "Not Approved",  "description": "Explicitly blocked on CEWA devices" },
       { "id": "not-reviewed",        "label": "Unreviewed",    "description": "Not on CEWA list — personal devices only" }
+    ],
+    "accessTiers": [
+      { "id": "free",               "label": "Free",               "description": "Free to use." },
+      { "id": "freemium",           "label": "Free tier + paid",   "description": "Usable for free; a paid plan adds capacity or features." },
+      { "id": "free-for-educators", "label": "Free for educators", "description": "Free with a verified school or teacher account." },
+      { "id": "paid",               "label": "Paid",               "description": "Requires a paid subscription." },
+      { "id": "school-licence",     "label": "School licence",      "description": "Available when your school or system subscribes." }
     ]
   },
   "tools": [
     {
       "id": "chatgpt",
+      "access": "freemium",
+      "cewaProvided": false,
       "name": "ChatGPT",
       "vendor": "OpenAI",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://openai.com&size=128",
@@ -77,6 +86,8 @@
     },
     {
       "id": "notebooklm",
+      "access": "free",
+      "cewaProvided": false,
       "name": "NotebookLM",
       "vendor": "Google",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://notebooklm.google.com&size=128",
@@ -94,6 +105,8 @@
     },
     {
       "id": "canva-ai",
+      "access": "free-for-educators",
+      "cewaProvided": false,
       "name": "Canva AI",
       "vendor": "Canva",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://canva.com&size=128",
@@ -111,6 +124,9 @@
     },
     {
       "id": "microsoft-copilot",
+      "access": "school-licence",
+      "cewaProvided": true,
+      "accessNote": "Placeholder pending CEWA confirmation: available within the Microsoft 365 tenant most CEWA schools already use — no separate signup.",
       "name": "Microsoft Copilot",
       "vendor": "Microsoft",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://microsoft.com&size=128",
@@ -145,6 +161,8 @@
     },
     {
       "id": "diffit",
+      "access": "freemium",
+      "cewaProvided": false,
       "name": "Diffit",
       "vendor": "Diffit",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://diffit.me&size=128",
@@ -213,6 +231,8 @@
     },
     {
       "id": "claude",
+      "access": "freemium",
+      "cewaProvided": false,
       "name": "Claude",
       "vendor": "Anthropic",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://claude.ai&size=128",
@@ -281,6 +301,9 @@
     },
     {
       "id": "microsoft-reading-coach",
+      "access": "free",
+      "cewaProvided": true,
+      "accessNote": "Placeholder pending CEWA confirmation: part of the Microsoft 365 / Reading Progress suite available to CEWA schools.",
       "name": "Microsoft Reading Coach",
       "vendor": "Microsoft",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://microsoft.com&size=128",
@@ -315,6 +338,9 @@
     },
     {
       "id": "seqta-ai-assist",
+      "access": "school-licence",
+      "cewaProvided": true,
+      "accessNote": "Placeholder pending CEWA confirmation: bundled with SEQTA, which is used across many CEWA schools.",
       "name": "SEQTA AI Assist",
       "vendor": "SEQTA",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://seqta.com.au&size=128",

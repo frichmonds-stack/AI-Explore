@@ -1,165 +1,361 @@
 {
   "id": "pedagogies",
-  "title": "Teaching Pedagogies & AI",
-  "description": "How established teaching approaches interact with AI — where AI can support good pedagogy and where it risks undermining it.",
+  "title": "Teaching",
+  "description": "The big ideas behind good teaching — each unpacked simply: what it is, its core concepts, and what it looks like in the classroom.",
   "sections": [
     {
       "id": "constructivism",
       "title": "Constructivism & Inquiry-Based Learning",
-      "summary": "How AI intersects with learning through exploration, questioning, and building understanding from experience.",
-      "tags": ["constructivism", "inquiry"],
+      "summary": "Learners build understanding by doing — knowledge is constructed through experience, not delivered ready-made.",
+      "workTypes": ["student-research", "class-engagement", "creative-projects"],
       "blocks": [
         {
+          "type": "heading",
+          "content": "What it is"
+        },
+        {
           "type": "text",
-          "content": "Constructivism, associated with Piaget and Vygotsky, holds that learners build knowledge actively — through experience, exploration, and making meaning from what they encounter. Inquiry-based learning is its practical expression: students investigate questions, test ideas, and construct understanding rather than receive it."
+          "content": "Constructivism holds that knowledge is built, not delivered. Learners actively make meaning by connecting new experiences to what they already understand, rather than absorbing information unchanged. It draws on Piaget's cognitive constructivism (individuals construct understanding through interaction with their world) and Vygotsky's social constructivism (understanding is built through language, culture and collaboration). Inquiry-based learning is its practical expression: students investigate genuine questions, test ideas, and arrive at understanding rather than being handed it."
         },
         {
           "type": "heading",
-          "content": "Where AI can support constructivist approaches"
+          "content": "Core concepts"
         },
         {
           "type": "list",
           "items": [
-            "Providing background information quickly so students can focus cognitive effort on analysis rather than recall",
-            "Generating multiple perspectives on a topic for students to evaluate and synthesise",
-            "Acting as a research starting point — not a research conclusion",
-            "Helping students articulate and refine their own thinking through dialogue prompts"
+            "Prior knowledge — new learning is built onto existing mental structures (schemas); what a student already knows shapes what they can take in.",
+            "Active construction — meaning is made through doing, questioning and revising, not through passive reception.",
+            "The Zone of Proximal Development (Vygotsky) — the space between what a learner can do alone and what they can do with support; teaching aims here.",
+            "Scaffolding — temporary, deliberate support that is gradually removed as competence grows.",
+            "Productive struggle (Piaget's disequilibrium) — the discomfort of not-yet-understanding is what drives genuine learning; resolving it builds durable knowledge.",
+            "Social construction — dialogue and collaboration are not extras; they are how much understanding gets built."
           ]
         },
         {
           "type": "heading",
-          "content": "Where AI undermines constructivist learning"
+          "content": "In the classroom"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Inquiry units organised around a driving question students genuinely investigate",
+            "Problem-based and project-based learning anchored in real, messy tasks",
+            "Hands-on investigation — experiments, fieldwork, building and testing models",
+            "Hypothesise → test → reflect cycles, with students revising their thinking",
+            "Collaborative structures (think-pair-share, group investigation) that surface and challenge ideas",
+            "The teacher as facilitator and questioner rather than the sole source of answers"
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "Where it meets AI"
+        },
+        {
+          "type": "text",
+          "content": "AI can accelerate the parts of inquiry that aren't the learning — gathering background, surfacing perspectives, getting unstuck — so students spend their effort on analysis and meaning-making. The risk is precise: constructivism requires that the student does the building, and AI is very good at building things."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Provide background quickly so cognitive effort goes to analysis, not hunting for basics",
+            "Generate multiple perspectives or sources for students to evaluate and reconcile",
+            "Act as a dialogue partner that helps students articulate and sharpen their own thinking",
+            "Serve as a research starting point — never the research conclusion"
+          ]
         },
         {
           "type": "risk",
           "title": "Skipping the construction",
-          "content": "Constructivism requires that students do the building. If AI produces the synthesis, the explanation, or the conclusion that the student was supposed to construct, the learning doesn't transfer. The product (an essay, a summary, an explanation) is not the point — the process of making it is. AI that shortcuts this process removes the pedagogy from the lesson."
+          "content": "If AI produces the synthesis, explanation or conclusion the student was meant to construct, the learning does not transfer. The essay, the summary, the model is not the point — making it is. AI that shortcuts the process removes the pedagogy from the lesson, even when the product looks excellent."
         },
         {
           "type": "pedagogy",
           "title": "Design principle",
-          "content": "In constructivist tasks, position AI as a resource to interrogate, not a source to accept. Ask students to question AI outputs, identify what's missing, and add what the AI couldn't know from its own experience."
+          "content": "Position AI as a resource to interrogate, not a source to accept. Ask students to question its outputs, find what's missing, and add what AI could not know from its own experience — the local, the lived, the just-happened."
+        }
+      ]
+    },
+    {
+      "id": "cognitive-load",
+      "title": "Cognitive Load Theory",
+      "summary": "Working memory is limited; learning means building lasting mental structures without overloading it.",
+      "workTypes": ["lesson-planning", "assessment-feedback", "reading-literacy"],
+      "blocks": [
+        {
+          "type": "heading",
+          "content": "What it is"
+        },
+        {
+          "type": "text",
+          "content": "Cognitive Load Theory, developed by John Sweller, starts from a hard limit: working memory can only hold a few new pieces of information at once, and only for a short time. Long-term memory, by contrast, is effectively unlimited and stores knowledge as organised structures called schemas. Learning is the process of building and automating those schemas. Good instruction therefore manages how much working memory a task demands, so that capacity is spent on understanding rather than wasted on confusion."
+        },
+        {
+          "type": "heading",
+          "content": "Core concepts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Working memory is severely limited — overload it and learning stalls; nothing reaches long-term memory.",
+            "Intrinsic load — the inherent difficulty of the material itself; managed through sequencing, not eliminated.",
+            "Extraneous load — effort wasted on poor design, clutter or distraction; this is the load to cut.",
+            "Germane load — the productive effort of actually building schemas; this is the load to protect.",
+            "Schema automation — once knowledge is well-built, it runs almost automatically, freeing working memory for new learning.",
+            "The worked-example effect — novices learn more from studying worked examples than from solving problems unaided."
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "In the classroom"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use worked examples before asking for independent practice, fading them as students gain fluency",
+            "Chunk material and introduce one new idea at a time rather than several at once",
+            "Strip decorative or redundant detail from slides and handouts (less is genuinely more)",
+            "Integrate diagrams with their labels rather than splitting attention across the page",
+            "Build in retrieval practice so core knowledge becomes automatic and frees capacity",
+            "Watch pacing — cognitive overload often looks like disengagement"
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "Where it meets AI"
+        },
+        {
+          "type": "text",
+          "content": "AI is a powerful tool for managing load — both the students' and your own. It can generate clean worked examples, chunked explanations and retrieval questions in seconds, and it can take the extraneous load of admin and drafting off the teacher so attention is preserved for planning that matters. But AI's default output is often verbose and over-detailed, which adds extraneous load rather than removing it."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Generate step-by-step worked examples and pared-back explanations at the right grain size",
+            "Rewrite dense material to remove clutter while keeping the substance",
+            "Produce retrieval-practice and low-stakes quiz questions to automate core knowledge",
+            "Offload your own extraneous load (admin, formatting, first drafts) to protect planning attention"
+          ]
+        },
+        {
+          "type": "risk",
+          "title": "Fluency is not understanding",
+          "content": "AI text reads smoothly, which can create an illusion of understanding for both teacher and student — it feels learned because it sounds polished. And if AI does the worked thinking, students never build the schema. Use AI to reduce noise, never to remove the desirable effort that actually constructs memory."
+        },
+        {
+          "type": "pedagogy",
+          "title": "Design principle",
+          "content": "Ask AI to cut extraneous load (clutter, jargon, length), not germane load (the productive struggle of building understanding). Always trim its output before it reaches students — the first draft is usually too long."
         }
       ]
     },
     {
       "id": "socratic",
-      "title": "Socratic Method & Critical Dialogue",
-      "summary": "How AI can support or undermine the practice of questioning, reasoning, and intellectual challenge.",
-      "tags": ["dialogue", "critical thinking"],
+      "title": "The Socratic Method & Dialogic Teaching",
+      "summary": "Understanding is drawn out through disciplined questioning and genuine dialogue.",
+      "workTypes": ["class-engagement", "student-research"],
       "blocks": [
         {
+          "type": "heading",
+          "content": "What it is"
+        },
+        {
           "type": "text",
-          "content": "The Socratic method uses questioning to expose assumptions, test reasoning, and guide students toward deeper understanding. It is fundamentally dialogic — it requires a human who can adapt, push back, and tolerate the uncertainty of not knowing the answer in advance."
+          "content": "The Socratic method uses disciplined questioning to expose assumptions, test reasoning and guide learners toward deeper understanding. Dialogic teaching extends this: learning happens through talk that is genuinely co-constructed, where ideas are built, challenged and refined between people. Both are fundamentally human practices — they require someone who can adapt in the moment, push back, sit with uncertainty, and follow a line of thinking wherever it leads."
         },
         {
           "type": "heading",
-          "content": "AI as a Socratic interlocutor — the limits"
+          "content": "Core concepts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Questioning over telling — understanding is drawn out, not poured in.",
+            "Surfacing assumptions — good questions make the unexamined visible so it can be tested.",
+            "Productive uncertainty (aporia) — the honest 'I'm not sure yet' that opens genuine inquiry.",
+            "Dialogue as thinking made public — talk lets reasoning be seen, examined and improved.",
+            "Building on others' ideas — accountable talk where contributions connect, not just accumulate.",
+            "Wait time — the silence after a question that lets real thinking happen."
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "In the classroom"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Socratic seminars and discussion circles around a shared text or problem",
+            "Question stems that probe reasoning — 'How do you know?', 'What if…?', 'What's the assumption here?'",
+            "Deliberate wait time, and talk partners before whole-class responses",
+            "Structured debate and dialectic that require students to argue and counter-argue",
+            "The teacher genuinely withholding the answer to keep students reasoning",
+            "Norms for accountable talk — agreeing, disagreeing and building with evidence"
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "Where it meets AI"
         },
         {
           "type": "text",
-          "content": "AI can simulate Socratic dialogue — it can ask follow-up questions, probe assumptions, and present counterarguments. But it differs from genuine Socratic dialogue in important ways: it does not hold genuine uncertainty, it cannot be persuaded, and it generates responses rather than thinking through them."
+          "content": "AI can simulate Socratic dialogue — it will ask follow-up questions, probe assumptions and offer counterarguments on demand. That makes it a useful sparring partner and a rich source of material to critique. But it differs from real dialogue in ways that matter: it holds no genuine uncertainty, it cannot truly be persuaded, and it generates responses rather than reasoning toward them."
         },
         {
           "type": "callout",
-          "title": "A useful classroom technique",
-          "content": "Rather than asking AI to explain something, students can be asked to explain it to AI — and then evaluate how AI responds. Does AI's response suggest the explanation was clear? Does AI's follow-up question reveal a gap? This reversal keeps the student in the active role."
+          "title": "A technique that keeps the student thinking",
+          "content": "Reverse the roles: instead of asking AI to explain something, have students explain it to the AI, then evaluate its response. Did it understand them? Does its follow-up question reveal a gap in their explanation? The student stays in the active, reasoning role — and AI becomes a mirror, not an oracle."
         },
         {
+          "type": "risk",
+          "title": "Borrowed authority",
+          "content": "Because AI answers fluently and instantly, students can treat its output as settled truth and stop questioning. The Socratic move is to turn that instinct around: present AI text as a claim to be examined — 'What's missing? What assumption is this making? Where's the evidence?' — using AI to practise the very scrutiny it can otherwise erode."
+        }
+      ]
+    },
+    {
+      "id": "differentiation",
+      "title": "Differentiated Instruction",
+      "summary": "Tailoring how every learner reaches the same big ideas — varying the route, not the destination.",
+      "workTypes": ["differentiation", "reading-literacy", "lesson-planning"],
+      "blocks": [
+        {
           "type": "heading",
-          "content": "Critical evaluation of AI outputs as a Socratic exercise"
+          "content": "What it is"
         },
         {
           "type": "text",
-          "content": "AI outputs make excellent raw material for Socratic questioning. Presenting students with AI-generated text and asking 'What's missing here?', 'What assumptions is this making?', or 'Can you find evidence for this claim?' is a way of using AI to practise the very critical skills it might otherwise erode."
+          "content": "Differentiated instruction, most associated with Carol Ann Tomlinson, means proactively tailoring teaching to students' differing readiness, interests and learning profiles — so that every student can access genuinely challenging, worthwhile learning. It is not about giving some students less. It is about giving all students a route into the same big ideas, varying the path rather than the destination."
+        },
+        {
+          "type": "heading",
+          "content": "Core concepts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Differentiate content (what students engage with), process (how they make sense of it), and product (how they show what they know).",
+            "Respond to readiness, interest, and learning profile — not to fixed labels or 'ability' groups.",
+            "Respectful tasks — every version is engaging and worthwhile; no student gets busywork.",
+            "Same big ideas for all — the core concepts and high expectations stay constant.",
+            "Flexible grouping — groupings shift with the task and the data, never permanent tracks.",
+            "Ongoing formative assessment — differentiation is driven by what you keep learning about students."
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "In the classroom"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Tiered tasks and levelled texts that reach the same learning intention by different routes",
+            "Choice boards and menus that let students pick how they engage or demonstrate learning",
+            "Scaffolds, graphic organisers and exemplars offered to those who need them",
+            "Varied product options — essay, presentation, model, recording — for the same outcome",
+            "Flexible grouping that reshuffles based on formative checks",
+            "Multiple entry points into a task so everyone starts somewhere productive"
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "Where it meets AI"
+        },
+        {
+          "type": "text",
+          "content": "Differentiation has always been limited by one thing: time. Producing three versions of a text, tiered tasks and matched scaffolds for one lesson is hours of work, so it rarely happens consistently. This is exactly where AI changes the maths — it can generate levelled and tiered materials in minutes, making sustained differentiation practical at classroom scale for the first time."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Produce the same content at several reading levels, preserving the key ideas and vocabulary",
+            "Generate tiered tasks and scaffolds aimed at one shared learning intention",
+            "Create alternative explanations, analogies and worked examples for different entry points",
+            "Make EAL/D and home-language versions to widen access"
+          ]
+        },
+        {
+          "type": "risk",
+          "title": "Vary the access, not the expectations",
+          "content": "The danger is using AI to quietly lower the demand for some students — shorter, easier, less. True differentiation keeps the thinking demand constant and varies only the access to it. And because differentiation is driven by individual children's needs, never enter student names or details into a consumer tool; describe the level you need, not the child. The judgement about who receives what stays with you."
+        },
+        {
+          "type": "pedagogy",
+          "title": "Design principle",
+          "content": "Let AI absorb the production cost that made differentiation hard, and spend the time you save on the part only you can do: knowing your students well enough to match the right route to the right learner."
         }
       ]
     },
     {
       "id": "udl",
       "title": "Universal Design for Learning (UDL)",
-      "summary": "How AI aligns with UDL principles — and where it can genuinely expand access for all learners.",
-      "tags": ["UDL", "inclusion", "accessibility"],
+      "summary": "Designing for the full range of learners from the outset, rather than retrofitting accommodations later.",
+      "workTypes": ["differentiation", "class-engagement", "writing-support"],
       "blocks": [
         {
+          "type": "heading",
+          "content": "What it is"
+        },
+        {
           "type": "text",
-          "content": "Universal Design for Learning (UDL) is a framework for designing learning experiences that are accessible to all students from the outset, rather than retrofitting accommodations for individual needs. It calls for multiple means of representation, engagement, and expression."
+          "content": "Universal Design for Learning (UDL), developed by CAST, is a framework for designing learning that works for the full range of learners from the outset — rather than building for an imagined 'average' student and retrofitting accommodations later. Its insight is that variability is the norm, not the exception, so flexibility should be planned in. UDL keeps goals firm but makes the means flexible, aiming to develop expert learners who are purposeful, resourceful and strategic."
         },
         {
           "type": "heading",
-          "content": "Where AI strongly supports UDL"
-        },
-        {
-          "type": "text",
-          "content": "AI is one of the most significant accessibility tools in recent memory. Its ability to transform content — adjusting reading levels, translating languages, converting text to structured formats, generating audio descriptions, or providing simplified explanations on demand — directly supports UDL's principle of multiple means of representation."
+          "content": "Core concepts"
         },
         {
           "type": "list",
           "items": [
-            "Rewrite a passage at a lower reading level for students with reading difficulties",
-            "Provide text in a student's home language alongside English",
-            "Generate alternative explanations using different analogies or examples",
-            "Create structured outlines for students who need additional scaffolding",
-            "Describe images or diagrams in text for students with visual impairments"
+            "Multiple means of Engagement — the 'why' of learning; offering different ways to spark and sustain motivation.",
+            "Multiple means of Representation — the 'what' of learning; presenting information in more than one format.",
+            "Multiple means of Action & Expression — the 'how' of learning; letting students demonstrate understanding in different ways.",
+            "Design for the margins — building for variability tends to help everyone, not only those at the edges.",
+            "Firm goals, flexible means — the learning outcome is fixed; the route to it is deliberately open.",
+            "Reduce barriers proactively — anticipate what gets in the way and design it out in advance."
           ]
+        },
+        {
+          "type": "heading",
+          "content": "In the classroom"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Offer key content in more than one format — text, audio, video, visual",
+            "Provide choice in how students engage with a task and how they show what they know",
+            "Build scaffolds, glossaries and worked exemplars into the materials from the start",
+            "Allow varied modes of expression — written, spoken, visual, built",
+            "State clear learning goals, kept separate from the method of getting there",
+            "Plan accommodations as default options available to all, not special exceptions"
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "Where it meets AI"
+        },
+        {
+          "type": "text",
+          "content": "AI is one of the most significant accessibility tools in recent memory, and it maps almost directly onto UDL's principle of multiple means of representation. On demand, it can transform content — adjusting reading level, translating, restructuring, converting to audio, generating alternative explanations — which makes proactive, inclusive design genuinely achievable in the time teachers actually have."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Rewrite a passage at a different reading level without losing the substance",
+            "Provide a student's home language alongside English",
+            "Generate alternative explanations using different analogies or examples",
+            "Produce structured outlines and described visuals for students who need them"
+          ]
+        },
+        {
+          "type": "risk",
+          "title": "Don't let AI become the student's voice",
+          "content": "UDL's third principle — multiple means of expression — is where care is needed. If AI generates the writing, the explanation or the response, it has not expanded how a student can express understanding; it has replaced their expression with its own. Supporting expression means helping students find their own voice in their own way, not handing them a generated one."
         },
         {
           "type": "pedagogy",
-          "title": "UDL and proactive design",
-          "content": "AI is most powerful for UDL when it is used proactively in planning — building accessible versions of materials from the start — rather than reactively, as a last-minute accommodation. Teachers who use AI to create differentiated resources before a lesson design inclusivity in; those who only use it in response to student difficulties design it out."
-        },
-        {
-          "type": "heading",
-          "content": "A note of caution"
-        },
-        {
-          "type": "text",
-          "content": "UDL's third principle — multiple means of expression — is where care is needed. If AI generates the expression (the writing, the explanation, the response), it has not expanded how a student can express their understanding. It has replaced their expression. Supporting expression means helping students find their own voice, in their own way — not generating a voice for them."
-        }
-      ]
-    },
-    {
-      "id": "supports-vs-undermines",
-      "title": "Where AI Supports vs. Undermines Learning",
-      "summary": "A practical framework for deciding when AI helps and when it gets in the way of good teaching.",
-      "tags": ["framework", "decision-making"],
-      "blocks": [
-        {
-          "type": "text",
-          "content": "The central question for any AI application in teaching is not 'Can AI do this?' but 'Does this serve learning?' These are very different questions. AI can do a great deal that does not serve learning — and there are things that serve learning precisely because AI cannot do them."
-        },
-        {
-          "type": "heading",
-          "content": "AI likely supports learning when..."
-        },
-        {
-          "type": "list",
-          "items": [
-            "It reduces time spent on administrative or logistical tasks, freeing teachers for relationships and teaching",
-            "It helps students access content that was previously inaccessible to them (due to reading level, language, format)",
-            "It provides information that students then analyse, question, or build upon",
-            "It supports a teacher's planning by generating starting points, not finished products",
-            "It is used transparently, with students aware they are interacting with AI"
-          ]
-        },
-        {
-          "type": "heading",
-          "content": "AI likely undermines learning when..."
-        },
-        {
-          "type": "list",
-          "items": [
-            "It does the intellectual work the student was supposed to do",
-            "It replaces human feedback with generated comments that have no relational basis",
-            "It is used covertly — either by students without teacher knowledge, or by teachers without student or parent awareness",
-            "It becomes a default response to disengagement rather than an investigation of its cause",
-            "It removes the productive struggle that is central to building understanding"
-          ]
-        },
-        {
-          "type": "callout",
-          "title": "A useful test",
-          "content": "Before introducing AI into any part of your teaching practice, ask: 'Who is doing the thinking here?' If the answer is AI, and the thinking was supposed to be done by a student, that's a signal to reconsider. If the answer is AI, and the thinking was supposed to be done by a teacher on a task that doesn't require pedagogical judgement, that may well be a good use of the tool."
+          "title": "Design principle",
+          "content": "Use AI proactively in planning to design access in from the start — not reactively as a last-minute accommodation. And remember that 'provided' or 'simplified' is not automatically 'accessible': check the output against the actual student in front of you."
         }
       ]
     }

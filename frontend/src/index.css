@@ -49,3 +49,17 @@
   top: 0;
   z-index: 50;
 }
+
+/* On small screens let the four short tabs wrap below the brand instead of
+   overflowing — no separate hamburger menu needed. */
+@media (max-width: 640px) {
+  .lmn-nav {
+    height: auto;
+    flex-wrap: wrap;
+    row-gap: var(--space-2);
+    padding-top: var(--space-3);
+    padding-bottom: var(--space-3);
+  }
+  .lmn-nav__links { margin-left: 0; }
+  .lmn-nav__spacer { display: none; }
+}

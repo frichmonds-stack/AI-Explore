@@ -14,14 +14,20 @@ const CSS = `
   box-shadow:0 0 0 1px var(--pine-300), var(--shadow-md);
 }
 
-/* Trigger: the large surface that selects this tool into the spotlight. */
-.lmn-tool__trigger{
-  appearance:none; -webkit-appearance:none; text-align:left; width:100%;
-  background:transparent; border:none; cursor:pointer; color:inherit; font:inherit;
-  display:flex; flex-direction:column; gap:var(--space-3);
-  padding:var(--space-5); border-radius:var(--radius-lg);
+/* A stretched button behind the content opens the quick preview. Content sits
+   above it; only the title and tags are independently clickable (they navigate),
+   everything else falls through to this surface. */
+.lmn-tool__select{
+  position:absolute; inset:0; width:100%; height:100%;
+  appearance:none; -webkit-appearance:none; background:transparent; border:none;
+  cursor:pointer; z-index:0; border-radius:var(--radius-lg);
 }
-.lmn-tool__trigger:focus-visible{ outline:none; box-shadow:var(--ring-focus); }
+.lmn-tool__select:focus-visible{ outline:none; box-shadow:var(--ring-focus); }
+
+.lmn-tool__body{
+  position:relative; z-index:1; pointer-events:none;
+  display:flex; flex-direction:column; gap:var(--space-3); padding:var(--space-5);
+}
 
 .lmn-tool__head{ display:flex; align-items:flex-start; gap:var(--space-3); }
 .lmn-tool__logo{
@@ -33,10 +39,19 @@ const CSS = `
 }
 .lmn-tool__logo img{ width:100%; height:100%; object-fit:cover; }
 .lmn-tool__titles{ flex:1; min-width:0; }
+
+/* Title is a real link to the tool page, with a clear at-rest + hover affordance. */
 .lmn-tool__name{
+  pointer-events:auto; display:inline-flex; align-items:center; gap:.3em;
   font-family:var(--font-display); font-weight:var(--weight-semibold);
-  font-size:var(--text-lg); line-height:1.15; color:var(--text-strong);
+  font-size:var(--text-lg); line-height:1.15; color:var(--text-strong); cursor:pointer;
+  text-decoration:none; text-underline-offset:3px; text-decoration-thickness:1px;
+  transition:color var(--dur-base) var(--ease-out);
 }
+.lmn-tool__name:hover{ color:var(--pine-700); text-decoration:underline; text-decoration-color:var(--pine-400); }
+.lmn-tool__name svg{ width:12px; height:12px; flex:none; opacity:.45; transition:opacity var(--dur-base), transform var(--dur-base); }
+.lmn-tool__name:hover svg{ opacity:1; transform:translate(1px,-1px); }
+
 .lmn-tool__vendor{
   font-size:var(--text-xs); color:var(--text-muted); margin-top:3px;
   font-family:var(--font-mono); letter-spacing:.04em;
@@ -55,13 +70,14 @@ const CSS = `
   display:inline-flex; align-items:center; gap:.45em; opacity:.7;
   transition:opacity var(--dur-base), transform var(--dur-base);
 }
-.lmn-tool__trigger:hover .lmn-tool__cue{ opacity:1; transform:translateX(2px); }
+.lmn-tool:hover .lmn-tool__cue{ opacity:1; transform:translateX(2px); }
 .lmn-tool__cue svg{ width:11px; height:11px; }
 .lmn-tool__cue--selected{ color:var(--pine-700); opacity:1; }
 .lmn-tool__cuedot{ width:.5em; height:.5em; border-radius:50%; background:var(--pine-500); }
 
 /* Three fixed tag slots: use (filled) -> role (outline) -> pedagogy (link). */
 .lmn-tool__tags{
+  position:relative; z-index:1;
   display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-2);
   padding:0 var(--space-5) var(--space-5);
 }
@@ -95,6 +111,11 @@ export const ArrowRight = () => (
   <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
 );
 
+/* Diagonal arrow — signals "open the full tool page". */
+const ArrowUpRight = () => (
+  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11l6-6M6 5h5v5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+);
+
 /* Resolve the strongest (placeholder: first authored) tag in each category. */
 export function primaryTags(tool, meta) {
   const useId = (tool.useCategories || [])[0];
@@ -107,9 +128,9 @@ export function primaryTags(tool, meta) {
 }
 
 /**
- * ToolCard — calm, scannable selector. Clicking the surface selects this tool
- * into the persistent spotlight above the grid. Tags are sibling links and
- * navigate to their explainer without selecting.
+ * ToolCard — calm, scannable selector. The card surface opens a quick preview
+ * (spotlight) above the grid; the tool name is a direct link to the full tool
+ * page; tags link to their explainers. Three independent click targets, no nesting.
  */
 export function ToolCard({ tool, meta, status, selected = false, onSelect }) {
   const { useCat, role, ped } = primaryTags(tool, meta);
@@ -118,17 +139,22 @@ export function ToolCard({ tool, meta, status, selected = false, onSelect }) {
     <article className={['lmn-tool', selected ? 'lmn-tool--selected' : ''].filter(Boolean).join(' ')}>
       <button
         type="button"
-        className="lmn-tool__trigger"
+        className="lmn-tool__select"
         aria-pressed={selected}
+        aria-label={`Quick preview of ${tool.name}`}
         onMouseDown={(e) => e.preventDefault()}
         onClick={onSelect}
-      >
+      />
+
+      <div className="lmn-tool__body">
         <div className="lmn-tool__head">
           <div className="lmn-tool__logo">
             {tool.logo ? <img src={tool.logo} alt="" /> : (tool.name ? tool.name.trim()[0] : '·')}
           </div>
           <div className="lmn-tool__titles">
-            <div className="lmn-tool__name">{tool.name}</div>
+            <Link className="lmn-tool__name" to={`/tools/${tool.id}`} title={`Open the ${tool.name} page`}>
+              {tool.name} <ArrowUpRight />
+            </Link>
             {tool.vendor && <div className="lmn-tool__vendor">{tool.vendor}</div>}
           </div>
           <span className="lmn-tool__status">
@@ -139,11 +165,11 @@ export function ToolCard({ tool, meta, status, selected = false, onSelect }) {
         {tool.description && <p className="lmn-tool__synopsis">{tool.description}</p>}
 
         {selected ? (
-          <span className="lmn-tool__cue lmn-tool__cue--selected"><span className="lmn-tool__cuedot" /> In the spotlight</span>
+          <span className="lmn-tool__cue lmn-tool__cue--selected"><span className="lmn-tool__cuedot" /> Previewing</span>
         ) : (
-          <span className="lmn-tool__cue">View <ArrowRight /></span>
+          <span className="lmn-tool__cue">Quick preview <ArrowRight /></span>
         )}
-      </button>
+      </div>
 
       {(useCat || role || ped) && (
         <div className="lmn-tool__tags">

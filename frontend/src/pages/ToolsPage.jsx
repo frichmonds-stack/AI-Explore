@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect, useRef } from 'react';
 import { ToolCard } from '../lumen/ToolCard';
 import { ToolSpotlight } from '../lumen/ToolSpotlight';
 import { StatusBadge } from '../lumen/StatusBadge';
+import { FacetFilters } from '../lumen/FacetFilters';
 import toolsData from '../content/tools.json';
 
 const { tools, meta } = toolsData;
@@ -16,49 +17,6 @@ const cewaStatusMap = {
   'not-reviewed': 'unreviewed',
 };
 const statusOf = (t) => cewaStatusMap[t.cewaStatus] || 'unreviewed';
-
-function FilterBar({ label, options, value, onChange }) {
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-      <span style={{
-        fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-        textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 'var(--weight-medium)',
-      }}>{label}</span>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}>
-        <button
-          onClick={() => onChange(ALL)}
-          style={{
-            fontFamily: 'var(--font-sans)', fontSize: 'var(--text-sm)', fontWeight: 'var(--weight-medium)',
-            padding: '.3em .8em', borderRadius: 'var(--radius-pill)', border: '1px solid',
-            cursor: 'pointer', transition: 'var(--transition-base)',
-            background: value === ALL ? 'var(--pine-600)' : 'var(--surface-card)',
-            borderColor: value === ALL ? 'var(--pine-600)' : 'var(--border-strong)',
-            color: value === ALL ? '#fff' : 'var(--text-body)',
-          }}
-        >All</button>
-        {options.map((opt) => {
-          const id = opt.id || opt;
-          const lbl = opt.label || opt;
-          const active = value === id;
-          return (
-            <button
-              key={id}
-              onClick={() => onChange(active ? ALL : id)}
-              style={{
-                fontFamily: 'var(--font-sans)', fontSize: 'var(--text-sm)', fontWeight: 'var(--weight-medium)',
-                padding: '.3em .8em', borderRadius: 'var(--radius-pill)', border: '1px solid',
-                cursor: 'pointer', transition: 'var(--transition-base)',
-                background: active ? 'var(--pine-600)' : 'var(--surface-card)',
-                borderColor: active ? 'var(--pine-600)' : 'var(--border-strong)',
-                color: active ? '#fff' : 'var(--text-body)',
-              }}
-            >{lbl}</button>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
 
 function ToolGrid({ items, selectedId, onSelect }) {
   return (
@@ -121,7 +79,24 @@ export default function ToolsPage() {
   const [role, setRole] = useState(ALL);
   const [pedagogy, setPedagogy] = useState(ALL);
   const [cewaStatus, setCewaStatus] = useState(ALL);
-  const [filtersExpanded, setFiltersExpanded] = useState(false);
+
+  const values = { useCategory, band, subject, role, pedagogy, cewaStatus };
+  const setters = {
+    useCategory: setUseCategory, band: setBand, subject: setSubject,
+    role: setRole, pedagogy: setPedagogy, cewaStatus: setCewaStatus,
+  };
+  const setFacet = (key, val) => setters[key](val);
+  const clearAll = () => Object.values(setters).forEach((s) => s(ALL));
+
+  // One compact dropdown row instead of six stacked pill rows.
+  const facets = [
+    { key: 'useCategory', label: 'Work type',  options: meta.useCategories },
+    { key: 'role',        label: 'Work area',  options: meta.roles.map((r) => ({ id: r, label: r })) },
+    { key: 'band',        label: 'Year level', options: meta.bands, allLabel: 'Any age' },
+    { key: 'subject',     label: 'Subject',    options: meta.subjects.map((s) => ({ id: s, label: s })) },
+    { key: 'pedagogy',    label: 'Pedagogy',   options: meta.pedagogyFrameworks.map((p) => ({ id: p.id, label: p.shortLabel || p.label })) },
+    { key: 'cewaStatus',  label: 'Approval',   options: meta.cewaStatuses },
+  ];
 
   // Spotlight: no tool selected on load — appears on first card click.
   const [selectedId, setSelectedId] = useState(null);
@@ -176,13 +151,7 @@ export default function ToolsPage() {
     || tools.find((t) => t.id === selectedId)
     || null;
 
-  const secondaryActive = [band, subject, role, pedagogy, cewaStatus].filter(f => f !== ALL).length;
-  const activeFilters = (useCategory !== ALL ? 1 : 0) + secondaryActive;
-
-  // Auto-expand secondary filters if any are active so the active pill stays visible.
-  useEffect(() => {
-    if (secondaryActive > 0) setFiltersExpanded(true);
-  }, [secondaryActive]);
+  const activeFilters = Object.values(values).filter((f) => f !== ALL).length;
 
   return (
     <div>
@@ -233,56 +202,17 @@ export default function ToolsPage() {
         />
       )}
 
-      {/* Filters */}
-      <div style={{
-        background: 'var(--surface-card)', border: '1px solid var(--border-subtle)',
-        borderRadius: 'var(--radius-lg)', padding: 'var(--space-5)',
-        marginBottom: 'var(--space-8)',
-      }}>
-        {/* Primary filter — always visible */}
-        <FilterBar label="What you need" options={meta.useCategories} value={useCategory} onChange={setUseCategory} />
-
-        {/* Secondary filters — collapsible */}
-        {filtersExpanded && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-5)', marginTop: 'var(--space-5)', paddingTop: 'var(--space-5)', borderTop: '1px solid var(--border-subtle)' }}>
-            <FilterBar label="Year band" options={meta.bands} value={band} onChange={setBand} />
-            <FilterBar label="Subject" options={meta.subjects.map(s => ({ id: s, label: s }))} value={subject} onChange={setSubject} />
-            <FilterBar label="Teaching role" options={meta.roles.map(r => ({ id: r, label: r }))} value={role} onChange={setRole} />
-            <FilterBar label="Pedagogical approach" options={meta.pedagogyFrameworks} value={pedagogy} onChange={setPedagogy} />
-            <FilterBar label="CEWA status" options={meta.cewaStatuses} value={cewaStatus} onChange={setCewaStatus} />
-          </div>
-        )}
-
-        {/* Toggle row */}
-        <div style={{ marginTop: 'var(--space-4)', paddingTop: 'var(--space-4)', borderTop: '1px solid var(--border-subtle)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <button
-            onClick={() => setFiltersExpanded((v) => !v)}
-            style={{
-              fontFamily: 'var(--font-sans)', fontSize: 'var(--text-sm)', fontWeight: 'var(--weight-medium)',
-              color: 'var(--pine-700)', background: 'none', border: 'none', cursor: 'pointer', padding: 0,
-              display: 'flex', alignItems: 'center', gap: 'var(--space-1)',
-            }}
-          >
-            {filtersExpanded
-              ? 'Hide filters ▲'
-              : `More filters${secondaryActive > 0 ? ` (${secondaryActive} active)` : ''} ▼`}
-          </button>
-          {activeFilters > 0 && (
-            <button
-              onClick={() => { setUseCategory(ALL); setBand(ALL); setSubject(ALL); setRole(ALL); setPedagogy(ALL); setCewaStatus(ALL); }}
-              style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-sans)' }}
-            >
-              Clear all
-            </button>
-          )}
-        </div>
+      {/* Filters — one compact dropdown row, options hidden until opened */}
+      <div style={{ marginBottom: 'var(--space-8)' }}>
+        <FacetFilters
+          facets={facets}
+          values={values}
+          onChange={setFacet}
+          onClear={clearAll}
+          resultCount={filtered.length}
+          resultNoun="tool"
+        />
       </div>
-
-      {/* Results count */}
-      <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', marginBottom: 'var(--space-5)' }}>
-        {filtered.length} {filtered.length === 1 ? 'tool' : 'tools'}
-        {activeFilters > 0 ? ' matching your filters' : ''}
-      </p>
 
       {filtered.length === 0 && (
         <div style={{ textAlign: 'center', padding: 'var(--space-10) 0', color: 'var(--text-muted)' }}>
