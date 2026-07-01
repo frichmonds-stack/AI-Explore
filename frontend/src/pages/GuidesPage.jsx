@@ -4,6 +4,7 @@ import guidesData from '../content/guides.json';
 import toolsData from '../content/tools.json';
 import { FacetFilters } from '../lumen/FacetFilters';
 import { DraftNotice, needsReview } from '../lumen/DraftNotice';
+import { usePageMeta } from '../lib/usePageMeta';
 
 const { guides } = guidesData;
 const { meta } = toolsData;
@@ -72,6 +73,7 @@ function GuideCard({ guide }) {
 }
 
 export default function GuidesPage() {
+  usePageMeta({ title: 'Guides', description: 'Short, classroom-ready walkthroughs for getting real work done with AI — safely and pedagogically.' });
   const [domain, setDomain] = useState(ALL);
   const [useCategory, setUseCategory] = useState(ALL);
   const [band, setBand] = useState(ALL);

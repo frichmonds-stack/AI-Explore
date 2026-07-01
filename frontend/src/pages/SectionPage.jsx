@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
+import { usePageMeta } from '../lib/usePageMeta';
 import tracks from '../content';
 import SectionBlock from '../components/SectionBlock';
 import { DraftNotice, needsReview } from '../lumen/DraftNotice';
@@ -7,6 +8,8 @@ export default function SectionPage({ trackId }) {
   const { sectionId } = useParams();
   const track = tracks[trackId];
   const section = track?.sections.find((s) => s.id === sectionId);
+
+  usePageMeta(section ? { title: section.title, description: section.summary || track?.description, type: 'article' } : { title: 'Section not found' });
 
   if (!track || !section) {
     return (

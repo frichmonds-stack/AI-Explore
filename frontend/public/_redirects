@@ -1,0 +1,5 @@
+# SPA fallback for Cloudflare Pages and Netlify.
+# Static files (including the per-route index.html files written by the
+# prerender step) are served first; anything else falls back to the app shell
+# so client-side routes still resolve on a hard refresh / deep link.
+/*    /index.html   200

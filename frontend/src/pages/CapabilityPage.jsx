@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
+import { usePageMeta } from '../lib/usePageMeta';
 import capabilitiesData from '../content/capabilities.json';
 import toolsData from '../content/tools.json';
 import { StatusBadge } from '../lumen/StatusBadge';
@@ -35,6 +36,8 @@ function SectionLabel({ children }) {
 export default function CapabilityPage() {
   const { capabilityId } = useParams();
   const cap = capabilities.find((c) => c.id === capabilityId);
+
+  usePageMeta(cap ? { title: cap.name, description: cap.summary, type: 'article' } : { title: 'Capability not found' });
 
   if (!cap) {
     return (

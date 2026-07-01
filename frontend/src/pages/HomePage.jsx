@@ -3,6 +3,7 @@ import { Button } from '../lumen/Button';
 import { StatusBadge } from '../lumen/StatusBadge';
 import toolsData from '../content/tools.json';
 import guidesData from '../content/guides.json';
+import { usePageMeta } from '../lib/usePageMeta';
 
 const cewaStatusMap = {
   'approved': 'approved',
@@ -34,6 +35,7 @@ function Eyebrow({ children }) {
 }
 
 export default function HomePage() {
+  usePageMeta({ description: 'Practical, classroom-ready help for teaching with AI — start with the work, grow the craft, keep children safe.' });
   return (
     <div>
       {/* Hero — work-first */}

@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
+import { usePageMeta } from '../lib/usePageMeta';
 import toolsData from '../content/tools.json';
 import { StatusBadge } from '../lumen/StatusBadge';
 import { ArrowRight } from '../lumen/ToolCard';
@@ -86,6 +87,8 @@ function TagCard({ tag, description, linkTo, linkClass }) {
 export default function ToolDetailPage() {
   const { toolId } = useParams();
   const tool = tools.find((t) => t.id === toolId);
+
+  usePageMeta(tool ? { title: tool.name, description: tool.description, type: 'article' } : { title: 'Tool not found' });
 
   if (!tool) {
     return (

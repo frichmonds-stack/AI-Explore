@@ -25,7 +25,7 @@ No test suite — exploratory/content project.
 ## Architecture
 
 ### Routing — HashRouter
-All routes live in [`frontend/src/App.jsx`](frontend/src/App.jsx). The app uses `HashRouter` (not `BrowserRouter`) — critical for static hosting compatibility (SharePoint, Azure Static Web Apps). All URLs are hash-based (`/#/tools/chatgpt`).
+All routes live in [`frontend/src/App.jsx`](frontend/src/App.jsx). The app uses **`BrowserRouter`** with clean URLs (`/tools/chatgpt`) — switched from `HashRouter` (2026-07-01) for SEO + social share cards. Two things make this work on static hosts: (1) an SPA fallback (`public/_redirects` for Cloudflare/Netlify, `vercel.json` for Vercel) so deep links don't 404; (2) a **build-time pre-render** ([`frontend/scripts/prerender.mjs`](frontend/scripts/prerender.mjs), run by `npm run build`) that writes a real per-route `index.html` with correct `<title>` + Open Graph/Twitter tags for every route (static + all dynamic ids from the content JSON) so non-JS crawlers/social scrapers see proper metadata. Client-side, [`usePageMeta`](frontend/src/lib/usePageMeta.js) updates the same tags as you navigate. **Set `SITE_URL` as a build env var** (e.g. on the host) so `og:url`/`og:image` are absolute; add a `public/og-default.png` (1200×630) for share images. Target host: **Cloudflare Pages** (free).
 
 | Path | Component |
 |---|---|

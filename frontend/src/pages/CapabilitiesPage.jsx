@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import capabilitiesData from '../content/capabilities.json';
 import toolsData from '../content/tools.json';
 import { DraftNotice } from '../lumen/DraftNotice';
+import { usePageMeta } from '../lib/usePageMeta';
 
 const { capabilities } = capabilitiesData;
 const { meta } = toolsData;
@@ -15,6 +16,7 @@ const badgeStyle = {
 };
 
 export default function CapabilitiesPage() {
+  usePageMeta({ title: 'AI Capabilities', description: 'What AI can actually do, grouped by capability, with the tools that do it.' });
   return (
     <div>
       {/* Breadcrumb */}

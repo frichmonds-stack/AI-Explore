@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import tracks from '../content';
 import toolsData from '../content/tools.json';
 import { DraftNotice, needsReview } from '../lumen/DraftNotice';
+import { usePageMeta } from '../lib/usePageMeta';
 
 const useCatLabel = (id) => toolsData.meta.useCategories.find((u) => u.id === id)?.label || id;
 
@@ -17,6 +18,8 @@ const eyebrowStyle = {
 
 export default function TrackPage({ trackId }) {
   const track = tracks[trackId];
+
+  usePageMeta(track ? { title: track.title, description: track.description } : { title: 'Track not found' });
 
   if (!track) {
     return <div className="alert alert-error">Track not found.</div>;

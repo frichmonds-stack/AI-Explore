@@ -153,7 +153,7 @@ export function GlobalSearch() {
                     return (
                       <a
                         key={r.id}
-                        href={r.external ? r.to : `#${r.to}`}
+                        href={r.to}
                         className={['lmn-search-item', idx === active ? 'lmn-search-item--active' : ''].filter(Boolean).join(' ')}
                         onMouseEnter={() => setActive(idx)}
                         onClick={(e) => { e.preventDefault(); go(r); }}

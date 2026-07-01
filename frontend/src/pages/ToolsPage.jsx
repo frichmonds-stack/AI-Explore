@@ -3,6 +3,7 @@ import { ToolCard } from '../lumen/ToolCard';
 import { ToolSpotlight } from '../lumen/ToolSpotlight';
 import { StatusBadge } from '../lumen/StatusBadge';
 import { FacetFilters } from '../lumen/FacetFilters';
+import { usePageMeta } from '../lib/usePageMeta';
 import toolsData from '../content/tools.json';
 
 const { tools, meta } = toolsData;
@@ -73,6 +74,7 @@ function StatusFooter() {
 }
 
 export default function ToolsPage() {
+  usePageMeta({ title: 'Tools', description: 'A browsable library of AI tools for teaching, each carrying its CEWA approval status.' });
   const [domain, setDomain] = useState(ALL);
   const [useCategory, setUseCategory] = useState(ALL);
   const [band, setBand] = useState(ALL);

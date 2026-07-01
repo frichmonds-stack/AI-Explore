@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { DraftNotice } from '../lumen/DraftNotice';
+import { usePageMeta } from '../lib/usePageMeta';
 
 const areas = [
   {
@@ -29,6 +30,7 @@ const areas = [
 ];
 
 export default function LearnPage() {
+  usePageMeta({ title: 'Learn', description: 'Understand the AI behind your work — what it is, what it can do, and how to keep students safe.' });
   return (
     <div>
       <div style={{ marginBottom: 'var(--space-8)' }}>

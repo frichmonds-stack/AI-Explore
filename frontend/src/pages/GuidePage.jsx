@@ -4,6 +4,7 @@ import guidesData from '../content/guides.json';
 import toolsData from '../content/tools.json';
 import { StatusBadge } from '../lumen/StatusBadge';
 import { DraftNotice, needsReview } from '../lumen/DraftNotice';
+import { usePageMeta } from '../lib/usePageMeta';
 
 const { guides } = guidesData;
 const { tools, meta } = toolsData;
@@ -65,6 +66,8 @@ function PromptBlock({ text }) {
 export default function GuidePage() {
   const { guideId } = useParams();
   const guide = guides.find((g) => g.id === guideId);
+
+  usePageMeta(guide ? { title: guide.title, description: guide.summary, type: 'article' } : { title: 'Guide not found' });
 
   if (!guide) {
     return (

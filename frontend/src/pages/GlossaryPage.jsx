@@ -3,6 +3,7 @@ import toolsData from '../content/tools.json';
 import guidesData from '../content/guides.json';
 import glossary from '../content/glossary.json';
 import { StatusBadge } from '../lumen/StatusBadge';
+import { usePageMeta } from '../lib/usePageMeta';
 
 // CEWA status id (tools.json) → StatusBadge display variant.
 const cewaStatusMap = {
@@ -56,6 +57,7 @@ function Kicker({ children }) {
 }
 
 export default function GlossaryPage() {
+  usePageMeta({ title: 'Glossary', description: glossary.intro });
   return (
     <div>
       <div style={{ marginBottom: 'var(--space-7)' }}>
