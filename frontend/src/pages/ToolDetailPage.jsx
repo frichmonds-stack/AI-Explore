@@ -1,5 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { usePageMeta } from '../lib/usePageMeta';
+import { SaveButton } from '../lumen/SaveButton';
+import { ShareButton } from '../lumen/ShareButton';
 import toolsData from '../content/tools.json';
 import { StatusBadge } from '../lumen/StatusBadge';
 import { ArrowRight } from '../lumen/ToolCard';
@@ -142,9 +144,14 @@ export default function ToolDetailPage() {
       </div>
 
       {/* Description */}
-      <p style={{ fontSize: 'var(--text-md)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-7)' }}>
+      <p style={{ fontSize: 'var(--text-md)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-5)' }}>
         {tool.description}
       </p>
+
+      <div style={{ display: 'flex', gap: 'var(--space-3)', marginBottom: 'var(--space-7)', flexWrap: 'wrap' }}>
+        <SaveButton type="tool" id={tool.id} />
+        <ShareButton title={`${tool.name} — AI for Teachers`} text={tool.description} />
+      </div>
 
       {needsReview(tool) && <DraftNotice note="This tool write-up was drafted by AI — its description and notes need a human review before relying on them." />}
 

@@ -23,6 +23,7 @@ const navCols = [
     heading: 'Reference',
     links: [
       { to: '/glossary', label: 'Glossary' },
+      { to: '/saved', label: 'Saved' },
     ],
   },
 ];

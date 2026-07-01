@@ -15,6 +15,7 @@ import CapabilityPage from './pages/CapabilityPage';
 import GlossaryPage from './pages/GlossaryPage';
 import ArticlesPage from './pages/ArticlesPage';
 import ArticlePage from './pages/ArticlePage';
+import SavedPage from './pages/SavedPage';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="learn/capabilities" element={<CapabilitiesPage />} />
           <Route path="learn/capabilities/:capabilityId" element={<CapabilityPage />} />
           <Route path="glossary" element={<GlossaryPage />} />
+          <Route path="saved" element={<SavedPage />} />
           <Route path="foundations" element={<TrackPage trackId="foundations" />} />
           <Route path="foundations/:sectionId" element={<SectionPage trackId="foundations" />} />
           <Route path="risks" element={<TrackPage trackId="risks" />} />

@@ -5,6 +5,8 @@ import toolsData from '../content/tools.json';
 import { StatusBadge } from '../lumen/StatusBadge';
 import { DraftNotice, needsReview } from '../lumen/DraftNotice';
 import { usePageMeta } from '../lib/usePageMeta';
+import { SaveButton } from '../lumen/SaveButton';
+import { ShareButton } from '../lumen/ShareButton';
 
 const { guides } = guidesData;
 const { tools, meta } = toolsData;
@@ -107,9 +109,14 @@ export default function GuidePage() {
       <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', color: 'var(--text-strong)', fontWeight: 'var(--weight-semibold)', lineHeight: 1.1, marginBottom: 'var(--space-3)' }}>
         {guide.title}
       </h1>
-      <p style={{ fontSize: 'var(--text-md)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-6)' }}>
+      <p style={{ fontSize: 'var(--text-md)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-5)' }}>
         {guide.summary}
       </p>
+
+      <div style={{ display: 'flex', gap: 'var(--space-3)', marginBottom: 'var(--space-6)', flexWrap: 'wrap' }}>
+        <SaveButton type="guide" id={guide.id} />
+        <ShareButton title={`${guide.title} — AI for Teachers`} text={guide.summary} />
+      </div>
 
       {needsReview(guide) && <DraftNotice />}
 

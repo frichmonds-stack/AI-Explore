@@ -2,6 +2,8 @@ import { Link, useParams } from 'react-router-dom';
 import articlesData from '../content/articles.json';
 import { DraftNotice, needsReview } from '../lumen/DraftNotice';
 import { usePageMeta } from '../lib/usePageMeta';
+import { SaveButton } from '../lumen/SaveButton';
+import { ShareButton } from '../lumen/ShareButton';
 
 const { articles, meta } = articlesData;
 const topicLabel = (id) => meta.topics.find((t) => t.id === id)?.label || id;
@@ -90,6 +92,11 @@ export default function ArticlePage() {
             {external ? `Source: ${article.source || 'external'}` : `By ${article.author}`}
           </p>
         )}
+      </div>
+
+      <div style={{ display: 'flex', gap: 'var(--space-3)', marginBottom: 'var(--space-6)', flexWrap: 'wrap' }}>
+        <SaveButton type="article" id={article.id} />
+        <ShareButton title={`${article.title} — AI for Teachers`} text={article.dek} />
       </div>
 
       {draft && <DraftNotice />}
