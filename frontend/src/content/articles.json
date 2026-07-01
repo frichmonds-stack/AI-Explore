@@ -1,0 +1,43 @@
+{
+  "note": "Articles — the curated reading/'what's new' section (the repurposed 'Explore'). Two kinds: 'authored' (has a `body` of blocks, read on-site) and 'link' (curated external piece, `sourceUrl`, opens out). Sort by `date` (newest first) drives the freshness/'recently added' behaviour. Show the AI-draft notice unless `reviewStatus: 'human-reviewed'`. The two entries below are SAMPLES to demonstrate the templates — replace them.",
+  "meta": {
+    "topics": [
+      { "id": "practice",    "label": "Practice & pedagogy", "description": "Using AI well in real teaching — the craft, not the hype." },
+      { "id": "safety",      "label": "Safety & ethics",     "description": "Child safety, data, equity, and where AI does not belong." },
+      { "id": "whats-new",   "label": "Tools & what's new",  "description": "New tools, changed approvals, things worth knowing this term." },
+      { "id": "perspective", "label": "Perspectives",        "description": "Thought-provoking takes on AI in education, ours and others'." }
+    ]
+  },
+  "articles": [
+    {
+      "id": "sample-authored-piece",
+      "kind": "authored",
+      "title": "Sample article — replace me",
+      "dek": "This is a placeholder authored piece. It exists only to show how an on-site article renders; swap it for a real one.",
+      "topic": "perspective",
+      "author": "Your name here",
+      "date": "2026-07-01",
+      "readingTime": "3 min",
+      "featured": true,
+      "body": [
+        { "type": "text", "content": "This is a sample article body. Authored pieces are written directly in articles.json as an ordered list of content blocks, the same way track sections work — so the reading experience stays consistent across the site." },
+        { "type": "heading", "content": "Supported blocks" },
+        { "type": "text", "content": "You can use text, headings, lists, quotes and callouts. Keep paragraphs short and scannable — teachers are reading between other things." },
+        { "type": "list", "items": ["text — a paragraph", "heading — a subheading", "list — bullets like these", "quote — a pulled quotation", "callout — a highlighted aside"] },
+        { "type": "quote", "content": "A good article leaves the reader a little more thoughtful about their practice than when they arrived.", "attribution": "The editorial test" },
+        { "type": "callout", "content": "Replace this sample with a real piece when you're ready. Until an article is marked reviewStatus: 'human-reviewed', it carries the AI-draft notice." }
+      ]
+    },
+    {
+      "id": "sample-curated-link",
+      "kind": "link",
+      "title": "Sample curated link — replace me",
+      "dek": "This is a placeholder for a curated external piece. On the list it opens straight out to the source; use it to point teachers at reading worth their time elsewhere.",
+      "topic": "whats-new",
+      "source": "Example Publication",
+      "sourceUrl": "https://example.com",
+      "date": "2026-06-20",
+      "readingTime": "8 min read"
+    }
+  ]
+}

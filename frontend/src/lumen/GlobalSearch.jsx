@@ -99,7 +99,8 @@ export function GlobalSearch() {
 
   const go = useCallback((record) => {
     if (!record) return;
-    navigate(record.to);
+    if (record.external) window.open(record.to, '_blank', 'noopener,noreferrer');
+    else navigate(record.to);
     close();
   }, [navigate, close]);
 
@@ -152,7 +153,7 @@ export function GlobalSearch() {
                     return (
                       <a
                         key={r.id}
-                        href={`#${r.to}`}
+                        href={r.external ? r.to : `#${r.to}`}
                         className={['lmn-search-item', idx === active ? 'lmn-search-item--active' : ''].filter(Boolean).join(' ')}
                         onMouseEnter={() => setActive(idx)}
                         onClick={(e) => { e.preventDefault(); go(r); }}

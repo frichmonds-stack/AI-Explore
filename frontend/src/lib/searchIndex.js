@@ -5,6 +5,7 @@
 import toolsData from '../content/tools.json';
 import guidesData from '../content/guides.json';
 import capabilitiesData from '../content/capabilities.json';
+import articlesData from '../content/articles.json';
 import tracks from '../content/index.js';
 
 // Only the tracks that appear in nav are surfaced in search — `practice` and
@@ -76,6 +77,21 @@ function buildIndex() {
       summary: c.summary,
       to: `/learn/capabilities/${c.id}`,
       keywords: [c.what || '', ...(c.eduUses || []).map(useCatLabel)].join(' '),
+    });
+  });
+
+  // Articles (curated reading). Authored pieces open on-site; curated links open out.
+  (articlesData.articles || []).forEach((a) => {
+    const topic = articlesData.meta.topics.find((t) => t.id === a.topic)?.label || a.topic;
+    records.push({
+      type: 'Article',
+      id: a.id,
+      title: a.title,
+      subtitle: topic,
+      summary: a.dek,
+      to: a.kind === 'link' && a.sourceUrl && !a.body ? a.sourceUrl : `/articles/${a.id}`,
+      external: a.kind === 'link' && !a.body,
+      keywords: [a.author || '', a.source || ''].join(' '),
     });
   });
 

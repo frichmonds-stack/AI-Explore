@@ -5,7 +5,8 @@ const navCols = [
   {
     heading: 'Get the work done',
     links: [
-      { to: '/guides', label: 'Explore' },
+      { to: '/articles', label: 'Articles' },
+      { to: '/guides', label: 'Guides' },
       { to: '/tools', label: 'Tools' },
     ],
   },

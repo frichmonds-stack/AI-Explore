@@ -13,6 +13,8 @@ import LearnPage from './pages/LearnPage';
 import CapabilitiesPage from './pages/CapabilitiesPage';
 import CapabilityPage from './pages/CapabilityPage';
 import GlossaryPage from './pages/GlossaryPage';
+import ArticlesPage from './pages/ArticlesPage';
+import ArticlePage from './pages/ArticlePage';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="guides" element={<GuidesPage />} />
           <Route path="guides/:guideId" element={<GuidePage />} />
+          <Route path="articles" element={<ArticlesPage />} />
+          <Route path="articles/:articleId" element={<ArticlePage />} />
           <Route path="tools" element={<ToolsPage />} />
           <Route path="tools/:toolId" element={<ToolDetailPage />} />
           <Route path="explainer/:category" element={<ExplainerPage />} />
