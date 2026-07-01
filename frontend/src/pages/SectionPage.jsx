@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import tracks from '../content';
 import SectionBlock from '../components/SectionBlock';
+import { DraftNotice, needsReview } from '../lumen/DraftNotice';
 
 export default function SectionPage({ trackId }) {
   const { sectionId } = useParams();
@@ -40,6 +41,7 @@ export default function SectionPage({ trackId }) {
 
       {/* Content blocks */}
       <div className="max-w-2xl">
+        {needsReview(track) && <DraftNotice />}
         {section.blocks?.map((block, i) => (
           <SectionBlock key={i} block={block} />
         ))}

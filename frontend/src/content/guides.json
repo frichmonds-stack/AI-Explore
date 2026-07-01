@@ -22,7 +22,7 @@
       "pedagogies": ["differentiation", "udl"],
       "featured": true,
       "outcome": "Three versions of the same source text pitched at different reading ages, each with comprehension questions, ready to print or paste into your planning.",
-      "concept": { "label": "Why AI is good at rewriting — and where it slips", "trackId": "foundations", "sectionId": "what-ai-can-do" },
+      "concept": { "label": "Why AI is good at rewriting — and where it slips", "trackId": "foundations", "sectionId": "what-can-ai-do" },
       "steps": [
         {
           "title": "Bring your own text",
@@ -75,7 +75,7 @@
       "pedagogies": ["visible-learning"],
       "featured": true,
       "outcome": "A first-draft comment for each student that reflects your evidence and your tone, ready for you to personalise and verify.",
-      "concept": { "label": "What a model 'remembers' between comments", "trackId": "foundations", "sectionId": "how-ai-works" },
+      "concept": { "label": "What a model 'remembers' between comments", "trackId": "foundations", "sectionId": "how-it-works" },
       "steps": [
         {
           "title": "Anonymise your evidence first",
@@ -128,7 +128,7 @@
       "pedagogies": ["depth-of-knowledge", "blooms"],
       "featured": false,
       "outcome": "A draft rubric whose criteria come from your task and whose level descriptors are written in language students can act on.",
-      "concept": { "label": "Why AI invents plausible-but-wrong detail", "trackId": "foundations", "sectionId": "limitations" },
+      "concept": { "label": "Why AI invents plausible-but-wrong detail", "trackId": "foundations", "sectionId": "where-ai-fails" },
       "steps": [
         {
           "title": "Feed it the real task",
@@ -180,7 +180,7 @@
       "pedagogies": ["blooms", "cognitive-load"],
       "featured": true,
       "outcome": "A short formative quiz with questions deliberately spread across thinking levels, plus an answer key you've checked.",
-      "concept": { "label": "Why you must check every AI answer key", "trackId": "foundations", "sectionId": "limitations" },
+      "concept": { "label": "Why you must check every AI answer key", "trackId": "foundations", "sectionId": "where-ai-fails" },
       "steps": [
         {
           "title": "Name the topic and the spread",
@@ -213,6 +213,112 @@
         "The quiz checks understanding, not just recall"
       ],
       "next": ["build-a-rubric-from-a-task-sheet", "differentiate-a-reading-task"]
+    },
+    {
+      "id": "scaffold-a-writing-task",
+      "title": "Scaffold a writing task without writing it for them",
+      "summary": "Build frames, model texts and sentence starters that support student writing — without the AI doing the writing.",
+      "useCategory": "writing-support",
+      "roles": ["Classroom", "Curriculum"],
+      "bands": ["primary", "middle", "senior"],
+      "subjects": ["English", "HASS", "Cross-curricular"],
+      "time": "15 minutes",
+      "difficulty": "confident",
+      "tools": ["chatgpt", "claude", "magicschool"],
+      "pedagogies": ["cognitive-load", "differentiation"],
+      "featured": false,
+      "outcome": "A set of scaffolds — a writing frame, a model paragraph, and sentence starters — that help students structure their own writing, ready to hand out or display.",
+      "concept": { "label": "Why fluent AI text can fake understanding", "trackId": "foundations", "sectionId": "where-ai-fails" },
+      "steps": [
+        {
+          "title": "Describe the task and the students",
+          "detail": "Tell the tool the writing task, the year level, and where students get stuck. Scaffolds should target the specific hurdle, not replace the writing.",
+          "prompt": "Year 8 students are writing a persuasive paragraph on [topic]. Many struggle to structure an argument. Create a writing frame with prompts for each part — claim, evidence, reasoning, link."
+        },
+        {
+          "title": "Ask for a model, then mark it up",
+          "detail": "Get one model paragraph, then have the tool annotate why each sentence works — the annotations are the teaching, not the model itself.",
+          "prompt": "Write one model paragraph at this level, then annotate each sentence to show its job in the argument."
+        },
+        {
+          "title": "Generate sentence starters, not whole sentences",
+          "detail": "Starters open a door; finished sentences close it. Ask for openers students complete in their own words.",
+          "prompt": "Give me eight sentence starters students can finish themselves to express a claim, counter a view, or link evidence."
+        },
+        {
+          "title": "Plan the fade",
+          "detail": "Decide which scaffolds you'll remove next time. A scaffold that never fades becomes a crutch. This judgement is yours, not the tool's.",
+          "tip": "Hand out the frame for the first task, the starters for the second, and nothing by the third — make the fade explicit to students."
+        }
+      ],
+      "safety": {
+        "title": "Keep the writing the student's own",
+        "content": "Scaffolds support writing; they must not produce it. Don't paste a student's draft into a consumer tool to 'finish' or 'improve' it — that replaces their voice and may expose their work. The aim is a student who can write without the scaffold next time."
+      },
+      "pedagogyNote": {
+        "framework": "cognitive-load",
+        "content": "Worked examples and frames reduce the extraneous load of figuring out structure, freeing working memory for the actual thinking — the argument. Cognitive Load Theory also warns of the expertise-reversal effect: fade the scaffolds as students gain fluency, or they start to get in the way."
+      },
+      "verify": [
+        "The scaffolds support structure, not supply the content",
+        "Sentence starters are genuinely open-ended, not near-complete",
+        "The model is at the right level and actually well-written",
+        "You know which scaffold you'll remove next time"
+      ],
+      "next": ["differentiate-a-reading-task", "build-a-rubric-from-a-task-sheet"]
+    },
+    {
+      "id": "draft-a-parent-update",
+      "title": "Draft a clear parent update fast",
+      "summary": "Turn a few bullet points into a warm, clear note home — in your voice, free of jargon.",
+      "useCategory": "admin-communication",
+      "roles": ["Administration", "Classroom"],
+      "bands": ["early-childhood", "primary", "middle", "senior"],
+      "subjects": ["Cross-curricular"],
+      "time": "10 minutes",
+      "difficulty": "starter",
+      "tools": ["microsoft-copilot", "chatgpt", "gemini"],
+      "pedagogies": ["visible-learning"],
+      "featured": false,
+      "outcome": "A clear, warm draft update for families — newsletter blurb, excursion note or class update — ready for you to check and send.",
+      "concept": { "label": "What a model 'remembers' between messages", "trackId": "foundations", "sectionId": "how-it-works" },
+      "steps": [
+        {
+          "title": "Give it the facts as bullets",
+          "detail": "List the essentials — what, when, what families need to do. Bullets in, prose out is faster and more accurate than asking it to invent details.",
+          "prompt": "Turn these bullet points into a warm, clear note to families. Keep it under 150 words and jargon-free. [paste bullets]"
+        },
+        {
+          "title": "Set the tone and reading level",
+          "detail": "Ask for plain language a busy parent can scan, and a tone that matches your school's voice.",
+          "prompt": "Use a friendly, professional tone at about a Year 6 reading level. Lead with what families need to do."
+        },
+        {
+          "title": "Make a version families can access",
+          "detail": "Ask for a plain-language or translated version where it helps — a quick win for equity and inclusion.",
+          "prompt": "Now give me a version in plain English, and a [language] translation for families who need it."
+        },
+        {
+          "title": "Read it as a parent, then send",
+          "detail": "Check the facts, dates and tone yourself. You are accountable for what goes home, not the tool.",
+          "tip": "Double-check every date, time and name — these are exactly what AI will cheerfully get wrong."
+        }
+      ],
+      "safety": {
+        "title": "No student details in the prompt",
+        "content": "Keep individual children out of general communications drafted in consumer tools — no names, needs or incidents. Write the note about the class or event, and handle anything child-specific yourself, through your school's secure channels."
+      },
+      "pedagogyNote": {
+        "framework": "visible-learning",
+        "content": "Strong home–school communication is part of the feedback environment around a learner: clear, timely information helps families support learning. The time AI saves on wording is best reinvested in making the message specific and genuinely useful to families, not just in sending more of them."
+      },
+      "verify": [
+        "Every date, time and detail is correct",
+        "It reads in your school's voice, not a generic one",
+        "No individual student is identifiable",
+        "A busy parent could scan it in under a minute"
+      ],
+      "next": ["report-comments-that-sound-like-you", "differentiate-a-reading-task"]
     }
   ]
 }

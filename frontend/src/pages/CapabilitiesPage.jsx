@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import capabilitiesData from '../content/capabilities.json';
 import toolsData from '../content/tools.json';
+import { DraftNotice } from '../lumen/DraftNotice';
 
 const { capabilities } = capabilitiesData;
 const { meta } = toolsData;
@@ -35,6 +36,9 @@ export default function CapabilitiesPage() {
           Grouped by what the AI does. Each capability shows where it helps in the classroom and the tools that can do it.
         </p>
       </div>
+
+      <DraftNotice />
+
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{ alignItems: 'stretch' }}>
         {capabilities.map((cap) => (

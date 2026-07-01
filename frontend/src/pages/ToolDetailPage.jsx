@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import toolsData from '../content/tools.json';
 import { StatusBadge } from '../lumen/StatusBadge';
 import { ArrowRight } from '../lumen/ToolCard';
+import { DraftNotice, needsReview } from '../lumen/DraftNotice';
 
 const { tools, meta } = toolsData;
 
@@ -142,6 +143,8 @@ export default function ToolDetailPage() {
         {tool.description}
       </p>
 
+      {needsReview(tool) && <DraftNotice note="This tool write-up was drafted by AI — its description and notes need a human review before relying on them." />}
+
       <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)' }}>
 
         {/* Why it's useful */}
@@ -269,7 +272,7 @@ export default function ToolDetailPage() {
                   display: 'flex', flexDirection: 'column', gap: 'var(--space-2)',
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <Link className="lmn-tool__ped" to="/explainer/pedagogies" title={p.label} style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--weight-semibold)' }}>
+                    <Link className="lmn-tool__ped" to={`/pedagogies/${p.id}`} title={p.label} style={{ fontSize: 'var(--text-sm)', fontWeight: 'var(--weight-semibold)' }}>
                       {p.label} <ArrowRight />
                     </Link>
                     <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', color: 'var(--text-muted)' }}>{p.author}</span>

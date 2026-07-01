@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import capabilitiesData from '../content/capabilities.json';
 import toolsData from '../content/tools.json';
 import { StatusBadge } from '../lumen/StatusBadge';
+import { DraftNotice } from '../lumen/DraftNotice';
 
 const { capabilities } = capabilitiesData;
 const { tools, meta } = toolsData;
@@ -69,9 +70,11 @@ export default function CapabilityPage() {
         </h1>
       </div>
 
-      <p style={{ fontSize: 'var(--text-md)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-7)' }}>
+      <p style={{ fontSize: 'var(--text-md)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-6)' }}>
         {cap.what}
       </p>
+
+      <DraftNotice />
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-7)' }}>
         {/* Educational uses */}

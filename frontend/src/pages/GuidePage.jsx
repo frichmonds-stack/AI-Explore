@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import guidesData from '../content/guides.json';
 import toolsData from '../content/tools.json';
 import { StatusBadge } from '../lumen/StatusBadge';
+import { DraftNotice, needsReview } from '../lumen/DraftNotice';
 
 const { guides } = guidesData;
 const { tools, meta } = toolsData;
@@ -106,6 +107,8 @@ export default function GuidePage() {
       <p style={{ fontSize: 'var(--text-md)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-6)' }}>
         {guide.summary}
       </p>
+
+      {needsReview(guide) && <DraftNotice />}
 
       {/* What you'll end up with */}
       {guide.outcome && (
@@ -246,7 +249,7 @@ export default function GuidePage() {
           <p style={{ fontSize: 'var(--text-md)', color: '#fff', lineHeight: 'var(--leading-relaxed)', margin: 0 }}>
             {guide.pedagogyNote.content}
           </p>
-          <Link to="/pedagogies" style={{ display: 'inline-block', marginTop: 'var(--space-4)', fontSize: 'var(--text-sm)', color: '#fff', fontWeight: 'var(--weight-semibold)' }}>
+          <Link to={`/pedagogies/${guide.pedagogyNote.framework}`} style={{ display: 'inline-block', marginTop: 'var(--space-4)', fontSize: 'var(--text-sm)', color: '#fff', fontWeight: 'var(--weight-semibold)' }}>
             This is the point — explore teaching well with AI →
           </Link>
         </div>

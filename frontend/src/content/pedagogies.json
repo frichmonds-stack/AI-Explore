@@ -358,6 +358,216 @@
           "content": "Use AI proactively in planning to design access in from the start — not reactively as a last-minute accommodation. And remember that 'provided' or 'simplified' is not automatically 'accessible': check the output against the actual student in front of you."
         }
       ]
+    },
+    {
+      "id": "blooms",
+      "title": "Bloom's Taxonomy",
+      "summary": "A ladder of thinking from remembering to creating — used to design tasks with deliberate depth.",
+      "workTypes": ["assessment-feedback", "lesson-planning", "class-engagement"],
+      "blocks": [
+        {
+          "type": "heading",
+          "content": "What it is"
+        },
+        {
+          "type": "text",
+          "content": "Bloom's Taxonomy classifies thinking into a hierarchy of cognitive demand. The widely used revised version runs: Remember, Understand, Apply, Analyse, Evaluate, Create. It gives teachers a shared language for the kind of thinking a task asks for — and a check against lessons that stay stuck at the bottom of the ladder."
+        },
+        {
+          "type": "heading",
+          "content": "Core concepts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Six levels of cognitive demand — Remember, Understand, Apply, Analyse, Evaluate, Create.",
+            "Lower-order thinking (remember, understand) is the foundation; higher-order thinking (analyse, evaluate, create) is where understanding deepens.",
+            "The levels are a spread to design across, not a strict sequence every lesson must climb in order.",
+            "Verbs make it usable — each level maps to task verbs ('list' vs 'justify' vs 'design') that signal the demand.",
+            "Higher is not always better — fluency at lower levels is what makes higher-order thinking possible."
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "In the classroom"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Write learning intentions and questions using verbs from a deliberate range of levels",
+            "Audit a quiz or task set: how much sits at recall versus analysis and beyond?",
+            "Build question sequences that move students from understanding to evaluation",
+            "Use the levels to differentiate — same topic, different cognitive demand",
+            "Plan assessment so marks reward reasoning, not just recall"
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "Where it meets AI"
+        },
+        {
+          "type": "text",
+          "content": "AI is genuinely useful for designing across the taxonomy: ask it to generate questions at specific levels, or to label existing questions by level, and the cognitive demand of your task becomes visible at a glance. Used well, it helps push tasks up the ladder rather than leaving them at recall."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Generate questions or tasks targeted at named levels (e.g. two 'analyse', two 'evaluate')",
+            "Label an existing quiz by level to reveal whether it over-relies on recall",
+            "Produce higher-order prompts and discussion questions on demand"
+          ]
+        },
+        {
+          "type": "risk",
+          "title": "Levels labelled aren't levels achieved",
+          "content": "AI will happily label a question 'evaluate' when it really asks for recall, and a student can reach a higher-order answer by prompting AI rather than thinking. The taxonomy describes the thinking the student does — so the design question is always whether the task makes the student, not the tool, do the analysing."
+        },
+        {
+          "type": "pedagogy",
+          "title": "Design principle",
+          "content": "Use AI to make cognitive demand visible and to lift tasks up the ladder — then check the higher-order thinking is the student's to do, not something AI can hand over."
+        }
+      ]
+    },
+    {
+      "id": "depth-of-knowledge",
+      "title": "Depth of Knowledge (DOK)",
+      "summary": "Webb's four levels of how deeply students engage with content — from recall to extended reasoning.",
+      "workTypes": ["assessment-feedback", "lesson-planning", "student-research"],
+      "blocks": [
+        {
+          "type": "heading",
+          "content": "What it is"
+        },
+        {
+          "type": "text",
+          "content": "Depth of Knowledge, developed by Norman Webb, describes the complexity of thinking a task requires — not its difficulty. Its four levels run from recall of facts (DOK 1), through applying skills and concepts (DOK 2) and strategic thinking (DOK 3), to extended reasoning and transfer across contexts (DOK 4). It asks not 'is this hard?' but 'how deeply must the student think?'"
+        },
+        {
+          "type": "heading",
+          "content": "Core concepts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "DOK 1 — Recall: facts, definitions, simple procedures.",
+            "DOK 2 — Skill/concept: apply, summarise, organise; decisions about how to approach a problem.",
+            "DOK 3 — Strategic thinking: reason, justify, weigh evidence, handle ambiguity.",
+            "DOK 4 — Extended thinking: investigate, synthesise across sources, transfer to new contexts over time.",
+            "Depth is not difficulty — a hard recall question is still DOK 1; the measure is the kind of thinking, not the effort."
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "In the classroom"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Check that a task's top level genuinely requires reasoning, not just more facts",
+            "Design assessments that reach DOK 3–4, not only DOK 1–2",
+            "Plan extended, cross-context projects to build DOK 4 thinking over time",
+            "Use DOK to write rubric descriptors that reward depth of reasoning",
+            "Sequence tasks so students move from skills (DOK 2) into strategic thinking (DOK 3)"
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "Where it meets AI"
+        },
+        {
+          "type": "text",
+          "content": "AI can draft tasks and rubric descriptors at specific DOK levels, helping you build intentional progressions beyond recall. It is most helpful for the design work — generating DOK 3 prompts, or checking whether a task really reaches the depth you intend."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Draft tasks and questions aimed at a target DOK level",
+            "Write rubric level descriptors that distinguish reasoning depth",
+            "Generate a sample top-level and bottom-level response to test whether your task separates them"
+          ]
+        },
+        {
+          "type": "risk",
+          "title": "AI can shortcut the very depth you're after",
+          "content": "DOK 3–4 tasks — strategic and extended reasoning — are exactly what students can offload to AI. The deeper the task, the more important it is to design for the student's thinking to be visible and theirs: drafts, reasoning shown, decisions defended in person."
+        },
+        {
+          "type": "pedagogy",
+          "title": "Design principle",
+          "content": "Let AI help you design for depth, but build in ways for the strategic and extended thinking to be the student's own and visible — because that depth is the point, and the easiest thing to outsource."
+        }
+      ]
+    },
+    {
+      "id": "visible-learning",
+      "title": "Visible Learning",
+      "summary": "Hattie's synthesis of what most reliably accelerates learning — feedback, practice and metacognition.",
+      "workTypes": ["assessment-feedback", "professional-learning", "lesson-planning"],
+      "blocks": [
+        {
+          "type": "heading",
+          "content": "What it is"
+        },
+        {
+          "type": "text",
+          "content": "Visible Learning is John Hattie's synthesis of over 1,400 meta-analyses, ranking the influences that most reliably accelerate student learning. Its core idea: learning is most powerful when teaching and its effects are made visible — when teachers see learning through students' eyes, and students become their own teachers. Specific feedback, deliberate practice, clear goals and metacognition consistently rise to the top."
+        },
+        {
+          "type": "heading",
+          "content": "Core concepts"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Effect size — influences are compared by impact, so effort goes to what works most.",
+            "Feedback is among the highest-impact moves — but only when it's specific and tells the learner what to do next.",
+            "Clear learning intentions and success criteria — students know what they're aiming for and when they've got there.",
+            "Metacognition and self-assessment — students who can judge their own learning accelerate it.",
+            "'Know thy impact' — teachers actively check whether their teaching actually moved learning."
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "In the classroom"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Make success criteria explicit and refer to them throughout a task",
+            "Prioritise feedback that names the next step, not just a grade or praise",
+            "Build in self- and peer-assessment against clear criteria",
+            "Use quick checks for understanding to see your real impact, then adjust",
+            "Teach students to reflect on how they learn, not just what"
+          ]
+        },
+        {
+          "type": "heading",
+          "content": "Where it meets AI"
+        },
+        {
+          "type": "text",
+          "content": "AI can speed up the feedback cycle and help make learning visible: drafting specific, next-step feedback, turning a task into student-friendly success criteria, or generating self-assessment prompts. The win is faster, clearer feedback — provided the teacher keeps the judgement and the relationship that make feedback land."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Draft specific, next-step feedback comments for teacher review",
+            "Turn a task into student-friendly success criteria",
+            "Generate reflection and self-assessment prompts for students"
+          ]
+        },
+        {
+          "type": "risk",
+          "title": "Feedback is relational, not just informational",
+          "content": "Hattie's high-impact feedback works partly because it comes from a trusted teacher who knows the student. AI-generated feedback, however well-phrased, carries none of that relationship — and for students who struggle, the 'I know your work and believe you can improve' is as important as the content. Use AI to draft, never to be the one who gives the feedback."
+        },
+        {
+          "type": "pedagogy",
+          "title": "Design principle",
+          "content": "Use AI to make feedback faster and clearer, and spend the time saved on the judgement and relationship only you bring — the part that makes feedback actually change learning."
+        }
+      ]
     }
   ]
 }

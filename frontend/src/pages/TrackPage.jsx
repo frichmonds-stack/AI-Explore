@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import tracks from '../content';
 import toolsData from '../content/tools.json';
+import { DraftNotice, needsReview } from '../lumen/DraftNotice';
 
 const useCatLabel = (id) => toolsData.meta.useCategories.find((u) => u.id === id)?.label || id;
 
@@ -32,7 +33,8 @@ export default function TrackPage({ trackId }) {
           </ul>
         </div>
         <h1 className="text-3xl font-bold text-base-content mb-3">{track.title}</h1>
-        <p className="text-base text-base-content/70 max-w-2xl">{track.description}</p>
+        <p className="text-base text-base-content/70 max-w-2xl mb-6">{track.description}</p>
+        {needsReview(track) && <DraftNotice />}
       </div>
 
       {/* Section list */}

@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import toolsData from '../content/tools.json';
+import { DraftNotice } from '../lumen/DraftNotice';
 
 const { meta } = toolsData;
 
@@ -190,6 +191,7 @@ export default function ExplainerPage() {
 
   return (
     <div style={{ maxWidth: 720 }}>
+      <DraftNotice />
       {content}
       <div style={{ marginTop: 'var(--space-8)', paddingTop: 'var(--space-6)', borderTop: '1px solid var(--border-subtle)' }}>
         <Link to="/tools" style={{ fontSize: 'var(--text-sm)', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)' }}>
