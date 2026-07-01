@@ -1,7 +1,7 @@
 # Open Threads
 
 ## 🔴 Blocking
-- **GitHub push auth failing** — `git push` returns 401 despite token being regenerated and stored via `git credential-osxkeychain store`. Commits are local only until resolved. Investigate whether managed device / org policy is interfering with keychain credential lookup.
+_(none)_
 
 ## 🟡 Unresolved
 - **Tool `access` / `cewaProvided` are placeholders** — cost tier and "in the CEWA stack" flag added to `tools.json` (detail page only). Seeded on ~8 tools; the three marked `cewaProvided` (microsoft-copilot, microsoft-reading-coach, seqta-ai-assist) and all cost tiers are best-guesses flagged in-UI as "pending CEWA confirmation". Needs an authoritative CEWA source before it can be trusted, then fill the remaining tools.
@@ -12,6 +12,7 @@
 - **Block types in SectionPage** — not confirmed all block types (`risk`, `pedagogy-note`, `list`, `heading`) render correctly.
 
 ## 🟢 Resolved
+- ~~GitHub push auth failing (401)~~ — resolved 2026-07-01: `git push` to the feature branch succeeded (commits 482ed58 / e530490). Credentials now working; no longer blocking.
 - ~~Hosting decision (CEWA tenant)~~ — resolved 2026-06-25: launching as a **personal project** on a static host (Netlify/Vercel/Cloudflare/GitHub Pages), no CEWA IT dependency. See DECISIONS.md → Infrastructure. (New downstream thread: unofficial-site disclaimer, above.)
 - ~~CRA + Tailwind v4 styling broken~~ — migrated to Vite, DaisyUI rendering correctly.
 - ~~Git repo not initialised~~ — repo at `frichmonds-stack/AI-Explore`, pushed to GitHub.
