@@ -22,15 +22,23 @@
     ],
     "bands": [
       { "id": "early-childhood", "label": "Early Childhood", "years": "K–2" },
-      { "id": "primary",         "label": "Primary",         "years": "3–6" },
+      { "id": "primary",         "label": "Primary School",  "years": "3–6" },
       { "id": "middle",          "label": "Middle School",   "years": "7–9" },
-      { "id": "senior",          "label": "Senior",          "years": "10–12" }
+      { "id": "senior",          "label": "Senior School",   "years": "10–12" }
     ],
     "subjects": [
       "English", "Mathematics", "Science", "HASS", "Arts", "Technologies", "HPE", "Cross-curricular"
     ],
     "roles": [
       "Administration", "Classroom", "Curriculum", "Assessment", "Professional Learning", "Creativity & Media"
+    ],
+    "domains": [
+      { "id": "curriculum-planning",   "label": "Curriculum & Planning", "description": "Designing and planning learning — lesson plans, units and differentiated materials.", "useCategories": ["lesson-planning", "differentiation"] },
+      { "id": "classroom-teaching",    "label": "Classroom Teaching",    "description": "Live teaching and learning — engagement, literacy, writing and student research.",      "useCategories": ["class-engagement", "reading-literacy", "writing-support", "student-research"] },
+      { "id": "assessment",            "label": "Assessment",            "description": "Checking and growing learning — assessment tasks, feedback and reporting.",             "useCategories": ["assessment-feedback"] },
+      { "id": "creativity-media",      "label": "Creativity & Media",    "description": "Producing visual, audio and multimedia assets for teaching and student work.",          "useCategories": ["creative-projects"] },
+      { "id": "administration",        "label": "Administration",        "description": "The operational load around teaching — communications and documentation.",               "useCategories": ["admin-communication"] },
+      { "id": "professional-learning", "label": "Professional Learning", "description": "Your own growth — research, reflection and preparing for appraisal.",                    "useCategories": ["professional-learning"] }
     ],
     "cewaStatuses": [
       { "id": "approved",            "label": "Approved",      "description": "Cleared for use on CEWA devices" },

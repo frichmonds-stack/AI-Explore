@@ -1,0 +1,73 @@
+{
+  "note": "Glossary config. Most groups resolve their terms from an existing source of truth via `source` (tools.json meta keys, or guides difficulties) so definitions live in one place. Only axes that have no description elsewhere (roles, subjects) carry inline `terms` here. This page is a placeholder home for these definitions — the longer-term intent is to surface each one as an inline tooltip where the label is used.",
+  "intro": "Plain-language definitions for the labels and badges used across the site — the approval statuses on tools, and the categories used to filter and tag tools and guides.",
+  "placeholderNote": "This is a temporary reference page. We expect most of these definitions to eventually appear as inline tooltips on the labels themselves, rather than living on a separate page.",
+  "groups": [
+    {
+      "id": "approval",
+      "label": "Approval status",
+      "facet": "Approval",
+      "intro": "Every tool carries a badge showing where it stands with CEWA. Sourced from CEWA's publicly published list — always confirm current status and your school's policy before using a tool with students.",
+      "source": "cewaStatuses",
+      "render": "badge"
+    },
+    {
+      "id": "domain",
+      "label": "Domain",
+      "facet": "Domain",
+      "intro": "The broad area of teaching work. Domains group the more specific 'work types' beneath them — choosing a domain narrows the work types you see.",
+      "source": "domains"
+    },
+    {
+      "id": "work-type",
+      "label": "Work type",
+      "facet": "What you need to do",
+      "intro": "The job to be done, sitting under a domain. This is the primary way tools and guides are organised — start from the task, not the technology.",
+      "source": "useCategories"
+    },
+    {
+      "id": "pedagogy",
+      "label": "Pedagogy",
+      "facet": "Teaching approach",
+      "intro": "The teaching frameworks a tool or guide best supports. Each links through to a fuller explanation under Teaching.",
+      "source": "pedagogyFrameworks"
+    },
+    {
+      "id": "year-level",
+      "label": "Year level",
+      "facet": "Band",
+      "intro": "The schooling band a tool or guide is pitched at.",
+      "source": "bands"
+    },
+    {
+      "id": "subject",
+      "label": "Subject",
+      "facet": "Learning area",
+      "intro": "Australian Curriculum learning areas. 'Cross-curricular' means a tool or guide isn't tied to one subject.",
+      "terms": [
+        { "term": "English", "def": "Language, literature and literacy." },
+        { "term": "Mathematics", "def": "Number, algebra, measurement, geometry, statistics and probability." },
+        { "term": "Science", "def": "Biological, chemical, earth/space and physical sciences, plus science inquiry skills." },
+        { "term": "HASS", "def": "Humanities and Social Sciences — history, geography, civics and citizenship, and economics and business." },
+        { "term": "Arts", "def": "The Arts — visual arts, music, drama, dance and media arts." },
+        { "term": "Technologies", "def": "Design and Technologies, and Digital Technologies." },
+        { "term": "HPE", "def": "Health and Physical Education." },
+        { "term": "Cross-curricular", "def": "Spans multiple learning areas rather than sitting in a single subject." }
+      ]
+    },
+    {
+      "id": "difficulty",
+      "label": "Difficulty",
+      "facet": "Guide level",
+      "intro": "How much prior AI experience a guide assumes.",
+      "source": "difficulties"
+    },
+    {
+      "id": "availability",
+      "label": "Availability & cost",
+      "facet": "Access",
+      "intro": "How a tool is accessed — shown on tool detail pages. Cost and licensing details are best-guesses pending confirmation.",
+      "source": "accessTiers"
+    }
+  ]
+}

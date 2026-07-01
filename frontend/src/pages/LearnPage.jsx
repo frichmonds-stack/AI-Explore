@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { DraftNotice } from '../lumen/DraftNotice';
 
 const areas = [
   {
@@ -19,6 +20,12 @@ const areas = [
     title: 'AI Safety',
     description: 'Child safety first: the risks to development, data and equity, and the judgement of when AI genuinely serves learning.',
   },
+  {
+    to: '/glossary',
+    icon: '📖',
+    title: 'Glossary',
+    description: 'Plain-language definitions for the approval badges and the categories used to tag and filter tools and guides across the site.',
+  },
 ];
 
 export default function LearnPage() {
@@ -36,6 +43,9 @@ export default function LearnPage() {
           Just enough to use AI well and safely in teaching — what it is, what it can do, and how to keep students safe.
         </p>
       </div>
+
+      <DraftNotice />
+
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {areas.map((a) => (

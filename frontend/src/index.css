@@ -62,4 +62,22 @@
   }
   .lmn-nav__links { margin-left: 0; }
   .lmn-nav__spacer { display: none; }
+  /* Pin the search trigger to the brand row (top-right) instead of letting it
+     wrap onto its own orphaned line below the tabs. */
+  .lmn-nav__right {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-4);
+  }
+}
+
+/* Glossary definition list — stack term over definition on narrow screens. */
+@media (max-width: 640px) {
+  .lmn-glossary-dl {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-1) var(--space-4) !important;
+  }
+  .lmn-glossary-dl dd {
+    margin-bottom: var(--space-4) !important;
+  }
 }

@@ -73,28 +73,43 @@ function StatusFooter() {
 }
 
 export default function ToolsPage() {
+  const [domain, setDomain] = useState(ALL);
   const [useCategory, setUseCategory] = useState(ALL);
   const [band, setBand] = useState(ALL);
   const [subject, setSubject] = useState(ALL);
-  const [role, setRole] = useState(ALL);
   const [pedagogy, setPedagogy] = useState(ALL);
   const [cewaStatus, setCewaStatus] = useState(ALL);
 
-  const values = { useCategory, band, subject, role, pedagogy, cewaStatus };
+  const values = { domain, useCategory, band, subject, pedagogy, cewaStatus };
   const setters = {
-    useCategory: setUseCategory, band: setBand, subject: setSubject,
-    role: setRole, pedagogy: setPedagogy, cewaStatus: setCewaStatus,
+    domain: setDomain, useCategory: setUseCategory, band: setBand, subject: setSubject,
+    pedagogy: setPedagogy, cewaStatus: setCewaStatus,
   };
-  const setFacet = (key, val) => setters[key](val);
+  // Domain is the parent of Work type: choosing one narrows the work types and
+  // clears any work type that no longer belongs to the chosen domain.
+  const setFacet = (key, val) => {
+    setters[key](val);
+    if (key === 'domain' && val !== ALL) {
+      const d = meta.domains.find((x) => x.id === val);
+      if (useCategory !== ALL && d && !d.useCategories.includes(useCategory)) setUseCategory(ALL);
+    }
+  };
   const clearAll = () => Object.values(setters).forEach((s) => s(ALL));
 
-  // One compact dropdown row instead of six stacked pill rows.
+  // Work type options are scoped to the chosen domain (all of them when none is set).
+  const activeDomain = meta.domains.find((d) => d.id === domain);
+  const workTypeOptions = activeDomain
+    ? meta.useCategories.filter((u) => activeDomain.useCategories.includes(u.id))
+    : meta.useCategories;
+
+  // One compact dropdown row instead of stacked pill rows. Domain leads, then
+  // the work type it narrows.
   const facets = [
-    { key: 'useCategory', label: 'Work type',  options: meta.useCategories },
-    { key: 'role',        label: 'Work area',  options: meta.roles.map((r) => ({ id: r, label: r })) },
-    { key: 'band',        label: 'Year level', options: meta.bands, allLabel: 'Any age' },
+    { key: 'domain',      label: 'Domain',     options: meta.domains.map((d) => ({ id: d.id, label: d.label })) },
+    { key: 'useCategory', label: 'Work type',  options: workTypeOptions },
+    { key: 'band',        label: 'Year level', options: meta.bands.map((b) => ({ id: b.id, label: `${b.label} (${b.years})` })), allLabel: 'Any age' },
     { key: 'subject',     label: 'Subject',    options: meta.subjects.map((s) => ({ id: s, label: s })) },
-    { key: 'pedagogy',    label: 'Pedagogy',   options: meta.pedagogyFrameworks.map((p) => ({ id: p.id, label: p.shortLabel || p.label })) },
+    { key: 'pedagogy',    label: 'Pedagogy',   options: meta.pedagogyFrameworks.map((p) => ({ id: p.id, label: p.label })) },
     { key: 'cewaStatus',  label: 'Approval',   options: meta.cewaStatuses },
   ];
 
@@ -111,14 +126,17 @@ export default function ToolsPage() {
   };
 
   const filtered = useMemo(() => tools.filter((t) => {
+    if (domain !== ALL) {
+      const d = meta.domains.find((x) => x.id === domain);
+      if (!d || !(t.useCategories || []).some((u) => d.useCategories.includes(u))) return false;
+    }
     if (useCategory !== ALL && !(t.useCategories || []).includes(useCategory)) return false;
     if (band !== ALL && !t.bands.includes(band)) return false;
     if (subject !== ALL && !t.subjects.includes(subject)) return false;
-    if (role !== ALL && !t.roles.includes(role)) return false;
     if (pedagogy !== ALL && !t.pedagogies.includes(pedagogy)) return false;
     if (cewaStatus !== ALL && t.cewaStatus !== cewaStatus) return false;
     return true;
-  }), [useCategory, band, subject, role, pedagogy, cewaStatus]);
+  }), [domain, useCategory, band, subject, pedagogy, cewaStatus]);
 
   const featured = filtered.filter((t) => t.featured);
   const rest = filtered.filter((t) => !t.featured);

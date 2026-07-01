@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { facetHint, termDef } from '../lib/definitions';
+import './InfoTip'; // side-effect: injects the .lmn-infotip tooltip CSS used below
 
 /*
  * FacetFilters — a compact, single-row filter bar.
@@ -77,18 +79,24 @@ export function FacetFilters({ facets, values, onChange, onClear, resultCount, r
           const active = val !== ALL;
           const selLabel = active ? (f.options.find((o) => o.id === val)?.label || val) : f.label;
           const open = openKey === f.key;
+          // Contextual hint: the selected term's definition once active, else
+          // the category's own definition. Hidden while the menu is open.
+          const tip = active ? termDef(f.key, val) : facetHint(f.key);
           return (
             <div className="lmn-facet" key={f.key}>
-              <button
-                type="button"
-                className={['lmn-facet__btn', active ? 'is-active' : '', open ? 'is-open' : ''].filter(Boolean).join(' ')}
-                aria-haspopup="listbox"
-                aria-expanded={open}
-                onClick={() => setOpenKey(open ? null : f.key)}
-              >
-                <span className="lmn-facet__txt">{selLabel}</span>
-                <span className="lmn-facet__chev">▾</span>
-              </button>
+              <span className="lmn-infotip">
+                <button
+                  type="button"
+                  className={['lmn-facet__btn', active ? 'is-active' : '', open ? 'is-open' : ''].filter(Boolean).join(' ')}
+                  aria-haspopup="listbox"
+                  aria-expanded={open}
+                  onClick={() => setOpenKey(open ? null : f.key)}
+                >
+                  <span className="lmn-facet__txt">{selLabel}</span>
+                  <span className="lmn-facet__chev">▾</span>
+                </button>
+                {!open && tip && <span className="lmn-infotip__tip" role="tooltip">{tip}</span>}
+              </span>
               {open && (
                 <div className="lmn-facet__menu" role="listbox">
                   <button

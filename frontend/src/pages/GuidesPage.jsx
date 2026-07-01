@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import guidesData from '../content/guides.json';
 import toolsData from '../content/tools.json';
 import { FacetFilters } from '../lumen/FacetFilters';
+import { DraftNotice, needsReview } from '../lumen/DraftNotice';
 
 const { guides } = guidesData;
 const { meta } = toolsData;
@@ -45,6 +46,7 @@ function GuideCard({ guide }) {
         <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', color: 'var(--text-muted)' }}>
           {guide.time} · {diffLabel(guide.difficulty)}
         </span>
+        {needsReview(guide) && <DraftNotice variant="badge" />}
       </div>
 
       <div>
@@ -70,34 +72,50 @@ function GuideCard({ guide }) {
 }
 
 export default function GuidesPage() {
+  const [domain, setDomain] = useState(ALL);
   const [useCategory, setUseCategory] = useState(ALL);
-  const [role, setRole] = useState(ALL);
   const [band, setBand] = useState(ALL);
   const [pedagogy, setPedagogy] = useState(ALL);
   const [difficulty, setDifficulty] = useState(ALL);
 
-  const values = { useCategory, role, band, pedagogy, difficulty };
-  const setters = { useCategory: setUseCategory, role: setRole, band: setBand, pedagogy: setPedagogy, difficulty: setDifficulty };
-  const setFacet = (key, val) => setters[key](val);
+  const values = { domain, useCategory, band, pedagogy, difficulty };
+  const setters = { domain: setDomain, useCategory: setUseCategory, band: setBand, pedagogy: setPedagogy, difficulty: setDifficulty };
+  // Domain is the parent of Work type — narrows it and clears a now-invalid choice.
+  const setFacet = (key, val) => {
+    setters[key](val);
+    if (key === 'domain' && val !== ALL) {
+      const d = meta.domains.find((x) => x.id === val);
+      if (useCategory !== ALL && d && !d.useCategories.includes(useCategory)) setUseCategory(ALL);
+    }
+  };
   const clearAll = () => Object.values(setters).forEach((s) => s(ALL));
 
-  // Compact, scannable facets in the owner's vocabulary (work type / work area / age …).
+  // Work type options scoped to the chosen domain.
+  const activeDomain = meta.domains.find((d) => d.id === domain);
+  const workTypeOptions = activeDomain
+    ? meta.useCategories.filter((u) => activeDomain.useCategories.includes(u.id))
+    : meta.useCategories;
+
+  // Compact, scannable facets — domain leads, then the work type it narrows.
   const facets = [
-    { key: 'useCategory', label: 'Work type',  options: meta.useCategories },
-    { key: 'role',        label: 'Work area',  options: meta.roles.map((r) => ({ id: r, label: r })) },
-    { key: 'band',        label: 'Year level', options: meta.bands, allLabel: 'Any age' },
-    { key: 'pedagogy',    label: 'Pedagogy',   options: meta.pedagogyFrameworks.map((p) => ({ id: p.id, label: p.shortLabel || p.label })) },
+    { key: 'domain',      label: 'Domain',     options: meta.domains.map((d) => ({ id: d.id, label: d.label })) },
+    { key: 'useCategory', label: 'Work type',  options: workTypeOptions },
+    { key: 'band',        label: 'Year level', options: meta.bands.map((b) => ({ id: b.id, label: `${b.label} (${b.years})` })), allLabel: 'Any age' },
+    { key: 'pedagogy',    label: 'Pedagogy',   options: meta.pedagogyFrameworks.map((p) => ({ id: p.id, label: p.label })) },
     { key: 'difficulty',  label: 'Difficulty', options: difficulties },
   ];
 
   const filtered = useMemo(() => guides.filter((g) => {
+    if (domain !== ALL) {
+      const d = meta.domains.find((x) => x.id === domain);
+      if (!d || !d.useCategories.includes(g.useCategory)) return false;
+    }
     if (useCategory !== ALL && g.useCategory !== useCategory) return false;
-    if (role !== ALL && !(g.roles || []).includes(role)) return false;
     if (band !== ALL && !(g.bands || []).includes(band)) return false;
     if (pedagogy !== ALL && !(g.pedagogies || []).includes(pedagogy)) return false;
     if (difficulty !== ALL && g.difficulty !== difficulty) return false;
     return true;
-  }), [useCategory, role, band, pedagogy, difficulty]);
+  }), [domain, useCategory, band, pedagogy, difficulty]);
 
   const featured = filtered.filter((g) => g.featured);
   const rest = filtered.filter((g) => !g.featured);
@@ -111,9 +129,10 @@ export default function GuidesPage() {
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', color: 'var(--text-strong)', fontWeight: 'var(--weight-semibold)', margin: 'var(--space-2) 0 var(--space-3)' }}>
           What's new and worth a read in education AI
         </h1>
-        <p style={{ fontSize: 'var(--text-md)', color: 'var(--text-muted)', maxWidth: 640, lineHeight: 'var(--leading-relaxed)' }}>
-          Thought-provoking pieces and practical how-tos on teaching with AI. (These starters are AI-drafted placeholders — to be replaced with human-written pieces.)
+        <p style={{ fontSize: 'var(--text-md)', color: 'var(--text-muted)', maxWidth: 640, lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-5)' }}>
+          Thought-provoking pieces and practical how-tos on teaching with AI.
         </p>
+        <DraftNotice note="These starters are AI-drafted placeholders — everything here is meant to be human-written, so each needs a rewrite and review before publishing." />
       </div>
 
       {/* Filters — one compact dropdown row, options hidden until opened */}

@@ -44,7 +44,9 @@ const CSS = `
 .lmn-status__tip strong{ display:block; font-weight:var(--weight-semibold); margin-bottom:2px; }
 .lmn-status__tip::after{ content:""; position:absolute; top:100%; left:50%; transform:translateX(-50%);
   border:5px solid transparent; border-top-color:var(--pine-800); }
-.lmn-status:hover .lmn-status__tip, .lmn-status:focus-within .lmn-status__tip{ opacity:1; transform:translateX(-50%) translateY(0); }
+/* Hover or keyboard focus only — :focus-visible (not :focus-within) so a mouse
+   click on the badge doesn't leave the tooltip stuck open after the cursor leaves. */
+.lmn-status:hover .lmn-status__tip, .lmn-status:focus-visible .lmn-status__tip{ opacity:1; transform:translateX(-50%) translateY(0); }
 `;
 if (typeof document !== 'undefined' && !document.getElementById('lmn-status-css')) {
   const s = document.createElement('style'); s.id = 'lmn-status-css'; s.textContent = CSS; document.head.appendChild(s);

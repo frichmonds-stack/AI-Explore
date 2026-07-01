@@ -1,5 +1,7 @@
 import { Outlet, NavLink } from 'react-router-dom';
 import { LumenMark } from '../lumen/Navbar';
+import { GlobalSearch } from '../lumen/GlobalSearch';
+import { SiteFooter } from '../lumen/SiteFooter';
 
 // Work-first order: do the work, then the tools, then the craft, then learn about AI.
 // About AI / AI Capabilities / AI Safety all live under the Learn hub.
@@ -33,18 +35,16 @@ export default function Layout() {
           ))}
         </div>
         <span className="lmn-nav__spacer" />
+        <div className="lmn-nav__right">
+          <GlobalSearch />
+        </div>
       </nav>
 
       <main className="max-w-5xl mx-auto px-4 py-8 lg:px-8">
         <Outlet />
       </main>
 
-      <footer className="footer footer-center p-6 mt-16"
-              style={{ background: 'var(--paper-100)', borderTop: '1px solid var(--border-subtle)' }}>
-        <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
-          AI for Teachers — A professional development resource for K–12 educators
-        </p>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
