@@ -1,12 +1,13 @@
 import React from 'react';
+import { SHOW_APPROVAL_STATUS } from '../config';
 
 /* Tool approval status — single source of truth for label and tooltip text. */
 export const STATUS = {
-  approved:    { label: 'Approved',     tip: 'Reviewed and approved for use on CEWA school devices.' },
-  conditional: { label: 'Conditional',  tip: 'Approved for CEWA use with specific conditions — check the notes before using.' },
+  approved:    { label: 'Approved',     tip: 'Reviewed and approved for use on school-managed devices.' },
+  conditional: { label: 'Conditional',  tip: 'Approved with specific conditions — check the notes before using.' },
   review:      { label: 'Under Review', tip: 'Currently being evaluated — avoid on school devices until cleared.' },
-  restricted:  { label: 'Not Approved', tip: 'Explicitly blocked on CEWA devices. Avoid on school networks.' },
-  unreviewed:  { label: 'Unreviewed',   tip: 'Not yet assessed — use professional judgement on personal devices only.' },
+  restricted:  { label: 'Not Approved', tip: 'Explicitly blocked on school-managed devices. Avoid on school networks.' },
+  unreviewed:  { label: 'Unreviewed',   tip: 'Not independently reviewed — use professional judgement.' },
 };
 
 const CSS = `
@@ -53,6 +54,8 @@ if (typeof document !== 'undefined' && !document.getElementById('lmn-status-css'
 }
 
 export function StatusBadge({ status = 'unreviewed', showTip = true, className = '', ...rest }) {
+  // Approval layer hidden for the public build (see config.js). Renders nothing.
+  if (!SHOW_APPROVAL_STATUS) return null;
   const cfg = STATUS[status] || STATUS.unreviewed;
   return (
     <span className={['lmn-status', `lmn-status--${status}`, className].filter(Boolean).join(' ')} tabIndex={showTip ? 0 : undefined} {...rest}>

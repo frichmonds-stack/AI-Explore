@@ -4,6 +4,7 @@ import guidesData from '../content/guides.json';
 import glossary from '../content/glossary.json';
 import { StatusBadge } from '../lumen/StatusBadge';
 import { usePageMeta } from '../lib/usePageMeta';
+import { SHOW_APPROVAL_STATUS } from '../config';
 
 // CEWA status id (tools.json) → StatusBadge display variant.
 const cewaStatusMap = {
@@ -82,7 +83,7 @@ export default function GlossaryPage() {
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-9)' }}>
-        {glossary.groups.map((group) => {
+        {glossary.groups.filter((g) => SHOW_APPROVAL_STATUS || g.id !== 'approval').map((group) => {
           const rows = normalise(group);
           return (
             <section key={group.id} id={group.id} style={{ scrollMarginTop: '80px' }}>

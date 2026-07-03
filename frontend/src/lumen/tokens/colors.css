@@ -92,7 +92,7 @@
   --text-on-primary: var(--white);
   --text-link:      var(--pine-600);
 
-  /* ---- CEWA tool approval status ---- */
+  /* ---- Tool approval status ---- */
   --status-approved-fg:   var(--success-700);
   --status-approved-bg:   var(--success-100);
   --status-approved-dot:  var(--success-600);

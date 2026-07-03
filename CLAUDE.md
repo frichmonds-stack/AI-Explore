@@ -25,7 +25,7 @@ No test suite — exploratory/content project.
 ## Architecture
 
 ### Routing — HashRouter
-All routes live in [`frontend/src/App.jsx`](frontend/src/App.jsx). The app uses **`BrowserRouter`** with clean URLs (`/tools/chatgpt`) — switched from `HashRouter` (2026-07-01) for SEO + social share cards. Two things make this work on static hosts: (1) an SPA fallback (`public/_redirects` for Cloudflare/Netlify, `vercel.json` for Vercel) so deep links don't 404; (2) a **build-time pre-render** ([`frontend/scripts/prerender.mjs`](frontend/scripts/prerender.mjs), run by `npm run build`) that writes a real per-route `index.html` with correct `<title>` + Open Graph/Twitter tags for every route (static + all dynamic ids from the content JSON) so non-JS crawlers/social scrapers see proper metadata. Client-side, [`usePageMeta`](frontend/src/lib/usePageMeta.js) updates the same tags as you navigate. **Set `SITE_URL` as a build env var** (e.g. on the host) so `og:url`/`og:image` are absolute; add a `public/og-default.png` (1200×630) for share images. Target host: **Cloudflare Pages** (free).
+All routes live in [`frontend/src/App.jsx`](frontend/src/App.jsx). **`BrowserRouter`** with clean URLs (was `HashRouter`; switched 2026-07-01 for SEO/share cards). Deep links work via an SPA fallback (`public/_redirects`, `vercel.json`); `npm run build` then runs a **pre-render** ([`scripts/prerender.mjs`](frontend/scripts/prerender.mjs)) that writes a real per-route `index.html` with `<title>` + OG/Twitter tags (all static + dynamic routes) so non-JS/social crawlers get proper metadata, while [`usePageMeta`](frontend/src/lib/usePageMeta.js) updates them on client nav. Set `SITE_URL` + add `public/og-default.png` (1200×630) for share images. Host: **Cloudflare Pages** — see [`.claude/deploy.md`](.claude/deploy.md).
 
 | Path | Component |
 |---|---|
@@ -44,7 +44,7 @@ All routes live in [`frontend/src/App.jsx`](frontend/src/App.jsx). The app uses 
 Tracks (content files): `foundations` (title "About AI") · `risks` (title "AI Safety") · `pedagogies` (title "Teaching Ideas") · `practice` & `explore` (legacy, **not in nav** — retained as raw material, mostly AI-generated cruft pending rework).
 
 ### Strategy — work-first
-The site leads with **doing the work** (Guides + Tools), then the craft, then learning about AI, with **child safety first**. Nav is deliberately just four uniform labels: **Explore** (route `/guides` — pending rename to an articles/"what's new" section) → **Tools** → **Teaching** (`pedagogies`) → **Learn** (hub over About AI · AI Capabilities · AI Safety). **Learn is a hub** (`/learn`) over three areas: **About AI** (= `foundations` track), **AI Capabilities** (= `capabilities.json`, the new capability-first catalogue), and **AI Safety** (= `risks` track, which now also holds the "When AI Serves Learning" judgment section moved out of pedagogies). Full rationale in [`.claude/scope-and-strategy.md`](.claude/scope-and-strategy.md). Audience is K–12 educators broadly; **CEWA approval badges are retained** as the worked example of "safe/approved to use".
+The site leads with **doing the work** (Guides + Tools), then the craft, then learning about AI, with **child safety first**. Nav is deliberately just four uniform labels: **Explore** (route `/guides` — pending rename to an articles/"what's new" section) → **Tools** → **Teaching** (`pedagogies`) → **Learn** (hub over About AI · AI Capabilities · AI Safety). **Learn is a hub** (`/learn`) over three areas: **About AI** (= `foundations` track), **AI Capabilities** (= `capabilities.json`, the new capability-first catalogue), and **AI Safety** (= `risks` track, which now also holds the "When AI Serves Learning" judgment section moved out of pedagogies). Full rationale in [`.claude/project-context.md`](.claude/project-context.md). Audience is K–12 educators broadly; **CEWA approval badges are retained** as the worked example of "safe/approved to use".
 
 ### Content — JSON files
 All content lives in [`frontend/src/content/`](frontend/src/content/). Never hardcode strings in components.
@@ -89,6 +89,6 @@ Both `ToolsPage` and `GuidesPage` filter through one shared component, [`fronten
 - Backlog: [`.claude/BACKLOG.md`](.claude/BACKLOG.md)
 - Decisions log: [`.claude/DECISIONS.md`](.claude/DECISIONS.md)
 - Open threads: [`.claude/THREADS.md`](.claude/THREADS.md)
-- Content & display architecture: [`.claude/content-architecture.md`](.claude/content-architecture.md)
+- Tool review architecture (DRAFT, fluid): [`.claude/tool-review-architecture.md`](.claude/tool-review-architecture.md)
 - Project background (purpose, audience): [`.claude/project-context.md`](.claude/project-context.md)
 - Close-out procedure: [`.claude/close-out.md`](.claude/close-out.md)

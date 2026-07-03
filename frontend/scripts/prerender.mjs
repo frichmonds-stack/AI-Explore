@@ -40,9 +40,10 @@ const add = (path, title, description, type = 'website') =>
 add('/', null, DEFAULT_DESC);
 add('/articles', 'Articles', 'Curated reading on teaching with AI — practical pieces, perspectives, and what’s new, chosen to be worth a busy teacher’s time.');
 add('/guides', 'Guides', 'Short, classroom-ready walkthroughs for getting real work done with AI — safely and pedagogically.');
-add('/tools', 'Tools', 'A browsable library of AI tools for teaching, each carrying its CEWA approval status.');
+add('/tools', 'Tools', 'A browsable library of AI tools for teaching — what each is good for, and how it fits your classroom.');
 add('/glossary', 'Glossary', 'Plain-language definitions for the approval badges and categories used across the site.');
 add('/saved', 'Saved', 'Your saved tools, guides and articles — kept on this device.');
+add('/about', 'About', 'An independent, honest attempt to help teachers decide whether, when and how to use AI — child safety and good teaching first.');
 add('/learn', 'Learn', 'Understand the AI behind your work — what it is, what it can do, and how to keep students safe.');
 add('/learn/capabilities', 'AI Capabilities', 'What AI can actually do, grouped by capability, with the tools that do it.');
 add('/foundations', foundations.title, foundations.description);

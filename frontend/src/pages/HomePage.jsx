@@ -25,7 +25,7 @@ const popularTools = toolsData.tools
 // pedagogy is where it leads, with safety as the ever-present guard-rail.
 const pillars = [
   { id: 'guides', label: 'Explore', icon: '🧭', description: 'Thought-provoking reads and practical how-tos on teaching with AI — what is new and worth your time.', badge: null, tone: 'pine' },
-  { id: 'tools', label: 'Find a tool', icon: '🧰', description: 'A browsable library of AI tools, each carrying its CEWA approval status so you know what is cleared for school.', badge: null, tone: 'pine' },
+  { id: 'tools', label: 'Find a tool', icon: '🧰', description: 'A browsable library of AI tools for teaching — what each is good for, where to be careful, and how it fits your classroom.', badge: null, tone: 'pine' },
   { id: 'pedagogies', label: 'Teaching', icon: '📚', description: 'Where the work leads: the big ideas behind good teaching, unpacked simply — what they are and what they look like in the classroom.', badge: 'Where it leads', tone: 'pine' },
   { id: 'learn', label: 'Learn about AI', icon: '🔍', description: 'Understand the AI behind your work — what it is, what it can actually do, and how to keep students safe. Only as deep as your job needs.', badge: null, tone: 'pine' },
 ];
@@ -191,7 +191,7 @@ export default function HomePage() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
         </svg>
         <p style={{ fontSize: 'var(--text-sm)', color: 'var(--warning-700)', lineHeight: 'var(--leading-relaxed)' }}>
-          <strong>Child safety comes first.</strong> Every guide carries a safety check, and tools show their CEWA approval status.
+          <strong>Child safety comes first.</strong> Every guide carries a safety check.
           Where AI poses risks to children — to their development, their data, or their learning — we name them clearly, not at the end.
         </p>
       </div>

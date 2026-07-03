@@ -4,6 +4,7 @@ import { SaveButton } from '../lumen/SaveButton';
 import { ShareButton } from '../lumen/ShareButton';
 import toolsData from '../content/tools.json';
 import { StatusBadge } from '../lumen/StatusBadge';
+import { SHOW_APPROVAL_STATUS } from '../config';
 import { ArrowRight } from '../lumen/ToolCard';
 import { DraftNotice, needsReview } from '../lumen/DraftNotice';
 
@@ -28,23 +29,23 @@ const ROLE_DESC = {
 
 const CEWA_DETAIL = {
   approved: {
-    summary: 'This tool has been reviewed and cleared for use on CEWA school devices and networks.',
+    summary: 'This tool has been reviewed and cleared for use on school-managed devices and networks.',
     guidance: 'You can use this on school-managed devices. Still apply professional judgement around student data, age-appropriateness, and how student work is stored.',
   },
   conditional: {
-    summary: 'CEWA has approved this tool for school use, but specific conditions apply.',
+    summary: 'Approved for school use, but specific conditions apply.',
     guidance: 'Read the conditions carefully before using on school devices. Restrictions commonly relate to student age, data storage location, or particular features within the tool.',
   },
   review: {
-    summary: 'CEWA is currently evaluating this tool — no decision has been made yet.',
+    summary: 'Currently being evaluated — no decision has been made yet.',
     guidance: 'Avoid using on school-managed devices until the review is complete. Use on personal devices is at your own professional discretion.',
   },
   restricted: {
-    summary: 'CEWA has explicitly blocked this tool from school devices and networks.',
+    summary: 'Explicitly blocked from school devices and networks.',
     guidance: 'Do not use this tool on school devices or within school networks. This restriction applies to both teachers and students.',
   },
   unreviewed: {
-    summary: 'This tool has not yet been assessed by CEWA.',
+    summary: 'This tool has not yet been independently reviewed.',
     guidance: 'Use professional judgement. Appropriate for personal devices; avoid school-managed devices until reviewed. Check vendor privacy policies before using with student data.',
   },
 };
@@ -170,25 +171,27 @@ export default function ToolDetailPage() {
           </Section>
         )}
 
-        {/* CEWA Status */}
-        <Section label="CEWA device status">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', padding: 'var(--space-4)', background: 'var(--surface-card)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
-              <StatusBadge status={status} />
+        {/* Approval/device status — hidden for the public build (see config.js). */}
+        {SHOW_APPROVAL_STATUS && (
+          <Section label="Device status">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', padding: 'var(--space-4)', background: 'var(--surface-card)', border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)' }}>
+                <StatusBadge status={status} />
+              </div>
+              <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)', margin: 0, fontWeight: 'var(--weight-medium)' }}>
+                {statusDetail.summary}
+              </p>
+              <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', lineHeight: 'var(--leading-relaxed)', margin: 0 }}>
+                {statusDetail.guidance}
+              </p>
             </div>
-            <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-body)', lineHeight: 'var(--leading-relaxed)', margin: 0, fontWeight: 'var(--weight-medium)' }}>
-              {statusDetail.summary}
-            </p>
-            <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', lineHeight: 'var(--leading-relaxed)', margin: 0 }}>
-              {statusDetail.guidance}
-            </p>
-          </div>
-        </Section>
+          </Section>
+        )}
 
         {/* Availability & access — secondary "tell me more" info, detail page only */}
-        {(tool.cewaProvided || accessTier) && (
+        {((SHOW_APPROVAL_STATUS && tool.cewaProvided) || accessTier) && (
           <Section label="Availability & access">
-            {tool.cewaProvided && (
+            {SHOW_APPROVAL_STATUS && tool.cewaProvided && (
               <div style={{
                 display: 'flex', flexDirection: 'column', gap: 'var(--space-2)',
                 padding: 'var(--space-4)', background: 'var(--pine-50)',
@@ -198,7 +201,7 @@ export default function ToolDetailPage() {
                   alignSelf: 'flex-start', fontFamily: 'var(--font-sans)', fontSize: 'var(--text-xs)',
                   fontWeight: 'var(--weight-semibold)', color: '#fff', background: 'var(--pine-600)',
                   borderRadius: 'var(--radius-pill)', padding: '.3em .8em',
-                }}>In your CEWA toolkit</span>
+                }}>Already in your toolkit</span>
                 <p style={{ fontSize: 'var(--text-sm)', color: 'var(--pine-800)', fontWeight: 'var(--weight-semibold)', margin: 0 }}>
                   Likely already available to you — no separate signup or cost.
                 </p>
@@ -232,7 +235,7 @@ export default function ToolDetailPage() {
             )}
 
             <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', lineHeight: 'var(--leading-relaxed)', margin: 0, fontStyle: 'italic' }}>
-              Pricing and what's provisioned change often, and not every tool here is confirmed against the current CEWA stack — check with your school's digital team before relying on this. Free or provided doesn't mean cleared for student data; the CEWA device status above is the gate that matters there.
+              Pricing and what's provisioned change often — check with your school's digital team before relying on this. Free or provided doesn't mean cleared for student data; confirm a tool's suitability and your school's policy before using it with students.
             </p>
           </Section>
         )}
@@ -310,7 +313,7 @@ export default function ToolDetailPage() {
               marginBottom: 'var(--space-2)',
             }}>Setup guide coming soon</p>
             <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', lineHeight: 'var(--leading-relaxed)', margin: 0 }}>
-              A step-by-step classroom setup guide for {tool.name} is being written, including account setup, student access, and integration with CEWA systems. In the meantime, visit the vendor's help centre via the link below.
+              A step-by-step classroom setup guide for {tool.name} is being written, including account setup, student access, and integration with your school's systems. In the meantime, visit the vendor's help centre via the link below.
             </p>
           </div>
         </Section>

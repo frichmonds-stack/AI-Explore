@@ -7,7 +7,7 @@
       "id": "approval",
       "label": "Approval status",
       "facet": "Approval",
-      "intro": "Every tool carries a badge showing where it stands with CEWA. Sourced from CEWA's publicly published list — always confirm current status and your school's policy before using a tool with students.",
+      "intro": "A tool's review/approval status. Currently not shown publicly — tools are not independently reviewed yet; always confirm a tool's suitability and your school's policy before using it with students.",
       "source": "cewaStatuses",
       "render": "badge"
     },

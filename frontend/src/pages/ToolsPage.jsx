@@ -4,6 +4,7 @@ import { ToolSpotlight } from '../lumen/ToolSpotlight';
 import { StatusBadge } from '../lumen/StatusBadge';
 import { FacetFilters } from '../lumen/FacetFilters';
 import { usePageMeta } from '../lib/usePageMeta';
+import { SHOW_APPROVAL_STATUS } from '../config';
 import toolsData from '../content/tools.json';
 
 const { tools, meta } = toolsData;
@@ -38,11 +39,11 @@ function ToolGrid({ items, selectedId, onSelect }) {
 
 function StatusFooter() {
   const statuses = [
-    ['approved',    'Cleared for use on CEWA school devices and networks.'],
-    ['conditional', 'Approved for CEWA use — specific conditions apply. Read them before using.'],
-    ['review',      'Under CEWA evaluation. Avoid on school devices until a decision is published.'],
-    ['restricted',  'Explicitly blocked on CEWA devices. Do not use on school networks.'],
-    ['unreviewed',  'Not yet assessed by CEWA. Suitable for personal devices; professional judgement required.'],
+    ['approved',    'Cleared for use on school-managed devices and networks.'],
+    ['conditional', 'Approved with specific conditions — read them before using.'],
+    ['review',      'Under evaluation. Avoid on school devices until a decision is published.'],
+    ['restricted',  'Explicitly blocked on school-managed devices and networks.'],
+    ['unreviewed',  'Not independently reviewed. Use professional judgement; check with your school.'],
   ];
   return (
     <div style={{
@@ -56,9 +57,9 @@ function StatusFooter() {
         fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
         textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 'var(--weight-medium)',
         marginBottom: 'var(--space-3)',
-      }}>About CEWA device status</p>
+      }}>About device status</p>
       <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-4)' }}>
-        CEWA assesses tools against its approved software list. Status applies to school-managed devices and networks.
+        Status applies to school-managed devices and networks.
         Tools used on personal devices remain at the teacher's professional discretion.
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
@@ -74,7 +75,7 @@ function StatusFooter() {
 }
 
 export default function ToolsPage() {
-  usePageMeta({ title: 'Tools', description: 'A browsable library of AI tools for teaching, each carrying its CEWA approval status.' });
+  usePageMeta({ title: 'Tools', description: 'A browsable library of AI tools for teaching — what each is good for, and how it fits your classroom.' });
   const [domain, setDomain] = useState(ALL);
   const [useCategory, setUseCategory] = useState(ALL);
   const [band, setBand] = useState(ALL);
@@ -112,7 +113,7 @@ export default function ToolsPage() {
     { key: 'band',        label: 'Year level', options: meta.bands.map((b) => ({ id: b.id, label: `${b.label} (${b.years})` })), allLabel: 'Any age' },
     { key: 'subject',     label: 'Subject',    options: meta.subjects.map((s) => ({ id: s, label: s })) },
     { key: 'pedagogy',    label: 'Pedagogy',   options: meta.pedagogyFrameworks.map((p) => ({ id: p.id, label: p.label })) },
-    { key: 'cewaStatus',  label: 'Approval',   options: meta.cewaStatuses },
+    ...(SHOW_APPROVAL_STATUS ? [{ key: 'cewaStatus', label: 'Approval', options: meta.cewaStatuses }] : []),
   ];
 
   // Spotlight: no tool selected on load — appears on first card click.
@@ -271,7 +272,7 @@ export default function ToolsPage() {
         </div>
       )}
 
-      <StatusFooter />
+      {SHOW_APPROVAL_STATUS && <StatusFooter />}
     </div>
   );
 }

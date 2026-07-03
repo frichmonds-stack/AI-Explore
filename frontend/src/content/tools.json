@@ -41,11 +41,11 @@
       { "id": "professional-learning", "label": "Professional Learning", "description": "Your own growth — research, reflection and preparing for appraisal.",                    "useCategories": ["professional-learning"] }
     ],
     "cewaStatuses": [
-      { "id": "approved",            "label": "Approved",      "description": "Cleared for use on CEWA devices" },
+      { "id": "approved",            "label": "Approved",      "description": "Cleared for use on school-managed devices" },
       { "id": "approved-conditions", "label": "Conditional",   "description": "Usable with specific restrictions" },
-      { "id": "under-review",        "label": "Under Review",  "description": "CEWA assessment in progress — avoid for now" },
-      { "id": "not-approved",        "label": "Not Approved",  "description": "Explicitly blocked on CEWA devices" },
-      { "id": "not-reviewed",        "label": "Unreviewed",    "description": "Not on CEWA list — personal devices only" }
+      { "id": "under-review",        "label": "Under Review",  "description": "Assessment in progress — avoid for now" },
+      { "id": "not-approved",        "label": "Not Approved",  "description": "Explicitly blocked on school-managed devices" },
+      { "id": "not-reviewed",        "label": "Unreviewed",    "description": "Not independently reviewed — use professional judgement" }
     ],
     "accessTiers": [
       { "id": "free",               "label": "Free",               "description": "Free to use." },
@@ -65,7 +65,7 @@
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://openai.com&size=128",
       "description": "Draft lesson resources, adapt explanations for your class, generate discussion questions, and create feedback starting points. One of the most versatile AI tools across every teaching role.",
       "url": "https://chatgpt.com",
-      "cewaStatus": "approved-conditions",
+      "cewaStatus": "not-reviewed",
       "useCategories": ["lesson-planning", "writing-support", "assessment-feedback", "admin-communication"],
       "roles": ["Administration", "Classroom", "Curriculum", "Assessment", "Professional Learning"],
       "subjects": ["Cross-curricular"],
@@ -82,7 +82,7 @@
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://gemini.google.com&size=128",
       "description": "Plan lessons, draft communications, and generate curriculum materials directly within Google Docs and Slides. A practical AI starting point for teachers already working in Google Workspace.",
       "url": "https://gemini.google.com",
-      "cewaStatus": "approved-conditions",
+      "cewaStatus": "not-reviewed",
       "useCategories": ["lesson-planning", "admin-communication", "professional-learning"],
       "roles": ["Administration", "Curriculum", "Professional Learning"],
       "subjects": ["Cross-curricular"],
@@ -101,7 +101,7 @@
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://notebooklm.google.com&size=128",
       "description": "AI research and note-taking tool that works directly with your documents. Upload curriculum materials and interrogate them.",
       "url": "https://notebooklm.google.com",
-      "cewaStatus": "not-approved",
+      "cewaStatus": "not-reviewed",
       "useCategories": ["professional-learning", "student-research", "assessment-feedback"],
       "roles": ["Curriculum", "Professional Learning", "Assessment"],
       "subjects": ["Cross-curricular"],
@@ -120,7 +120,7 @@
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://canva.com&size=128",
       "description": "AI-powered design tools within Canva — generate images, presentations, and visual resources for the classroom.",
       "url": "https://canva.com",
-      "cewaStatus": "approved-conditions",
+      "cewaStatus": "not-reviewed",
       "useCategories": ["creative-projects", "lesson-planning", "class-engagement"],
       "roles": ["Classroom", "Curriculum", "Creativity & Media"],
       "subjects": ["Arts", "English", "HASS", "Cross-curricular"],
@@ -128,19 +128,19 @@
       "pedagogies": ["udl", "differentiation"],
       "featured": false,
       "popular": true,
-      "notes": "CEWA-approved. Strong for visual learners and accessible resource creation. Image generation requires content moderation awareness."
+      "notes": "Strong for visual learners and accessible resource creation. Image generation requires content-moderation awareness."
     },
     {
       "id": "microsoft-copilot",
       "access": "school-licence",
-      "cewaProvided": true,
-      "accessNote": "Placeholder pending CEWA confirmation: available within the Microsoft 365 tenant most CEWA schools already use — no separate signup.",
+      "cewaProvided": false,
+      "accessNote": "",
       "name": "Microsoft Copilot",
       "vendor": "Microsoft",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://microsoft.com&size=128",
       "description": "Microsoft's AI assistant, embedded across the 365 suite. Supports document drafting, summarisation, and data analysis in familiar tools.",
       "url": "https://copilot.microsoft.com",
-      "cewaStatus": "approved-conditions",
+      "cewaStatus": "not-reviewed",
       "useCategories": ["lesson-planning", "admin-communication", "writing-support"],
       "roles": ["Administration", "Curriculum", "Professional Learning"],
       "subjects": ["Cross-curricular"],
@@ -148,7 +148,7 @@
       "pedagogies": ["cognitive-load", "differentiation"],
       "featured": true,
       "popular": true,
-      "notes": "CEWA-approved via Microsoft 365 licensing. Best starting point for teachers on CEWA devices."
+      "notes": "Widely available via Microsoft 365 licensing. A strong starting point for teachers already in the Microsoft ecosystem."
     },
     {
       "id": "khanmigo",
@@ -263,7 +263,7 @@
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://suno.com&size=128",
       "description": "Generate original songs, backing tracks, and audio stimulus from a text description. Create music for classroom listening, student creative projects, or arts unit resources.",
       "url": "https://suno.com",
-      "cewaStatus": "not-approved",
+      "cewaStatus": "not-reviewed",
       "useCategories": ["creative-projects", "class-engagement"],
       "roles": ["Creativity & Media", "Classroom"],
       "subjects": ["Arts", "English", "Cross-curricular"],
@@ -280,7 +280,7 @@
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://adobe.com&size=128",
       "description": "Create classroom-ready images, visual stimulus, and designed resources using Adobe's content-safe AI. Works inside familiar Creative Cloud tools teachers and students already use.",
       "url": "https://firefly.adobe.com",
-      "cewaStatus": "approved-conditions",
+      "cewaStatus": "not-reviewed",
       "useCategories": ["creative-projects", "lesson-planning"],
       "roles": ["Classroom", "Curriculum", "Creativity & Media"],
       "subjects": ["Arts", "English", "Cross-curricular"],
@@ -297,7 +297,7 @@
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://chalkie.com.au&size=128",
       "description": "Australian Curriculum-aligned lesson materials generated by AI, designed by teachers. Purpose-built for the Australian context.",
       "url": "https://chalkie.com.au",
-      "cewaStatus": "approved-conditions",
+      "cewaStatus": "not-reviewed",
       "useCategories": ["lesson-planning", "assessment-feedback", "differentiation"],
       "roles": ["Curriculum", "Administration"],
       "subjects": ["Cross-curricular"],
@@ -305,19 +305,19 @@
       "pedagogies": ["differentiation", "visible-learning", "blooms"],
       "featured": true,
       "popular": false,
-      "notes": "Use Google SSO for authentication. Do not upload student personal or sensitive information. Must abide by CEWA's Generative AI Framework."
+      "notes": "Use single sign-on where available. Do not upload student personal or sensitive information. Follow your school's generative-AI policy."
     },
     {
       "id": "microsoft-reading-coach",
       "access": "free",
-      "cewaProvided": true,
-      "accessNote": "Placeholder pending CEWA confirmation: part of the Microsoft 365 / Reading Progress suite available to CEWA schools.",
+      "cewaProvided": false,
+      "accessNote": "",
       "name": "Microsoft Reading Coach",
       "vendor": "Microsoft",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://microsoft.com&size=128",
       "description": "Personalised, AI-powered reading fluency practice for all learners. Adapts to each student's reading level and progress.",
       "url": "https://coach.microsoft.com",
-      "cewaStatus": "approved",
+      "cewaStatus": "not-reviewed",
       "useCategories": ["reading-literacy", "assessment-feedback", "differentiation"],
       "roles": ["Classroom", "Assessment"],
       "subjects": ["English"],
@@ -325,7 +325,7 @@
       "pedagogies": ["udl", "differentiation", "visible-learning"],
       "featured": false,
       "popular": false,
-      "notes": "CEWA approved. Part of the Microsoft 365 Education suite."
+      "notes": "Part of the Microsoft 365 Education suite."
     },
     {
       "id": "quillbot",
@@ -334,7 +334,7 @@
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://quillbot.com&size=128",
       "description": "AI-powered writing tool for paraphrasing, grammar checking, summarisation, and citation generation. Useful for teacher resource creation.",
       "url": "https://quillbot.com",
-      "cewaStatus": "approved-conditions",
+      "cewaStatus": "not-reviewed",
       "useCategories": ["writing-support", "professional-learning"],
       "roles": ["Curriculum", "Professional Learning", "Administration"],
       "subjects": ["English", "Cross-curricular"],
@@ -342,19 +342,19 @@
       "pedagogies": ["cognitive-load", "blooms"],
       "featured": false,
       "popular": false,
-      "notes": "May only use Team Plan — schools may not use the free version."
+      "notes": "Check licensing before school use — a paid team plan is typically required, and the free version may not be suitable."
     },
     {
       "id": "seqta-ai-assist",
       "access": "school-licence",
-      "cewaProvided": true,
-      "accessNote": "Placeholder pending CEWA confirmation: bundled with SEQTA, which is used across many CEWA schools.",
+      "cewaProvided": false,
+      "accessNote": "",
       "name": "SEQTA AI Assist",
       "vendor": "SEQTA",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://seqta.com.au&size=128",
-      "description": "AI-powered lesson planning and resource creation built into the SEQTA learning management system used across CEWA schools.",
+      "description": "AI-powered lesson planning and resource creation built into the SEQTA learning management system used across many schools.",
       "url": "https://seqta.com.au",
-      "cewaStatus": "approved-conditions",
+      "cewaStatus": "not-reviewed",
       "useCategories": ["lesson-planning", "admin-communication", "assessment-feedback"],
       "roles": ["Curriculum", "Administration"],
       "subjects": ["Cross-curricular"],
@@ -371,7 +371,7 @@
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://quizizz.com&size=128",
       "description": "AI-supported game-based quizzes, personalised learning paths, and assessment tools. Formerly known as Quizizz.",
       "url": "https://wayground.com",
-      "cewaStatus": "approved-conditions",
+      "cewaStatus": "not-reviewed",
       "useCategories": ["class-engagement", "assessment-feedback"],
       "roles": ["Classroom", "Assessment"],
       "subjects": ["Cross-curricular"],
@@ -379,7 +379,7 @@
       "pedagogies": ["visible-learning", "blooms", "depth-of-knowledge"],
       "featured": false,
       "popular": true,
-      "notes": "Use CEWA SSO. Do not use personal or sensitive information — data stored offshore in the USA."
+      "notes": "Use single sign-on where available. Do not use personal or sensitive information — data stored offshore in the USA."
     },
     {
       "id": "turnitin",
@@ -388,7 +388,7 @@
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://turnitin.com&size=128",
       "description": "Plagiarism detection and AI writing detection platform. Includes Draft Coach for in-progress student writing feedback.",
       "url": "https://turnitin.com",
-      "cewaStatus": "approved",
+      "cewaStatus": "not-reviewed",
       "useCategories": ["assessment-feedback"],
       "roles": ["Assessment"],
       "subjects": ["Cross-curricular"],
@@ -405,7 +405,7 @@
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://speechify.com&size=128",
       "description": "AI voice and text-to-speech tool. Converts any text to natural-sounding audio, supporting accessibility and differentiated learning.",
       "url": "https://speechify.com",
-      "cewaStatus": "approved-conditions",
+      "cewaStatus": "not-reviewed",
       "useCategories": ["reading-literacy", "differentiation"],
       "roles": ["Classroom"],
       "subjects": ["Cross-curricular"],
@@ -422,7 +422,7 @@
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://nurture.education&size=128",
       "description": "Plan lessons, design differentiated resources, and monitor student progress with an AI assistant built around evidence-based teaching frameworks. Keeps teachers in control while reducing preparation time.",
       "url": "https://nurture.education",
-      "cewaStatus": "approved-conditions",
+      "cewaStatus": "not-reviewed",
       "useCategories": ["assessment-feedback", "lesson-planning", "differentiation"],
       "roles": ["Classroom", "Curriculum", "Assessment"],
       "subjects": ["Cross-curricular"],
@@ -430,7 +430,7 @@
       "pedagogies": ["visible-learning", "differentiation", "cognitive-load"],
       "featured": false,
       "popular": false,
-      "notes": "CEWA pilot Jan–Jun 2025 for pilot schools only. Check with your school's digital team for current status."
+      "notes": "Has been offered as a limited pilot in some schools. Check with your school's digital team for current status."
     },
     {
       "id": "perplexity",
@@ -447,7 +447,7 @@
       "pedagogies": ["depth-of-knowledge", "visible-learning", "blooms"],
       "featured": false,
       "popular": false,
-      "notes": "Not on CEWA list. Cites sources inline — strong model for teaching information literacy alongside AI use."
+      "notes": "Cites sources inline — a strong model for teaching information literacy alongside AI use."
     },
     {
       "id": "gamma",
@@ -464,7 +464,7 @@
       "pedagogies": ["cognitive-load", "udl"],
       "featured": false,
       "popular": false,
-      "notes": "Not on CEWA list. Strong for teacher-created presentations and student projects."
+      "notes": "Strong for teacher-created presentations and student projects."
     },
     {
       "id": "schoolai",
@@ -481,7 +481,7 @@
       "pedagogies": ["differentiation", "visible-learning", "cognitive-load"],
       "featured": true,
       "popular": false,
-      "notes": "Not on CEWA list. Teacher-controlled student AI spaces with monitoring — strong alignment with intentional AI use philosophy."
+      "notes": "Teacher-controlled student AI spaces with monitoring — strong alignment with intentional AI use philosophy."
     },
     {
       "id": "eduaide",
@@ -498,16 +498,16 @@
       "pedagogies": ["differentiation", "udl", "blooms"],
       "featured": false,
       "popular": false,
-      "notes": "Not on CEWA list. Education-specific with broad coverage of teaching tasks."
+      "notes": "Education-specific with broad coverage of teaching tasks."
     },
     {
       "id": "deepseek",
       "name": "DeepSeek",
       "vendor": "DeepSeek",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://deepseek.com&size=128",
-      "description": "General-purpose AI assistant not cleared for CEWA use. Avoid on school devices and networks. For similar capability, use Microsoft Copilot or ChatGPT with appropriate safeguards.",
+      "description": "General-purpose AI assistant with significant privacy and data-security concerns. Check your school's policy before use; for similar capability, Microsoft Copilot or ChatGPT with appropriate safeguards are more common choices.",
       "url": "https://deepseek.com",
-      "cewaStatus": "not-approved",
+      "cewaStatus": "not-reviewed",
       "useCategories": [],
       "roles": [],
       "subjects": [],
@@ -515,7 +515,7 @@
       "pedagogies": [],
       "featured": false,
       "popular": false,
-      "notes": "Not approved for CEWA use as per prime memo 7th February 2025."
+      "notes": "Significant privacy and data-security concerns — check your school's policy before use."
     },
     {
       "id": "capcut",
@@ -524,7 +524,7 @@
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://capcut.com&size=128",
       "description": "AI-powered video and photo editing app with automatic captions and text-to-speech features.",
       "url": "https://capcut.com",
-      "cewaStatus": "not-approved",
+      "cewaStatus": "not-reviewed",
       "useCategories": [],
       "roles": [],
       "subjects": [],

@@ -133,7 +133,7 @@ export default function GuidePage() {
         </div>
       )}
 
-      {/* Tools you can use (with CEWA badges) */}
+      {/* Tools you can use */}
       {guideTools.length > 0 && (
         <div style={{ marginBottom: 'var(--space-8)' }}>
           <SectionLabel>Tools you can use</SectionLabel>

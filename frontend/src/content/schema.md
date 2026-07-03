@@ -82,7 +82,7 @@ Guides are the **work-first** content type — short, task-shaped walkthroughs r
   "subjects": ["string"],
   "time": "string",            // e.g. "10 minutes"
   "difficulty": "string",      // a difficulties id: starter | confident | advanced
-  "tools": ["string"],         // tools.json ids — rendered with their CEWA badge
+  "tools": ["string"],         // tools.json ids — rendered with their approval badge (when enabled)
   "pedagogies": ["string"],    // pedagogyFrameworks ids
   "featured": true,            // surfaces in the "Start here" rail + homepage
   "outcome": "string",         // what the teacher ends up with
@@ -99,6 +99,6 @@ Guides are the **work-first** content type — short, task-shaped walkthroughs r
 
 **Conventions**
 - `safety` is required on every guide — it's the child-safety-first commitment made concrete. Don't author a guide without it.
-- `tools` ids must exist in `tools.json`; the guide inherits each tool's CEWA approval badge.
+- `tools` ids must exist in `tools.json`; the guide inherits each tool's approval badge (hidden while the approval layer is off — see `config.js`).
 - `next` ids that don't resolve are silently dropped, so it's safe to reference guides not yet written.
 - One `useCategory` per guide (the primary job); use `roles`/`pedagogies` arrays for breadth.

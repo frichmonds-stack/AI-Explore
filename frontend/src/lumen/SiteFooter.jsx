@@ -22,6 +22,7 @@ const navCols = [
   {
     heading: 'Reference',
     links: [
+      { to: '/about', label: 'About' },
       { to: '/glossary', label: 'Glossary' },
       { to: '/saved', label: 'Saved' },
     ],
@@ -49,8 +50,8 @@ if (typeof document !== 'undefined' && !document.getElementById('lmn-footer-css'
   const s = document.createElement('style'); s.id = 'lmn-footer-css'; s.textContent = CSS; document.head.appendChild(s);
 }
 
-// Source-of-truth date for the CEWA snapshot. Update when the approval data is refreshed.
-const CEWA_AS_OF = 'June 2026';
+// Last content update, shown in the footer.
+const SITE_UPDATED = 'July 2026';
 
 export function SiteFooter() {
   return (
@@ -74,16 +75,16 @@ export function SiteFooter() {
         </div>
 
         <p className="lmn-footer__disclaimer">
-          <strong>Independent project — not affiliated with or endorsed by CEWA.</strong>{' '}
-          Approval statuses are sourced from CEWA’s publicly published tool list (snapshot: {CEWA_AS_OF}) and may be out of date —
-          always confirm a tool’s current status and your school’s policy before using it with students. Tools shown beyond the CEWA
-          list are for personal-device judgement only. The approval badges and the other labels used across the site are explained in
+          <strong>Independent project.</strong>{' '}
+          <Link to="/about">More about this site</Link>.{' '}
+          Tools listed here are not independently reviewed or endorsed — always confirm a tool’s suitability, its current
+          status, and your school’s policy before using it with students. The labels used across the site are explained in
           the <Link to="/glossary">glossary</Link>.
         </p>
 
         <div className="lmn-footer__base">
           <span>A professional-learning resource for K–12 educators.</span>
-          <span>Updated {CEWA_AS_OF}</span>
+          <span>Updated {SITE_UPDATED}</span>
         </div>
       </div>
     </footer>

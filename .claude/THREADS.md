@@ -4,10 +4,8 @@
 _(none)_
 
 ## 🟡 Unresolved
-- **Tool `access` / `cewaProvided` are placeholders** — cost tier and "in the CEWA stack" flag added to `tools.json` (detail page only). Seeded on ~8 tools; the three marked `cewaProvided` (microsoft-copilot, microsoft-reading-coach, seqta-ai-assist) and all cost tiers are best-guesses flagged in-UI as "pending CEWA confirmation". Needs an authoritative CEWA source before it can be trusted, then fill the remaining tools.
-- **Unofficial-site disclaimer — footer DONE, About page pending** — launching as a personal project (see DECISIONS.md, Infrastructure); site shows CEWA approval data but is **not affiliated with CEWA**. The short disclaimer now ships in the new site footer (`SiteFooter.jsx`, snapshot date in `CEWA_AS_OF`). Still needed before going public: a long-form **About page** (what this is, who made it, how tools are vetted, the CEWA-source caveat in full).
+- **CEWA approval data — hidden, needs authorisation to reinstate** — the approval statuses were internal-sourced (no public version found), so the whole approval layer is switched OFF (`config.js` `SHOW_APPROVAL_STATUS=false`; see DECISIONS 2026-07-01). To bring it back: confirm a public source OR get CEWA authorisation, then flip the flag + repopulate. Also: the internal values remain in git *history* (private repo) — scrub history before making the repo public. Supersedes the old `access`/`cewaProvided` placeholder + Nurture-AI-pilot threads.
 - **Lumen tweaks** — direction approved but specific tweaks needed. To be worked through when integrating into frontend.
-- **Nurture AI pilot status** — listed as Jan–Jun 2025 pilot on CEWA list. Likely expired. Shown as-is per CEWA's classification — their responsibility to update.
 - **Content completeness** — most JSON files have partial content. No audit done yet.
 - **Block types in SectionPage** — not confirmed all block types (`risk`, `pedagogy-note`, `list`, `heading`) render correctly.
 
@@ -18,4 +16,4 @@ _(none)_
 - ~~Git repo not initialised~~ — repo at `frichmonds-stack/AI-Explore`, pushed to GitHub.
 - ~~CLAUDE.md too heavy~~ — slimmed down, procedures split into `.claude/` directory.
 - ~~No design system~~ — Lumen design system created by Claude Design, direction approved.
-- ~~No planning docs~~ — BACKLOG.md, DECISIONS.md, THREADS.md, content-architecture.md all in place.
+- ~~No planning docs~~ — BACKLOG.md, DECISIONS.md, THREADS.md, project-context.md all in place.
