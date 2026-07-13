@@ -1,5 +1,8 @@
 # Decisions
 
+## Process
+- **AI workflow ported from Budget-Tool (2026-07-13)** — adopted the owner's most mature AI workflow system (the private `Budget-Tool` repo; Math-Muscle-Trainer reviewed first as an earlier generation of the same system), adapted to this project's scale: `current-state.md` (present-tense handoff snapshot, updated only when verified state changes); `task-map.md` (route work to the smallest file set + source-of-truth order when docs conflict); `owner-context.md` (owner-as-collaborator canon: non-coder building through AI, challenge-over-validate, lean communication, approval-before-building); `session-log.md` (dated milestones, ~150-line rotation to archive); and a rewritten `close-out.md` (Mode Gate table — `Plan only` / `execute now` / `Normal Close` / `Publish Close` / `Commit` / `Push`; canonical-destination doc-routing table, one file per fact; final report must state what checks prove in product terms and never claim pushed/live unless verified). Budget-Tool's data-safety scan is adapted into a **CEWA confidentiality pass** before any commit. Deliberately **not** ported: per-area `ai/state/` files + `INDEX.md` files and the numbered ADR directory (overkill at this size; this DECISIONS.md serves that role), and owner-run-only visual smoke (Budget-Tool is a native Tauri app; this is a web app agents can verify in a browser preview).
+
 ## Stack
 - **Vite over CRA** — CRA is deprecated and incompatible with Tailwind v4's PostCSS pipeline (`@plugin` directives pass through unprocessed). Vite handles Tailwind v4 correctly out of the box.
 - **DaisyUI over shadcn** — DaisyUI uses CSS classes rather than installed React components, making it lighter on tokens and better suited to a content-heavy static site.

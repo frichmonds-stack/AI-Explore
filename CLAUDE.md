@@ -11,6 +11,12 @@ git status
 git log --oneline -5
 ```
 
+Then:
+1. Read [`.claude/current-state.md`](.claude/current-state.md) — the present-tense project snapshot — and [`.claude/owner-context.md`](.claude/owner-context.md) — how to work with the owner.
+2. Route the task via [`.claude/task-map.md`](.claude/task-map.md) and read only what the task needs (it also holds the source-of-truth order when docs conflict).
+3. **Default to discussion/planning mode** and state your mode + edit authorisation up front. The command vocabulary (`Plan only` · `execute now` · `Normal Close` · `Publish Close` · `Commit` · `Push`) and close procedures live in [`.claude/close-out.md`](.claude/close-out.md). Vague approval is not authorisation.
+4. Before writing any planning/continuity doc, name its canonical destination from the routing table in `close-out.md` — one canonical file per fact, short pointers elsewhere, no duplication.
+
 ## Branch
 `claude/amazing-carson-5zucgf` — never push to `main`.
 
@@ -86,6 +92,10 @@ Both `ToolsPage` and `GuidesPage` filter through one shared component, [`fronten
 `ToolsPage` implements a two-panel pattern: a filterable grid of `ToolCard`s, and a `ToolSpotlight` that appears above the grid when a card is clicked. The spotlight auto-collapses on scroll (48px threshold with a 420ms suppress after expand). Filters are driven entirely from `tools.json`'s `meta` object via `FacetFilters` (above) — adding a new filter category requires updating both the JSON `meta` and the `facets`/`values`/`setters` in the page.
 
 ## Planning Docs
+- Current state (session-handoff snapshot): [`.claude/current-state.md`](.claude/current-state.md)
+- Owner context (how to work with the owner): [`.claude/owner-context.md`](.claude/owner-context.md)
+- Task map (work routing + source-of-truth order): [`.claude/task-map.md`](.claude/task-map.md)
+- Session log (dated milestones): [`.claude/session-log.md`](.claude/session-log.md)
 - Backlog: [`.claude/BACKLOG.md`](.claude/BACKLOG.md)
 - Decisions log: [`.claude/DECISIONS.md`](.claude/DECISIONS.md)
 - Open threads: [`.claude/THREADS.md`](.claude/THREADS.md)
