@@ -3,8 +3,10 @@
 Priority: top = next up. `[ ]` open · `[~]` in progress. Completed work is in **Done** at the foot.
 
 ## Now
+_Launch gate (2026-07-13): ship when there are **≥5 solid tool reviews + 2 articles** (one = the review-methodology piece). See DECISIONS → Strategy 2026-07-13._
+- [ ] **Benchmark foundations** (new 2026-07-13; see DECISIONS → benchmark) — in order: (1) draft the **core premise + principles + bias declaration** page (strawman for owner to argue with); (2) **rubric criteria descriptors** (6 criteria, 0–4, teacher-natural language, sourced); (3) **prompt pack v1** (9 versioned best-practice prompts, learning area + band pinned) + applicability matrix. Feeds directly into the 5 launch reviews and the methodology article.
 - [~] **Tool decision-support depth** — deepen tool profiles per the DRAFT spec [`tool-review-architecture.md`](tool-review-architecture.md): richer schema (studentUse, privacy, recommendedUses, avoidWhen, limitations, review dates, sources), surfaced on `ToolDetailPage`, with unknowns shown as unknowns. First worked example: Microsoft Copilot (mark approval **unreviewed** until sourced). *Card signals + review spine await owner sign-off.*
-- [~] **Guides → Articles rework** — scaffold built (`articles.json`, `ArticlesPage`/`ArticlePage`, routes, search-indexed, `usePageMeta`; footer link). TODO: (a) write real articles (2 placeholders); (b) repoint nav **Explore → `/articles`** once there's content (one-liner in `Layout.jsx`; deferred to avoid an empty front door); (c) reconcile homepage (still leads with Guides); (d) decide fate of task-walkthrough guides + legacy `explore` research.
+- [~] **Guides → Articles rework** — scaffold built (`articles.json`, `ArticlesPage`/`ArticlePage`, routes, search-indexed, `usePageMeta`; footer link). TODO: (a) write real articles (2 placeholders) — first two: the **review-methodology piece** (launch-gate anchor) and an **"AI implementation in schools"** piece (leadership wedge — see DECISIONS 2026-07-13); (b) repoint nav **Explore → `/articles`** once there's content (one-liner in `Layout.jsx`; deferred to avoid an empty front door); (c) reconcile homepage (still leads with Guides); (d) decide fate of task-walkthrough guides + legacy `explore` research.
 - [ ] **About page** (pre-launch, critical path) — long-form: what this is, who made it, how tools are vetted, the CEWA-source/unofficial disclaimer. Footer already carries the short version.
 - [ ] **Rebrand** — "AI for Teachers" ≈ "AI for Education" (aiforeducation.io). Shortlist (avoid AI for Education / Lumen Learning / BetterLesson): *warm* — Staffroom (top; check UK recruitment brand), Commonroom, The Commons · *strategy* — Throughline (top), The Long Way · *guidance* — Wayfinder, Northlight · *craft* — Teachcraft, Practised. When picked: domain (.com/.com.au/.ai) + trademark + handle check, then rename across UI/content/repo/docs.
 - [ ] **`public/og-default.png`** (1200×630 share image) + set `SITE_URL` build env var on the host, so social cards show an image.
@@ -21,13 +23,15 @@ Priority: top = next up. `[ ]` open · `[~]` in progress. Completed work is in *
 - [ ] Explainer pages (`/explainer/:category`) — confirm uses/roles/pedagogies content is real (roles/pedagogies look built; audit).
 
 ## Later (Phase 2 — needs a backend)
+- [ ] Anonymous "Was this useful? / My school uses this" pulse widget per tool — Cloudflare Worker + KV, IP rate-limited, shown as social proof not a score (step 2 of the ratings sequence, DECISIONS 2026-07-13).
+- [ ] Verified-educator ratings (school-email magic link, no full accounts) — only when traffic proves demand (step 3 of the ratings sequence).
 - [ ] Click tracking for popularity (Plausible as interim static option).
 - [ ] Full pedagogy rating system on tool cards (stars per framework — badges for now).
 - [ ] "Most popular" / "highest rated" rows in the discovery layer.
 - [ ] Backend API (Node/Express) — only when content becomes dynamic.
 
 ## Deferred
-- [ ] School policy section.
+- [ ] School policy section — partially revived: implementation-in-schools article theme (see Now) carries the near-term version; a dedicated section/"For leaders" pillar stays deferred until the theme proves demand.
 - [ ] User accounts / personalisation.
 
 ## Done (archive — terse)
