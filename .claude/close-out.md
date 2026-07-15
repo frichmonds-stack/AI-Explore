@@ -7,7 +7,7 @@
 | `Plan only` / discussion | Inspect, read, propose; no repo changes. |
 | `execute now` / "implement / fix / go ahead" | Implement the currently discussed batch; no commit or push. |
 | `Normal Close` | Checks + docs + continuity + final report; no commit or push. |
-| `Publish Close` | Normal Close work, then confidentiality pass, commit, push, report. |
+| `Publish Close` | Normal Close work, then confidentiality pass, commit, push, **merge to `main` (deploys live)**, report. |
 | `Commit` / `Push` | Only that named git step, for approved completed work. |
 
 Rules:
@@ -47,9 +47,15 @@ git commit -m "descriptive message"
 
 # Push to feature branch
 git push -u origin claude/amazing-carson-5zucgf
+
+# Publish = merge to main (this is what deploys the live site)
+git checkout main && git pull origin main
+git merge claude/amazing-carson-5zucgf && git push origin main
+git checkout claude/amazing-carson-5zucgf
 ```
 
-- Never push to `main`.
+- **`main` = production** (Cloudflare Pages builds it; live at `pigeon-hole-87j.pages.dev`). Never push *directly* to `main` — it only changes via the merge step above, under an explicit `Publish Close`. Feature-branch pushes produce preview deploys only.
+- Rationale (recorded 2026-07-15): all code is AI-written and the owner is non-technical, so the live site must never change as a side effect — only by a deliberate, owner-named publish step.
 - **Confidentiality pass before commit:** no CEWA internal-sourced approval data, no internal wording, in anything staged or in `dist/` (see `owner-context.md` confidentiality gate).
 - If push fails with 403: retry up to 4 times with exponential backoff (2s, 4s, 8s, 16s).
 - Cloudflare Pages deploys from the branch — verify the deploy when the change should go live and timing allows (see `deploy.md`).

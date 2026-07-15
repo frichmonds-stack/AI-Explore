@@ -2,6 +2,15 @@
 
 Dated, append-at-top chronological record of meaningful sessions: what happened, what was decided, what's next. Keep entries terse — detail belongs in the canonical docs (see `close-out.md` routing table). When this file exceeds ~150 lines, move older entries to `session-log-archive.md` and leave a pointer.
 
+## 2026-07-15 — First deploy + rebrand to Pigeon Hole (Publish Close)
+
+- **Site is live**: owner set up Cloudflare Pages (project `pigeon-hole` → `pigeon-hole-87j.pages.dev`), guided through the Workers-vs-Pages dashboard maze; deep links + per-route titles verified working in the live deploy.
+- **Name decided: Pigeon Hole** — brainstormed from the Staffroom shortlist; owner picked it for the staffroom-pigeonhole meaning + bird-family link to their product Budgie. Renamed across nav/footer/titles/OG/share text; default title now carries a descriptor ("practical AI help for teachers").
+- Shipped pre-launch **`noindex`** header (`public/_headers`) instead of an under-construction banner — rationale in DECISIONS.
+- **Branch model changed**: `main` = production, publish = merge to main under Publish Close (supersedes "never push to main"; rationale now written down in DECISIONS/CLAUDE.md/close-out). This session's Publish Close performed the first merge; owner flips Cloudflare's production branch to `main` after it.
+- Docs recalibrated: stale BACKLOG items (About page, rebrand, approval-layer) reconciled; deploy.md now records actual settings; launch gate gains "delete noindex + swap SITE_URL".
+- Next: owner flips production branch to `main`; then OG image (`og-default.png`, Pigeon Hole brand), rebrand follow-through (domain/ABN, handles), benchmark foundations.
+
 ## 2026-07-13 (later) — Benchmark design session (discussion only, no code)
 
 - Designed the tool benchmark with the owner: 6-criteria "excellent practice" rubric × 9 tasks (8 AC learning areas + differentiate-an-existing-task) × applicability matrix; best-practice prompts in plain teacher voice (owner call — teachers should prompt from that headspace; kills the "AI didn't know" excuse); differentiation is a task not a criterion (owner call); ECE deferred.

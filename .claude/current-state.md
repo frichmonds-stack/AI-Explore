@@ -2,13 +2,18 @@
 
 Compact present-tense snapshot for session handoff. Update **only when the verified project state actually changes** — architecture facts live in `CLAUDE.md`, priorities in `BACKLOG.md`, open decisions in `THREADS.md`. Don't duplicate them here; say where we are.
 
-Last updated: 2026-07-13
+Last updated: 2026-07-15
 
 ## Deployment
 
-- Host: Cloudflare Pages (see `deploy.md`). BrowserRouter + build-time pre-render for SEO.
-- Latest pushed commit: `0687661` (Hide CEWA/approval layer; add About page; consolidate docs).
-- `SITE_URL` env var and `public/og-default.png` still **not** set up — social cards have no image.
+- **LIVE** at `https://pigeon-hole-87j.pages.dev` (Cloudflare Pages project `pigeon-hole`; see `deploy.md`). First deployed 2026-07-15.
+- Branch model: `main` = production (owner flipping Cloudflare's production branch to `main` after the 2026-07-15 merge); feature branch pushes = preview deploys.
+- Pre-launch **`noindex`** is active (`frontend/public/_headers`, `X-Robots-Tag: noindex`) — **must be deleted at launch** (on BACKLOG launch gate).
+- `SITE_URL` env var set in Cloudflare by owner (2026-07-15). `public/og-default.png` still missing — social cards have no image.
+
+## Brand
+
+- Site renamed **Pigeon Hole** (2026-07-15; was "AI for Teachers" / repo "AI Explore"). Bird-family link to owner's other product, Budgie. Nav/footer/titles/OG updated. Domain purchase, trademark/handle checks, and repo rename still open (BACKLOG).
 
 ## What's live in the codebase
 
@@ -24,7 +29,6 @@ Last updated: 2026-07-13
 
 ## Known gaps / risks
 
-- BACKLOG "Now" items partially stale after the 0687661 commit (About page shipped; approval-related items superseded by the config flag) — reconcile when next touched.
 - Content is partial across most track JSON files; no audit yet.
 - Not all block types confirmed to render in `SectionPage`.
 

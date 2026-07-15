@@ -18,7 +18,7 @@ Then:
 4. Before writing any planning/continuity doc, name its canonical destination from the routing table in `close-out.md` — one canonical file per fact, short pointers elsewhere, no duplication.
 
 ## Branch
-`claude/amazing-carson-5zucgf` — never push to `main`.
+Work happens on `claude/amazing-carson-5zucgf`. **`main` = production** — Cloudflare Pages deploys it live (since 2026-07-15). Never push *directly* to `main`; publishing = merging the feature branch into `main` with explicit owner authorisation (`Publish Close` — see `close-out.md`). Why: the owner is non-technical and all code is AI-written, so the live branch only ever changes by a deliberate, named step — never as a side effect of session work.
 
 ## Dev Commands
 ```bash
