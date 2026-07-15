@@ -1,0 +1,4 @@
+# PRE-LAUNCH: keep search engines out until the site launches on its real domain.
+# DELETE this X-Robots-Tag block at launch or the site will never be indexed.
+/*
+  X-Robots-Tag: noindex

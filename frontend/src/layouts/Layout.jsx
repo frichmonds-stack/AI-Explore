@@ -41,7 +41,7 @@ export default function Layout() {
       <nav className="lmn-nav">
         <NavLink to="/" className="lmn-nav__brand">
           <LumenMark />
-          <span className="lmn-nav__word">AI for Teachers</span>
+          <span className="lmn-nav__word">Pigeon Hole</span>
         </NavLink>
         {/* Single inline nav — four short labels fit every screen, so no separate mobile menu. */}
         <div className="lmn-nav__links">

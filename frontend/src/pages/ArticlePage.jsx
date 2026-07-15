@@ -96,7 +96,7 @@ export default function ArticlePage() {
 
       <div style={{ display: 'flex', gap: 'var(--space-3)', marginBottom: 'var(--space-6)', flexWrap: 'wrap' }}>
         <SaveButton type="article" id={article.id} />
-        <ShareButton title={`${article.title} — AI for Teachers`} text={article.dek} />
+        <ShareButton title={`${article.title} — Pigeon Hole`} text={article.dek} />
       </div>
 
       {draft && <DraftNotice />}

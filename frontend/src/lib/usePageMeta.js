@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 // route real metadata. Non-JS crawlers that build social cards still only see
 // index.html until the site moves to pre-rendered HTML (see BACKLOG: SEO).
 
-const SITE_NAME = 'AI for Teachers';
+const SITE_NAME = 'Pigeon Hole';
 const DEFAULT_DESCRIPTION = 'Practical, classroom-ready help for teaching with AI — start with the work, grow the craft, keep children safe.';
 
 // Create-or-update a <meta> tag keyed by name= or property=.
@@ -32,7 +32,7 @@ function setMeta(attr, key, content) {
  */
 export function usePageMeta({ title, description, image, type = 'website' } = {}) {
   useEffect(() => {
-    const fullTitle = title ? `${title} · ${SITE_NAME}` : SITE_NAME;
+    const fullTitle = title ? `${title} · ${SITE_NAME}` : `${SITE_NAME} — practical AI help for teachers`;
     const desc = description || DEFAULT_DESCRIPTION;
     const url = typeof window !== 'undefined' ? window.location.href : '';
 
@@ -53,7 +53,7 @@ export function usePageMeta({ title, description, image, type = 'website' } = {}
 
     return () => {
       // Restore site defaults when leaving the page.
-      document.title = SITE_NAME;
+      document.title = `${SITE_NAME} — practical AI help for teachers`;
       setMeta('name', 'description', DEFAULT_DESCRIPTION);
     };
   }, [title, description, image, type]);

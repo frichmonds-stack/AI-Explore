@@ -151,7 +151,7 @@ export default function ToolDetailPage() {
 
       <div style={{ display: 'flex', gap: 'var(--space-3)', marginBottom: 'var(--space-7)', flexWrap: 'wrap' }}>
         <SaveButton type="tool" id={tool.id} />
-        <ShareButton title={`${tool.name} — AI for Teachers`} text={tool.description} />
+        <ShareButton title={`${tool.name} — Pigeon Hole`} text={tool.description} />
       </div>
 
       {needsReview(tool) && <DraftNotice note="This tool write-up was drafted by AI — its description and notes need a human review before relying on them." />}

@@ -115,7 +115,7 @@ export default function GuidePage() {
 
       <div style={{ display: 'flex', gap: 'var(--space-3)', marginBottom: 'var(--space-6)', flexWrap: 'wrap' }}>
         <SaveButton type="guide" id={guide.id} />
-        <ShareButton title={`${guide.title} — AI for Teachers`} text={guide.summary} />
+        <ShareButton title={`${guide.title} — Pigeon Hole`} text={guide.summary} />
       </div>
 
       {needsReview(guide) && <DraftNotice />}

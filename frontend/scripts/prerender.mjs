@@ -26,7 +26,7 @@ const foundations = readJSON('foundations.json');
 const risks = readJSON('risks.json');
 const pedagogies = readJSON('pedagogies.json');
 
-const SITE_NAME = 'AI for Teachers';
+const SITE_NAME = 'Pigeon Hole';
 const SITE_URL = (process.env.SITE_URL || '').replace(/\/$/, '');
 const DEFAULT_DESC =
   'Practical, classroom-ready help for teaching with AI — start with the work, grow the craft, keep children safe.';
@@ -78,7 +78,7 @@ const setProp = (h, p, c) => upsertMeta(h, 'property', p, c);
 const template = readFileSync(join(dist, 'index.html'), 'utf8');
 
 function render({ path, title, description, type }) {
-  const fullTitle = title ? `${title} · ${SITE_NAME}` : SITE_NAME;
+  const fullTitle = title ? `${title} · ${SITE_NAME}` : `${SITE_NAME} — practical AI help for teachers`;
   const desc = clean(description) || DEFAULT_DESC;
   const url = SITE_URL ? SITE_URL + path : path;
   let html = template;

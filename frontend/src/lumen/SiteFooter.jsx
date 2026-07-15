@@ -59,7 +59,7 @@ export function SiteFooter() {
       <div className="lmn-footer__inner">
         <div className="lmn-footer__top">
           <div className="lmn-footer__brandcol">
-            <span className="lmn-footer__word">AI for Teachers</span>
+            <span className="lmn-footer__word">Pigeon Hole</span>
             <p className="lmn-footer__tagline">
               Practical, classroom-ready help for teaching with AI — start with the work, grow the craft, keep children safe.
             </p>
