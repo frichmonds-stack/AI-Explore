@@ -9,7 +9,7 @@ Last updated: 2026-07-15
 - **LIVE** at `https://pigeon-hole-87j.pages.dev` (Cloudflare Pages project `pigeon-hole`; see `deploy.md`). First deployed 2026-07-15.
 - Branch model: `main` = production (owner flipping Cloudflare's production branch to `main` after the 2026-07-15 merge); feature branch pushes = preview deploys.
 - Pre-launch **`noindex`** is active (`frontend/public/_headers`, `X-Robots-Tag: noindex`) — **must be deleted at launch** (on BACKLOG launch gate).
-- `SITE_URL` env var set in Cloudflare by owner (2026-07-15). `public/og-default.png` still missing — social cards have no image.
+- Social cards **complete**: `SITE_URL` set (Cloudflare, 2026-07-15), production branch = `main`, absolute OG tags verified live, typographic `og-default.png` shipped (regenerate from `frontend/scripts/og-card.html`). Logo mark deferred — wordmark-only branding for now.
 
 ## Brand
 

@@ -9,7 +9,7 @@ _**At launch, also:** delete the `noindex` block in `frontend/public/_headers` (
 - [~] **Tool decision-support depth** — deepen tool profiles per the DRAFT spec [`tool-review-architecture.md`](tool-review-architecture.md): richer schema (studentUse, privacy, recommendedUses, avoidWhen, limitations, review dates, sources), surfaced on `ToolDetailPage`, with unknowns shown as unknowns. First worked example: Microsoft Copilot (mark approval **unreviewed** until sourced). *Card signals + review spine await owner sign-off.*
 - [~] **Guides → Articles rework** — scaffold built (`articles.json`, `ArticlesPage`/`ArticlePage`, routes, search-indexed, `usePageMeta`; footer link). TODO: (a) write real articles (2 placeholders) — first two: the **review-methodology piece** (launch-gate anchor) and an **"AI implementation in schools"** piece (leadership wedge — see DECISIONS 2026-07-13); (b) repoint nav **Explore → `/articles`** once there's content (one-liner in `Layout.jsx`; deferred to avoid an empty front door); (c) reconcile homepage (still leads with Guides); (d) decide fate of task-walkthrough guides + legacy `explore` research.
 - [ ] **Rebrand follow-through** (name = **Pigeon Hole**, chosen 2026-07-15; UI/meta renamed) — remaining: domain purchase (`.com.au`/`.au` need an ABN; consider `pigeonhole.education`), trademark + social-handle check (note existing brands: The Pigeonhole (UK books), Pigeonhole Live (Q&A app)), decide on repo rename (`AI-Explore` → ?), update Cloudflare project/`SITE_URL` when the custom domain lands.
-- [ ] **`public/og-default.png`** (1200×630 share image, Pigeon Hole brand) — `SITE_URL` is now set (2026-07-15); the image is the last missing piece for social cards.
+- [ ] **Logo mark** (deferred by owner 2026-07-15 — "later problem") — wordmark-only branding for now; AI-generated marks rejected, likely needs a human designer. Regenerate `og-default.png` from `frontend/scripts/og-card.html` when a mark lands.
 - [~] **Definitions as inline tooltips** — done: `InfoTip` + `lib/definitions.js`, wired into `FacetFilters` (both filter bars). TODO: extend to tag chips on tool/guide **cards** (`ToolCard` uses native `title=`) and detail pages; glossary stays the fallback.
 - [ ] **Finish role → domain migration** — filter/glossary/tooltips use **Domain** (parent of Work type), but legacy `roles` still drives card chips, tool-detail role sections, `ExplainerPage` `ROLE_DATA`. Decide: fully replace `roles` with `domains`, or keep `roles` for detail narrative + domains for filtering.
 
@@ -35,6 +35,7 @@ _**At launch, also:** delete the `noindex` block in `frontend/public/_headers` (
 - [ ] User accounts / personalisation.
 
 ## Done (archive — terse)
+- Social cards complete (2026-07-15) — typographic `og-default.png` (source: `frontend/scripts/og-card.html`, render via headless Chrome), `SITE_URL` set, absolute OG tags verified live.
 - Deployed live (2026-07-15) — Cloudflare Pages `pigeon-hole` project, `pigeon-hole-87j.pages.dev`; pre-launch `noindex` header; `main` = production branch model.
 - Rebrand to **Pigeon Hole** (2026-07-15) — nav/footer/titles/OG/share text; follow-through items in Now.
 - About page (`/about`) — shipped in 0687661.

@@ -9,7 +9,8 @@ Dated, append-at-top chronological record of meaningful sessions: what happened,
 - Shipped pre-launch **`noindex`** header (`public/_headers`) instead of an under-construction banner — rationale in DECISIONS.
 - **Branch model changed**: `main` = production, publish = merge to main under Publish Close (supersedes "never push to main"; rationale now written down in DECISIONS/CLAUDE.md/close-out). This session's Publish Close performed the first merge; owner flips Cloudflare's production branch to `main` after it.
 - Docs recalibrated: stale BACKLOG items (About page, rebrand, approval-layer) reconciled; deploy.md now records actual settings; launch gate gains "delete noindex + swap SITE_URL".
-- Next: owner flips production branch to `main`; then OG image (`og-default.png`, Pigeon Hole brand), rebrand follow-through (domain/ABN, handles), benchmark foundations.
+- (Later same day) Owner flipped production branch to `main`; absolute OG tags verified live. Logo attempts (AI image gen + my SVG drafts) rejected → **wordmark-only for now**, logo mark deferred to a human designer. Shipped typographic `og-default.png` (Newsreader/palette card; source `frontend/scripts/og-card.html`, rendered via headless Chrome) — social-card chain complete.
+- Next: rebrand follow-through (domain/ABN, handles), benchmark foundations, block-type render check.
 
 ## 2026-07-13 (later) — Benchmark design session (discussion only, no code)
 
