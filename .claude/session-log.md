@@ -2,6 +2,22 @@
 
 Dated, append-at-top chronological record of meaningful sessions: what happened, what was decided, what's next. Keep entries terse — detail belongs in the canonical docs (see `close-out.md` routing table). When this file exceeds ~150 lines, move older entries to `session-log-archive.md` and leave a pointer.
 
+## 2026-07-20 — Publish Close: dedupe refactor + homepage coming-soon card live
+
+- Owner-authorised Publish Close covering both same-day items below: the dedupe refactor and the homepage "coming soon" 5th pillar card ("The whole job" — behaviour management, relationships, parent contact, admin — named as out of scope for the benchmark's core-teaching-loop focus for now, not silently omitted).
+- Also flipped `.claude/launch.json` to `autoPort: true` so concurrent sessions' dev previews don't collide on port 5173.
+- Checks: `npm run build` clean (75 routes prerendered); confidentiality pass clean (no new CEWA-internal-sourced wording in the diff — `lib/cewa.js`/`lib/taxonomy.js` only centralise pre-existing public-facing mapping logic).
+- Merged `claude/amazing-carson-5zucgf` → `main`, pushed. Live once Cloudflare Pages picks up the `main` push (see `deploy.md`).
+
+## 2026-07-20 — Dedupe refactor + guards (execute now, no commit)
+
+- Prior session (Fable) surveyed the codebase for duplication, wrote a plan ([`plans/dedupe-refactor.md`](plans/dedupe-refactor.md)), and handed off for Sonnet to execute.
+- Executed all 6 steps: extracted `lib/cewa.js` (was duplicated identically across 6 files, not 5 as first estimated — GlossaryPage had a 6th copy), `lib/taxonomy.js` (label lookups), `lumen/Eyebrow.jsx` (replaced 3 local component defs + ~30 inline uppercase-mono style blocks across ~16 files), `lumen/useFacetState.js` (shared Tools/Guides filter state + domain→work-type narrowing rule). Added ESLint (flat config, `npm run lint`) and fixed its trivial findings (unused `React` imports, unused vars). Updated CLAUDE.md with reuse-first rules and fixed a stale route-table section (said `HashRouter`/dynamic `/:track`; code is `BrowserRouter` with explicit per-track routes).
+- **Found and fixed 2 real bugs introduced mid-refactor**: HomePage and GuidePage each had a leftover `cewaStatusMap[...]` reference after the local map was deleted in step 1 — would have crashed those components at runtime. Neither `npm run build` nor the pre-render script catches this class of bug (no headless browser, doesn't execute the React tree), so caught only by loading every touched page in the browser preview and checking console — all ~20 touched pages were verified this way, zero console errors at the end.
+- **Not fixed, flagged for owner**: `useCatLabel` (in `lib/taxonomy.js`) is named like a React hook (`use*` prefix) but isn't one, which trips ESLint's `rules-of-hooks` in 6 call sites — pre-existing naming issue, first caught because this session added ESLint; fixing means a multi-file rename, out of scope for a "trivial fix". Also 2 pre-existing `set-state-in-effect` findings (`GlobalSearch.jsx`, `ToolsPage.jsx`) and 3 `react-refresh/only-export-components` warnings — none introduced this session, none fixed.
+- Owner was concurrently hand-editing `HomePage.jsx` (added a 5th "coming soon" pillar card) during this session — left untouched, no conflict since this session's edits to that file were already complete.
+- No commit/push — `execute now` scope only, per mode gate.
+
 ## 2026-07-15 — First deploy + rebrand to Pigeon Hole (Publish Close)
 
 - **Site is live**: owner set up Cloudflare Pages (project `pigeon-hole` → `pigeon-hole-87j.pages.dev`), guided through the Workers-vs-Pages dashboard maze; deep links + per-route titles verified working in the live deploy.

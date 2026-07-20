@@ -4,6 +4,7 @@ import articlesData from '../content/articles.json';
 import { DraftNotice, needsReview } from '../lumen/DraftNotice';
 import { FacetFilters } from '../lumen/FacetFilters';
 import { usePageMeta } from '../lib/usePageMeta';
+import { Eyebrow } from '../lumen/Eyebrow';
 
 const { articles, meta } = articlesData;
 const ALL = 'all';
@@ -22,7 +23,7 @@ function formatDate(iso) {
 const byDateDesc = (a, b) => (b.date || '').localeCompare(a.date || '');
 
 function Kicker({ children }) {
-  return <p className="lumen-eyebrow" style={{ margin: '0 0 var(--space-2)' }}>{children}</p>;
+  return <Eyebrow style={{ margin: '0 0 var(--space-2)' }}>{children}</Eyebrow>;
 }
 
 function ArticleCard({ article }) {

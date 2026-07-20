@@ -1,30 +1,17 @@
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import guidesData from '../content/guides.json';
 import toolsData from '../content/tools.json';
 import { FacetFilters } from '../lumen/FacetFilters';
+import { useFacetState, ALL } from '../lumen/useFacetState';
 import { DraftNotice, needsReview } from '../lumen/DraftNotice';
 import { usePageMeta } from '../lib/usePageMeta';
+import { useCatLabel, diffLabel } from '../lib/taxonomy';
+import { Eyebrow } from '../lumen/Eyebrow';
 
 const { guides } = guidesData;
 const { meta } = toolsData;
 const { difficulties } = guidesData.meta;
-
-const ALL = 'all';
-
-const useCatLabel = (id) => meta.useCategories.find((u) => u.id === id)?.label || id;
-const diffLabel = (id) => difficulties.find((d) => d.id === id)?.label || id;
-
-/* Eyebrow / kicker label. */
-function Eyebrow({ children, tone = 'muted' }) {
-  return (
-    <p style={{
-      fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-      textTransform: 'uppercase', fontWeight: 'var(--weight-medium)', margin: 0,
-      color: tone === 'pine' ? 'var(--pine-600)' : 'var(--text-muted)',
-    }}>{children}</p>
-  );
-}
 
 function GuideCard({ guide }) {
   return (
@@ -74,29 +61,10 @@ function GuideCard({ guide }) {
 
 export default function GuidesPage() {
   usePageMeta({ title: 'Guides', description: 'Short, classroom-ready walkthroughs for getting real work done with AI — safely and pedagogically.' });
-  const [domain, setDomain] = useState(ALL);
-  const [useCategory, setUseCategory] = useState(ALL);
-  const [band, setBand] = useState(ALL);
-  const [pedagogy, setPedagogy] = useState(ALL);
-  const [difficulty, setDifficulty] = useState(ALL);
-
-  const values = { domain, useCategory, band, pedagogy, difficulty };
-  const setters = { domain: setDomain, useCategory: setUseCategory, band: setBand, pedagogy: setPedagogy, difficulty: setDifficulty };
-  // Domain is the parent of Work type — narrows it and clears a now-invalid choice.
-  const setFacet = (key, val) => {
-    setters[key](val);
-    if (key === 'domain' && val !== ALL) {
-      const d = meta.domains.find((x) => x.id === val);
-      if (useCategory !== ALL && d && !d.useCategories.includes(useCategory)) setUseCategory(ALL);
-    }
-  };
-  const clearAll = () => Object.values(setters).forEach((s) => s(ALL));
-
-  // Work type options scoped to the chosen domain.
-  const activeDomain = meta.domains.find((d) => d.id === domain);
-  const workTypeOptions = activeDomain
-    ? meta.useCategories.filter((u) => activeDomain.useCategories.includes(u.id))
-    : meta.useCategories;
+  const { values, setFacet, clearAll, workTypeOptions } = useFacetState(
+    ['domain', 'useCategory', 'band', 'pedagogy', 'difficulty']
+  );
+  const { domain, useCategory, band, pedagogy, difficulty } = values;
 
   // Compact, scannable facets — domain leads, then the work type it narrows.
   const facets = [
@@ -121,7 +89,6 @@ export default function GuidesPage() {
 
   const featured = filtered.filter((g) => g.featured);
   const rest = filtered.filter((g) => !g.featured);
-  const activeFilters = Object.values(values).filter((f) => f !== ALL).length;
 
   return (
     <div>

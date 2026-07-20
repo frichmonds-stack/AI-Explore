@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import toolsData from '../content/tools.json';
 import { DraftNotice } from '../lumen/DraftNotice';
+import { Eyebrow } from '../lumen/Eyebrow';
 
 const { meta } = toolsData;
 
@@ -43,19 +44,10 @@ const ROLE_DATA = [
   },
 ];
 
-function SectionLabel({ children }) {
-  return (
-    <p style={{
-      fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-      textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 'var(--weight-medium)', margin: 0,
-    }}>{children}</p>
-  );
-}
-
 function UsesExplainer() {
   return (
     <div>
-      <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)', marginBottom: 'var(--space-2)' }}>Use categories</p>
+      <Eyebrow tone="pine" style={{ marginBottom: 'var(--space-2)' }}>Use categories</Eyebrow>
       <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', color: 'var(--text-strong)', fontWeight: 'var(--weight-semibold)', marginBottom: 'var(--space-3)' }}>
         What do you need to do?
       </h1>
@@ -91,7 +83,7 @@ function UsesExplainer() {
 function RolesExplainer() {
   return (
     <div>
-      <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)', marginBottom: 'var(--space-2)' }}>Teaching roles</p>
+      <Eyebrow tone="pine" style={{ marginBottom: 'var(--space-2)' }}>Teaching roles</Eyebrow>
       <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', color: 'var(--text-strong)', fontWeight: 'var(--weight-semibold)', marginBottom: 'var(--space-3)' }}>
         AI across your roles
       </h1>
@@ -116,7 +108,7 @@ function RolesExplainer() {
               {r.description}
             </p>
             <div>
-              <SectionLabel>Common uses</SectionLabel>
+              <Eyebrow>Common uses</Eyebrow>
               <ul style={{ margin: 'var(--space-2) 0 0', paddingLeft: 'var(--space-5)', display: 'flex', flexDirection: 'column', gap: 'var(--space-1)' }}>
                 {r.examples.map((ex) => (
                   <li key={ex} style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', lineHeight: 'var(--leading-relaxed)' }}>{ex}</li>
@@ -133,7 +125,7 @@ function RolesExplainer() {
 function PedagogiesExplainer() {
   return (
     <div>
-      <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)', marginBottom: 'var(--space-2)' }}>Teaching approaches</p>
+      <Eyebrow tone="pine" style={{ marginBottom: 'var(--space-2)' }}>Teaching approaches</Eyebrow>
       <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', color: 'var(--text-strong)', fontWeight: 'var(--weight-semibold)', marginBottom: 'var(--space-3)' }}>
         Pedagogy first, tools second
       </h1>

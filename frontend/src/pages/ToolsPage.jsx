@@ -3,22 +3,14 @@ import { ToolCard } from '../lumen/ToolCard';
 import { ToolSpotlight } from '../lumen/ToolSpotlight';
 import { StatusBadge } from '../lumen/StatusBadge';
 import { FacetFilters } from '../lumen/FacetFilters';
+import { useFacetState, ALL } from '../lumen/useFacetState';
 import { usePageMeta } from '../lib/usePageMeta';
+import { Eyebrow } from '../lumen/Eyebrow';
 import { SHOW_APPROVAL_STATUS } from '../config';
+import { statusOf } from '../lib/cewa';
 import toolsData from '../content/tools.json';
 
 const { tools, meta } = toolsData;
-
-const ALL = 'all';
-
-const cewaStatusMap = {
-  'approved': 'approved',
-  'approved-conditions': 'conditional',
-  'under-review': 'review',
-  'not-approved': 'restricted',
-  'not-reviewed': 'unreviewed',
-};
-const statusOf = (t) => cewaStatusMap[t.cewaStatus] || 'unreviewed';
 
 function ToolGrid({ items, selectedId, onSelect }) {
   return (
@@ -53,11 +45,7 @@ function StatusFooter() {
       border: '1px solid var(--border-subtle)',
       borderRadius: 'var(--radius-lg)',
     }}>
-      <p style={{
-        fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-        textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 'var(--weight-medium)',
-        marginBottom: 'var(--space-3)',
-      }}>About device status</p>
+      <Eyebrow style={{ marginBottom: 'var(--space-3)' }}>About device status</Eyebrow>
       <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-4)' }}>
         Status applies to school-managed devices and networks.
         Tools used on personal devices remain at the teacher's professional discretion.
@@ -76,34 +64,10 @@ function StatusFooter() {
 
 export default function ToolsPage() {
   usePageMeta({ title: 'Tools', description: 'A browsable library of AI tools for teaching — what each is good for, and how it fits your classroom.' });
-  const [domain, setDomain] = useState(ALL);
-  const [useCategory, setUseCategory] = useState(ALL);
-  const [band, setBand] = useState(ALL);
-  const [subject, setSubject] = useState(ALL);
-  const [pedagogy, setPedagogy] = useState(ALL);
-  const [cewaStatus, setCewaStatus] = useState(ALL);
-
-  const values = { domain, useCategory, band, subject, pedagogy, cewaStatus };
-  const setters = {
-    domain: setDomain, useCategory: setUseCategory, band: setBand, subject: setSubject,
-    pedagogy: setPedagogy, cewaStatus: setCewaStatus,
-  };
-  // Domain is the parent of Work type: choosing one narrows the work types and
-  // clears any work type that no longer belongs to the chosen domain.
-  const setFacet = (key, val) => {
-    setters[key](val);
-    if (key === 'domain' && val !== ALL) {
-      const d = meta.domains.find((x) => x.id === val);
-      if (useCategory !== ALL && d && !d.useCategories.includes(useCategory)) setUseCategory(ALL);
-    }
-  };
-  const clearAll = () => Object.values(setters).forEach((s) => s(ALL));
-
-  // Work type options are scoped to the chosen domain (all of them when none is set).
-  const activeDomain = meta.domains.find((d) => d.id === domain);
-  const workTypeOptions = activeDomain
-    ? meta.useCategories.filter((u) => activeDomain.useCategories.includes(u.id))
-    : meta.useCategories;
+  const { values, setFacet, clearAll, workTypeOptions } = useFacetState(
+    ['domain', 'useCategory', 'band', 'subject', 'pedagogy', 'cewaStatus']
+  );
+  const { domain, useCategory, band, subject, pedagogy, cewaStatus } = values;
 
   // One compact dropdown row instead of stacked pill rows. Domain leads, then
   // the work type it narrows.
@@ -172,17 +136,11 @@ export default function ToolsPage() {
     || tools.find((t) => t.id === selectedId)
     || null;
 
-  const activeFilters = Object.values(values).filter((f) => f !== ALL).length;
-
   return (
     <div>
       {/* Header */}
       <div style={{ marginBottom: 'var(--space-6)' }}>
-        <p style={{
-          fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-          textTransform: 'uppercase', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)',
-          marginBottom: 'var(--space-2)',
-        }}>AI Tools Library</p>
+        <Eyebrow tone="pine" style={{ marginBottom: 'var(--space-2)' }}>AI Tools Library</Eyebrow>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', color: 'var(--text-strong)', fontWeight: 'var(--weight-semibold)', marginBottom: 'var(--space-3)' }}>
           Find the right tool for your teaching
         </h1>
@@ -202,10 +160,7 @@ export default function ToolsPage() {
           marginBottom: 'var(--space-6)',
         }}>
           <span style={{ fontSize: 16, opacity: 0.45, lineHeight: 1 }}>↓</span>
-          <p style={{
-            fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-            textTransform: 'uppercase', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)', margin: 0,
-          }}>Click any tool below to see details here</p>
+          <Eyebrow tone="pine">Click any tool below to see details here</Eyebrow>
         </div>
       ) : (
         <ToolSpotlight
@@ -246,10 +201,7 @@ export default function ToolsPage() {
       {featured.length > 0 && (
         <div style={{ marginBottom: 'var(--space-10)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: 'var(--space-4)' }}>
-            <p style={{
-              fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-              textTransform: 'uppercase', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)', margin: 0,
-            }}>Featured</p>
+            <Eyebrow tone="pine">Featured</Eyebrow>
             <div style={{ flex: 1, height: 1, background: 'var(--border-subtle)' }} />
           </div>
           <ToolGrid items={featured} selectedId={selectedId} onSelect={selectTool} />
@@ -261,10 +213,7 @@ export default function ToolsPage() {
         <div>
           {featured.length > 0 && (
             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: 'var(--space-4)' }}>
-              <p style={{
-                fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-                textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 'var(--weight-medium)', margin: 0,
-              }}>All tools</p>
+              <Eyebrow>All tools</Eyebrow>
               <div style={{ flex: 1, height: 1, background: 'var(--border-subtle)' }} />
             </div>
           )}

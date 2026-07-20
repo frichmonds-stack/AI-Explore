@@ -1,19 +1,11 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../lib/usePageMeta';
+import { Eyebrow } from '../lumen/Eyebrow';
 
 // Author is deliberately anonymous, so copy is first-person but unsigned.
 // Voice: straight-shooter, high ideals, honest about limits. Kept in the
 // component (like HomePage/LearnPage) since it's one-off narrative, not
 // structured content.
-
-function Eyebrow({ children }) {
-  return (
-    <p style={{
-      fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-      textTransform: 'uppercase', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)', margin: '0 0 var(--space-2)',
-    }}>{children}</p>
-  );
-}
 
 function H2({ children }) {
   return (
@@ -52,7 +44,7 @@ export default function AboutPage() {
   return (
     <div style={{ maxWidth: 720 }}>
       <div style={{ marginBottom: 'var(--space-7)' }}>
-        <Eyebrow>About</Eyebrow>
+        <Eyebrow tone="pine" style={{ margin: '0 0 var(--space-2)' }}>About</Eyebrow>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', color: 'var(--text-strong)', fontWeight: 'var(--weight-semibold)', lineHeight: 'var(--leading-tight)', marginBottom: 'var(--space-3)' }}>
           Why this exists
         </h1>

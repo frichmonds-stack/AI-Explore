@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { DraftNotice } from '../lumen/DraftNotice';
 import { usePageMeta } from '../lib/usePageMeta';
+import { Eyebrow } from '../lumen/Eyebrow';
 
 const areas = [
   {
@@ -34,10 +35,7 @@ export default function LearnPage() {
   return (
     <div>
       <div style={{ marginBottom: 'var(--space-8)' }}>
-        <p style={{
-          fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-          textTransform: 'uppercase', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)', margin: '0 0 var(--space-2)',
-        }}>Learn</p>
+        <Eyebrow tone="pine" style={{ margin: '0 0 var(--space-2)' }}>Learn</Eyebrow>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', color: 'var(--text-strong)', fontWeight: 'var(--weight-semibold)', marginBottom: 'var(--space-3)' }}>
           Understand the AI behind your work
         </h1>

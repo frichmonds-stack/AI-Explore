@@ -1,4 +1,3 @@
-import React from 'react';
 import { SHOW_APPROVAL_STATUS } from '../config';
 
 /* Tool approval status — single source of truth for label and tooltip text. */

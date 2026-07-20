@@ -4,34 +4,18 @@ import capabilitiesData from '../content/capabilities.json';
 import toolsData from '../content/tools.json';
 import { StatusBadge } from '../lumen/StatusBadge';
 import { DraftNotice } from '../lumen/DraftNotice';
+import { statusOf } from '../lib/cewa';
+import { useCatLabel } from '../lib/taxonomy';
+import { Eyebrow } from '../lumen/Eyebrow';
 
 const { capabilities } = capabilitiesData;
-const { tools, meta } = toolsData;
-
-const useCatLabel = (id) => meta.useCategories.find((u) => u.id === id)?.label || id;
-
-const cewaStatusMap = {
-  'approved': 'approved',
-  'approved-conditions': 'conditional',
-  'under-review': 'review',
-  'not-approved': 'restricted',
-  'not-reviewed': 'unreviewed',
-};
+const { tools } = toolsData;
 
 const badgeStyle = {
   fontFamily: 'var(--font-sans)', fontSize: 'var(--text-xs)', fontWeight: 'var(--weight-semibold)',
   color: '#fff', background: 'var(--pine-600)', border: '1px solid var(--pine-600)',
   borderRadius: 'var(--radius-pill)', padding: '.34em .8em', whiteSpace: 'nowrap',
 };
-
-function SectionLabel({ children }) {
-  return (
-    <p style={{
-      fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-      textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 'var(--weight-medium)', margin: 0,
-    }}>{children}</p>
-  );
-}
 
 export default function CapabilityPage() {
   const { capabilityId } = useParams();
@@ -83,7 +67,7 @@ export default function CapabilityPage() {
         {/* Educational uses */}
         {cap.eduUses?.length > 0 && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-            <SectionLabel>Where it helps in the classroom</SectionLabel>
+            <Eyebrow>Where it helps in the classroom</Eyebrow>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}>
               {cap.eduUses.map((id) => (
                 <span key={id} style={badgeStyle}>{useCatLabel(id)}</span>
@@ -95,7 +79,7 @@ export default function CapabilityPage() {
         {/* Tools that do this */}
         {capTools.length > 0 && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-            <SectionLabel>Tools that can do this</SectionLabel>
+            <Eyebrow>Tools that can do this</Eyebrow>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
               {capTools.map((tool) => (
                 <Link
@@ -124,7 +108,7 @@ export default function CapabilityPage() {
                     </div>
                     {tool.vendor && <div style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', color: 'var(--text-muted)' }}>{tool.vendor}</div>}
                   </div>
-                  <StatusBadge status={cewaStatusMap[tool.cewaStatus] || 'unreviewed'} showTip={false} />
+                  <StatusBadge status={statusOf(tool)} showTip={false} />
                 </Link>
               ))}
             </div>
@@ -138,7 +122,7 @@ export default function CapabilityPage() {
             border: '1px solid var(--warning-600)', borderRadius: 'var(--radius-md)',
             display: 'flex', flexDirection: 'column', gap: 'var(--space-2)',
           }}>
-            <SectionLabel>Keep students safe</SectionLabel>
+            <Eyebrow>Keep students safe</Eyebrow>
             <p style={{ fontSize: 'var(--text-sm)', color: 'var(--warning-700)', lineHeight: 'var(--leading-relaxed)', margin: 0 }}>
               {cap.safety}
             </p>

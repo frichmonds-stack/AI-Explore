@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom';
 import capabilitiesData from '../content/capabilities.json';
-import toolsData from '../content/tools.json';
 import { DraftNotice } from '../lumen/DraftNotice';
 import { usePageMeta } from '../lib/usePageMeta';
+import { useCatLabel } from '../lib/taxonomy';
+import { Eyebrow } from '../lumen/Eyebrow';
 
 const { capabilities } = capabilitiesData;
-const { meta } = toolsData;
-
-const useCatLabel = (id) => meta.useCategories.find((u) => u.id === id)?.label || id;
 
 const badgeStyle = {
   fontFamily: 'var(--font-sans)', fontSize: 'var(--text-xs)', fontWeight: 'var(--weight-semibold)',
@@ -27,10 +25,7 @@ export default function CapabilitiesPage() {
       </nav>
 
       <div style={{ marginBottom: 'var(--space-7)' }}>
-        <p style={{
-          fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-          textTransform: 'uppercase', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)', margin: '0 0 var(--space-2)',
-        }}>AI Capabilities</p>
+        <Eyebrow tone="pine" style={{ margin: '0 0 var(--space-2)' }}>AI Capabilities</Eyebrow>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', color: 'var(--text-strong)', fontWeight: 'var(--weight-semibold)', marginBottom: 'var(--space-3)' }}>
           What AI can actually do
         </h1>
@@ -67,10 +62,7 @@ export default function CapabilitiesPage() {
             </p>
             {cap.eduUses?.length > 0 && (
               <div style={{ marginTop: 'auto' }}>
-                <p style={{
-                  fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-                  textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 'var(--weight-medium)', margin: '0 0 var(--space-2)',
-                }}>In the classroom</p>
+                <Eyebrow style={{ margin: '0 0 var(--space-2)' }}>In the classroom</Eyebrow>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}>
                   {cap.eduUses.map((id) => (
                     <span key={id} style={badgeStyle}>{useCatLabel(id)}</span>

@@ -1,4 +1,3 @@
-import React from 'react';
 
 /*
  * InfoTip — a small, reusable definition tooltip.

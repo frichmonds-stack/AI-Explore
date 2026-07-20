@@ -1,4 +1,3 @@
-import React from 'react';
 import { useBookmark } from '../lib/useBookmarks';
 
 // Bookmark toggle. Two sizes: a labelled button (detail pages) and a compact

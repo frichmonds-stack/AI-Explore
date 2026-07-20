@@ -1,19 +1,14 @@
 import { Link } from 'react-router-dom';
 import tracks from '../content';
-import toolsData from '../content/tools.json';
 import { DraftNotice, needsReview } from '../lumen/DraftNotice';
 import { usePageMeta } from '../lib/usePageMeta';
-
-const useCatLabel = (id) => toolsData.meta.useCategories.find((u) => u.id === id)?.label || id;
+import { useCatLabel } from '../lib/taxonomy';
+import { Eyebrow } from '../lumen/Eyebrow';
 
 const pillStyle = {
   fontFamily: 'var(--font-sans)', fontSize: 'var(--text-xs)', fontWeight: 'var(--weight-semibold)',
   color: '#fff', background: 'var(--pine-600)', border: '1px solid var(--pine-600)',
   borderRadius: 'var(--radius-pill)', padding: '.34em .8em', whiteSpace: 'nowrap',
-};
-const eyebrowStyle = {
-  fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-  textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 'var(--weight-medium)',
 };
 
 export default function TrackPage({ trackId }) {
@@ -57,7 +52,7 @@ export default function TrackPage({ trackId }) {
                 <p className="text-sm text-base-content/60 mt-1">{section.summary}</p>
                 {section.workTypes?.length > 0 ? (
                   <div style={{ marginTop: 'var(--space-3)' }}>
-                    <span style={eyebrowStyle}>Most useful for</span>
+                    <Eyebrow>Most useful for</Eyebrow>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)', marginTop: 'var(--space-2)' }}>
                       {section.workTypes.map((id) => (
                         <span key={id} style={pillStyle}>{useCatLabel(id)}</span>

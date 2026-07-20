@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 // Share menu — copy link, email, X, LinkedIn. Uses the native share sheet on
 // devices that support it, otherwise a small menu of plain share-INTENT URLs.

@@ -30,7 +30,7 @@ No test suite — exploratory/content project.
 
 ## Architecture
 
-### Routing — HashRouter
+### Routing — BrowserRouter
 All routes live in [`frontend/src/App.jsx`](frontend/src/App.jsx). **`BrowserRouter`** with clean URLs (was `HashRouter`; switched 2026-07-01 for SEO/share cards). Deep links work via an SPA fallback (`public/_redirects`, `vercel.json`); `npm run build` then runs a **pre-render** ([`scripts/prerender.mjs`](frontend/scripts/prerender.mjs)) that writes a real per-route `index.html` with `<title>` + OG/Twitter tags (all static + dynamic routes) so non-JS/social crawlers get proper metadata, while [`usePageMeta`](frontend/src/lib/usePageMeta.js) updates them on client nav. Set `SITE_URL` + add `public/og-default.png` (1200×630) for share images. Host: **Cloudflare Pages** — see [`.claude/deploy.md`](.claude/deploy.md).
 
 | Path | Component |
@@ -38,14 +38,19 @@ All routes live in [`frontend/src/App.jsx`](frontend/src/App.jsx). **`BrowserRou
 | `/` | `HomePage` |
 | `/guides` | `GuidesPage` (work-first hub) |
 | `/guides/:guideId` | `GuidePage` (task walkthrough) |
+| `/articles` | `ArticlesPage` |
+| `/articles/:articleId` | `ArticlePage` |
 | `/tools` | `ToolsPage` |
 | `/tools/:toolId` | `ToolDetailPage` |
 | `/explainer/:category` | `ExplainerPage` (category: `uses` · `roles` · `pedagogies`) |
 | `/learn` | `LearnPage` (hub → About AI · AI Capabilities · AI Safety) |
 | `/learn/capabilities` | `CapabilitiesPage` (index, grouped by capability) |
 | `/learn/capabilities/:capabilityId` | `CapabilityPage` (detail + tools that do it) |
-| `/:track` | `TrackPage` |
-| `/:track/:sectionId` | `SectionPage` |
+| `/glossary` | `GlossaryPage` |
+| `/saved` | `SavedPage` |
+| `/about` | `AboutPage` |
+| `/foundations`, `/risks`, `/practice`, `/pedagogies`, `/explore` | `TrackPage` (one explicit `Route` per track, **not** a dynamic `/:track`) |
+| `/<track>/:sectionId` | `SectionPage` (same five tracks, one explicit `Route` each) |
 
 Tracks (content files): `foundations` (title "About AI") · `risks` (title "AI Safety") · `pedagogies` (title "Teaching Ideas") · `practice` & `explore` (legacy, **not in nav** — retained as raw material, mostly AI-generated cruft pending rework).
 
@@ -81,12 +86,17 @@ Two layers that must work together:
 - `RiskCallout` → `alert alert-warning` (child development risk)
 - `PedagogyNote` → `alert alert-info` (links AI use to teaching theory)
 - Long-form content: wrap in `prose` class (`@tailwindcss/typography`)
-- CEWA status strings in `tools.json` (`approved`, `approved-conditions`, `under-review`, `not-approved`, `not-reviewed`) must be mapped to display variants (`approved`, `conditional`, `review`, `restricted`, `unreviewed`) — see the `cewaStatusMap` pattern in `ToolsPage.jsx` and `ToolDetailPage.jsx`
-- Sentence case for all headings and buttons; uppercase mono only for eyebrow/kicker labels
+- CEWA status strings in `tools.json` (`approved`, `approved-conditions`, `under-review`, `not-approved`, `not-reviewed`) must be mapped to display variants (`approved`, `conditional`, `review`, `restricted`, `unreviewed`) — use `statusOf(tool)` / `cewaStatusMap` from [`frontend/src/lib/cewa.js`](frontend/src/lib/cewa.js), don't redefine the map locally
+- Sentence case for all headings and buttons; uppercase mono only for eyebrow/kicker labels — use [`lumen/Eyebrow.jsx`](frontend/src/lumen/Eyebrow.jsx) (`tone="pine"` / `"muted"` / a CSS colour), not an inline style block
 - Australian English throughout (`organise`, `Year 7`, `maths`)
+- **Reuse before re-create:** before defining a component or helper inside a page file, check `frontend/src/lumen/` and `frontend/src/lib/` first. If a visual pattern or lookup (label resolution, status mapping) shows up in a second page, promote it to a shared file instead of copying it — this codebase is entirely AI-written across many sessions with no shared memory of each other's work, so duplication is the default failure mode, not an edge case.
+- Mapping/lookup logic (status maps, taxonomy label lookups like `useCatLabel`/`pedLabel`/`diffLabel` in [`frontend/src/lib/taxonomy.js`](frontend/src/lib/taxonomy.js)) lives in `frontend/src/lib/` — never redefined inside a page.
+- `npm run lint` (ESLint, flat config at `frontend/eslint.config.js`) is available but not yet wired into any CI/build gate — run it manually after non-trivial changes.
 
-### Filtering — shared `FacetFilters`
+### Filtering — shared `FacetFilters` + `useFacetState`
 Both `ToolsPage` and `GuidesPage` filter through one shared component, [`frontend/src/lumen/FacetFilters.jsx`](frontend/src/lumen/FacetFilters.jsx): a single compact row of dropdowns (options hidden until opened, the chosen value shown on the button, single-select per facet, `'all'` sentinel = no filter). This deliberately replaced stacked rows of pills — keep filters in this one-row dropdown form, don't reintroduce always-visible pill rows. A page supplies a `facets` config (`{ key, label, options[], allLabel? }`), a `values` map, an `onChange(key, val)`, an `onClear`, and `resultCount`. Facet vocabulary is user-facing: **Work type** (`useCategory`), **Work area** (`role`), **Year level** (`band`), **Subject**, **Pedagogy**, plus **Approval** (tools) / **Difficulty** (guides).
+
+The state behind those facets — one value per facet key, the Domain→Work type narrowing rule (choosing a domain scopes the work type options to it and clears a now-invalid work type), and `clearAll` — is centralised in [`frontend/src/lumen/useFacetState.js`](frontend/src/lumen/useFacetState.js) and shared by both pages. Each page still owns its own `filtered` predicate (the actual per-item filter logic differs between tools and guides) — only the facet *state* is shared.
 
 ### Tools Page UX Pattern
 `ToolsPage` implements a two-panel pattern: a filterable grid of `ToolCard`s, and a `ToolSpotlight` that appears above the grid when a card is clicked. The spotlight auto-collapses on scroll (48px threshold with a 420ms suppress after expand). Filters are driven entirely from `tools.json`'s `meta` object via `FacetFilters` (above) — adding a new filter category requires updating both the JSON `meta` and the `facets`/`values`/`setters` in the page.

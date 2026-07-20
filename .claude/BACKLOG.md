@@ -14,6 +14,7 @@ _**At launch, also:** delete the `noindex` block in `frontend/public/_headers` (
 - [ ] **Finish role → domain migration** — filter/glossary/tooltips use **Domain** (parent of Work type), but legacy `roles` still drives card chips, tool-detail role sections, `ExplainerPage` `ROLE_DATA`. Decide: fully replace `roles` with `domains`, or keep `roles` for detail narrative + domains for filtering.
 
 ## Next
+- [ ] **Rename `useCatLabel` → `catLabel`** (`frontend/src/lib/taxonomy.js`) — plain lookup function, not a hook, but its `use*` name trips ESLint's `rules-of-hooks` at 6 call sites (CapabilitiesPage, CapabilityPage, GuidePage ×2, HomePage, TrackPage). Pure rename, no logic change; touches `lib/taxonomy.js`, `lib/searchIndex.js`, and the 6 pages above plus `GuidesPage`. Deferred from the 2026-07-20 dedupe refactor — logged now, fix later.
 - [ ] Confirm tool `access` (cost) + `cewaProvided` against an authoritative CEWA source, then fill for all tools (~8 seeded as placeholders). Optional: an "Availability" facet + "already in your toolkit" rail.
 - [ ] Relevance ranking in tool data — so a card's "strongest" use/role/pedagogy is real, not authored-array order.
 - [ ] Write the full guide library across use-categories and bands (4 samples exist).
@@ -35,6 +36,7 @@ _**At launch, also:** delete the `noindex` block in `frontend/public/_headers` (
 - [ ] User accounts / personalisation.
 
 ## Done (archive — terse)
+- Dedupe refactor + guards (2026-07-20) — extracted `lib/cewa.js`, `lib/taxonomy.js`, `lumen/Eyebrow.jsx`, `lumen/useFacetState.js`; added ESLint (`npm run lint`); CLAUDE.md reuse-first rules + route table fix. Plan + full report at `plans/dedupe-refactor.md`. Found and fixed 2 pre-existing `cewaStatusMap` reference bugs in the process. Flagged but not fixed: `useCatLabel` naming collides with React's hook convention (6 files), 2 pre-existing `set-state-in-effect` lint findings, 3 fast-refresh warnings — all pre-existing, non-trivial, left for owner triage.
 - Social cards complete (2026-07-15) — typographic `og-default.png` (source: `frontend/scripts/og-card.html`, render via headless Chrome), `SITE_URL` set, absolute OG tags verified live.
 - Deployed live (2026-07-15) — Cloudflare Pages `pigeon-hole` project, `pigeon-hole-87j.pages.dev`; pre-launch `noindex` header; `main` = production branch model.
 - Rebrand to **Pigeon Hole** (2026-07-15) — nav/footer/titles/OG/share text; follow-through items in Now.

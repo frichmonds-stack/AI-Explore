@@ -1,4 +1,3 @@
-import React from 'react';
 
 /*
  * DraftNotice — a consistent, editorial "this was AI-generated and needs a human

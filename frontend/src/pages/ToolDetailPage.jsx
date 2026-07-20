@@ -7,16 +7,10 @@ import { StatusBadge } from '../lumen/StatusBadge';
 import { SHOW_APPROVAL_STATUS } from '../config';
 import { ArrowRight } from '../lumen/ToolCard';
 import { DraftNotice, needsReview } from '../lumen/DraftNotice';
+import { statusOf } from '../lib/cewa';
+import { Eyebrow } from '../lumen/Eyebrow';
 
 const { tools, meta } = toolsData;
-
-const cewaStatusMap = {
-  'approved': 'approved',
-  'approved-conditions': 'conditional',
-  'under-review': 'review',
-  'not-approved': 'restricted',
-  'not-reviewed': 'unreviewed',
-};
 
 const ROLE_DESC = {
   'Administration': 'The operational side of school life — drafting communications, managing documentation, and handling the organisational tasks that sit alongside teaching.',
@@ -50,14 +44,7 @@ const CEWA_DETAIL = {
   },
 };
 
-function SectionLabel({ children }) {
-  return (
-    <p style={{
-      fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-      textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 'var(--weight-medium)', margin: 0,
-    }}>{children}</p>
-  );
-}
+const SectionLabel = Eyebrow;
 
 function Section({ label, children }) {
   return (
@@ -106,7 +93,7 @@ export default function ToolDetailPage() {
     );
   }
 
-  const status = cewaStatusMap[tool.cewaStatus] || 'unreviewed';
+  const status = statusOf(tool);
   const statusDetail = CEWA_DETAIL[status];
   const useCats = (tool.useCategories || []).map(id => meta.useCategories.find(u => u.id === id)).filter(Boolean);
   const peds = (tool.pedagogies || []).map(id => meta.pedagogyFrameworks.find(p => p.id === id)).filter(Boolean);
@@ -307,11 +294,7 @@ export default function ToolDetailPage() {
             padding: 'var(--space-4)', background: 'var(--surface-card)',
             border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)',
           }}>
-            <p style={{
-              fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-              textTransform: 'uppercase', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)',
-              marginBottom: 'var(--space-2)',
-            }}>Setup guide coming soon</p>
+            <Eyebrow tone="pine" style={{ marginBottom: 'var(--space-2)' }}>Setup guide coming soon</Eyebrow>
             <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', lineHeight: 'var(--leading-relaxed)', margin: 0 }}>
               A step-by-step classroom setup guide for {tool.name} is being written, including account setup, student access, and integration with your school's systems. In the meantime, visit the vendor's help centre via the link below.
             </p>

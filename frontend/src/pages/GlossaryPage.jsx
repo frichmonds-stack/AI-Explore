@@ -5,15 +5,8 @@ import glossary from '../content/glossary.json';
 import { StatusBadge } from '../lumen/StatusBadge';
 import { usePageMeta } from '../lib/usePageMeta';
 import { SHOW_APPROVAL_STATUS } from '../config';
-
-// CEWA status id (tools.json) → StatusBadge display variant.
-const cewaStatusMap = {
-  'approved': 'approved',
-  'approved-conditions': 'conditional',
-  'under-review': 'review',
-  'not-approved': 'restricted',
-  'not-reviewed': 'unreviewed',
-};
+import { cewaStatusMap } from '../lib/cewa';
+import { Eyebrow } from '../lumen/Eyebrow';
 
 // Where each group's `source` reads from, kept in one place.
 const SOURCES = {
@@ -49,12 +42,7 @@ function normalise(group) {
 }
 
 function Kicker({ children }) {
-  return (
-    <span style={{
-      fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-      textTransform: 'uppercase', color: 'var(--text-muted)',
-    }}>{children}</span>
-  );
+  return <Eyebrow style={{ fontWeight: 'normal', display: 'inline' }}>{children}</Eyebrow>;
 }
 
 export default function GlossaryPage() {
@@ -62,10 +50,7 @@ export default function GlossaryPage() {
   return (
     <div>
       <div style={{ marginBottom: 'var(--space-7)' }}>
-        <p style={{
-          fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-          textTransform: 'uppercase', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)', margin: '0 0 var(--space-2)',
-        }}>Reference</p>
+        <Eyebrow tone="pine" style={{ margin: '0 0 var(--space-2)' }}>Reference</Eyebrow>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', color: 'var(--text-strong)', fontWeight: 'var(--weight-semibold)', marginBottom: 'var(--space-3)' }}>
           Glossary
         </h1>

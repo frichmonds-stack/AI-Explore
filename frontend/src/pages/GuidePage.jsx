@@ -7,31 +7,14 @@ import { DraftNotice, needsReview } from '../lumen/DraftNotice';
 import { usePageMeta } from '../lib/usePageMeta';
 import { SaveButton } from '../lumen/SaveButton';
 import { ShareButton } from '../lumen/ShareButton';
+import { statusOf } from '../lib/cewa';
+import { useCatLabel, diffLabel, pedLabel } from '../lib/taxonomy';
+import { Eyebrow } from '../lumen/Eyebrow';
 
 const { guides } = guidesData;
-const { tools, meta } = toolsData;
-const { difficulties } = guidesData.meta;
+const { tools } = toolsData;
 
-const cewaStatusMap = {
-  'approved': 'approved',
-  'approved-conditions': 'conditional',
-  'under-review': 'review',
-  'not-approved': 'restricted',
-  'not-reviewed': 'unreviewed',
-};
-
-const useCatLabel = (id) => meta.useCategories.find((u) => u.id === id)?.label || id;
-const diffLabel = (id) => difficulties.find((d) => d.id === id)?.label || id;
-const pedLabel = (id) => meta.pedagogyFrameworks.find((p) => p.id === id)?.label || id;
-
-function SectionLabel({ children }) {
-  return (
-    <p style={{
-      fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-      textTransform: 'uppercase', color: 'var(--text-muted)', fontWeight: 'var(--weight-medium)', margin: 0,
-    }}>{children}</p>
-  );
-}
+const SectionLabel = Eyebrow;
 
 function PromptBlock({ text }) {
   const [copied, setCopied] = useState(false);
@@ -49,9 +32,9 @@ function PromptBlock({ text }) {
       display: 'flex', flexDirection: 'column', gap: 'var(--space-3)',
     }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 'var(--space-3)' }}>
-        <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', color: 'var(--ochre-300, #e3c98a)' }}>
+        <Eyebrow tone="var(--ochre-300, #e3c98a)" style={{ fontWeight: 'normal' }}>
           Prompt to copy
-        </span>
+        </Eyebrow>
         <button onClick={copy} style={{
           fontFamily: 'var(--font-sans)', fontSize: 'var(--text-xs)', fontWeight: 'var(--weight-semibold)',
           color: 'var(--pine-800)', background: '#fff', border: 'none', borderRadius: 'var(--radius-pill)',
@@ -153,7 +136,7 @@ export default function GuidePage() {
                   {t.logo ? <img src={t.logo} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : t.name[0]}
                 </div>
                 <span style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--text-sm)', fontWeight: 'var(--weight-semibold)', color: 'var(--text-strong)' }}>{t.name}</span>
-                <StatusBadge status={cewaStatusMap[t.cewaStatus] || 'unreviewed'} showTip={false} />
+                <StatusBadge status={statusOf(t)} showTip={false} />
               </Link>
             ))}
           </div>
@@ -199,10 +182,7 @@ export default function GuidePage() {
           marginBottom: 'var(--space-8)', padding: 'var(--space-5)',
           background: 'var(--warning-100)', border: '1px solid var(--warning-600)', borderRadius: 'var(--radius-md)',
         }}>
-          <p style={{
-            fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-            textTransform: 'uppercase', color: 'var(--warning-700)', fontWeight: 'var(--weight-medium)', margin: '0 0 var(--space-2)',
-          }}>Child safety first</p>
+          <Eyebrow tone="var(--warning-700)" style={{ margin: '0 0 var(--space-2)' }}>Child safety first</Eyebrow>
           <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-md)', fontWeight: 'var(--weight-semibold)', color: 'var(--warning-700)', margin: '0 0 var(--space-2)' }}>
             {guide.safety.title}
           </h3>
@@ -252,10 +232,7 @@ export default function GuidePage() {
           marginBottom: 'var(--space-8)', padding: 'var(--space-6)',
           background: 'linear-gradient(160deg, var(--pine-700), var(--pine-800))', borderRadius: 'var(--radius-lg)',
         }}>
-          <p style={{
-            fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)',
-            textTransform: 'uppercase', color: 'var(--ochre-300, #e3c98a)', fontWeight: 'var(--weight-medium)', margin: '0 0 var(--space-2)',
-          }}>The craft behind it · {pedLabel(guide.pedagogyNote.framework)}</p>
+          <Eyebrow tone="var(--ochre-300, #e3c98a)" style={{ margin: '0 0 var(--space-2)' }}>The craft behind it · {pedLabel(guide.pedagogyNote.framework)}</Eyebrow>
           <p style={{ fontSize: 'var(--text-md)', color: '#fff', lineHeight: 'var(--leading-relaxed)', margin: 0 }}>
             {guide.pedagogyNote.content}
           </p>
@@ -269,9 +246,7 @@ export default function GuidePage() {
       {nextGuides.length > 0 && (
         <div style={{ paddingTop: 'var(--space-6)', borderTop: '1px solid var(--border-subtle)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: 'var(--space-4)' }}>
-            <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', color: 'var(--pine-600)', fontWeight: 'var(--weight-medium)', margin: 0 }}>
-              Explore next
-            </p>
+            <Eyebrow tone="pine">Explore next</Eyebrow>
             <div style={{ flex: 1, height: 1, background: 'var(--border-subtle)' }} />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

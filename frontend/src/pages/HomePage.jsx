@@ -4,17 +4,9 @@ import { StatusBadge } from '../lumen/StatusBadge';
 import toolsData from '../content/tools.json';
 import guidesData from '../content/guides.json';
 import { usePageMeta } from '../lib/usePageMeta';
-
-const cewaStatusMap = {
-  'approved': 'approved',
-  'approved-conditions': 'conditional',
-  'under-review': 'review',
-  'not-approved': 'restricted',
-  'not-reviewed': 'unreviewed',
-};
-
-const { meta } = toolsData;
-const useCatLabel = (id) => meta.useCategories.find((u) => u.id === id)?.label || id;
+import { statusOf } from '../lib/cewa';
+import { useCatLabel } from '../lib/taxonomy';
+import { Eyebrow } from '../lumen/Eyebrow';
 
 const featuredGuides = guidesData.guides.filter((g) => g.featured).slice(0, 3);
 const popularTools = toolsData.tools
@@ -28,11 +20,8 @@ const pillars = [
   { id: 'tools', label: 'Find a tool', icon: '🧰', description: 'A browsable library of AI tools for teaching — what each is good for, where to be careful, and how it fits your classroom.', badge: null, tone: 'pine' },
   { id: 'pedagogies', label: 'Teaching', icon: '📚', description: 'Where the work leads: the big ideas behind good teaching, unpacked simply — what they are and what they look like in the classroom.', badge: 'Where it leads', tone: 'pine' },
   { id: 'learn', label: 'Learn about AI', icon: '🔍', description: 'Understand the AI behind your work — what it is, what it can actually do, and how to keep students safe. Only as deep as your job needs.', badge: null, tone: 'pine' },
+  { id: null, label: 'The whole job', icon: '🧑‍🏫', description: 'Behaviour and classroom management, relationships, parent contact, admin — the parts of teaching beyond planning and marking. We’re building this next.', badge: 'Coming soon', tone: 'muted', comingSoon: true },
 ];
-
-function Eyebrow({ children }) {
-  return <p className="lumen-eyebrow">{children}</p>;
-}
 
 export default function HomePage() {
   usePageMeta({ description: 'Practical, classroom-ready help for teaching with AI — start with the work, grow the craft, keep children safe.' });
@@ -41,7 +30,7 @@ export default function HomePage() {
       {/* Hero — work-first */}
       <div className="py-14 text-center">
         <div className="max-w-2xl mx-auto">
-          <p className="lumen-eyebrow" style={{ marginBottom: 'var(--space-3)' }}>AI for educators</p>
+          <Eyebrow style={{ marginBottom: 'var(--space-3)' }}>AI for educators</Eyebrow>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-3xl)', color: 'var(--text-strong)', fontWeight: 'var(--weight-semibold)', letterSpacing: 'var(--tracking-snug)', lineHeight: 'var(--leading-tight)', marginBottom: 'var(--space-4)' }}>
             Start with what you need to do
           </h1>
@@ -100,9 +89,9 @@ export default function HomePage() {
         borderRadius: 'var(--radius-lg)', textDecoration: 'none',
       }}>
         <div style={{ maxWidth: 560 }}>
-          <p style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', color: 'var(--ochre-300, #e3c98a)', margin: '0 0 var(--space-2)' }}>
+          <Eyebrow tone="var(--ochre-300, #e3c98a)" style={{ margin: '0 0 var(--space-2)' }}>
             Why these guides
-          </p>
+          </Eyebrow>
           <p style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-lg)', fontWeight: 'var(--weight-semibold)', color: '#fff', lineHeight: 1.25, margin: '0 0 var(--space-2)' }}>
             Every guide starts with the job — and ends with the teaching craft behind it.
           </p>
@@ -142,7 +131,7 @@ export default function HomePage() {
                   <p style={{ fontSize: 'var(--text-xs)', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', marginTop: 2 }}>{tool.vendor}</p>
                 </div>
               </div>
-              <StatusBadge status={cewaStatusMap[tool.cewaStatus] || 'unreviewed'} showTip={false} />
+              <StatusBadge status={statusOf(tool)} showTip={false} />
             </Link>
           ))}
         </div>
@@ -151,34 +140,52 @@ export default function HomePage() {
       {/* Pillars — ways to explore, in priority order */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)', margin: 'var(--space-8) 0 var(--space-6)' }}>
         <span style={{ flex: 1, height: 1, background: 'var(--border-subtle)' }} />
-        <span className="lumen-eyebrow">Ways to explore</span>
+        <Eyebrow>Ways to explore</Eyebrow>
         <span style={{ flex: 1, height: 1, background: 'var(--border-subtle)' }} />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {pillars.map((p) => (
-          <Link key={p.id} to={`/${p.id}`} style={{
-            display: 'block', background: 'var(--surface-card)', border: '1px solid var(--border-subtle)',
-            borderRadius: 'var(--radius-lg)', padding: 'var(--space-6)', boxShadow: 'var(--shadow-sm)',
-            transition: 'var(--transition-hover)', textDecoration: 'none',
-          }}
-            onMouseEnter={(e) => { e.currentTarget.style.boxShadow = 'var(--shadow-md)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; e.currentTarget.style.transform = 'translateY(0)'; }}
-          >
-            <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 'var(--space-3)' }}>
-              <span style={{ fontSize: '1.5rem' }}>{p.icon}</span>
-              {p.badge && (
-                <span style={{
-                  fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', fontWeight: 'var(--weight-medium)',
-                  letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', padding: '0.25em 0.65em', borderRadius: 'var(--radius-pill)',
-                  background: p.tone === 'warning' ? 'var(--warning-100)' : p.tone === 'muted' ? 'var(--paper-200)' : 'var(--pine-50)',
-                  color: p.tone === 'warning' ? 'var(--warning-700)' : p.tone === 'muted' ? 'var(--text-muted)' : 'var(--pine-700)',
-                }}>{p.badge}</span>
-              )}
-            </div>
-            <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-lg)', color: 'var(--text-strong)', fontWeight: 'var(--weight-semibold)', marginBottom: 'var(--space-2)' }}>{p.label}</h2>
-            <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', lineHeight: 'var(--leading-relaxed)' }}>{p.description}</p>
-          </Link>
-        ))}
+        {pillars.map((p) => {
+          const badge = p.badge && (
+            <span style={{
+              fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', fontWeight: 'var(--weight-medium)',
+              letterSpacing: 'var(--tracking-label)', textTransform: 'uppercase', padding: '0.25em 0.65em', borderRadius: 'var(--radius-pill)',
+              background: p.tone === 'warning' ? 'var(--warning-100)' : p.tone === 'muted' ? 'var(--paper-200)' : 'var(--pine-50)',
+              color: p.tone === 'warning' ? 'var(--warning-700)' : p.tone === 'muted' ? 'var(--text-muted)' : 'var(--pine-700)',
+            }}>{p.badge}</span>
+          );
+          const content = (
+            <>
+              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 'var(--space-3)' }}>
+                <span style={{ fontSize: '1.5rem', opacity: p.comingSoon ? 0.6 : 1 }}>{p.icon}</span>
+                {badge}
+              </div>
+              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-lg)', color: p.comingSoon ? 'var(--text-muted)' : 'var(--text-strong)', fontWeight: 'var(--weight-semibold)', marginBottom: 'var(--space-2)' }}>{p.label}</h2>
+              <p style={{ fontSize: 'var(--text-sm)', color: 'var(--text-muted)', lineHeight: 'var(--leading-relaxed)' }}>{p.description}</p>
+            </>
+          );
+          if (p.comingSoon) {
+            return (
+              <div key={p.label} style={{
+                display: 'block', background: 'var(--paper-100)', border: '1px dashed var(--border-subtle)',
+                borderRadius: 'var(--radius-lg)', padding: 'var(--space-6)', cursor: 'default',
+              }}>
+                {content}
+              </div>
+            );
+          }
+          return (
+            <Link key={p.id} to={`/${p.id}`} style={{
+              display: 'block', background: 'var(--surface-card)', border: '1px solid var(--border-subtle)',
+              borderRadius: 'var(--radius-lg)', padding: 'var(--space-6)', boxShadow: 'var(--shadow-sm)',
+              transition: 'var(--transition-hover)', textDecoration: 'none',
+            }}
+              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = 'var(--shadow-md)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; e.currentTarget.style.transform = 'translateY(0)'; }}
+            >
+              {content}
+            </Link>
+          );
+        })}
       </div>
 
       {/* Child-safety-first framing note */}

@@ -1,4 +1,3 @@
-import React from 'react';
 
 /* Inject Button styles once per session. */
 const CSS = `

@@ -2,9 +2,10 @@ import { Link } from 'react-router-dom';
 import toolsData from '../content/tools.json';
 import guidesData from '../content/guides.json';
 import articlesData from '../content/articles.json';
-import { useBookmarks, bookmarkKey } from '../lib/useBookmarks';
+import { useBookmarks } from '../lib/useBookmarks';
 import { SaveButton } from '../lumen/SaveButton';
 import { usePageMeta } from '../lib/usePageMeta';
+import { Eyebrow } from '../lumen/Eyebrow';
 
 const { tools } = toolsData;
 const { guides } = guidesData;
@@ -61,7 +62,7 @@ export default function SavedPage() {
     <div>
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 'var(--space-4)', marginBottom: 'var(--space-6)' }}>
         <div>
-          <p className="lumen-eyebrow" style={{ margin: '0 0 var(--space-2)' }}>Your shortlist</p>
+          <Eyebrow style={{ margin: '0 0 var(--space-2)' }}>Your shortlist</Eyebrow>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-2xl)', color: 'var(--text-strong)', fontWeight: 'var(--weight-semibold)', margin: 0 }}>
             Saved
           </h1>
@@ -86,7 +87,7 @@ export default function SavedPage() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-7)' }}>
           {SECTIONS.map(({ key, label }) => groups[key].length > 0 && (
             <section key={key}>
-              <p className="lumen-eyebrow" style={{ margin: '0 0 var(--space-3)' }}>{label} · {groups[key].length}</p>
+              <Eyebrow style={{ margin: '0 0 var(--space-3)' }}>{label} · {groups[key].length}</Eyebrow>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
                 {groups[key].map((item) => <Row key={`${item.type}:${item.id}`} item={item} />)}
               </div>

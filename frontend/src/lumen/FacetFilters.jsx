@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { facetHint, termDef } from '../lib/definitions';
 import './InfoTip'; // side-effect: injects the .lmn-infotip tooltip CSS used below
 
