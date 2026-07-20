@@ -29,8 +29,8 @@ Last updated: 2026-07-15
 
 ## Known gaps / risks
 
-- Content is partial across most track JSON files; no audit yet.
-- Not all block types confirmed to render in `SectionPage`.
+- Track content audited 2026-07-21 (`plans/content-audit-2026-07-21.md`): **structurally clean** — all 7 block types render, all 206 blocks well-formed. The gap is **volume, not correctness**: `foundations` (4 sections) and `risks` (5) are thin next to `pedagogies` (8).
+- `/explainer/*` serves no page metadata (no `usePageMeta`, not prerendered) — the one hole in an otherwise complete SEO setup. On BACKLOG.
 
 ## Immediate handoff
 

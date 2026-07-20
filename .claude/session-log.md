@@ -2,6 +2,14 @@
 
 Dated, append-at-top chronological record of meaningful sessions: what happened, what was decided, what's next. Keep entries terse — detail belongs in the canonical docs (see `close-out.md` routing table). When this file exceeds ~150 lines, move older entries to `session-log-archive.md` and leave a pointer.
 
+## 2026-07-21 — Housekeeping while owner away: rename + content audit
+
+- Owner left two scoped items with edit+commit authority (no push, no `main`). Both done on the feature branch.
+- **`useCatLabel` → `catLabel`** — cleared the 6 ESLint `rules-of-hooks` errors; also collapsed `searchIndex.js`'s duplicate copy into shared `lib/taxonomy.js`. Lint 8 → 5 problems (remainder pre-existing and logged). Build passes, 75 routes prerendered, labels verified rendering in the browser.
+- **Content & render audit** (report: `plans/content-audit-2026-07-21.md`) — structural validator over all 5 track files: 0 problems across 206 blocks, all 7 block types render, explainer content is real not stubbed. Closed both "verify" backlog items.
+- Three new findings raised: `/explainer/*` serves no page metadata (no `usePageMeta` + not prerendered — a real SEO hole); `quote` blocks have two incompatible shapes across `SectionBlock` vs `ArticlePage`'s duplicate renderer; `ROLE_DATA` hardcoded in `ExplainerPage` (folded into the role→domain item).
+- Nothing pushed — awaiting owner review. The metadata fix needs 3 titles/descriptions written, deliberately left rather than guessed.
+
 ## 2026-07-20 — Publish Close: dedupe refactor + homepage coming-soon card live
 
 - Owner-authorised Publish Close covering both same-day items below: the dedupe refactor and the homepage "coming soon" 5th pillar card ("The whole job" — behaviour management, relationships, parent contact, admin — named as out of scope for the benchmark's core-teaching-loop focus for now, not silently omitted).
