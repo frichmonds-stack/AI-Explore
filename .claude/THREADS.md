@@ -1,7 +1,7 @@
 # Open Threads
 
 ## 🔴 Blocking
-_(none)_
+- **GitHub push auth failing again (2026-07-20)** — `git push` to the feature branch rejected with "Invalid username or token. Password authentication is not supported." Same symptom as the 2026-07-01 thread (resolved below at the time) but the stored credential has since gone stale/been revoked — token expiry or a rotated credential are the likely causes. Blocks the current Publish Close: commit `1c7ab6b` (dedupe refactor + homepage coming-soon card) is committed locally on `claude/amazing-carson-5zucgf` but **not pushed, not merged to `main`, not live**. Fix needs the owner to re-authenticate the `osxkeychain`-stored GitHub credential (new personal access token, or re-run whatever login flow set it up originally) — not something an agent can do without entering credentials, which is out of bounds. Once fixed, re-run the Publish Close push+merge steps in `close-out.md`.
 
 ## 🟡 Unresolved
 - **CEWA approval data — hidden, needs authorisation to reinstate** — the approval statuses were internal-sourced (no public version found), so the whole approval layer is switched OFF (`config.js` `SHOW_APPROVAL_STATUS=false`; see DECISIONS 2026-07-01). To bring it back: confirm a public source OR get CEWA authorisation, then flip the flag + repopulate. Also: the internal values remain in git *history* (private repo) — scrub history before making the repo public. Supersedes the old `access`/`cewaProvided` placeholder + Nurture-AI-pilot threads.
