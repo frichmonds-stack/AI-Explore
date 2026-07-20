@@ -6,7 +6,7 @@ import { FacetFilters } from '../lumen/FacetFilters';
 import { useFacetState, ALL } from '../lumen/useFacetState';
 import { DraftNotice, needsReview } from '../lumen/DraftNotice';
 import { usePageMeta } from '../lib/usePageMeta';
-import { useCatLabel, diffLabel } from '../lib/taxonomy';
+import { catLabel, diffLabel } from '../lib/taxonomy';
 import { Eyebrow } from '../lumen/Eyebrow';
 
 const { guides } = guidesData;
@@ -30,7 +30,7 @@ function GuideCard({ guide }) {
         <span style={{
           fontFamily: 'var(--font-sans)', fontSize: 'var(--text-xs)', fontWeight: 'var(--weight-semibold)',
           color: '#fff', background: 'var(--pine-600)', borderRadius: 'var(--radius-pill)', padding: '.3em .7em',
-        }}>{useCatLabel(guide.useCategory)}</span>
+        }}>{catLabel(guide.useCategory)}</span>
         <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', color: 'var(--text-muted)' }}>
           {guide.time} · {diffLabel(guide.difficulty)}
         </span>

@@ -5,7 +5,7 @@ import toolsData from '../content/tools.json';
 import guidesData from '../content/guides.json';
 import { usePageMeta } from '../lib/usePageMeta';
 import { statusOf } from '../lib/cewa';
-import { useCatLabel } from '../lib/taxonomy';
+import { catLabel } from '../lib/taxonomy';
 import { Eyebrow } from '../lumen/Eyebrow';
 
 const featuredGuides = guidesData.guides.filter((g) => g.featured).slice(0, 3);
@@ -68,7 +68,7 @@ export default function HomePage() {
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', flexWrap: 'wrap' }}>
                 <span style={{ fontFamily: 'var(--font-sans)', fontSize: 'var(--text-xs)', fontWeight: 'var(--weight-semibold)', color: '#fff', background: 'var(--pine-600)', borderRadius: 'var(--radius-pill)', padding: '.3em .7em' }}>
-                  {useCatLabel(g.useCategory)}
+                  {catLabel(g.useCategory)}
                 </span>
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', color: 'var(--text-muted)' }}>{g.time}</span>
               </div>

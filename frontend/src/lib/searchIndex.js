@@ -7,13 +7,15 @@ import guidesData from '../content/guides.json';
 import capabilitiesData from '../content/capabilities.json';
 import articlesData from '../content/articles.json';
 import tracks from '../content/index.js';
+import { catLabel } from './taxonomy';
 
 // Only the tracks that appear in nav are surfaced in search — `practice` and
 // `explore` are retained raw material, deliberately kept out of the way.
 const SEARCHABLE_TRACKS = ['foundations', 'risks', 'pedagogies'];
 
 const { meta } = toolsData;
-const useCatLabel = (id) => meta.useCategories.find((u) => u.id === id)?.label || id;
+// `pedagogyLabel` is local because search wants the short form; the plain-label
+// lookups (`catLabel`) come from lib/taxonomy.
 const pedagogyLabel = (id) => meta.pedagogyFrameworks.find((p) => p.id === id)?.shortLabel || id;
 
 // Pull every string value out of a nested block so section copy is searchable
@@ -39,7 +41,7 @@ function buildIndex() {
       to: `/tools/${t.id}`,
       cewaStatus: t.cewaStatus,
       keywords: [
-        ...(t.useCategories || []).map(useCatLabel),
+        ...(t.useCategories || []).map(catLabel),
         ...(t.roles || []),
         ...(t.subjects || []),
         ...(t.pedagogies || []).map(pedagogyLabel),
@@ -54,7 +56,7 @@ function buildIndex() {
       type: 'Guide',
       id: g.id,
       title: g.title,
-      subtitle: useCatLabel(g.useCategory),
+      subtitle: catLabel(g.useCategory),
       summary: g.summary,
       to: `/guides/${g.id}`,
       keywords: [
@@ -76,7 +78,7 @@ function buildIndex() {
       subtitle: 'AI capability',
       summary: c.summary,
       to: `/learn/capabilities/${c.id}`,
-      keywords: [c.what || '', ...(c.eduUses || []).map(useCatLabel)].join(' '),
+      keywords: [c.what || '', ...(c.eduUses || []).map(catLabel)].join(' '),
     });
   });
 

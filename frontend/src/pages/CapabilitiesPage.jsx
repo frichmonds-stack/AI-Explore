@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import capabilitiesData from '../content/capabilities.json';
 import { DraftNotice } from '../lumen/DraftNotice';
 import { usePageMeta } from '../lib/usePageMeta';
-import { useCatLabel } from '../lib/taxonomy';
+import { catLabel } from '../lib/taxonomy';
 import { Eyebrow } from '../lumen/Eyebrow';
 
 const { capabilities } = capabilitiesData;
@@ -65,7 +65,7 @@ export default function CapabilitiesPage() {
                 <Eyebrow style={{ margin: '0 0 var(--space-2)' }}>In the classroom</Eyebrow>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}>
                   {cap.eduUses.map((id) => (
-                    <span key={id} style={badgeStyle}>{useCatLabel(id)}</span>
+                    <span key={id} style={badgeStyle}>{catLabel(id)}</span>
                   ))}
                 </div>
               </div>

@@ -8,7 +8,7 @@ import { usePageMeta } from '../lib/usePageMeta';
 import { SaveButton } from '../lumen/SaveButton';
 import { ShareButton } from '../lumen/ShareButton';
 import { statusOf } from '../lib/cewa';
-import { useCatLabel, diffLabel, pedLabel } from '../lib/taxonomy';
+import { catLabel, diffLabel, pedLabel } from '../lib/taxonomy';
 import { Eyebrow } from '../lumen/Eyebrow';
 
 const { guides } = guidesData;
@@ -84,7 +84,7 @@ export default function GuidePage() {
         <span style={{
           fontFamily: 'var(--font-sans)', fontSize: 'var(--text-xs)', fontWeight: 'var(--weight-semibold)',
           color: '#fff', background: 'var(--pine-600)', borderRadius: 'var(--radius-pill)', padding: '.3em .8em',
-        }}>{useCatLabel(guide.useCategory)}</span>
+        }}>{catLabel(guide.useCategory)}</span>
         <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', color: 'var(--text-muted)' }}>
           {guide.time} · {diffLabel(guide.difficulty)}
         </span>
@@ -256,7 +256,7 @@ export default function GuidePage() {
                 padding: 'var(--space-4)', background: 'var(--surface-card)',
                 border: '1px solid var(--border-subtle)', borderRadius: 'var(--radius-md)', textDecoration: 'none',
               }}>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', color: 'var(--text-muted)' }}>{useCatLabel(g.useCategory)} · {g.time}</span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'var(--text-2xs)', color: 'var(--text-muted)' }}>{catLabel(g.useCategory)} · {g.time}</span>
                 <span style={{ fontFamily: 'var(--font-display)', fontSize: 'var(--text-md)', fontWeight: 'var(--weight-semibold)', color: 'var(--text-strong)', lineHeight: 1.2 }}>{g.title}</span>
               </Link>
             ))}

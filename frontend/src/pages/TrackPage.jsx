@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import tracks from '../content';
 import { DraftNotice, needsReview } from '../lumen/DraftNotice';
 import { usePageMeta } from '../lib/usePageMeta';
-import { useCatLabel } from '../lib/taxonomy';
+import { catLabel } from '../lib/taxonomy';
 import { Eyebrow } from '../lumen/Eyebrow';
 
 const pillStyle = {
@@ -55,7 +55,7 @@ export default function TrackPage({ trackId }) {
                     <Eyebrow>Most useful for</Eyebrow>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)', marginTop: 'var(--space-2)' }}>
                       {section.workTypes.map((id) => (
-                        <span key={id} style={pillStyle}>{useCatLabel(id)}</span>
+                        <span key={id} style={pillStyle}>{catLabel(id)}</span>
                       ))}
                     </div>
                   </div>
