@@ -26,6 +26,7 @@ Last updated: 2026-07-15
 
 - Guides → Articles rework: scaffold done; real articles, nav repoint (Explore → `/articles`), and homepage reconciliation still pending.
 - Tool decision-support depth (richer tool profiles) is in progress per the DRAFT `tool-review-architecture.md` — card signals + review spine await owner sign-off.
+- **Benchmark foundations is the live design thread** (2026-07-21). Two objects now cleanly separated: the **AI output benchmark** scores delivery only (pedagogy lives in the prompt, never in the score), and the **teacher improvement model** is a continuous loop of `Stage · Context · Catalyst`. Structure is settled; **contents are not** — the stages themselves are still AI-drafted and are the next thing to work. See DECISIONS → the two 2026-07-21 entries.
 
 ## Known gaps / risks
 

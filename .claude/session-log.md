@@ -12,6 +12,16 @@ Dated, append-at-top chronological record of meaningful sessions: what happened,
 - **Recovered the 2026-07-20 premise design from that session's transcript** — four questions + stance, three-ring scope model, and the owner's ruling to acknowledge-and-defer rings 2–3. It had never been written to `DECISIONS.md`; only the homepage "coming soon" card it produced was recorded. Now captured (DECISIONS → 2026-07-20) with owner calls marked and AI elaboration flagged as unruled.
 - Owner's point, fairly made: the close-out procedure was supposed to prevent exactly this. Root cause — the checklist prompts for what changed *on disk*, so discussion-only decisions can pass through a Publish Close unrecorded, worst in a session later consumed by an unrelated problem (that one ended in a long push-auth fight). Added an explicit "re-read the discussion turns, not just the diff" step to `close-out.md` step 2.
 
+## 2026-07-21 (later) — Benchmark + improvement model design session (discussion; docs only)
+
+- Long design conversation, recorded to `DECISIONS.md` **as it happened** rather than at close-out — the new close-out step working as intended.
+- **The two objects were separated properly.** The improvement model and the AI output benchmark are not one thing viewed from two sides; that 2026-07-20 line is withdrawn as false. It broke at two points under examination, and the breakages were the evidence.
+- **Benchmark: scores delivery only.** Owner's reasoning — teachers hold genuinely different pedagogical positions, so a pedagogically-weighted score turns the site's declared bias into a measurement aimed at people who don't share it. Pedagogy lives in the prompt; the practitioner controls it. Judgement, integrity and safety concerns are discussed in review prose, never scored. Un-annotated outputs are fine to publish — comparability is the point.
+- **Improvement model: `Stage · Context · Catalyst`,** continuous, with catalysts (coaching, observation, research) as the route by which new knowledge enters. Its only link to the benchmark is that it shapes the prompts — it is explicitly *not* a lens for reading AI output, which reversed an earlier AI proposal.
+- **Repeated pattern worth noting for future sessions:** the owner corrected the same conflation (improvement model vs benchmark) three times before it stuck, and separately pre-empted the docs-not-verified problem by stating up front that the *framework* is committed while its *contents* are not. Both are recorded in the entries themselves.
+- Backlogged: visualising the model as a proper design job, sequenced after the stages settle.
+- **Still uncommitted and next up: the stages themselves** — everything now hangs off four questions whose wording is still AI-drafted.
+
 ## 2026-07-20 — Publish Close: dedupe refactor + homepage coming-soon card live
 
 - Owner-authorised Publish Close covering both same-day items below: the dedupe refactor and the homepage "coming soon" 5th pillar card ("The whole job" — behaviour management, relationships, parent contact, admin — named as out of scope for the benchmark's core-teaching-loop focus for now, not silently omitted).
