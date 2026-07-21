@@ -16,6 +16,29 @@
 - **Prohibited bucket** — Not Approved tools get their own visible bucket so teachers know what to avoid on CEWA devices, rather than those tools simply being absent.
 - **Status tooltips + glossary (2026-06-25)** — CEWA status explained inline via `StatusBadge` tooltips. The full legend + every other categorisation (work type, role, pedagogy, band, subject, difficulty, access) now lives on a **Glossary page** (`/glossary`), not the footer — the footer just links to it. Glossary is an explicit **placeholder**: the intended end-state is inline tooltips on the labels themselves (see BACKLOG "Definitions as inline tooltips"). Supersedes the earlier "no separate explainer page" call.
 
+## Strategy (2026-07-21 — improvement model vs benchmark: two objects, and how examples create drift)
+
+> **Owner note, stated explicitly during this session: what is committed here is the *framework*, not its contents.** The number of questions in the improvement model and what those questions are remain uncommitted — "four questions and a stance" (section below) is a working sketch, not a ruling. Same for the six delivery criteria: the owner placed them in the benchmark, but did not ratify them. Record the architecture as settled; treat every list of contents as a proposal awaiting a ruling.
+
+**The framework (committed):**
+- **The teacher improvement model and the AI output benchmark are two separate objects.** Not one object viewed from two sides — that earlier line (2026-07-20 entry below) is **withdrawn as false**. It broke at two points under examination, and the breakages were the evidence: "classroom readiness" is a property of an artefact, not of a practitioner, and "what will I do about it" is a property of a practitioner that no static artefact can have.
+- **The benchmark scores delivery only — pedagogy never enters the score.** Owner's reasoning: teachers hold genuinely different pedagogical positions (bias, experience, context), so a pedagogically-weighted score turns the site's declared bias into a measurement aimed at teachers who don't share it. What is universal is that a product works, is efficient, and does what you asked. Also: it is unfair to assess a tool for CLT it was never asked to apply, and unfounded to assume tools have pedagogy embedded.
+- **Pedagogy lives in the prompt; the practitioner is in control of it.** This is the stance made mechanical — the teacher specifies the pedagogical intent, the tool executes it. Sharpens the 2026-07-13 "prompts embody best practice in plain teacher voice" call: its purpose is not only to kill the "the AI didn't know" excuse but to put the pedagogical decision where it belongs.
+- **Artefacts do double duty — exemplar and evidence.** The same output both teaches by example (owner's term: **"positive drift"**) and is scored to rate the tool. This is the connection between the two objects, and it runs through the *examples*, not through the rubric — which is why the improvement model can inform the benchmark without contaminating its scores.
+- **The improvement model's role in a review is as the lens examples are read and annotated through** — not as criteria. Teachers who don't share the site's pedagogy still get a useful delivery rating; the better practice is offered alongside it rather than imposed through the number.
+- **The review unit: task + prompt + artefact + commentary + score.** Five parts; two of them (prompt, commentary) come from the improvement model.
+- **OWNER CALL — where scores appear:** on the tool card, and in the tool detail page, where the detail carries the full breakdown including the prompts and the outputs.
+- **OWNER CALL — bad practice is not the tool's fault.** It must be caught by the practitioner and their values/pedagogy. A presentation output that is loud and busy may conflict with CLT and still be liked by some teachers — that is a values and judgement call, not a defect. Such observations belong in the **tool review prose as feedback**, never in the score.
+
+**Open / not ruled on:**
+- The number of improvement-model questions and what they are; likewise whether "the stance" is a component.
+- Ratification of the six delivery criteria (working set: did it do what was asked · accuracy · quality of the output in its medium · usable tomorrow · what it cost in time and rework · how much control it left you).
+- Whether every published output needs commentary beside it, or whether score-plus-raw-output is acceptable for routine runs with commentary reserved for flagship comparisons. *(Content-load question, not a principle.)*
+- Sourcing for "stretch" (desirable difficulties vs ZPD) — **deliberately parked**: it is a principle attached to a question that isn't committed, so it cannot be settled first.
+- The four items carried from 2026-07-13 that were recorded as settled but never examined (see the note in that entry below).
+
+**Consequence worth watching:** since a score means *"does what a well-instructed teacher asks"* and not *"pedagogically sound tool"*, the card-level label matters — and the BACKLOG "Later" item for *"most popular / highest rated" rows in the discovery layer* would present exactly the standalone ranking that invites the misread. Revisit it when that work comes up.
+
 ## Strategy (2026-07-20 — the core premise: four questions and a stance)
 
 *Recovered 2026-07-21 from the 2026-07-20 "Infrastructure building" session transcript — the design work happened in discussion turns hours before any code, and the session's Publish Close recorded only the diff. See the Process note at the foot of this section.*
@@ -29,7 +52,8 @@
 
   Wrapped in a **professional stance**: the teacher holds the judgement; theories and tools (including AI) are instruments, not authorities. Improvement = asking the questions more precisely and answering them with better evidence.
 - **Research areas become tools for jobs, not competing camps** — CLT isn't an ideology you join, it's the best available answer to question 2. Mirrors the site's existing editorial philosophy for AI tools.
-- **The improvement model and the benchmark rubric are the same object viewed from two sides** — the six criteria map near one-to-one onto the four questions (curriculum fidelity → Q1, instructional design → Q2, assessment integrity → Q3, teacher voice → the stance). One spine; everything cites it. *(AI proposal, owner did not rule on it.)*
+- ~~**The improvement model and the benchmark rubric are the same object viewed from two sides**~~ — **WITHDRAWN 2026-07-21 as false** (see the 2026-07-21 entry above). It was an AI proposal the owner never ruled on; it does not survive contact with the actual mapping, and it caused a day of conflation between the two objects.
+- **Owner's standing on the four questions (clarified 2026-07-21):** the owner's words on 2026-07-20 were *"if we are talking about the core teaching loop then yes, your questions make sense"* — a conditional endorsement whose condition their own scope ruling then satisfied. Stronger than "AI proposal," weaker than a ruling. On 2026-07-21 the owner stated explicitly that **neither the number of questions nor their content is committed.** Treat as a working sketch.
 - **Scope — three rings, one test** (owner raised the question: do management, relationships, admin, parent contact, marking, feedback belong in the core?):
   1. **The core loop** — the four questions. Teaching itself.
   2. **The conditions** — classroom management and relationships. Not instruction, but load-bearing: the loop cannot run without them.

@@ -15,6 +15,7 @@ _**At launch, also:** delete the `noindex` block in `frontend/public/_headers` (
 
 ## Next
 - [ ] Confirm tool `access` (cost) + `cewaProvided` against an authoritative CEWA source, then fill for all tools (~8 seeded as placeholders). Optional: an "Availability" facet + "already in your toolkit" rail.
+- [ ] **"Pigeon holes, not pigeonholing" copy line** (noted 2026-07-21) — the site sorts tools into pigeon holes so teachers don't have to pigeonhole kids. Surfaced when the owner used "pigeon hole your audience" as the failure mode of the improvement model's audience question. Free brand material for the About/approach page; capture before the copy is written.
 - [ ] Relevance ranking in tool data — so a card's "strongest" use/role/pedagogy is real, not authored-array order.
 - [ ] Write the full guide library across use-categories and bands (4 samples exist).
 - [ ] Build "How AI Works" sections (session, memory, token, model, use cases) in the `foundations` track.
