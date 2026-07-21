@@ -9,6 +9,8 @@ Dated, append-at-top chronological record of meaningful sessions: what happened,
 - **Content & render audit** (report: `plans/content-audit-2026-07-21.md`) — structural validator over all 5 track files: 0 problems across 206 blocks, all 7 block types render, explainer content is real not stubbed. Closed both "verify" backlog items.
 - Three new findings raised: `/explainer/*` serves no page metadata (no `usePageMeta` + not prerendered — a real SEO hole); `quote` blocks have two incompatible shapes across `SectionBlock` vs `ArticlePage`'s duplicate renderer; `ROLE_DATA` hardcoded in `ExplainerPage` (folded into the role→domain item).
 - Nothing pushed — awaiting owner review. The metadata fix needs 3 titles/descriptions written, deliberately left rather than guessed.
+- **Recovered the 2026-07-20 premise design from that session's transcript** — four questions + stance, three-ring scope model, and the owner's ruling to acknowledge-and-defer rings 2–3. It had never been written to `DECISIONS.md`; only the homepage "coming soon" card it produced was recorded. Now captured (DECISIONS → 2026-07-20) with owner calls marked and AI elaboration flagged as unruled.
+- Owner's point, fairly made: the close-out procedure was supposed to prevent exactly this. Root cause — the checklist prompts for what changed *on disk*, so discussion-only decisions can pass through a Publish Close unrecorded, worst in a session later consumed by an unrelated problem (that one ended in a long push-auth fight). Added an explicit "re-read the discussion turns, not just the diff" step to `close-out.md` step 2.
 
 ## 2026-07-20 — Publish Close: dedupe refactor + homepage coming-soon card live
 

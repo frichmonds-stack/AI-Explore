@@ -34,6 +34,9 @@ Rules:
 | Deploy steps | `deploy.md` |
 
    It's fine to report "continuity: no update required" when nothing material changed.
+
+   **Before moving on, re-read the session's discussion turns, not just the diff.** The routing table above is easy to satisfy from `git diff` alone — which silently misses decisions reached in conversation that produced little or no code, and misses them worst in a long session that later gets consumed by an unrelated problem (a failing push, a broken tool), because by close-out time the diff is the only thing still in view. Ask explicitly: *what did the owner rule on today that isn't visible in the diff?* Anything with a stated rationale belongs in `DECISIONS.md`, marked **OWNER CALL** where the owner actually ruled and flagged as proposal where it was AI elaboration they didn't examine (see `owner-context.md`). A shipped artefact whose reasoning is unrecorded is a half-finished close.
+   *Why this is here: the 2026-07-20 premise design (four questions and a stance, the three-ring scope model, the deferral ruling) passed through a Publish Close unrecorded — only the homepage card it produced was written down. It survived by chance, recovered from a transcript a day later.*
 3. Add a dated entry to `session-log.md` for meaningful implementation, decision, or handoff milestones (not for trivial sessions). If the log exceeds ~150 lines, archive older entries to `session-log-archive.md` and leave a pointer.
 
 ## Publish Close only
