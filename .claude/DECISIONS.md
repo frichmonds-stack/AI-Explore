@@ -16,6 +16,29 @@
 - **Prohibited bucket** — Not Approved tools get their own visible bucket so teachers know what to avoid on CEWA devices, rather than those tools simply being absent.
 - **Status tooltips + glossary (2026-06-25)** — CEWA status explained inline via `StatusBadge` tooltips. The full legend + every other categorisation (work type, role, pedagogy, band, subject, difficulty, access) now lives on a **Glossary page** (`/glossary`), not the footer — the footer just links to it. Glossary is an explicit **placeholder**: the intended end-state is inline tooltips on the labels themselves (see BACKLOG "Definitions as inline tooltips"). Supersedes the earlier "no separate explainer page" call.
 
+## Strategy (2026-07-21, later — the improvement model's structure: stage · context · catalyst)
+
+> Same caveat as the entry below: **the structure is committed, the contents are not.** The stages themselves remain a working sketch.
+
+- **The model is continuous** (owner) — the final stage leads back into the first rather than terminating. What the evidence says becomes the starting point of the next turn. This also resolves the earlier "pre and post a learning event" requirement without a second set of questions: the post of one turn *is* the pre of the next.
+- **Each stage carries two kinds of input, and they are inputs to the *improvement* process, not to the teaching process** (owner correction — an AI reading of them as inputs to the teaching question was wrong).
+- **OWNER CALL — the three components are named `Stage` · `Context` · `Catalyst`:**
+  - **Stage** — the step in the loop.
+  - **Context** — situational input. Improves *this turn's* answer: better information, same you. (Prior knowledge, diagnostics, what was covered last year, known misconceptions, work samples, and data about your own practice — video, student voice, a colleague's eyes.)
+  - **Catalyst** — developmental input. Improves *every future turn's* answer: better you, regardless of situation. (Coaching, mentoring, observation, moderation, reading research, developing subject or specialist knowledge.)
+  - The distinction that keeps the two apart: **one changes this turn, the other changes every turn.** If the names stop carrying that, the columns blur.
+  - Chosen over `fuel`, `spark`, `accelerant`, `lift`, `whetstone`, `impetus`, `traction`, `lever`, `kindling`, `nudge`, `provocation`. Deciding arguments: a catalyst causes change *without being consumed* (coaching and research aren't used up), it matches "context" in register, and it is the only shortlisted option that survives as a countable plural — stages will list several. Known imperfection: strictly a catalyst changes a reaction's *rate*, not its outcome, which undersells what coaching can do.
+  - **Ruled out as labels because they collide with shipped vocabulary:** `prompt` (core benchmark vocabulary), `capability` (`capabilities.json`), `domain` (tools taxonomy, parent of work type), `practice` (an existing track id in `frontend/src/content/`).
+- **Catalysts close the local-optimisation gap.** An AI objection held that a self-feeding loop only polishes a teacher's existing repertoire, with no route to a technique they have never met. Coaching, mentoring and observation are that route — new knowledge enters the loop through catalysts.
+- **Catalysts, not geometry, carry the improvement claim.** A closed loop implies you return to where you started; a spiral implies rising. Since catalysts are what make the next turn higher, the model can stay drawn as a loop without the shape having to argue for improvement.
+- **OWNER CALL — naming something in the model does not commit us to building content for it.** Behaviour management, mentoring and relationships can appear as catalysts or contexts while tool alignment and editorials for them stay deferred. Model completeness is cheap and honest; content is where the cost is. (This supersedes an AI "bloat" objection that conflated the two.)
+
+**Open / not ruled on:**
+- The stages themselves — how many and what they are. "Who am I teaching · what am I teaching · how will it stick · how will I know" remains a sketch.
+- Whether depth sits per-stage or in one pooled body of knowledge any stage can draw on.
+- Within catalysts, whether *mechanisms* (coaching, observation — how you improve) need distinguishing from *domains* (special needs, literacy and numeracy — what you improve at).
+- Public-facing register: whether teachers see the nouns or the sub-questions (*"what do I actually know here?"* / *"how do I get better at this?"*).
+
 ## Strategy (2026-07-21 — improvement model vs benchmark: two objects, and how examples create drift)
 
 > **Owner note, stated explicitly during this session: what is committed here is the *framework*, not its contents.** The number of questions in the improvement model and what those questions are remain uncommitted — "four questions and a stance" (section below) is a working sketch, not a ruling. Same for the six delivery criteria: the owner placed them in the benchmark, but did not ratify them. Record the architecture as settled; treat every list of contents as a proposal awaiting a ruling.
