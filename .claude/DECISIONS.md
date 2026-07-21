@@ -33,7 +33,7 @@
 **Open / not ruled on:**
 - The number of improvement-model questions and what they are; likewise whether "the stance" is a component.
 - Ratification of the six delivery criteria (working set: did it do what was asked · accuracy · quality of the output in its medium · usable tomorrow · what it cost in time and rework · how much control it left you).
-- Whether every published output needs commentary beside it, or whether score-plus-raw-output is acceptable for routine runs with commentary reserved for flagship comparisons. *(Content-load question, not a principle.)*
+- ~~Whether every published output needs commentary beside it.~~ **RULED 2026-07-21: un-annotated output is fine to publish — it is what makes tools comparable.** Same task, same prompt, different tools, side by side. (An AI concern that bare weak artefacts would get copied was withdrawn: comparability outweighs it, and the copyable artefact is the prompt, not the output.) Presentation note: publish outputs as *specimens* — grouped by task, always beside the prompt and score — so the framing is "compare these," not "take one."
 - Sourcing for "stretch" (desirable difficulties vs ZPD) — **deliberately parked**: it is a principle attached to a question that isn't committed, so it cannot be settled first.
 - The four items carried from 2026-07-13 that were recorded as settled but never examined (see the note in that entry below).
 
