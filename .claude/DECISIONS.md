@@ -16,6 +16,23 @@
 - **Prohibited bucket** — Not Approved tools get their own visible bucket so teachers know what to avoid on CEWA devices, rather than those tools simply being absent.
 - **Status tooltips + glossary (2026-06-25)** — CEWA status explained inline via `StatusBadge` tooltips. The full legend + every other categorisation (work type, role, pedagogy, band, subject, difficulty, access) now lives on a **Glossary page** (`/glossary`), not the footer — the footer just links to it. Glossary is an explicit **placeholder**: the intended end-state is inline tooltips on the labels themselves (see BACKLOG "Definitions as inline tooltips"). Supersedes the earlier "no separate explainer page" call.
 
+## Strategy (2026-07-22 — the improvement model's stages: Who · What · How · Evidence)
+
+- **OWNER CALL — the four stages are named `Who` · `What` · `How` · `Evidence`:**
+  - **Who** — who am I teaching. Deliberately plural by default (a class, not a learner) — differentiation is not a separate stage or a closing check bolted on, it's what "who" already means once the honest answer is a range, not a single profile.
+  - **What** — what am I teaching (curriculum fidelity, learning intentions).
+  - **How** — how will I teach it so it sticks (delivery — CLT, Rosenshine, explicit instruction).
+  - **Evidence** — did it work, for whom, what will I do about it. Closes the loop: this stage's output becomes the next turn's `Who`, matching the continuity ruling below almost word for word ("what the evidence says becomes the starting point of the next turn") — which is why the name was chosen over the alternatives it beat.
+- **Differentiation folded into `Who`, not given its own stage.** It nearly became a closing "who isn't with me" check, separate from the front-loaded "who am I teaching." Collapsed on the reasoning that a single class is always multiple learners, so a real answer to "who am I teaching" already implies the range. `Evidence` inherits this for free — "did it work, for whom" asks the differentiation question without a dedicated slot.
+- **`Evidence` chosen over `Check` / `Reflect` / `Feedback` / `Review`:**
+  - `Review` — collides with shipped vocabulary (tool *reviews* are core benchmark terminology).
+  - `Feedback` — already has a specific, opposite-direction job here: the Ring-3 scope decision below defines feedback as the *outward* half of marking ("marking gathers the evidence, feedback acts on it" — feedback *to students*). This stage is the *inward* half (evidence about whether the teaching worked, feeding the teacher's own next turn), so `Feedback` risked misreading in the wrong direction. Also self-referential: the model's continuity is already a feedback loop structurally, so the word would be doing two jobs at two altitudes.
+  - `Check` / `Reflect` — plausible, not wrong, but break the part-of-speech rhythm of `Who`/`What`/`How` (short interrogatives/nouns vs a verb).
+  - `Evidence` — no vocabulary collision found (checked against content JSON, routes, component names), and it's the exact word the continuity ruling below already uses, so it introduces no new vocabulary.
+- **OWNER CALL — `Catalyst` does not split into mechanisms vs domains; "domains" is retired as a term in this model.** That split was an AI framing from the 2026-07-21 session, carried forward and reused in this one without checking it had actually landed — see the owner's process note in the entry below ("there are things that are owner decisions vs your interpretation"). Put to a concrete case (literacy, special needs knowledge), the owner's own test dissolved it: **"if you mean techniques that raise literacy, then catalyst; if you mean know the literacy of your students and plan accordingly, context."** Subject/specialist-knowledge words like "literacy" or "special needs" aren't a category of their own — they're vocabulary that has to pass through the ordinary this-turn/every-turn test like anything else. No structural split needed inside `Catalyst`.
+- **Process note (owner-raised, applies beyond this decision):** an AI-coined term used mid-conversation and not objected to is not the same as owner confirmation. The owner named this explicitly after the fact, once applying "domains" concretely surfaced that it had never really landed. Going forward: when reusing a framing this agent coined rather than the owner, check it was understood before building on it — don't infer agreement from absence of pushback.
+- **Resolves** the "stages themselves" item and the mechanisms/domains item from the "Open / not ruled on" list below. **Still open from that list:** where depth sits (per-stage vs one pooled body), and the public-facing register (nouns vs plain sub-questions).
+
 ## Strategy (2026-07-21, later — the improvement model's structure: stage · context · catalyst)
 
 > Same caveat as the entry below: **the structure is committed, the contents are not.** The stages themselves remain a working sketch.
@@ -34,9 +51,9 @@
 - **OWNER CALL — naming something in the model does not commit us to building content for it.** Behaviour management, mentoring and relationships can appear as catalysts or contexts while tool alignment and editorials for them stay deferred. Model completeness is cheap and honest; content is where the cost is. (This supersedes an AI "bloat" objection that conflated the two.)
 
 **Open / not ruled on:**
-- The stages themselves — how many and what they are. "Who am I teaching · what am I teaching · how will it stick · how will I know" remains a sketch.
+- ~~The stages themselves — how many and what they are.~~ **RESOLVED 2026-07-22 — named `Who · What · How · Evidence`** (see Strategy 2026-07-22 entry above).
 - Whether depth sits per-stage or in one pooled body of knowledge any stage can draw on.
-- Within catalysts, whether *mechanisms* (coaching, observation — how you improve) need distinguishing from *domains* (special needs, literacy and numeracy — what you improve at).
+- ~~Within catalysts, whether *mechanisms* need distinguishing from *domains*.~~ **RESOLVED 2026-07-22 — no split; "domains" retired as a term** (see Strategy 2026-07-22 entry above).
 - Public-facing register: whether teachers see the nouns or the sub-questions (*"what do I actually know here?"* / *"how do I get better at this?"*).
 
 ## Strategy (2026-07-21 — improvement model vs benchmark: two objects, and how examples create drift)

@@ -2,7 +2,7 @@
 
 Compact present-tense snapshot for session handoff. Update **only when the verified project state actually changes** — architecture facts live in `CLAUDE.md`, priorities in `BACKLOG.md`, open decisions in `THREADS.md`. Don't duplicate them here; say where we are.
 
-Last updated: 2026-07-15
+Last updated: 2026-07-22
 
 ## Deployment
 
@@ -26,7 +26,7 @@ Last updated: 2026-07-15
 
 - Guides → Articles rework: scaffold done; real articles, nav repoint (Explore → `/articles`), and homepage reconciliation still pending.
 - Tool decision-support depth (richer tool profiles) is in progress per the DRAFT `tool-review-architecture.md` — card signals + review spine await owner sign-off.
-- **Benchmark foundations is the live design thread** (2026-07-21). Two objects now cleanly separated: the **AI output benchmark** scores delivery only (pedagogy lives in the prompt, never in the score), and the **teacher improvement model** is a continuous loop of `Stage · Context · Catalyst`. Structure is settled; **contents are not** — the stages themselves are still AI-drafted and are the next thing to work. See DECISIONS → the two 2026-07-21 entries.
+- **Improvement model, then benchmark, is the live design sequence** (owner-directed 2026-07-22). Two objects, cleanly separated: the **teacher improvement model** is a continuous loop of `Stage · Context · Catalyst`, and the **AI output benchmark** scores delivery only (pedagogy lives in the prompt, never in the score). The model's four stages are now named — **`Who · What · How · Evidence`** (2026-07-22) — with differentiation folded into `Who` rather than a separate stage, and `Catalyst` confirmed as *not* splitting into mechanisms vs domains ("domains" retired as a term). Still open: where depth sits (per-stage vs pooled), and public-facing register (nouns vs plain sub-questions). Benchmark work resumes once the model is settled. See DECISIONS → 2026-07-22 and the two 2026-07-21 entries.
 
 ## Known gaps / risks
 

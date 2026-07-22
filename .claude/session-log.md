@@ -2,6 +2,15 @@
 
 Dated, append-at-top chronological record of meaningful sessions: what happened, what was decided, what's next. Keep entries terse — detail belongs in the canonical docs (see `close-out.md` routing table). When this file exceeds ~150 lines, move older entries to `session-log-archive.md` and leave a pointer.
 
+## 2026-07-22 — Improvement model: stages named (Publish Close)
+
+- Owner directed the sequence: finish the teacher improvement model, then move to benchmarking. Worked the model's four open items down to two.
+- **Stages named `Who · What · How · Evidence`** (DECISIONS → 2026-07-22). Differentiation folded into `Who` rather than given its own stage — a class is always multiple learners, so a real answer to "who am I teaching" already implies the range. `Evidence` chosen over `Check`/`Reflect`/`Feedback`/`Review` — `Feedback` and `Review` both collide with vocabulary already doing a different job elsewhere on the site.
+- **`Catalyst` does not split into mechanisms vs domains — "domains" retired.** Put to the owner as a concrete case (literacy, special needs knowledge), their own test dissolved the split: technique-that-transfers is `Catalyst`, knowing-this-class is `Context`. No third category needed.
+- **Process point the owner raised, logged for future sessions:** an AI-coined term reused mid-conversation and not objected to isn't the same as owner confirmation — silence isn't agreement. Recorded in DECISIONS (2026-07-22 entry) and in this agent's persistent memory, since it generalises past this one decision.
+- Still open on the model: where depth sits (per-stage vs one pooled body), and public-facing register (nouns vs plain sub-questions). Benchmark work resumes once these close.
+- Docs only, no frontend code touched — no build check applicable. Confidentiality pass clean (no CEWA-internal content in the diff).
+
 ## 2026-07-21 — Housekeeping while owner away: rename + content audit
 
 - Owner left two scoped items with edit+commit authority (no push, no `main`). Both done on the feature branch.
