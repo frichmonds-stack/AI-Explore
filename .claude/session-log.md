@@ -24,7 +24,9 @@ A continuous loop (A→C→M→E→A; Evidence feeds next turn's Audience). `ACM
 
 **Process point the owner raised, logged for future sessions:** an AI-coined term reused mid-conversation and not objected to isn't owner confirmation — silence isn't agreement. Recorded in DECISIONS and in this agent's persistent memory; it generalises past this decision.
 
-Docs only, no frontend code touched — no build check applicable. Confidentiality pass clean. **Next:** benchmark foundations (BACKLOG → Now) and/or visualising the now-complete model (unblocked).
+Docs only, no frontend code touched — no build check applicable. Confidentiality pass clean.
+
+**Late reframe (same session, second Publish Close):** heading toward the benchmark, the owner reframed the next job. It is not "the benchmark premise" — it is **authoring the site's explanatory spine** (what the site is → the stance → the bias declaration → ACME → how tools are evaluated); the benchmark methodology is a *section* of that. Two owner points banked: (1) the **two-part bias declaration** — a positional STEM-teacher lens to *disclose*, and a science-of-learning-as-a-floor conviction to *defend* (held with respect for teaching as an art) — see DECISIONS → "explanatory spine" 2026-07-22; (2) **everything currently on the site is AI-generated placeholder**, so the ACME+stance+bias work is the project's first owner-authored content and becomes the reference the rest of the site is reconciled *to*. This sets a drafting standard for the spine: owner-authored in substance, or it is just more cruft. **Next session opens on this** — starter prompt handed to the owner. Still to rule: is "the stance" a named component; the 6 delivery criteria; page structure.
 
 ## 2026-07-21 — Housekeeping while owner away: rename + content audit
 
