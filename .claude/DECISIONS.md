@@ -16,6 +16,27 @@
 - **Prohibited bucket** — Not Approved tools get their own visible bucket so teachers know what to avoid on CEWA devices, rather than those tools simply being absent.
 - **Status tooltips + glossary (2026-06-25)** — CEWA status explained inline via `StatusBadge` tooltips. The full legend + every other categorisation (work type, role, pedagogy, band, subject, difficulty, access) now lives on a **Glossary page** (`/glossary`), not the footer — the footer just links to it. Glossary is an explicit **placeholder**: the intended end-state is inline tooltips on the labels themselves (see BACKLOG "Definitions as inline tooltips"). Supersedes the earlier "no separate explainer page" call.
 
+## Strategy (2026-07-22, later — the model is complete: ACME, dual-register)
+
+The model is now fully settled: structure, stages, inputs, depth-meaning, and public register all closed. This entry is the canonical statement; the earlier 2026-07-22 entry below records how the stage *names* were chosen (superseded only on the E wording and the register).
+
+- **OWNER CALL — the model carries two registers by design (progressive disclosure, the site's standard pattern):**
+  - **The mnemonic — `ACME`** (Audience · Content · Method · Evidence). Punchy, memorable, holds in a teacher's head. Bonus the owner spotted: *acme* means the summit/peak — apt for an improvement model. Serves as the visual/label layer (loop graphic, nav).
+  - **The working layer — a plain question per letter**, which is what a teacher actually thinks with and what teaches the model on first contact:
+
+    | Letter | Label | Question |
+    |---|---|---|
+    | **A** | Audience | Who am I teaching? |
+    | **C** | Content | What am I teaching? |
+    | **M** | Method | How will I teach it so it sticks? |
+    | **E** | Evidence | How is learning evident? |
+
+  - Neither layer carries the load alone: the acronym is too abstract by itself, the questions too wordy to memorise. Together each covers the other's weakness.
+- **The "Audience" brand clash is resolved by the two registers.** The owner's own copy line named *"pigeon hole your audience"* as a failure mode, so "Audience" describing students was a worry. Resolved: "Audience" is only the **mnemonic label**; the teacher-facing wording is the question "Who am I teaching?" — the loaded word does acronym duty, never describes the students in what a teacher reads.
+- **OWNER CALL — agent = teacher, object = learner, throughout — but the stages are not forced into identical grammar.** A late owner challenge ("should this all be framed around the learner instead of the teacher?") was tested against the set and revealed the stages don't sit on one side: the **inner two (What, Method) are teacher-active** (the teacher selects content and designs method — method especially is the teacher's lever, and learner-framing it wrongly implies students choose the pedagogy), while the **outer two (Audience, Evidence) are learner-described** (who they are, what they learned). Forcing everything learner-side makes What go passive and How go wrong; forcing everything teacher-side makes Evidence self-centred. Conclusion: **the teacher is the agent of the loop (keeps the improvement engine and the Catalyst axis attached to a subject — a full learner-frame would orphan "who is improving?" and turn a *teacher improvement* model into a generic learning-design model, cutting against the site's "teacher holds the judgement" spine); the questions point at the learner as their object.** Grammar varies by stage honestly, because teaching *is* a teacher acting on behalf of learners.
+- **`E` wording — "How is learning evident?" chosen** (over "What's the evidence of my teaching?", "What does the evidence say?", "What's the evidence of learning?"). The progression across the session: first fixed from *teaching* to *learning* (you can teach well and they still not learn — evidence of learning is the honest measure, and it feeds next turn's Audience better than evidence of teaching); then chosen in its "how is it evident" form because it asks the teacher to *define what learning even looks like* (success criteria, indicators) rather than just collect after the fact — the richest, most experienced-teacher-provoking phrasing, which is exactly the depth bar. **Known accepted cost:** it starts with "How", as does the Method question, so two questions open on "How"; judged worth it — provocation over tidiness — since the full questions aren't truly ambiguous.
+- **Resolves the last open item (public-facing register): teachers see both — `ACME` labels as the anchor, the question as each letter's plain-English expansion.** With this, all four of the model's open items are closed. The teacher improvement model is complete; benchmark work is next.
+
 ## Strategy (2026-07-22 — the improvement model's stages: Who · What · How · Evidence)
 
 - **OWNER CALL — the four stages are named `Who` · `What` · `How` · `Evidence`:**
@@ -31,7 +52,8 @@
   - `Evidence` — no vocabulary collision found (checked against content JSON, routes, component names), and it's the exact word the continuity ruling below already uses, so it introduces no new vocabulary.
 - **OWNER CALL — `Catalyst` does not split into mechanisms vs domains; "domains" is retired as a term in this model.** That split was an AI framing from the 2026-07-21 session, carried forward and reused in this one without checking it had actually landed — see the owner's process note in the entry below ("there are things that are owner decisions vs your interpretation"). Put to a concrete case (literacy, special needs knowledge), the owner's own test dissolved it: **"if you mean techniques that raise literacy, then catalyst; if you mean know the literacy of your students and plan accordingly, context."** Subject/specialist-knowledge words like "literacy" or "special needs" aren't a category of their own — they're vocabulary that has to pass through the ordinary this-turn/every-turn test like anything else. No structural split needed inside `Catalyst`.
 - **Process note (owner-raised, applies beyond this decision):** an AI-coined term used mid-conversation and not objected to is not the same as owner confirmation. The owner named this explicitly after the fact, once applying "domains" concretely surfaced that it had never really landed. Going forward: when reusing a framing this agent coined rather than the owner, check it was understood before building on it — don't infer agreement from absence of pushback.
-- **Resolves** the "stages themselves" item and the mechanisms/domains item from the "Open / not ruled on" list below. **Still open from that list:** where depth sits (per-stage vs one pooled body), and the public-facing register (nouns vs plain sub-questions).
+- **OWNER CALL — what "depth" means for this model (the owner corrected the agent's reading twice to land it).** "Depth" is *not* an architecture question (per-stage vs pooled theory — that was an AI misreading; the owner's word had been repurposed). Nor is it a promise of endless volume ("inexhaustible" was also the agent's word, and wrong — quantity that never runs dry can still be shallow). **Depth is a quality standard on the ideas behind each stage:** the same four plain stages must give a first-year teacher lots to pick up *and* still give a fifteen-year veteran something to bring in as inspiration — because the content is **new** (things a teacher hasn't met, not a restatement of what they already do), **great / provocative** (enough force to shift practice or thinking, not just confirm it), and **operates at both scales** — the minutiae (the wording of a question, the timing of a pause) *and* the macro (how a unit coheres, how assessment shapes a term). Moving fluently between grain sizes is itself the mark of depth; shallow teaching advice tends to sit at one altitude only. This is the "simple surface, deep core" premise (2026-07-20) applied to the improvement model. **Consequence:** depth is a *sourcing constraint on the content that eventually sits behind the stages*, not a structure to design now — the "where depth sits" open item is therefore withdrawn as mis-framed, replaced by this standard.
+- **Resolves** the "stages themselves" item and the mechanisms/domains item from the "Open / not ruled on" list below, and re-frames the "where depth sits" item (withdrawn — see the depth entry above). **Still open from that list:** the public-facing register (nouns vs plain sub-questions).
 
 ## Strategy (2026-07-21, later — the improvement model's structure: stage · context · catalyst)
 
@@ -52,9 +74,9 @@
 
 **Open / not ruled on:**
 - ~~The stages themselves — how many and what they are.~~ **RESOLVED 2026-07-22 — named `Who · What · How · Evidence`** (see Strategy 2026-07-22 entry above).
-- Whether depth sits per-stage or in one pooled body of knowledge any stage can draw on.
+- ~~Whether depth sits per-stage or in one pooled body of knowledge any stage can draw on.~~ **WITHDRAWN 2026-07-22 as mis-framed — "depth" is a quality standard on the content, not an architecture choice** (see the depth OWNER CALL in the Strategy 2026-07-22 entry above).
 - ~~Within catalysts, whether *mechanisms* need distinguishing from *domains*.~~ **RESOLVED 2026-07-22 — no split; "domains" retired as a term** (see Strategy 2026-07-22 entry above).
-- Public-facing register: whether teachers see the nouns or the sub-questions (*"what do I actually know here?"* / *"how do I get better at this?"*).
+- ~~Public-facing register: whether teachers see the nouns or the sub-questions.~~ **RESOLVED 2026-07-22 — both, dual-register: `ACME` labels + a question per letter** (see the "model is complete" entry above). **All open items now closed.**
 
 ## Strategy (2026-07-21 — improvement model vs benchmark: two objects, and how examples create drift)
 

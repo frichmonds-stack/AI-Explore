@@ -2,14 +2,29 @@
 
 Dated, append-at-top chronological record of meaningful sessions: what happened, what was decided, what's next. Keep entries terse — detail belongs in the canonical docs (see `close-out.md` routing table). When this file exceeds ~150 lines, move older entries to `session-log-archive.md` and leave a pointer.
 
-## 2026-07-22 — Improvement model: stages named (Publish Close)
+## 2026-07-22 — Teacher improvement model COMPLETE (two Publish Closes)
 
-- Owner directed the sequence: finish the teacher improvement model, then move to benchmarking. Worked the model's four open items down to two.
-- **Stages named `Who · What · How · Evidence`** (DECISIONS → 2026-07-22). Differentiation folded into `Who` rather than given its own stage — a class is always multiple learners, so a real answer to "who am I teaching" already implies the range. `Evidence` chosen over `Check`/`Reflect`/`Feedback`/`Review` — `Feedback` and `Review` both collide with vocabulary already doing a different job elsewhere on the site.
-- **`Catalyst` does not split into mechanisms vs domains — "domains" retired.** Put to the owner as a concrete case (literacy, special needs knowledge), their own test dissolved the split: technique-that-transfers is `Catalyst`, knowing-this-class is `Context`. No third category needed.
-- **Process point the owner raised, logged for future sessions:** an AI-coined term reused mid-conversation and not objected to isn't the same as owner confirmation — silence isn't agreement. Recorded in DECISIONS (2026-07-22 entry) and in this agent's persistent memory, since it generalises past this one decision.
-- Still open on the model: where depth sits (per-stage vs one pooled body), and public-facing register (nouns vs plain sub-questions). Benchmark work resumes once these close.
-- Docs only, no frontend code touched — no build check applicable. Confidentiality pass clean (no CEWA-internal content in the diff).
+Owner directed the sequence: finish the teacher improvement model, then move to benchmarking. Over one long design session, worked all four of the model's open items to closure. The model is now complete.
+
+**Result — the `ACME` model (dual-register):**
+- **A · Audience** — Who am I teaching?
+- **C · Content** — What am I teaching?
+- **M · Method** — How will I teach it so it sticks?
+- **E · Evidence** — How is learning evident?
+
+A continuous loop (A→C→M→E→A; Evidence feeds next turn's Audience). `ACME` is the memory hook (also = "summit", apt); the questions are the working layer teachers think with — the site's progressive-disclosure pattern applied to the model itself. Agent = teacher, object = learner throughout.
+
+**The four items, and how each closed (all OWNER CALLs — full reasoning in DECISIONS → the two 2026-07-22 entries):**
+1. **Stages named** — settled first as Who/What/How/Evidence; differentiation folded into `Who` (a class is always many learners). `Evidence`/`Review`/`Feedback` weighed — Feedback/Review collide with site vocabulary.
+2. **Catalyst split** — no mechanisms-vs-domains split; "domains" retired as a term. The owner's own test dissolved it: technique-that-transfers = Catalyst, knowing-this-class = Context.
+3. **Depth** — not an architecture question (agent misread the owner's word twice). Depth = a quality bar on the content behind each letter: new, provocative ideas at both minutiae and macro scale, serving novice and veteran alike.
+4. **Register** — resolved as *both*: ACME labels + a question per letter.
+
+**Late owner challenge worth recording:** "should this all be framed around the learner instead of the teacher?" Tested against the set and revealed the stages don't sit on one side — inner two (What/Method) are teacher-active, outer two (Audience/Evidence) are learner-described. Conclusion: teacher is the agent (keeps the improvement engine and Catalyst axis attached to a subject; a full learner-frame would turn a *teacher improvement* model into a generic learning-design model), questions point at the learner. This also drove the E wording from "evidence of my teaching" → "how is learning evident?" (the richest phrasing — asks the teacher to define what learning even looks like).
+
+**Process point the owner raised, logged for future sessions:** an AI-coined term reused mid-conversation and not objected to isn't owner confirmation — silence isn't agreement. Recorded in DECISIONS and in this agent's persistent memory; it generalises past this decision.
+
+Docs only, no frontend code touched — no build check applicable. Confidentiality pass clean. **Next:** benchmark foundations (BACKLOG → Now) and/or visualising the now-complete model (unblocked).
 
 ## 2026-07-21 — Housekeeping while owner away: rename + content audit
 

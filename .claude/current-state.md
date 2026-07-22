@@ -26,7 +26,13 @@ Last updated: 2026-07-22
 
 - Guides → Articles rework: scaffold done; real articles, nav repoint (Explore → `/articles`), and homepage reconciliation still pending.
 - Tool decision-support depth (richer tool profiles) is in progress per the DRAFT `tool-review-architecture.md` — card signals + review spine await owner sign-off.
-- **Improvement model, then benchmark, is the live design sequence** (owner-directed 2026-07-22). Two objects, cleanly separated: the **teacher improvement model** is a continuous loop of `Stage · Context · Catalyst`, and the **AI output benchmark** scores delivery only (pedagogy lives in the prompt, never in the score). The model's four stages are now named — **`Who · What · How · Evidence`** (2026-07-22) — with differentiation folded into `Who` rather than a separate stage, and `Catalyst` confirmed as *not* splitting into mechanisms vs domains ("domains" retired as a term). Still open: where depth sits (per-stage vs pooled), and public-facing register (nouns vs plain sub-questions). Benchmark work resumes once the model is settled. See DECISIONS → 2026-07-22 and the two 2026-07-21 entries.
+- **The teacher improvement model is COMPLETE (2026-07-22); benchmark work is now next.** Two objects, cleanly separated: the improvement model is a continuous loop of `Stage · Context · Catalyst`, and the **AI output benchmark** scores delivery only (pedagogy lives in the prompt, never in the score). The model settled as **`ACME`** — a dual-register design (the site's progressive-disclosure pattern): a memorable label per letter plus a plain teacher-facing question:
+  - **A · Audience** — Who am I teaching?
+  - **C · Content** — What am I teaching?
+  - **M · Method** — How will I teach it so it sticks?
+  - **E · Evidence** — How is learning evident?
+
+  Agent = teacher (asks all four), object = learner. Loop runs A→C→M→E→A; Evidence feeds next turn's Audience. Each stage draws on `Context` (situational, improves this turn) and `Catalysts` (developmental, improve every future turn). "Depth" = a quality bar on the content behind each letter (new, provocative ideas at both minutiae and macro scale), not an architecture choice. All four of the model's open items are now closed. See DECISIONS → the two "model is complete" / stage-naming 2026-07-22 entries and the two 2026-07-21 entries.
 
 ## Known gaps / risks
 
