@@ -2,7 +2,7 @@
 
 Compact present-tense snapshot for session handoff. Update **only when the verified project state actually changes** — architecture facts live in `CLAUDE.md`, priorities in `BACKLOG.md`, open decisions in `THREADS.md`. Don't duplicate them here; say where we are.
 
-Last updated: 2026-07-22
+Last updated: 2026-07-23
 
 ## Deployment
 
@@ -33,7 +33,7 @@ Last updated: 2026-07-22
   - **E · Evidence** — How is learning evident?
 
   Agent = teacher (asks all four), object = learner. Loop runs A→C→M→E→A; Evidence feeds next turn's Audience. Each stage draws on `Context` (situational, improves this turn) and `Catalysts` (developmental, improve every future turn). "Depth" = a quality bar on the content behind each letter (new, provocative ideas at both minutiae and macro scale), not an architecture choice. All four of the model's open items are now closed. See DECISIONS → the two "model is complete" / stage-naming 2026-07-22 entries and the two 2026-07-21 entries.
-- **NEXT JOB (reframed 2026-07-22): author the site's explanatory spine — the benchmark is a *section* of it, not standalone.** The ACME model, the stance, and the two-part bias declaration are the site's first genuinely owner-authored content; everything currently on the site (`/about`, tracks, copy) is AI-generated placeholder that gets **reconciled to this spine**, not used as its reference. Drafting rule: owner-authored in substance (agent holds structure + challenges; owner supplies convictions) — agent-generated about-page prose would just be more cruft. Bias declaration is banked (DECISIONS → "explanatory spine" 2026-07-22): (1) positional STEM lens to disclose; (2) the science-of-learning-as-a-floor conviction to defend. Still to rule: is "the stance" a named component; the 6 delivery criteria; page structure (one manifesto vs branching). See BACKLOG → "Author the site's explanatory spine".
+- **NEXT JOB: author the site's explanatory spine — the benchmark is a *section* of it, not standalone.** Owner-authored in substance (agent holds structure + challenges; owner supplies convictions); everything currently on the site (`/about`, tracks, copy) is AI-generated placeholder that gets **reconciled to this spine**. **First authoring session done 2026-07-23** — settled (DECISIONS → "explanatory spine" 2026-07-23, latest): first-person opinionated voice; posture "show, don't push" (AI one option among many); soft on tools / firm on craft (craft irreducible like any skill); audience K–12 broadly; positional bias reframed to an *internal build compass* (public only where it adds value — supersedes the 2026-07-22 "disclosure" framing); eight "refuses to be" statements; win conditions are plural/teacher-relative with **no hierarchy** (safety gate + craft floor are the *frame*, not win conditions); candidate "tag tools by capacity delivered" feature. **Still to rule:** the **6 delivery criteria** (next stretch — the engine everything reconciles to); whether "the stance" is a named component (half-answered — a first-person site can just *say* it); page structure & display (owner deferred). See BACKLOG → "Author the site's explanatory spine".
 
 ## Known gaps / risks
 
