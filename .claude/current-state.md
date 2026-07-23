@@ -18,7 +18,7 @@ Last updated: 2026-07-22
 ## What's live in the codebase
 
 - Pages: Home, Guides (+detail), Articles (+detail, scaffolded — 2 placeholder articles), Tools (+detail), Explainer, Learn hub (+Capabilities index/detail), Glossary, Saved, About, Track/Section pages, 404.
-- The CEWA approval layer is switched **OFF** (`frontend/src/config.js` → `SHOW_APPROVAL_STATUS = false`) because the statuses were internal-sourced. Data remains in `tools.json`; don't surface it without owner authorisation (see THREADS).
+- The CEWA approval layer is switched **OFF** (`frontend/src/config.js` → `SHOW_APPROVAL_STATUS = false`) and **CEWA is benched for the foreseeable future** (owner call 2026-07-23) — not a near-term feature, and no longer the site's authority mechanism (that's the owner-authored explanatory spine now). Data remains in `tools.json` but stays dormant; see THREADS + DECISIONS → Strategy 2026-07-23.
 - Save & Share shipped: `useBookmarks` (localStorage), `SaveButton`/`ShareButton`, `/saved`, nav count.
 - Global search (⌘K) indexes all content types via `lib/searchIndex.js`.
 

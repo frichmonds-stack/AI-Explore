@@ -2,6 +2,18 @@
 
 Dated, append-at-top chronological record of meaningful sessions: what happened, what was decided, what's next. Keep entries terse — detail belongs in the canonical docs (see `close-out.md` routing table). When this file exceeds ~150 lines, move older entries to `session-log-archive.md` and leave a pointer.
 
+## 2026-07-23 — Strategy discussion: arena.ai, CEWA benched, taxonomy data model (Publish Close, docs only)
+
+Discussion session prompted by the owner asking whether to borrow from **arena.ai** (LMArena — crowdsourced blind head-to-head LLM leaderboard). No code; five owner rulings banked to `DECISIONS.md` (Strategy 2026-07-23):
+
+1. **CEWA benched for the foreseeable future** — not a paused switch; no longer the site's authority mechanism (that's the owner-authored explanatory spine). `THREADS.md` + `current-state.md` reworded off "pending reinstatement".
+2. **Rubric ≠ ACME** — ACME is the broad improvement spine; the rubric is a narrow rib ("for a given stage, which AI tools help you do it better"). Pedagogy lives in ACME, never in the score.
+3. **Phased comparison** — authored rubric now (low content), sample-derived comparison later; crowd-vote/Elo explicitly out of scope. Rubric output must be *structured* because each judgement is a future comparison sample.
+4. **Stage-primary / job-tagged taxonomy** — eventual data model inverts today's use-category-primary axis, for branding/soul (job = table stakes, stage = unique). Stage primary in structure; job primary at entry point ("job is the door, stage is the house").
+5. **Store `job`, derive `stage`** from a central `job → stage(s)` map (capabilities.json pattern) — gives cross-stage for free at the job level; store stage only for a genuine per-tool editorial exception (deferred).
+
+Also parked a Phase-2 backlog item: instrument filter choice (job vs stage) as a proxy for the work→pedagogy pull. Memory: `project_cewa_benched` saved. Still to rule: phase-1→2 trigger count (~15–20 tools floated).
+
 ## 2026-07-22 — Teacher improvement model COMPLETE (two Publish Closes)
 
 Owner directed the sequence: finish the teacher improvement model, then move to benchmarking. Over one long design session, worked all four of the model's open items to closure. The model is now complete.
