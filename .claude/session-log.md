@@ -2,6 +2,28 @@
 
 Dated, append-at-top chronological record of meaningful sessions: what happened, what was decided, what's next. Keep entries terse — detail belongs in the canonical docs (see `close-out.md` routing table). When this file exceeds ~150 lines, move older entries to `session-log-archive.md` and leave a pointer.
 
+## 2026-07-24 — Rubric session 4: scoring architecture settled (two layers), task list still owed (Publish Close, docs only)
+
+Set job was to **choose the exemplar task/output suite**; it did **not** get chosen. The session instead settled the scoring architecture the suite hangs in — a prerequisite the suite selection kept tripping over — so the list is still owed.
+
+Owner calls banked to `DECISIONS.md` (2026-07-24 session 4): **task selection = what teachers commonly ask AI to do** (subject spread a tiebreaker, never why a task exists; applicability per-tool); **single-shot protocol** (one expert prompt, one try — resolves the carried-open `n=1` question, accepts no run-to-run-variance read); **two layers, not three** (tool layer = process, task layer = product/F·F·S). The load-bearing finding, reached by the owner: **nothing survives as a tool-*process* score** — scoring needs an artefact and the tool layer has none, so it fails the owner's own descriptor bar. Therefore the tool layer speaks only as **disclose · gate · prose**, which makes the seam of the 07-23 "score + review, both products" ruling concrete: **the score IS the task layer, the review IS the tool layer.** The score compresses to **"how well it does the job you asked of it."** **Safety = a gate above the layer** (owner's take + hard exclusion, not a rebuilt CEWA badge; fork open: pure gate vs gate+tier).
+
+Making the *task* the scoring unit **dissolves** the parked weighting problem but **kills the single per-tool headline and cross-task comparison** — comparability lives within a task, fed to "best tool for X" rows, never "best tool". Agent-argued-but-not-ruled (flagged in DECISIONS to prevent inheritance): cost→disclosure, versatility→derived, reusability dissolves into task-selection/verdict/compounding, the three sharpenings to the score compression.
+
+Next session (owner-set, still): **author the task list itself** — owner-authored in substance, the things teachers around the owner actually ask these tools for.
+
+## 2026-07-24 — Rubric session 3: descriptors blocked, sub-criteria found unreviewed, work re-sequenced (docs only)
+
+Intended job was the **0→4 scale descriptors**. It did not start, and stopping was the right call. The session established that the sub-criteria the descriptors would describe had **never been owner-reviewed** — the owner committed the three buckets, not their contents — so descriptors would have been prose on scaffolding. The 2026-07-23 DECISIONS table is now annotated in place to prevent a future session inheriting them as settled.
+
+Worked from the real artefact (the Y7 Adding Fractions PDF, rendered and read this session, not recalled). It surfaced a defect absent from yesterday's notes: **the three worked examples are the answers to questions 1, 5 and 9** — the sheet is correct, complete, well-formed and well-laid-out, and still needs editing before a class sees it. No sub-criterion currently catches that; the question is open.
+
+Rulings banked to `DECISIONS.md` (2026-07-24): sub-criteria must generalise across **artefact type**, not just subject; **editability is a manifestation**, built into an exemplar prompt and rated there rather than scored as its own axis; the **simplicity constraint sits on the reader** (setup cost is the owner's to pay) with an author-side floor against stalling; **evidence is public** (confirming 2026-07-21) but **no evidence store is being built until reviews start for real**; the **prompt pack works as a passive literacy device**; **evidence naming = task id first**, then `Company - Model - Effort` + date. Also captured to `BACKLOG.md`: a **review-authoring aid** (agent or UI) with click-or-type scoring and evidence attached per score.
+
+Work re-sequenced: **(i) choose the exemplar task/output suite → (ii) red-pen the sub-criteria against it → (iii) descriptors.** Owner-set next session is (i) — a first ruling, not a recall, since the existing "9 tasks" spec is AI-proposed and expressly flagged unexamined, and nine is not load-bearing.
+
+Process: the agent was pulled back **four times** for over-extending, the second consecutive session with that failure mode. Logged in DECISIONS as a standing risk. Owner's framing to hold onto: *"we're trying to create a rubric by using an example as a scaffolding tool"* — the artefact is a thinking prop, not a data source.
+
 ## 2026-07-23 — Strategy discussion: arena.ai, CEWA benched, taxonomy data model (Publish Close, docs only)
 
 Discussion session prompted by the owner asking whether to borrow from **arena.ai** (LMArena — crowdsourced blind head-to-head LLM leaderboard). No code; five owner rulings banked to `DECISIONS.md` (Strategy 2026-07-23):
