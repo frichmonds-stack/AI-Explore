@@ -2,6 +2,24 @@
 
 Dated, append-at-top chronological record of meaningful sessions: what happened, what was decided, what's next. Keep entries terse — detail belongs in the canonical docs (see `close-out.md` routing table). When this file exceeds ~150 lines, move older entries to `session-log-archive.md` and leave a pointer.
 
+## 2026-07-26 — Rubric session 5: the pilot review; visible/invisible; first evidence the rubric discriminates (`execute now`, docs only — NOT committed)
+
+Owner's call was to stop trying to author the whole task suite and **land one review end-to-end** instead, using three artefacts already in hand: `ChatGPT - Sol - High`, `Anthropic - Opus 5 - High`, `Canva - CanvaAI` — Y7 adding-fractions worksheet, identical prompt, single-shot. **The task list is still owed** (third session running), but the pilot unblocked what sessions 3 and 4 both stalled on: real artefacts to red-pen sub-criteria against.
+
+Owner calls banked to `DECISIONS.md` (2026-07-26): **the visible/invisible model** — visible = execution against what the prompt stated, invisible = execution on assumed-but-still-required information, with the requirement set fixed per task and the prompt only moving the line (the first real answer to *what is the ruler*; amends the unratified 07-24 "the ruler is the brief you wrote", since `Year 7` summons a standard it never restates); **preferences are still measured against the instruction** (the conserved thing is the set of *axes*, not sentences — this folded an agent objection); **Substance discriminates under a loose brief**, amending the 07-23 evidence note which had assumed the brief would dictate it; **core function vs judgement call** decides what the invisible half can be scored on; **unrequested additions cut both ways**, and a correct answer key is a pro because it *validates the artefact*; **the score must have room to reward better-than-prompted output**.
+
+**Parked by the owner:** the *mechanism* for recognising above-and-beyond — bonus points, badges, and a capped-rank-plus-accumulator all explored, none ruled. Ordered-set tiers (bronze/silver/gold) are **dead**. Consequence flagged in THREADS: **what a `4` means is undefined again**, which blocks descriptors a second way.
+
+First evidence the rubric discriminates, and it is decisive: the three tools fail at **different levels**. Canva misses six of ten *stated* instructions (four pages against "single sided", 8 questions not 12, an entire requested category absent, and a `Model:` line that demonstrates nothing). ChatGPT passes the visible checklist and fails on judgement — its worked examples are its own Q1/5/9 with full blank working space beneath, and it drops the conversion step in its hardest column. Opus 5 passes both. All arithmetic in all three is correct, so **accuracy was table-stakes exactly as 07-23 predicted** — Substance separated them through completeness, alignment and craft instead.
+
+Process: the over-extension failure mode recurred for the **third consecutive session** — the agent produced indicative 0–4 scores before any descriptors existed and was pulled back. Logged in DECISIONS as a standing risk.
+
+Practical notes for the next session: **the artefacts live outside the repo** at `Desktop/Projects/*.pdf`, untracked and missing the ruled date suffix. **This machine has no Homebrew and no PDF tooling** — render evidence PDFs with a throwaway `python3 -m venv` + `pymupdf` in the scratchpad (`qlmanage -t` renders page 1 only, which silently hid three of Canva's four pages).
+
+Late in the session the owner identified **why** their prior expectation of AI worksheets was so poor: it was formed on **Microsoft Copilot**, used because the organisation provides it (*"It is the worst as i tried today"*). This **amends the 07-23 evidence note in place** — that entry credits the owner's prompting for a gap the tool was mostly responsible for. It is also the site's own premise happening to its author: a confident, wrong expectation about a whole category of AI use, formed from one tool they didn't choose. A fourth pilot artefact may exist.
+
+**Next: red-pen the sub-criteria against the three sheets** — step (ii) of the 07-24 re-sequence, starting with Function.
+
 ## 2026-07-24 — Rubric session 4: scoring architecture settled (two layers), task list still owed (Publish Close, docs only)
 
 Set job was to **choose the exemplar task/output suite**; it did **not** get chosen. The session instead settled the scoring architecture the suite hangs in — a prerequisite the suite selection kept tripping over — so the list is still owed.
