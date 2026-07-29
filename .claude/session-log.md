@@ -2,6 +2,24 @@
 
 Dated, append-at-top chronological record of meaningful sessions: what happened, what was decided, what's next. Keep entries terse — detail belongs in the canonical docs (see `close-out.md` routing table). When this file exceeds ~150 lines, move older entries to `session-log-archive.md` and leave a pointer.
 
+## 2026-07-29 — Rubric session 6: the red-pen — `Function` and `Form` RULED; the rubric becomes an instrument (Publish Close, docs only)
+
+Step (ii) of the 07-24 re-sequence, executed for two of three buckets. The rubric stopped being architecture and became something you can score with, and it now has its own canonical file: [`delivery-rubric.md`](delivery-rubric.md).
+
+**`Function` = `Brief` · `Purpose`. `Form` = `Polish` · `Format`.** Five drafted Function sub-criteria became two, four drafted Form ones became two. Cut with reasons: `works/runs` (it's rung 0 of Purpose), `usable (room to work)` (folds into Purpose — and on a pure information handout the face doesn't appear at all), `editable`, `technical integrity`, `interactivity`, `export`, standalone `aesthetic` and standalone `conventions`.
+
+The owner authored the first criterion whole — *"Could I use this as is in the classroom with students?"* on a 0–4 **edit-distance** scale — then ruled it **counterfactual** (*"if it were possible to edit, how much would you need to change"*), which factors editability out so the score can't quietly reward a file format. Rung 0 became **unsalvageable**, and the agent generalised that into a standing rule used twice more: every rung 0 must name a state distinct *in kind* from rung 1, or it goes dead.
+
+**The load-bearing ruling: *"the scale should be excellence of the descriptor. above and beyond is a different metric."*** Every 0→4 now runs floor→excellent inside its own descriptor and reaches outside itself for nothing. This **closes the reopened "what does a `4` mean" question without unparking the above-and-beyond mechanism** — it no longer sits on a scale at all. It also stripped the old rung 4 from every scale; `Purpose` and `Polish` were re-spaced, **`Brief` was not and tops out at 3** (carried).
+
+Form was reached by teasing apart the owner's own observation — *"the difference between slapping elements on a page that are incoherent, to a full branding kit"* (→ `Polish`) and *"how does the format interact with the user"* (→ `Format`, correcting an agent over-narrowing to attention-direction alone). Naming ran through and rejected *student friendly* (fails the artefact-type test — lesson plans and parent emails aren't student-facing — and crosses the pedagogy line), *UX* / *user design* (jargon), *Experience* (a superset word that reads as the parent of its siblings) and *Fit* (collides with "fit for purpose", with `Purpose` next to it). **`Format` is a working name only.**
+
+Both carried items were already discharged: the 07-23 Copilot evidence-note amendment was banked on 07-26, and the fourth-artefact question is on BACKLOG. Owner clarified the only sample files live in `Desktop/Projects/`.
+
+**Process:** the sample-as-data-source correction recurred a fourth session (*"stop referencing the samples... only if it provides extra insight"*). Recorded with its counter-weight — the artefacts *did* establish that three Form criteria weren't collapsible, because three tools failed three different ones; evidence settles whether a distinction is real, then theory names it.
+
+**NEXT: red-pen `Substance`**, the last un-ruled bucket. The task suite is still owed — fourth session running.
+
 ## 2026-07-26 — Rubric session 5: the pilot review; visible/invisible; first evidence the rubric discriminates (`execute now`, docs only — NOT committed)
 
 Owner's call was to stop trying to author the whole task suite and **land one review end-to-end** instead, using three artefacts already in hand: `ChatGPT - Sol - High`, `Anthropic - Opus 5 - High`, `Canva - CanvaAI` — Y7 adding-fractions worksheet, identical prompt, single-shot. **The task list is still owed** (third session running), but the pilot unblocked what sessions 3 and 4 both stalled on: real artefacts to red-pen sub-criteria against.
@@ -100,48 +118,6 @@ Docs only, no frontend code touched — no build check applicable. Confidentiali
 - Backlogged: visualising the model as a proper design job, sequenced after the stages settle.
 - **Still uncommitted and next up: the stages themselves** — everything now hangs off four questions whose wording is still AI-drafted.
 
-## 2026-07-20 — Publish Close: dedupe refactor + homepage coming-soon card live
+---
 
-- Owner-authorised Publish Close covering both same-day items below: the dedupe refactor and the homepage "coming soon" 5th pillar card ("The whole job" — behaviour management, relationships, parent contact, admin — named as out of scope for the benchmark's core-teaching-loop focus for now, not silently omitted).
-- Also flipped `.claude/launch.json` to `autoPort: true` so concurrent sessions' dev previews don't collide on port 5173.
-- Checks: `npm run build` clean (75 routes prerendered); confidentiality pass clean (no new CEWA-internal-sourced wording in the diff — `lib/cewa.js`/`lib/taxonomy.js` only centralise pre-existing public-facing mapping logic).
-- Merged `claude/amazing-carson-5zucgf` → `main`, pushed. Live once Cloudflare Pages picks up the `main` push (see `deploy.md`).
-
-## 2026-07-20 — Dedupe refactor + guards (execute now, no commit)
-
-- Prior session (Fable) surveyed the codebase for duplication, wrote a plan ([`plans/dedupe-refactor.md`](plans/dedupe-refactor.md)), and handed off for Sonnet to execute.
-- Executed all 6 steps: extracted `lib/cewa.js` (was duplicated identically across 6 files, not 5 as first estimated — GlossaryPage had a 6th copy), `lib/taxonomy.js` (label lookups), `lumen/Eyebrow.jsx` (replaced 3 local component defs + ~30 inline uppercase-mono style blocks across ~16 files), `lumen/useFacetState.js` (shared Tools/Guides filter state + domain→work-type narrowing rule). Added ESLint (flat config, `npm run lint`) and fixed its trivial findings (unused `React` imports, unused vars). Updated CLAUDE.md with reuse-first rules and fixed a stale route-table section (said `HashRouter`/dynamic `/:track`; code is `BrowserRouter` with explicit per-track routes).
-- **Found and fixed 2 real bugs introduced mid-refactor**: HomePage and GuidePage each had a leftover `cewaStatusMap[...]` reference after the local map was deleted in step 1 — would have crashed those components at runtime. Neither `npm run build` nor the pre-render script catches this class of bug (no headless browser, doesn't execute the React tree), so caught only by loading every touched page in the browser preview and checking console — all ~20 touched pages were verified this way, zero console errors at the end.
-- **Not fixed, flagged for owner**: `useCatLabel` (in `lib/taxonomy.js`) is named like a React hook (`use*` prefix) but isn't one, which trips ESLint's `rules-of-hooks` in 6 call sites — pre-existing naming issue, first caught because this session added ESLint; fixing means a multi-file rename, out of scope for a "trivial fix". Also 2 pre-existing `set-state-in-effect` findings (`GlobalSearch.jsx`, `ToolsPage.jsx`) and 3 `react-refresh/only-export-components` warnings — none introduced this session, none fixed.
-- Owner was concurrently hand-editing `HomePage.jsx` (added a 5th "coming soon" pillar card) during this session — left untouched, no conflict since this session's edits to that file were already complete.
-- No commit/push — `execute now` scope only, per mode gate.
-
-## 2026-07-15 — First deploy + rebrand to Pigeon Hole (Publish Close)
-
-- **Site is live**: owner set up Cloudflare Pages (project `pigeon-hole` → `pigeon-hole-87j.pages.dev`), guided through the Workers-vs-Pages dashboard maze; deep links + per-route titles verified working in the live deploy.
-- **Name decided: Pigeon Hole** — brainstormed from the Staffroom shortlist; owner picked it for the staffroom-pigeonhole meaning + bird-family link to their product Budgie. Renamed across nav/footer/titles/OG/share text; default title now carries a descriptor ("practical AI help for teachers").
-- Shipped pre-launch **`noindex`** header (`public/_headers`) instead of an under-construction banner — rationale in DECISIONS.
-- **Branch model changed**: `main` = production, publish = merge to main under Publish Close (supersedes "never push to main"; rationale now written down in DECISIONS/CLAUDE.md/close-out). This session's Publish Close performed the first merge; owner flips Cloudflare's production branch to `main` after it.
-- Docs recalibrated: stale BACKLOG items (About page, rebrand, approval-layer) reconciled; deploy.md now records actual settings; launch gate gains "delete noindex + swap SITE_URL".
-- (Later same day) Owner flipped production branch to `main`; absolute OG tags verified live. Logo attempts (AI image gen + my SVG drafts) rejected → **wordmark-only for now**, logo mark deferred to a human designer. Shipped typographic `og-default.png` (Newsreader/palette card; source `frontend/scripts/og-card.html`, rendered via headless Chrome) — social-card chain complete.
-- Next: rebrand follow-through (domain/ABN, handles), benchmark foundations, block-type render check.
-
-## 2026-07-13 (later) — Benchmark design session (discussion only, no code)
-
-- Designed the tool benchmark with the owner: 6-criteria "excellent practice" rubric × 9 tasks (8 AC learning areas + differentiate-an-existing-task) × applicability matrix; best-practice prompts in plain teacher voice (owner call — teachers should prompt from that headspace; kills the "AI didn't know" excuse); differentiation is a task not a criterion (owner call); ECE deferred.
-- Key realisation: the benchmark needs a **core premise** — a one-page stated theory of good teaching with sourced principles and an explicit bias declaration. That document is now the site's keystone; drafting order premise → criteria → prompts. Full detail in DECISIONS → benchmark section.
-- Owner also flagged a first-person opinion piece. Published via Publish Close (this commit).
-
-## 2026-07-13 — Expansion strategy session (discussion only, no code)
-
-- Full repo/strategy review; content audit: 27 tools, 6 guides, 2 placeholder articles, 11 capabilities — architecture ahead of content.
-- Owner decisions captured (DECISIONS → Strategy 2026-07-13): launch gate = ≥5 solid reviews + 2 articles (one = methodology piece); ratings sequenced (editorial → anonymous pulse widget → verified magic-link ratings), no accounts now; "AI implementation in schools" as leadership-wedge article theme.
-- Broader strategy discussed (not yet backlogged as tasks): school-calendar-timed guides for SEO long-tail, shareable staffroom artefacts (staff-meeting deck, safety one-pager), newsletter, prompt library; deprioritise foundations/capabilities expansion.
-- Next: launch critical path (rebrand/domain, OG image, verify About) then first reviews (Copilot worked example).
-
-## 2026-07-13 — AI workflow ported from Budget-Tool
-
-- Reviewed the owner's other repos for their AI workflow systems; Budget-Tool (private, Rust/Tauri) is the mature one — `AGENTS.md` router, mode gate, owner-context, canonical-destination write routing, session log with rotation, closeout procedure with honest final report.
-- Ported and adapted here: `current-state.md`, `task-map.md` (routing + source-of-truth order), rewritten `close-out.md` (Mode Gate, doc-routing table, confidentiality pass, final-report contract), new `owner-context.md`, this log. `CLAUDE.md` Session Start now routes through them and defaults to discussion mode.
-- Deliberately not ported: ADR directory (DECISIONS.md serves that role), per-area `ai/state/` files + INDEX.md files (overkill at this size), owner-run-only visual smoke (this is a web app — agents verify in browser preview), data-safety scan (adapted into the CEWA confidentiality pass instead).
-- Recorded in DECISIONS.md → Process. Work is local, uncommitted, awaiting close instruction.
+Older entries: [`session-log-archive.md`](session-log-archive.md).

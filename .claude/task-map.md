@@ -27,6 +27,13 @@ Route work to the smallest relevant set of files and docs. Don't read everything
 - Rules: a new route needs all three: the `<Route>`, a `usePageMeta` call in the page, and coverage in `prerender.mjs`.
 - Checks: `npm run build` then `npm run preview`; verify the pre-rendered `index.html` for the new route.
 
+### Benchmark rubric (the scoring instrument)
+- Docs: **`delivery-rubric.md` is the instrument** — the buckets, criteria, scales and the rules that govern them. Read it first; read DECISIONS → the 07-23 → 07-29 Strategy entries only for *why*.
+- Status: `Function` (`Brief`·`Purpose`) and `Form` (`Polish`·`Format`) are owner-ruled; **`Substance` is not red-penned** and its sub-criteria are agent-drafted.
+- Rules: **owner-authored in substance** — the agent structures and challenges, the owner rules each criterion. Never present an agent draft as settled (this failed within 24h on 07-24). Criteria must generalise across artefact type or they fold. Scales measure excellence of their own descriptor; above-and-beyond is a separate, still-parked metric.
+- Risks: over-extending a local point into a re-plan; treating the pilot artefacts as a data source rather than a thinking prop (logged four sessions running).
+- Checks: none automated — the test of a criterion is whether it has a real face in every artefact type, and whether a reader could see from the artefact why it scored what it did.
+
 ### Deploy / publishing
 - Docs: `deploy.md` (Cloudflare Pages). Commit/push only per `close-out.md` authorisation.
 
