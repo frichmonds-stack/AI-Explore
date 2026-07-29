@@ -2,6 +2,22 @@
 
 Dated, append-at-top chronological record of meaningful sessions: what happened, what was decided, what's next. Keep entries terse — detail belongs in the canonical docs (see `close-out.md` routing table). When this file exceeds ~150 lines, move older entries to `session-log-archive.md` and leave a pointer.
 
+## 2026-07-29 — Rubric session 7: the stress test — `Form` holds, the score aggregates, the card gets two ratings (Publish Close, docs only)
+
+First **adversarial** session of the arc — the owner's instruction was to attack what session 6 had just ruled. Six findings went up against `Polish` and `Format`; **all six were owner-agreed**, and the one with no fix attached drove everything that followed.
+
+Five findings landed as fixes in [`delivery-rubric.md`](delivery-rubric.md): the **Brief↔Format seam** was missing and is the collision that actually fires, since format requirements are what prompts state (settled as *Brief scores compliance with what was stated, Format scores fitness regardless* — proved distinct by a divergent case); **`Polish` was the only one of four scales without a diagnostic column**, despite being the most contestable point in the rubric by the 07-23 note; the **thumbnail test** separates Polish from Format on visual hierarchy; **`Format` as a name points at the file container** that 07-24 expressly refused to score, which is a stronger reason to rename it than the taste objections already logged; and rung 0 being unreachable on some artefact types is **harmless**, because a task fixes the artefact type.
+
+The sixth — **within-task weighting is only half-parked** — turned into the session. **OWNER CALL: the overall aggregates by the mean** (*"whatever it is it needs to be simple and intuitive"*), ruled against an agent recommendation to publish a profile with no total at all. Agent-proposed and consistent: **two levels**, so the buckets are the weighting and Substance's criterion count can't quietly take 55% of the score. That answers weighting **with a number rather than a mechanism** — Polish is one sixth of the overall, worth ~8% of the range at worst.
+
+**OWNER-AUTHORED BANDS**, in teacher units: `3.5–4 glowing reference · 3.0–3.5 use straight away · 2–3 do some work · 1–2 do a lot of work`, coarse at the bottom and fine at the top because *"4s should be pretty difficult to get"* — which the mean delivers for free. The 0–1 label (*start over*) is the agent's answer to the owner's open question and is **not ruled**.
+
+**The best correction of the session was the owner's:** a "cap" is not an exception bolted onto the maths — *"it just changes what the average result means."* The bands carry meaning and enforce themselves, so an artefact with wrong content cannot sit in *use straight away* whatever the mean computes. That is the honest form of the 07-23 *"substance failures must bite hard"* ruling, which a plain mean can't deliver.
+
+**New: the card architecture.** Owner raised the real defect — *"these descriptions may not fit because we are talking only about exemplar rating outputs"* — and the answer was **two ratings with different warrants**: an **outputs rating** (measured, rubric-derived, a number) and a **tool recommendation** (judged, the review is its evidence, a badge), with **likes** later as a count. Recommendation is **binary and positive-only**: A–E was floated and dropped (it's the Australian school achievement scale and would read as measurement), and *"not approved is CEWA linked"* retired the only argument for publishing negatives. The **one** exception that may go negative is a **third-party safeguarding status (ST4S or equivalent)** — a citation, not a judgement, publishable because the source is public. Backlogged for mining with the body's name and status vocabulary flagged unverified. Recorded in [`tool-review-architecture.md`](tool-review-architecture.md).
+
+**NEXT: red-pen `Substance`** — last un-ruled bucket. The task suite is still owed, fifth session running. **No artefacts were opened this session** — the offer to score the three pilot worksheets was made and deliberately declined; first session in five where the sample-as-data-source risk didn't fire.
+
 ## 2026-07-29 — Rubric session 6: the red-pen — `Function` and `Form` RULED; the rubric becomes an instrument (Publish Close, docs only)
 
 Step (ii) of the 07-24 re-sequence, executed for two of three buckets. The rubric stopped being architecture and became something you can score with, and it now has its own canonical file: [`delivery-rubric.md`](delivery-rubric.md).
