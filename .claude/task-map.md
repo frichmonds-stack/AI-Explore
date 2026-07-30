@@ -28,7 +28,7 @@ Route work to the smallest relevant set of files and docs. Don't read everything
 - Checks: `npm run build` then `npm run preview`; verify the pre-rendered `index.html` for the new route.
 
 ### Benchmark rubric (the scoring instrument)
-- Docs: **`delivery-rubric.md` is the instrument** — the buckets, criteria, scales and the rules that govern them. Read it first; read DECISIONS → the 07-23 → 07-29 Strategy entries only for *why*.
+- Docs: **`delivery-rubric.md` is the instrument** — the buckets, criteria, scales and the rules that govern them. Read it first; read DECISIONS → the 07-23 → 07-30 Strategy entries only for *why*.
 - Status: `Function` (`Brief`·`Purpose`) and `Form` (`Polish`·`Format`) are owner-ruled and stress-tested; **aggregation is ruled** (overall = mean of the three buckets, each bucket = mean of its criteria, five owner-authored bands); **`Substance` is not red-penned** and its sub-criteria are agent-drafted.
 - **The rubric is the *outputs* score only.** The tool card also carries a separate, editorial **tool recommendation** (binary, positive-only) — that lives in `tool-review-architecture.md` → "What the tool card carries", not here. Don't merge the two.
 - Rules: **owner-authored in substance** — the agent structures and challenges, the owner rules each criterion. Never present an agent draft as settled (this failed within 24h on 07-24). Criteria must generalise across artefact type or they fold. Scales measure excellence of their own descriptor; above-and-beyond is a separate, still-parked metric. Keep it **simple and intuitive** (owner, 07-29) — that constraint governs the instrument, not just the arithmetic.

@@ -1,6 +1,26 @@
 # Session Log — Archive
 
-Older entries rotated out of `session-log.md` (2026-07-29). Newest first.
+Older entries rotated out of `session-log.md` (last rotation 2026-07-30). Newest first.
+
+## 2026-07-21 — Housekeeping while owner away: rename + content audit
+
+- Owner left two scoped items with edit+commit authority (no push, no `main`). Both done on the feature branch.
+- **`useCatLabel` → `catLabel`** — cleared the 6 ESLint `rules-of-hooks` errors; also collapsed `searchIndex.js`'s duplicate copy into shared `lib/taxonomy.js`. Lint 8 → 5 problems (remainder pre-existing and logged). Build passes, 75 routes prerendered, labels verified rendering in the browser.
+- **Content & render audit** (report: `plans/content-audit-2026-07-21.md`) — structural validator over all 5 track files: 0 problems across 206 blocks, all 7 block types render, explainer content is real not stubbed. Closed both "verify" backlog items.
+- Three new findings raised: `/explainer/*` serves no page metadata (no `usePageMeta` + not prerendered — a real SEO hole); `quote` blocks have two incompatible shapes across `SectionBlock` vs `ArticlePage`'s duplicate renderer; `ROLE_DATA` hardcoded in `ExplainerPage` (folded into the role→domain item).
+- Nothing pushed — awaiting owner review. The metadata fix needs 3 titles/descriptions written, deliberately left rather than guessed.
+- **Recovered the 2026-07-20 premise design from that session's transcript** — four questions + stance, three-ring scope model, and the owner's ruling to acknowledge-and-defer rings 2–3. It had never been written to `DECISIONS.md`; only the homepage "coming soon" card it produced was recorded. Now captured (DECISIONS → 2026-07-20) with owner calls marked and AI elaboration flagged as unruled.
+- Owner's point, fairly made: the close-out procedure was supposed to prevent exactly this. Root cause — the checklist prompts for what changed *on disk*, so discussion-only decisions can pass through a Publish Close unrecorded, worst in a session later consumed by an unrelated problem (that one ended in a long push-auth fight). Added an explicit "re-read the discussion turns, not just the diff" step to `close-out.md` step 2.
+
+## 2026-07-21 (later) — Benchmark + improvement model design session (discussion; docs only)
+
+- Long design conversation, recorded to `DECISIONS.md` **as it happened** rather than at close-out — the new close-out step working as intended.
+- **The two objects were separated properly.** The improvement model and the AI output benchmark are not one thing viewed from two sides; that 2026-07-20 line is withdrawn as false. It broke at two points under examination, and the breakages were the evidence.
+- **Benchmark: scores delivery only.** Owner's reasoning — teachers hold genuinely different pedagogical positions, so a pedagogically-weighted score turns the site's declared bias into a measurement aimed at people who don't share it. Pedagogy lives in the prompt; the practitioner controls it. Judgement, integrity and safety concerns are discussed in review prose, never scored. Un-annotated outputs are fine to publish — comparability is the point.
+- **Improvement model: `Stage · Context · Catalyst`,** continuous, with catalysts (coaching, observation, research) as the route by which new knowledge enters. Its only link to the benchmark is that it shapes the prompts — it is explicitly *not* a lens for reading AI output, which reversed an earlier AI proposal.
+- **Repeated pattern worth noting for future sessions:** the owner corrected the same conflation (improvement model vs benchmark) three times before it stuck, and separately pre-empted the docs-not-verified problem by stating up front that the *framework* is committed while its *contents* are not. Both are recorded in the entries themselves.
+- Backlogged: visualising the model as a proper design job, sequenced after the stages settle.
+- **Still uncommitted and next up: the stages themselves** — everything now hangs off four questions whose wording is still AI-drafted.
 
 ## 2026-07-20 — Publish Close: dedupe refactor + homepage coming-soon card live
 

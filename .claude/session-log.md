@@ -2,6 +2,28 @@
 
 Dated, append-at-top chronological record of meaningful sessions: what happened, what was decided, what's next. Keep entries terse — detail belongs in the canonical docs (see `close-out.md` routing table). When this file exceeds ~150 lines, move older entries to `session-log-archive.md` and leave a pointer.
 
+## 2026-07-30 — Rubric session 8: `Substance` red-penned to three; alignment is a LENS; `Brief` narrows (Publish Close, docs only)
+
+The last un-ruled bucket, run on session 6's terms — assume the agent-drafted 07-23 list (`accuracy · alignment to brief · completeness · sequence · craft`) is too long until shown otherwise.
+
+**`Substance` = `Coverage` · `Truth` · `Craft`** — *did it cover the ground · is it correct · is it any good.* Three, not two, and defended as three rather than forced down.
+
+**The agent's opening argument was wrong and the owner overturned it.** The case for cutting had `alignment to brief` *dead by collision* with Function's `Brief`. The owner's counter: *"You can have alignment to brief in both content, form and function. Perhaps it's alignment with 2 lenses which is not overlap but mutually exclusive."* It survived the rubric's own standard of proof — the divergence test that settled Brief≠Format in session 7 — diverging both ways (12 questions exactly as specified but all on the wrong denominator type = near-4 on stated structure, 0 on material; six on-topic questions instead of twelve = the reverse). Settled as **`Brief` counts stated structure · `Coverage` judges the material against the job**, mutually exclusive so neither can bill the other's failure.
+
+**The ruling that did the cutting: *"if it's the wrong content, then there is a no score on the right content."*** Wrong topic isn't a separate axis, it's the bottom of the coverage ladder — which collapsed `alignment` and `completeness` into **one** criterion and produced a rung 0 in the instrument's established pattern (`Format` 0 = wrong format for the job; `Coverage` 0 = wrong content for the job). It also dissolved rather than survived the agent's objection: "re-prompt vs add more" looked like evidence of two criteria and is actually **what a 0 means everywhere in this rubric**.
+
+**`Brief` narrows** as a consequence — *"states unlike but delivers like is a content alignment issue, not a form or function alignment."* Its session-6 clause reaching into subject matter now means structural parts only. Amended in place.
+
+Cut as agent-argued and unopposed (**not** owner-ruled, and marked so): **`sequence`** (fails the artefact-type test on images; its nearest face belongs to `Format`/`Polish`) and **`bias`** as a peer (the owner's own 07-23 guard sentence already lists *biased* beside *inaccurate* — a face of `Truth`).
+
+**Two things left open, both raised and not resolved.** **`Truth` has no headroom above *correct*** — a 0→4 accuracy ladder has dead rungs at the top or stops measuring accuracy; candidates are a severity ladder (clones edit distance) or **verification distance** (*how much must I check before I trust it*). And **`Purpose` re-bills Substance failures** — the enumerate-the-edits procedure against no-double-counting, dormant until Substance had scored criteria; the owner reached the same worry independently.
+
+**Status warning, deliberate:** Substance is **partially** red-penned. `Coverage` is owner-shaped; **`Truth` and `Craft` were never argued** and survive by not having been attacked; no scale is written for any of the three. Flagged in the instrument, DECISIONS and THREADS so the 07-24 amendment pattern is pre-empted rather than repaired later.
+
+**Confirmation worth noting:** session 7's two-level mean was built to stop a hypothetical five-criterion Substance taking the score. It was needed for a real three — a flat mean would have handed 43% to the guard bucket. The bucket was red-penned with no attention to the arithmetic, which is what that ruling bought.
+
+**NEXT: the scales for `Coverage`, `Truth` and `Craft`** — plus the two open collisions. The task suite is *still* owed, sixth session running. No artefacts opened, second session running.
+
 ## 2026-07-29 — Rubric session 7: the stress test — `Form` holds, the score aggregates, the card gets two ratings (Publish Close, docs only)
 
 First **adversarial** session of the arc — the owner's instruction was to attack what session 6 had just ruled. Six findings went up against `Polish` and `Format`; **all six were owner-agreed**, and the one with no fix attached drove everything that followed.
@@ -113,26 +135,6 @@ A continuous loop (A→C→M→E→A; Evidence feeds next turn's Audience). `ACM
 Docs only, no frontend code touched — no build check applicable. Confidentiality pass clean.
 
 **Late reframe (same session, second Publish Close):** heading toward the benchmark, the owner reframed the next job. It is not "the benchmark premise" — it is **authoring the site's explanatory spine** (what the site is → the stance → the bias declaration → ACME → how tools are evaluated); the benchmark methodology is a *section* of that. Two owner points banked: (1) the **two-part bias declaration** — a positional STEM-teacher lens to *disclose*, and a science-of-learning-as-a-floor conviction to *defend* (held with respect for teaching as an art) — see DECISIONS → "explanatory spine" 2026-07-22; (2) **everything currently on the site is AI-generated placeholder**, so the ACME+stance+bias work is the project's first owner-authored content and becomes the reference the rest of the site is reconciled *to*. This sets a drafting standard for the spine: owner-authored in substance, or it is just more cruft. **Next session opens on this** — starter prompt handed to the owner. Still to rule: is "the stance" a named component; the 6 delivery criteria; page structure.
-
-## 2026-07-21 — Housekeeping while owner away: rename + content audit
-
-- Owner left two scoped items with edit+commit authority (no push, no `main`). Both done on the feature branch.
-- **`useCatLabel` → `catLabel`** — cleared the 6 ESLint `rules-of-hooks` errors; also collapsed `searchIndex.js`'s duplicate copy into shared `lib/taxonomy.js`. Lint 8 → 5 problems (remainder pre-existing and logged). Build passes, 75 routes prerendered, labels verified rendering in the browser.
-- **Content & render audit** (report: `plans/content-audit-2026-07-21.md`) — structural validator over all 5 track files: 0 problems across 206 blocks, all 7 block types render, explainer content is real not stubbed. Closed both "verify" backlog items.
-- Three new findings raised: `/explainer/*` serves no page metadata (no `usePageMeta` + not prerendered — a real SEO hole); `quote` blocks have two incompatible shapes across `SectionBlock` vs `ArticlePage`'s duplicate renderer; `ROLE_DATA` hardcoded in `ExplainerPage` (folded into the role→domain item).
-- Nothing pushed — awaiting owner review. The metadata fix needs 3 titles/descriptions written, deliberately left rather than guessed.
-- **Recovered the 2026-07-20 premise design from that session's transcript** — four questions + stance, three-ring scope model, and the owner's ruling to acknowledge-and-defer rings 2–3. It had never been written to `DECISIONS.md`; only the homepage "coming soon" card it produced was recorded. Now captured (DECISIONS → 2026-07-20) with owner calls marked and AI elaboration flagged as unruled.
-- Owner's point, fairly made: the close-out procedure was supposed to prevent exactly this. Root cause — the checklist prompts for what changed *on disk*, so discussion-only decisions can pass through a Publish Close unrecorded, worst in a session later consumed by an unrelated problem (that one ended in a long push-auth fight). Added an explicit "re-read the discussion turns, not just the diff" step to `close-out.md` step 2.
-
-## 2026-07-21 (later) — Benchmark + improvement model design session (discussion; docs only)
-
-- Long design conversation, recorded to `DECISIONS.md` **as it happened** rather than at close-out — the new close-out step working as intended.
-- **The two objects were separated properly.** The improvement model and the AI output benchmark are not one thing viewed from two sides; that 2026-07-20 line is withdrawn as false. It broke at two points under examination, and the breakages were the evidence.
-- **Benchmark: scores delivery only.** Owner's reasoning — teachers hold genuinely different pedagogical positions, so a pedagogically-weighted score turns the site's declared bias into a measurement aimed at people who don't share it. Pedagogy lives in the prompt; the practitioner controls it. Judgement, integrity and safety concerns are discussed in review prose, never scored. Un-annotated outputs are fine to publish — comparability is the point.
-- **Improvement model: `Stage · Context · Catalyst`,** continuous, with catalysts (coaching, observation, research) as the route by which new knowledge enters. Its only link to the benchmark is that it shapes the prompts — it is explicitly *not* a lens for reading AI output, which reversed an earlier AI proposal.
-- **Repeated pattern worth noting for future sessions:** the owner corrected the same conflation (improvement model vs benchmark) three times before it stuck, and separately pre-empted the docs-not-verified problem by stating up front that the *framework* is committed while its *contents* are not. Both are recorded in the entries themselves.
-- Backlogged: visualising the model as a proper design job, sequenced after the stages settle.
-- **Still uncommitted and next up: the stages themselves** — everything now hangs off four questions whose wording is still AI-drafted.
 
 ---
 

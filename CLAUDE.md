@@ -110,6 +110,6 @@ The state behind those facets — one value per facet key, the Domain→Work typ
 - Decisions log: [`.claude/DECISIONS.md`](.claude/DECISIONS.md)
 - Open threads: [`.claude/THREADS.md`](.claude/THREADS.md)
 - Tool review architecture (DRAFT, fluid): [`.claude/tool-review-architecture.md`](.claude/tool-review-architecture.md)
-- **Delivery rubric — the scoring instrument** (`Function`/`Form` ruled, `Substance` outstanding): [`.claude/delivery-rubric.md`](.claude/delivery-rubric.md)
+- **Delivery rubric — the scoring instrument** (`Function`/`Form` ruled; `Substance` partial — list cut, no scales written): [`.claude/delivery-rubric.md`](.claude/delivery-rubric.md)
 - Project background (purpose, audience): [`.claude/project-context.md`](.claude/project-context.md)
 - Close-out procedure: [`.claude/close-out.md`](.claude/close-out.md)
