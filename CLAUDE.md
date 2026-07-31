@@ -113,3 +113,16 @@ The state behind those facets — one value per facet key, the Domain→Work typ
 - **Delivery rubric — the scoring instrument** (`Function`/`Form` ruled; `Substance` partial — list cut, no scales written): [`.claude/delivery-rubric.md`](.claude/delivery-rubric.md)
 - Project background (purpose, audience): [`.claude/project-context.md`](.claude/project-context.md)
 - Close-out procedure: [`.claude/close-out.md`](.claude/close-out.md)
+
+## Session closeout (AI Efficiency)
+
+Before ending every working session, submit one compact closeout record:
+
+```text
+ai-efficiency closeout --project-root . --harness <active-harness> --file record.json
+```
+
+Report only directly observed values. Never invent token counts; unknown
+measurements stay null. The outcome reflects the owner's response, not the
+agent's self-assessment. Include a session ID only when the active harness
+exposes one. The central CLI captures project and Git context itself.
