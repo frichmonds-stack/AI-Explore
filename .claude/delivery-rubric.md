@@ -2,7 +2,7 @@
 
 The benchmark's engine. This is the **score** (the task layer — F/F/S on an artefact); the **review** is the tool layer and lives elsewhere (see `tool-review-architecture.md`, DECISIONS → 2026-07-24 session 4).
 
-Status: **Function and Form are red-penned and owner-ruled (2026-07-29, session 6), then stress-tested and owner-agreed (2026-07-29, session 7). Aggregation and the overall bands are ruled (session 7). Substance is PARTIALLY red-penned (2026-07-30, session 8)** — the list is cut from five to three and `Coverage` is owner-shaped, but **`Truth` and `Craft` were never argued** and survive by not having been attacked. Read the Substance section's own status note before treating any of it as settled.
+Status: **Function and Form are red-penned and owner-ruled (2026-07-29, session 6), then stress-tested and owner-agreed (2026-07-29, session 7). Aggregation and the overall bands are ruled (session 7). Substance's list is `Coverage · Truth · Craft` (2026-07-30, session 8), and its two blocking collisions are settled (2026-08-04, session 9)** — `Truth`'s headroom and the `Purpose` re-bill. **No scale is yet written for any Substance criterion**; that is the next job.
 
 Rationale for every ruling lives in `DECISIONS.md`. This file is the instrument itself — what you actually score with.
 
@@ -22,7 +22,7 @@ Delivery only. Pedagogy lives in the prompt, never in the score (07-23). The rat
 |---|---|---|
 | **Function** | Does it perform as meant? | **Ruled 2026-07-29** — `Brief` · `Purpose` |
 | **Form** | Does it reach the senses right? | **Ruled 2026-07-29** — `Polish` · `Format` |
-| **Substance** | Is the material correct — and any good? | **Partially red-penned 2026-07-30** — `Coverage` · `Truth` · `Craft` |
+| **Substance** | Is the material correct — and any good? | **List ruled 2026-07-30, collisions settled 2026-08-04** — `Coverage` · `Truth` · `Craft`; scales unwritten |
 
 Card labels are nouns; the meaning sits in the question beneath. Same dual register as ACME (`A · Audience` over *Who am I teaching?*).
 
@@ -102,6 +102,21 @@ The artefact works as the thing it's meant to be, and each labelled part does th
 
 **Scoring procedure: enumerate the edits.** List what you would have to change, then rate the size of that list. This is what stops component failures washing out into an impression — a labelled part that doesn't do its job appears on the list because fixing it is one of the edits. It also makes scoring recognition rather than deliberation, which is the author-throughput constraint (07-24).
 
+#### Purpose sees content too — and this double bill is deliberate *(OWNER CALL, 2026-08-04)*
+
+The edit list includes **content** edits. A Substance failure therefore lands here as well as in its own criterion, and that is intended: *"perhaps we try as best not to double dip criteria but in this case i think it's useful."*
+
+The agent's proposed fix — *score it as if the content were true* — was **rejected by the owner and is dead**: *"handing it out as if it's true removes the tension of would I need to edit this."* It asks the scorer to imagine a different artefact, which is precisely what edit distance was designed to prevent.
+
+**What this buys: it is the bite mechanism owed since 07-23.** That ruling said substance failures must *bite hard*; session 7 could only offer band-consistency and left the question open. Wrong content now takes `Coverage` to 0 **and** drags `Purpose` down, losing ground in two of the three buckets. The bite comes from the artefact genuinely failing twice, not from an arithmetic penalty bolted on — which keeps it inside the *simple and intuitive* constraint.
+
+**Two fences so it does not spread** *(agent-drafted from the ruling, owner did not examine the wording)*:
+
+- **One-directional.** `Purpose` is the whole-artefact judgement and is the only criterion permitted to re-bill. Nothing re-bills *into* Substance, and the `Brief`↔`Format` exclusivity ruled in session 7 stands unchanged.
+- **No-double-counting is restated, not dropped: *no criterion is billed twice at the same altitude.*** `Purpose` sits at a different altitude — the *would I hand this out* whole-artefact read — so it may include causes that are also billed individually elsewhere.
+
+**Both still publish as separate scores (OWNER CALL, 2026-08-04).** The agent argued the correlation made them unfit to show side by side; the owner ruled otherwise. The reader is not treating them as independent evidence — they read a verdict and its cause. `Coverage` 0 beside `Purpose` 1 says *the content's wrong, which is why you can't use it*, and hiding the correlation would make the card less legible, not more honest.
+
 ---
 
 ## Form
@@ -162,8 +177,8 @@ They are genuinely different criteria, and the proof is that they diverge: a too
 
 Substance is the **payload**, not the vessel: is the thing said or depicted actually right, and any good. It is a **guard, not a discriminator** (07-23) — you would hope it sits continuously high, and it earns its place by catching misinformation, hallucination, and content that is inaccurate or skewed.
 
-> ⚠️ **STATUS — partial. Do not inherit this as ruled the way Function and Form are.**
-> Session 8 (2026-07-30) cut the agent-drafted 07-23 list of five to three. **What the owner actually ruled** is the three calls below, which together shape `Coverage`. **`Truth` and `Craft` were carried over without being argued** — Craft got a factual refresh only, and Truth's ladder problem was raised and dropped. **No scale is written for any of the three.** They are the surviving list, not a finished instrument.
+> ⚠️ **STATUS — list ruled, collisions settled, scales unwritten.**
+> Session 8 (2026-07-30) cut the agent-drafted 07-23 list of five to three and shaped `Coverage`. Session 9 (2026-08-04) settled the two collisions that were blocking the scales — `Truth`'s headroom and the `Purpose` re-bill — and **widened `Craft` by owner call**. **No scale is written for any of the three**, which is the next job. `Coverage` alone has never been directly attacked.
 
 ### Alignment is a lens, not a criterion *(OWNER CALL, 07-30)*
 
@@ -199,9 +214,17 @@ The guard proper: factual accuracy, no fabrication, no hallucinated citations or
 
 **`bias` does not join as a peer** *(agent-argued 07-30, unopposed, not ruled)*. The 07-23 owner sentence defining the guard already houses it — Substance guards against *"misinformation, hallucination, and information that is inaccurate or biased."* Biased sits alongside inaccurate inside one job, so it is a face of Truth, not a peer of it. It also carries the double-standard risk flagged on 07-23 (scoring tools for bias against a site with a declared pedagogical bias) for no structural gain.
 
-> **Unresolved: Truth has no headroom above *correct*** *(agent finding, raised and dropped 07-30)*. Nothing is more true than true, so a 0→4 ladder measuring accuracy has dead rungs at the top or stops measuring accuracy. This is `Brief`'s open item again, and worse — Brief's rung 4 is recoverable and Truth's may not be. Two candidates on the table, both costed, neither ruled: a **severity ladder** (*unsalvageably wrong → major errors → minor errors → trivial slips → nothing wrong*), which works but clones edit distance and lands in `Purpose`'s register — the collision already logged as Open item 7; or **verification distance** (*how much of this must I check before I trust it*), relational, in teacher units, and it survives accuracy trending to table-stakes because verification burden is real even when a tool is usually right.
->
-> The sharper question underneath, **which runs into an existing ruling and was not pursued:** a quality that can be absent but never *excellent* may be badge-shaped rather than scale-shaped — the inverse of the above-and-beyond argument (Open item 2). 07-23 ruled substance failures are **scored, not gated**, and a flag is a gate. Whether that ruling governed pass/fail exclusion or display form is the owner's to say.
+#### The headroom problem is settled: severity ladder, and **verification distance is dead** *(2026-08-04)*
+
+**OWNER CALL — verification is not the teacher's to do.** *"In order to verify truth, the educator must know independently, not rely on the tool. The point of the review of samples is to try and point at how truthful something is."*
+
+This kills verification distance (*how much must I check before I trust it*), which had been the more elegant of the two candidates. The measure is **unavailable to the person it is for**: a teacher who cannot independently verify the content cannot estimate their own checking burden either. The agent's separate objection — that "how much would I check" is answered partly by the tool's reputation, which leaks the tool layer into a task-layer score (07-24) — is a second reason, not the main one.
+
+**What it establishes is `Truth`'s job on the card:** not *how much should you check*, but **here is what we found when we checked**. The review does the verification on the teacher's behalf; the score points at the result. That is the guard doing the work the teacher cannot do for themselves, and it is why `Truth` earns a place despite accuracy trending to table-stakes (07-26).
+
+**The severity ladder stands** (*unsalvageably wrong → major errors → minor errors → trivial slips → nothing wrong*), scored by someone who did the checking. Its known cost — that it clones edit distance and rhymes with `Purpose`'s register — is now **acceptable rather than merely tolerated**: under the 2026-08-04 `Purpose` ruling the two rhyme in *voice* while being disjoint in *what they measure*, which is the same situation the overall bands are already in and already accepted (Open item 7).
+
+*Still not pursued:* whether a quality that can be absent but never *excellent* is badge-shaped rather than scale-shaped — the inverse of the above-and-beyond argument (Open item 2), which runs into the 07-23 *scored, not gated* ruling. The severity ladder makes this non-blocking, not wrong.
 
 *Naming: `Truth` over `Accuracy` remains the 07-23 candidate and is still unruled — "accuracy" suggests precision and tidiness, "truth" names what is at stake when a tool fabricates.*
 
@@ -209,13 +232,25 @@ The guard proper: factual accuracy, no fabrication, no hallucinated citations or
 
 ### Craft — *is it any good?*
 
-Is the language and material **considered and purposeful**, or hollow filler. The generic discussion question that could attach to any text; the comprehension passage that says nothing; the lesson-plan step reading "engage students in a discussion about the topic."
+Is the material **considered and purposeful** — clear, ordered, non-generic — or hollow filler. The generic discussion question that could attach to any text; the comprehension passage that says nothing; the lesson-plan step reading "engage students in a discussion about the topic."
 
-Carried intact from 07-23, where it was the owner's own find and the least obvious axis of that session. Three things attached to it that still hold:
+> **WIDENED 2026-08-04 (OWNER CALL).** *"Maybe craft can intuit sequencing, clarity of explanation, etc (the more teaching centric ideas)."* Craft was scoped to craft of the *writing*; it now also carries **clarity of explanation** and **conceptual sequencing**. Three faces of one care: is the material clear, does it build in an order that makes sense, is it non-generic.
+>
+> **This re-admits `sequence`, and that is consistent.** Session 8 cut it as a *peer* for having no face on images. As a **face of Craft** the objection dies — faces are allowed to be absent (Craft already goes quiet on symbolic maths). It must mean **conceptual order** — does step 2 depend on step 1, does the example come before the thing it illustrates — never spatial reading order, which `Format` and `Polish` own.
+>
+> **The pedagogy line holds via the seam `Format` already uses** *(agent-drafted from the ruling)*: **Craft judges the execution of the teaching choice, never the choice.** *Area models or number lines* is a teaching decision and lives in the prompt (07-23). *Is the explanation actually clear, do the steps build, does the example illustrate the thing it sits under* is whether the tool executed competently, and is scoreable without ruling on pedagogy.
+>
+> **Seam with `Format`** *(agent, not ruled)*: Format flaws appear when you *operate* the artefact (flipping, hunting, stapling); clarity flaws appear when you *read* it. Same shape as the thumbnail test that split Polish from Format.
+>
+> **Consequence:** Craft becomes the widest criterion in the instrument and the main discriminator under a loose brief — which is exactly what the 07-26 evidence predicted.
+
+Owner's own find on 07-23, and the least obvious axis of that session. Three things attached to it that still hold:
 
 - **The axis is named for the quality, not the proxy.** The fear was never *"it came from an AI"* — it is *"it's made from AI and it's terrible."* AI-made-and-great is fine; AI just makes terrible cheap and abundant. All detection-framed names were rejected (`Turing Test`, `Human Fidelity`, `AI Detection`) because naming it after detectability scores **disguise instead of quality**, and fooling anyone was never the goal. `Quality` was rejected as too broad — every criterion here is quality.
 - **It is Substance's ceiling** — the bucket runs *correct → considered*, the same structural position aesthetic holds in Form.
 - **It is the closest thing in the rubric to the pedagogy line**, held on the right side of it by scoping to *craft of the writing*, never *quality of the teaching*. A well-crafted question that is pedagogically ordinary scores full marks; that is the fidelity principle working, not a leak.
+
+**Seam with `Truth`, on one artefact** *(agent-drafted 08-04, owner-agreed by silence — worked on the poster example)*. A photosynthesis-cycle poster with **arrows running the wrong way round the cycle is `Truth`** — the science is wrong. A **correct cycle you cannot follow is `Craft`**. Same artefact, two different failures, no double bill.
 
 Known unevenness, accepted: craft matters little for symbolic artefacts (maths) and enormously where the words *are* the product (comprehension passages, discussion prompts, parent emails). It has a real face in all five artefact types, so it passes the generalisation test; the uneven weight is what session 7 quantified and ruled livable.
 
@@ -243,6 +278,12 @@ Nothing — which is the point. Substance at three criteria against Function's a
 
 **Criteria must generalise across artefact type (07-24)** — a real face in a worksheet *and* a video *and* an image *and* an assessment *and* a lesson plan. One face only means it is a manifestation, and it folds. The criteria stay fixed; the task decides which faces become visible.
 
+> **RESTATED 2026-08-04: the test is applied to *tasks*, and a task is an educational job in a use context — never a media type.** *"With regards to image generation, we would be reviewing based on an educational purpose, not just generate an image."* The rule was being run against bare media types, which is how session 8 cut `sequence` for having no face on "an image" — but *a poster depicting the photosynthesis cycle* obviously has a sequence, and every image task in the suite is an educational job. The cut still stands (`sequence` is a face of `Craft` now, not a peer), but it was reached by a bad route.
+>
+> **Media type is not irrelevant — it decides which jobs are on the table** *(owner, 08-04)*: *"we kind of have to think about how the media type might be used in an educational context."* The route runs media → what teachers commonly use that medium for → the task.
+>
+> **Consequence for the still-owed task list: the task must carry the use context**, because half the instrument scores against it. A wall poster read from three metres, a diagram in a printed handout and an image on a slide are three different jobs for one media type, and neither `Format` (does the shape work the way you'd use it) nor `Craft` (is it legible as a cycle) can be scored until you know which. *"Depicts the photosynthesis cycle"* is not yet a task; *"a wall poster for a Year 7 classroom"* is. This also answers `Format`'s naming debt from a new direction — the criterion was never about the file, it is the artefact's shape against the **use**, and the use comes from the task.
+
 **A *rung* may be unreachable for an artefact type, and that's harmless** *(checked 07-29 session 7)*. An image generator can't produce "no design attempted" — there's no raw-unformatted state — so Polish effectively runs 1–4 for images and 0–4 for worksheets. This looks like a defect and isn't: **comparability lives within a task** (07-24) and a task fixes the artefact type, so every tool being scored is on the same effective scale. The rule applies to *criteria*, not to individual rungs.
 
 **Uneven criterion importance within a task is real, and small enough to live with** *(quantified 07-29 session 7)*. Polish matters enormously on a poster and barely on a lesson plan a teacher writes over and bins. Under the two-level mean, Polish is **one sixth** of the overall, so scoring 1 instead of 3 on it moves the overall by 0.33 on a 0–4 scale — about 8% of the range. The 07-24 ruling dissolved *cross-task* weighting; this is the within-task half, and it needs a number rather than a mechanism. **`N/A` is the only lever**, reserved for a criterion with *no face at all* on that artefact type — never one that merely matters less. A criterion marked N/A drops out of its bucket's mean.
@@ -257,7 +298,7 @@ Nothing — which is the point. Substance at three criteria against Function's a
 |---|---|
 | `alignment to brief` as a Substance peer | **OWNER.** It is a *lens*, not a kind of defect — two mutually exclusive ones. Stated structure → `Brief`; material against the job → `Coverage`. |
 | `completeness` as its own item | **OWNER** (via *wrong content is zero of the right content*). Same scale as alignment, sharing the unit *how much of what the job needed is here*. Merged into `Coverage`. |
-| `sequence` | Fails the artefact-type test on **images** — a generated image has no sequence, and the nearest thing (reading order of a diagram) is already owned by `Format` and `Polish`. One missing face means it is a manifestation. |
+| `sequence` | Cut as a peer. ⚠️ **The 07-30 reason was wrong** — "a generated image has no sequence" tested a media type, not a task, and an image task is always an educational job that can have one (see the restated artefact-type rule). **Re-admitted 08-04 as a face of `Craft`** (conceptual order), which is where it belongs; spatial reading order stays with `Format`/`Polish`. |
 | `bias` as its own item | The 07-23 owner sentence defining the guard already lists *biased* alongside *inaccurate* inside one job. A face of `Truth`, not a peer. Carries the declared-bias double-standard risk for no gain. |
 
 ### From Function and Form
@@ -280,8 +321,8 @@ Nothing — which is the point. Substance at three criteria against Function's a
 
 1. **Brief's rung 4** — the scale tops out at 3 after above-and-beyond was stripped. Needs re-spacing the way Purpose and Polish were. **Now has a second consequence (07-29 session 7): the overall can never reach 4.** Function is capped at 3.5, so a flawless artefact maxes at **3.83**. It doesn't break the bands (3.83 is comfortably *glowing reference*), but the card never shows a full score. This makes the debt structural rather than tidy-up.
 2. **The above-and-beyond mechanism** — still parked (07-26). Options live: score-bound bonus points; non-score-bound badges; capped rank plus uncapped accumulator. Dead: ordered-set tiers. *Argument on the table (agent, not ruled): a floorless quality — one that can be present or absent but never bad — is badge-shaped rather than scale-shaped.*
-3. **Substance is partly done** — the list is `Coverage · Truth · Craft`, but **no scale is written for any of them**, `Truth` and `Craft` were never argued, and `Truth` has the headroom problem above. **Carried from session 7 and still unanswered:** whether the band-consistency rule is bite enough for the 07-23 *"must bite hard"* ruling. If more is needed the place is **in the rungs** (a 0 that's easy to hit and hard to climb off) — most likely `Truth`'s — not in the maths, because an arithmetic cap is an exception and reads as one against the *simple and intuitive* constraint.
-9. **`Purpose` re-bills Substance failures** *(agent-raised 07-30, owner independently reached the same worry: "it could blend in to function — would I hand this out without edits")*. `Purpose` is scored by **enumerating the edits**, and a Substance failure puts items on that list — wrong content puts *every* item on it. No-double-counting (07-23) says Function is not a second bill, but the procedure as written invites exactly that. It did not bite while Substance was untouched; it bites now that Substance has scored criteria. **Cheapest fix on the table, not ruled:** the edit list is scoped to edits that fix how the artefact *operates*, not what it *says*. Note this cannot be solved the way the `Brief` overlap was — narrowing `Brief` removed content from Function's *specification* criterion, but `Purpose` is a whole-artefact judgement and has no equivalent seam to draw.
+3. **Substance's three scales are unwritten** — `Coverage`, `Truth` and `Craft` each have a definition and no ladder. `Truth`'s direction is set (severity ladder). `Coverage` and `Craft` have none. **This is the next job.** *Resolved 08-04: the "must bite hard" sub-question is answered — the `Purpose` double bill is the bite, so no rung needs to be engineered to carry it and no arithmetic cap is required.*
+9. ~~**`Purpose` re-bills Substance failures**~~ — **CLOSED 2026-08-04 (OWNER CALL): the double bill is permitted and useful.** See `Purpose` → "Purpose sees content too". The agent's *benefit-of-the-doubt* fix is dead. Both criteria still publish as separate scores.
 4. **`Format` is a working name**, kept "for now" (owner, 07-29). Rejected on the way: *user design* and *UX* (jargon, and the site refuses jargon walls), *Experience* (a superset word — it reads as the parent of the other three), *Fit* (collides with "fit for purpose", and Purpose is its neighbour). **Stronger reason to replace it, found session 7:** on 07-24 the owner killed scoring the file container (*"scoring a tool for choosing PDF would just be scoring PDF"*), and the word "Format" points straight at the container. The criterion means the artefact's *shape* — four pages, needs stapling, no chapters, too small to project — not its file type.
 5. **Distribution watch** — rung 3 on Format is neutral, so artefacts may bunch there.
 6. **The 3.5 band boundary is the noisiest line in the instrument** *(agent, session 7)*. At single-shot `n=1`, 3.48 and 3.52 are the same artefact and get very different words (*use straight away* vs *glowing reference*). Everywhere else banding blurs a difference; here it sharpens one. Probable answer: the **review** carries the "glowing" verdict in prose and the band follows it, rather than the band generating the verdict.

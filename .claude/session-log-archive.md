@@ -1,6 +1,48 @@
 # Session Log — Archive
 
-Older entries rotated out of `session-log.md` (last rotation 2026-07-30). Newest first.
+Older entries rotated out of `session-log.md` (last rotation 2026-08-04). Newest first.
+
+## 2026-07-23 — Strategy discussion: arena.ai, CEWA benched, taxonomy data model (Publish Close, docs only)
+
+Discussion session prompted by the owner asking whether to borrow from **arena.ai** (LMArena — crowdsourced blind head-to-head LLM leaderboard). No code; five owner rulings banked to `DECISIONS.md` (Strategy 2026-07-23):
+
+1. **CEWA benched for the foreseeable future** — not a paused switch; no longer the site's authority mechanism (that's the owner-authored explanatory spine). `THREADS.md` + `current-state.md` reworded off "pending reinstatement".
+2. **Rubric ≠ ACME** — ACME is the broad improvement spine; the rubric is a narrow rib ("for a given stage, which AI tools help you do it better"). Pedagogy lives in ACME, never in the score.
+3. **Phased comparison** — authored rubric now (low content), sample-derived comparison later; crowd-vote/Elo explicitly out of scope. Rubric output must be *structured* because each judgement is a future comparison sample.
+4. **Stage-primary / job-tagged taxonomy** — eventual data model inverts today's use-category-primary axis, for branding/soul (job = table stakes, stage = unique). Stage primary in structure; job primary at entry point ("job is the door, stage is the house").
+5. **Store `job`, derive `stage`** from a central `job → stage(s)` map (capabilities.json pattern) — gives cross-stage for free at the job level; store stage only for a genuine per-tool editorial exception (deferred).
+
+Also parked a Phase-2 backlog item: instrument filter choice (job vs stage) as a proxy for the work→pedagogy pull. Memory: `project_cewa_benched` saved. Still to rule: phase-1→2 trigger count (~15–20 tools floated).
+
+## 2026-07-22 — Teacher improvement model COMPLETE (two Publish Closes)
+
+Owner directed the sequence: finish the teacher improvement model, then move to benchmarking. Over one long design session, worked all four of the model's open items to closure. The model is now complete.
+
+**Result — the `ACME` model (dual-register):**
+- **A · Audience** — Who am I teaching?
+- **C · Content** — What am I teaching?
+- **M · Method** — How will I teach it so it sticks?
+- **E · Evidence** — How is learning evident?
+
+A continuous loop (A→C→M→E→A; Evidence feeds next turn's Audience). `ACME` is the memory hook (also = "summit", apt); the questions are the working layer teachers think with — the site's progressive-disclosure pattern applied to the model itself. Agent = teacher, object = learner throughout.
+
+**The four items, and how each closed (all OWNER CALLs — full reasoning in DECISIONS → the two 2026-07-22 entries):**
+1. **Stages named** — settled first as Who/What/How/Evidence; differentiation folded into `Who` (a class is always many learners). `Evidence`/`Review`/`Feedback` weighed — Feedback/Review collide with site vocabulary.
+2. **Catalyst split** — no mechanisms-vs-domains split; "domains" retired as a term. The owner's own test dissolved it: technique-that-transfers = Catalyst, knowing-this-class = Context.
+3. **Depth** — not an architecture question (agent misread the owner's word twice). Depth = a quality bar on the content behind each letter: new, provocative ideas at both minutiae and macro scale, serving novice and veteran alike.
+4. **Register** — resolved as *both*: ACME labels + a question per letter.
+
+**Late owner challenge worth recording:** "should this all be framed around the learner instead of the teacher?" Tested against the set and revealed the stages don't sit on one side — inner two (What/Method) are teacher-active, outer two (Audience/Evidence) are learner-described. Conclusion: teacher is the agent (keeps the improvement engine and Catalyst axis attached to a subject; a full learner-frame would turn a *teacher improvement* model into a generic learning-design model), questions point at the learner. This also drove the E wording from "evidence of my teaching" → "how is learning evident?" (the richest phrasing — asks the teacher to define what learning even looks like).
+
+**Process point the owner raised, logged for future sessions:** an AI-coined term reused mid-conversation and not objected to isn't owner confirmation — silence isn't agreement. Recorded in DECISIONS and in this agent's persistent memory; it generalises past this decision.
+
+Docs only, no frontend code touched — no build check applicable. Confidentiality pass clean.
+
+**Late reframe (same session, second Publish Close):** heading toward the benchmark, the owner reframed the next job. It is not "the benchmark premise" — it is **authoring the site's explanatory spine** (what the site is → the stance → the bias declaration → ACME → how tools are evaluated); the benchmark methodology is a *section* of that. Two owner points banked: (1) the **two-part bias declaration** — a positional STEM-teacher lens to *disclose*, and a science-of-learning-as-a-floor conviction to *defend* (held with respect for teaching as an art) — see DECISIONS → "explanatory spine" 2026-07-22; (2) **everything currently on the site is AI-generated placeholder**, so the ACME+stance+bias work is the project's first owner-authored content and becomes the reference the rest of the site is reconciled *to*. This sets a drafting standard for the spine: owner-authored in substance, or it is just more cruft. **Next session opens on this** — starter prompt handed to the owner. Still to rule: is "the stance" a named component; the 6 delivery criteria; page structure.
+
+---
+
+Older entries: [`session-log-archive.md`](session-log-archive.md).
 
 ## 2026-07-21 — Housekeeping while owner away: rename + content audit
 
