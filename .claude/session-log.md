@@ -2,6 +2,22 @@
 
 Dated, append-at-top chronological record of meaningful sessions: what happened, what was decided, what's next. Keep entries terse — detail belongs in the canonical docs (see `close-out.md` routing table). When this file exceeds ~150 lines, move older entries to `session-log-archive.md` and leave a pointer.
 
+## 2026-08-11 — The review data model: 19 rulings, and the site finally has somewhere to put a review (Publish Close, docs only)
+
+Started as *"do you have any backend work?"* → *"what about website work?"*. The agent's answer listed three tiers of frontend jobs and **missed the one that mattered**: the card architecture ruled on 07-29 is unbuilt, and there is nowhere for a finished review to go — no score field, no review field, no recommendation badge. `ToolCard`'s only rating slot is the switched-off CEWA `StatusBadge`. The owner then asked to be quizzed relentlessly, one question at a time, recommendation second. Nineteen rulings later the storage and publication model is settled end to end. **Nothing is built.**
+
+**The correction that unlocked it** came from the owner, not the agent: *"I thought we were building data capture systems for task reviews and tying them to a tool. A tool will have its own web page where all the scores, notes and prose live."* Right — and the thing the agent had failed to say plainly is that **storage being split does not mean the page is split.** Four files joined by id, because a score belongs to a **tool and a task at once**.
+
+**Three times the owner overturned the agent, and each time on the agent's own logic.** (a) `promptVersion` was proposed for the score row; the owner ruled *a different prompt is a different task*, and the agent's surviving caveat was only that the id must stay stable or group-by-task fragments. (b) The agent argued `vendor` was derivable from `toolId` and should be dropped; the owner asked *"why drop the company on the table?"* and won on **ruling 4's own reasoning** — vendor is part of the occasion, and a rebrand would silently re-attribute every historical row. (c) The agent proposed a *notes required below 3* threshold; the owner killed it in **both** directions: *"i may also want to point out how good something is."*
+
+**The two rulings with the largest consequences.** *Nothing publishes until a tool is fully reviewed* — stricter than all three options the agent tabled, which were about partial scores; the owner moved the gate to the **tool**. With **applicable tasks declared per tool**, this finally gives *"≥5 solid tool reviews"* in the launch gate a definition — and makes it materially more expensive. The agent flagged the bill and proposed capping tasks per tool; **the owner rejected the framing outright: the count cannot be predetermined, it depends on the tool.** Accepted for now, with a checkpoint at tool 2 or 3.
+
+**Where pragmatism beat purity, deliberately.** The owner first ruled maximum comparison fidelity (*"every new prompt should be different"*), then amended it: *"across tools we dont necessarily have to have the same version prompt… otherwise it would be a huge amount of work to block progress."* Versions are **disclosed, not enforced**; comparison uses the latest available. The agent argued for deferring the comparison view until versions converged and was overruled. The cost is recorded rather than hidden.
+
+**Two domain corrections from the owner worth keeping.** *"Single sided would refer to the worksheet. A second sheet that is the answers is not a block"* — which dissolves the banked v1↔v2 collision **and** means part of Canva's pilot markdown may have scored an unrequested answer key as a worksheet defect. And *"i'm not sure what a substance of zero means"*, which surfaced that `null` (not scored) and `0` (a real judgement at a scale's floor) had been running together; only `Coverage`'s floor is settled.
+
+**Docs-only close.** The spec section in `tool-review-architecture.md` was written mid-session and then contradicted by three later rulings; it has been rewritten to hold all 19. The standing risk is unchanged and unactioned: **the three pilot PDFs are still the only copies, untracked, on the owner's Desktop.** Ruling 7 gives them a home; moving them was not authorised.
+
 ## 2026-08-04 — Rubric session 9: Substance's collisions settled; `Craft` widens; the artefact-type test is restated (Publish Close, docs only)
 
 Session 8 left Substance with a list and two blocking collisions. Both are closed — and neither went the way the agent argued.
