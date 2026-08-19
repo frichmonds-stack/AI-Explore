@@ -32,12 +32,54 @@ Rules:
 | Architecture / conventions / routing | `CLAUDE.md` or `task-map.md` |
 | Content model rules | `frontend/src/content/schema.md` |
 | Deploy steps | `deploy.md` |
+| Work Queue identity (Sync Key) | `portfolio-identities.md` |
 
    It's fine to report "continuity: no update required" when nothing material changed.
 
    **Before moving on, re-read the session's discussion turns, not just the diff.** The routing table above is easy to satisfy from `git diff` alone — which silently misses decisions reached in conversation that produced little or no code, and misses them worst in a long session that later gets consumed by an unrelated problem (a failing push, a broken tool), because by close-out time the diff is the only thing still in view. Ask explicitly: *what did the owner rule on today that isn't visible in the diff?* Anything with a stated rationale belongs in `DECISIONS.md`, marked **OWNER CALL** where the owner actually ruled and flagged as proposal where it was AI elaboration they didn't examine (see `owner-context.md`). A shipped artefact whose reasoning is unrecorded is a half-finished close.
    *Why this is here: the 2026-07-20 premise design (four questions and a stance, the three-ring scope model, the deferral ruling) passed through a Publish Close unrecorded — only the homepage card it produced was written down. It survived by chance, recovered from a transcript a day later.*
 3. Add a dated entry to `session-log.md` for meaningful implementation, decision, or handoff milestones (not for trivial sessions). If the log exceeds ~150 lines, archive older entries to `session-log-archive.md` and leave a pointer.
+
+4. **Update the Notion Work Queue** — the cross-project portfolio dashboard. Procedure below. Report delivery honestly; never claim a row was written that wasn't.
+
+## Notion Work Queue (portfolio)
+
+Pigeon Hole is a managed project in the **Work Queue** database under the *AI Project Manager* page in Notion. The repository stays authoritative for code, docs, decisions and detailed next actions; Notion carries a curated portfolio summary only.
+
+**This runs through the Notion connector, not a CLI.** The `ai-project-manager` / `ai-efficiency` CLI (`frichmonds-stack/AI-Efficiency`) is Windows-only Python and is **not installed on the Mac** — there is no local outbox or database here. If a write fails, say so; nothing queues it for retry.
+
+### Identity
+
+| Field | Value |
+|---|---|
+| Notion `Project` | `Pigeon Hole` — must match `project_name` in `.ai-efficiency.toml` exactly |
+| Sync Key prefix | `ai-explore` — the committed `project_id`, deliberately different from the display name |
+| Idempotency key | `Project` + `Sync Key` |
+
+Keys are permanent and recorded in [`portfolio-identities.md`](portfolio-identities.md).
+
+Look the pair up with `query_data_sources` in **SQL mode** — verified working:
+`SELECT "Work Item", "Sync Key", "State", url FROM "collection://<id>" WHERE "Project" = ? AND "Sync Key" = ?`. SQL mode draws on a shared workspace quota on this Notion plan; if it is exhausted, fall back to **view mode** against the Pigeon Hole view, which carries no tool quota on any plan. Do not fall back to writing blind — a create without a successful lookup is how duplicate rows happen. Match the exact pair before writing: zero matches → create one row; one match → update it; more than one → stop and reconcile rather than guess. Compare by **meaning**, not by title — a reworded workstream keeps its original key.
+
+### What goes up
+
+Three curated sets only:
+
+1. The work item this session actually advanced, with its state.
+2. Actionable next work from `BACKLOG.md`, as `Queued`.
+3. Only decision-ready or blocking entries from `THREADS.md`, as `Proposed`.
+
+States run `Proposed → Queued → Active → Completed`. Blocked work stays `Active` and names its blocker. **Maximum three `Active` items globally, across all projects** — check the other projects' rows before setting anything Active. Proposed and Queued don't consume that limit.
+
+Do not copy whole documents, evidence logs, speculative ideas, or every bullet. Repository detail stays in the repository.
+
+### What must never go up
+
+No file paths, commands, prompts, source content, credentials, or detailed technical evidence. No CEWA internal-sourced material (see the confidentiality gate in `owner-context.md`). Notion is read by the owner on a phone, not by an agent reproducing the work.
+
+### Page body
+
+Each row's page carries exactly three sections: **Description** (one to three sentences), **Completion Criteria** (a short checklist defining done), and **Latest Closeout** (outcome, evidence summary, remaining uncertainty, decisions needed). Fetch the page before replacing its body.
 
 ## Publish Close only
 

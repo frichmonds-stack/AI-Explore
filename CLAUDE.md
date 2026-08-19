@@ -113,16 +113,12 @@ The state behind those facets — one value per facet key, the Domain→Work typ
 - **Delivery rubric — the scoring instrument** (`Function`/`Form` ruled; `Substance`'s list ruled and its collisions settled, **no scales written yet**): [`.claude/delivery-rubric.md`](.claude/delivery-rubric.md)
 - Project background (purpose, audience): [`.claude/project-context.md`](.claude/project-context.md)
 - Close-out procedure: [`.claude/close-out.md`](.claude/close-out.md)
+- Work Queue identities (Notion Sync Keys): [`.claude/portfolio-identities.md`](.claude/portfolio-identities.md)
 
-## Session closeout (AI Efficiency)
+## Session closeout (Notion Work Queue)
 
-Before ending every working session, submit one compact closeout record:
+Pigeon Hole is a managed project in the **Work Queue** database in Notion, under the *AI Project Manager* page. At every `Normal Close` and `Publish Close`, update it through the Notion connector. The procedure, the identity rules, and the "what must never go up" list are in [`.claude/close-out.md`](.claude/close-out.md) → "Notion Work Queue"; the permanent Sync Keys are in [`.claude/portfolio-identities.md`](.claude/portfolio-identities.md).
 
-```text
-ai-efficiency closeout --project-root . --harness <active-harness> --file record.json
-```
+The repository stays authoritative for code, docs, decisions and detailed next actions. Notion carries a curated portfolio summary only.
 
-Report only directly observed values. Never invent token counts; unknown
-measurements stay null. The outcome reflects the owner's response, not the
-agent's self-assessment. Include a session ID only when the active harness
-exposes one. The central CLI captures project and Git context itself.
+**Not the CLI.** The `ai-project-manager` / `ai-efficiency` CLI (`frichmonds-stack/AI-Efficiency`) is Windows-only Python requiring 3.12+, and is not installed on this Mac — the previous instruction to run `ai-efficiency closeout` here could never have succeeded. There is no local outbox, so report failed delivery honestly rather than assuming a retry.
