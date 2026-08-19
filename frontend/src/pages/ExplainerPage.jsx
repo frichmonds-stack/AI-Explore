@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import toolsData from '../content/tools.json';
 import { DraftNotice } from '../lumen/DraftNotice';
 import { Eyebrow } from '../lumen/Eyebrow';
+import { usePageMeta } from '../lib/usePageMeta';
 
 const { meta } = toolsData;
 
@@ -167,6 +168,15 @@ function PedagogiesExplainer() {
 
 export default function ExplainerPage() {
   const { category } = useParams();
+
+  // Titles and descriptions live in tools.json meta (one source of truth) —
+  // scripts/prerender.mjs reads the same list to write the static per-route head.
+  const pageMeta = (meta.explainers || []).find((e) => e.id === category);
+  usePageMeta(
+    pageMeta
+      ? { title: pageMeta.title, description: pageMeta.description, type: 'article' }
+      : { title: 'Explainer' },
+  );
 
   const content = {
     uses: <UsesExplainer />,

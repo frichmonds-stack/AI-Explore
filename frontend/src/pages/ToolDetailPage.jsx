@@ -9,6 +9,8 @@ import { ArrowRight } from '../lumen/ToolCard';
 import { DraftNotice, needsReview } from '../lumen/DraftNotice';
 import { statusOf } from '../lib/cewa';
 import { Eyebrow } from '../lumen/Eyebrow';
+import { ToolScoresOverview, ToolResultsBody } from '../lumen/ToolResults';
+import { isFullyReviewed } from '../lib/scores';
 
 const { tools, meta } = toolsData;
 
@@ -98,6 +100,10 @@ export default function ToolDetailPage() {
   const useCats = (tool.useCategories || []).map(id => meta.useCategories.find(u => u.id === id)).filter(Boolean);
   const peds = (tool.pedagogies || []).map(id => meta.pedagogyFrameworks.find(p => p.id === id)).filter(Boolean);
   const accessTier = tool.access ? (meta.accessTiers || []).find(a => a.id === tool.access) : null;
+  // Nothing about the review renders until the tool is fully reviewed — rulings
+  // 14 + 18. Entry is not publication; scores and evidence can sit in the files
+  // with no page changing.
+  const reviewed = isFullyReviewed(tool.id);
 
   return (
     <div style={{ maxWidth: 760 }}>
@@ -136,6 +142,12 @@ export default function ToolDetailPage() {
         {tool.description}
       </p>
 
+      {reviewed && (
+        <div style={{ marginBottom: 'var(--space-5)' }}>
+          <ToolScoresOverview toolId={tool.id} />
+        </div>
+      )}
+
       <div style={{ display: 'flex', gap: 'var(--space-3)', marginBottom: 'var(--space-7)', flexWrap: 'wrap' }}>
         <SaveButton type="tool" id={tool.id} />
         <ShareButton title={`${tool.name} — Pigeon Hole`} text={tool.description} />
@@ -144,6 +156,14 @@ export default function ToolDetailPage() {
       {needsReview(tool) && <DraftNotice note="This tool write-up was drafted by AI — its description and notes need a human review before relying on them." />}
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-6)' }}>
+
+        {/* Our review — prose take, then the per-task results. Ruled order
+            (tool-review-architecture.md ruling 17): header → prose → task outputs. */}
+        {reviewed && (
+          <Section label="Our review">
+            <ToolResultsBody toolId={tool.id} />
+          </Section>
+        )}
 
         {/* Why it's useful */}
         {tool.notes && (

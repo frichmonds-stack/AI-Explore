@@ -2,6 +2,20 @@
 
 Dated, append-at-top chronological record of meaningful sessions: what happened, what was decided, what's next. Keep entries terse — detail belongs in the canonical docs (see `close-out.md` routing table). When this file exceeds ~150 lines, move older entries to `session-log-archive.md` and leave a pointer.
 
+## 2026-08-17 — The review data model is BUILT (scaffolding only, no scores entered)
+
+Owner asked for background work needing no input. Two agent-shaped items authorised and done; **uncommitted, awaiting a `Commit`**.
+
+**Built the review data model** spec'd on 08-11 — steps 1–4 of the BACKLOG sequence, minus the evidence move. `tasks.json`, `scores.json`, `reviews.json` created; `applicableTasks: []` added to all 27 tools; `lib/scores.js` holds every join, group-by and derived mean; `lumen/ToolResults.jsx` + `ToolDetailPage` render the results in the ruled order (header overview → prose → task outputs by task, criteria nested). `schema.md` documents all of it. **Nothing is entered and nothing renders** — the pilot scores are the owner's judgement to make, and the three PDFs stayed on the Desktop (unauthorised, unchanged).
+
+**Verified with a throwaway fixture, then reverted.** Four behaviours proved on a real page: a complete row renders and the arithmetic is right (two-level mean, 2.7, band *do some work*); a missing prose review renders **nothing at all**, not even the number; a single `null` criterion renders nothing; `"n/a"` drops out of its bucket mean and lets the rest through.
+
+**The consequence worth surfacing: no tool can publish until the three Substance scales are written.** The gate requires every criterion scored; `Coverage`/`Truth`/`Craft` have no scales, so they enter `null`, so `isFullyReviewed` is false for every tool. That is rulings 14+18 working exactly as ruled — but it means the scales are now on the critical path to the launch gate, not a parallel track. The 08-11 note that the data model "does not need the Substance scales" is true of *building* it and false of *publishing* anything through it.
+
+**Also: the explainer metadata hole is closed.** Three titles + descriptions added to `tools.json` `meta.explainers` (one source of truth — `ExplainerPage` and `scripts/prerender.mjs` read the same list), `usePageMeta` wired, `/explainer/*` added to the prerender manifest. Verified in both paths: static heads in `dist/`, and client nav. `NotFoundPage` still lacks `usePageMeta` — left alone, still on BACKLOG.
+
+Agent-drafted and awaiting red pen: the `null` / `"n/a"` three-state value convention, holding the rubric definition in `scores.json` `meta`, and the three explainer descriptions.
+
 ## 2026-08-11 — The review data model: 19 rulings, and the site finally has somewhere to put a review (Publish Close, docs only)
 
 Started as *"do you have any backend work?"* → *"what about website work?"*. The agent's answer listed three tiers of frontend jobs and **missed the one that mattered**: the card architecture ruled on 07-29 is unbuilt, and there is nowhere for a finished review to go — no score field, no review field, no recommendation badge. `ToolCard`'s only rating slot is the switched-off CEWA `StatusBadge`. The owner then asked to be quizzed relentlessly, one question at a time, recommendation second. Nineteen rulings later the storage and publication model is settled end to end. **Nothing is built.**

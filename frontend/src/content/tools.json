@@ -53,11 +53,17 @@
       { "id": "free-for-educators", "label": "Free for educators", "description": "Free with a verified school or teacher account." },
       { "id": "paid",               "label": "Paid",               "description": "Requires a paid subscription." },
       { "id": "school-licence",     "label": "School licence",      "description": "Available when your school or system subscribes." }
+    ],
+    "explainers": [
+      { "id": "uses",       "title": "Use categories",    "description": "The tools library is organised by the job you're actually trying to do — not by AI capability or vendor category. What each use category covers, and where to start." },
+      { "id": "roles",      "title": "Teaching roles",    "description": "Teachers wear many hats. What the role tag on a tool card means, and where AI genuinely helps across classroom, curriculum, assessment, administration and professional learning." },
+      { "id": "pedagogies", "title": "Teaching approaches", "description": "The research-based teaching frameworks every tool in this library is mapped to — Cognitive Load Theory, UDL, Bloom's and more — and why the pedagogy badge isn't decoration." }
     ]
   },
   "tools": [
     {
       "id": "chatgpt",
+      "applicableTasks": [],
       "access": "freemium",
       "cewaProvided": false,
       "name": "ChatGPT",
@@ -77,6 +83,7 @@
     },
     {
       "id": "gemini",
+      "applicableTasks": [],
       "name": "Gemini",
       "vendor": "Google",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://gemini.google.com&size=128",
@@ -94,6 +101,7 @@
     },
     {
       "id": "notebooklm",
+      "applicableTasks": [],
       "access": "free",
       "cewaProvided": false,
       "name": "NotebookLM",
@@ -113,6 +121,7 @@
     },
     {
       "id": "canva-ai",
+      "applicableTasks": [],
       "access": "free-for-educators",
       "cewaProvided": false,
       "name": "Canva AI",
@@ -132,6 +141,7 @@
     },
     {
       "id": "microsoft-copilot",
+      "applicableTasks": [],
       "access": "school-licence",
       "cewaProvided": false,
       "accessNote": "",
@@ -152,6 +162,7 @@
     },
     {
       "id": "khanmigo",
+      "applicableTasks": [],
       "name": "Khanmigo",
       "vendor": "Khan Academy",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://khanacademy.org&size=128",
@@ -169,6 +180,7 @@
     },
     {
       "id": "diffit",
+      "applicableTasks": [],
       "access": "freemium",
       "cewaProvided": false,
       "name": "Diffit",
@@ -188,6 +200,7 @@
     },
     {
       "id": "curipod",
+      "applicableTasks": [],
       "name": "Curipod",
       "vendor": "Curipod",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://curipod.com&size=128",
@@ -205,6 +218,7 @@
     },
     {
       "id": "twee",
+      "applicableTasks": [],
       "name": "Twee",
       "vendor": "Twee",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://twee.com&size=128",
@@ -222,6 +236,7 @@
     },
     {
       "id": "magicschool",
+      "applicableTasks": [],
       "name": "MagicSchool",
       "vendor": "MagicSchool AI",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://magicschool.ai&size=128",
@@ -239,6 +254,7 @@
     },
     {
       "id": "claude",
+      "applicableTasks": [],
       "access": "freemium",
       "cewaProvided": false,
       "name": "Claude",
@@ -258,6 +274,7 @@
     },
     {
       "id": "suno",
+      "applicableTasks": [],
       "name": "Suno",
       "vendor": "Suno",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://suno.com&size=128",
@@ -275,6 +292,7 @@
     },
     {
       "id": "adobe-firefly",
+      "applicableTasks": [],
       "name": "Adobe Firefly",
       "vendor": "Adobe",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://adobe.com&size=128",
@@ -292,6 +310,7 @@
     },
     {
       "id": "chalkie-ai",
+      "applicableTasks": [],
       "name": "Chalkie AI",
       "vendor": "Chalkie",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://chalkie.com.au&size=128",
@@ -309,6 +328,7 @@
     },
     {
       "id": "microsoft-reading-coach",
+      "applicableTasks": [],
       "access": "free",
       "cewaProvided": false,
       "accessNote": "",
@@ -329,6 +349,7 @@
     },
     {
       "id": "quillbot",
+      "applicableTasks": [],
       "name": "QuillBot",
       "vendor": "QuillBot",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://quillbot.com&size=128",
@@ -346,6 +367,7 @@
     },
     {
       "id": "seqta-ai-assist",
+      "applicableTasks": [],
       "access": "school-licence",
       "cewaProvided": false,
       "accessNote": "",
@@ -366,6 +388,7 @@
     },
     {
       "id": "wayground",
+      "applicableTasks": [],
       "name": "Wayground (Quizizz)",
       "vendor": "Wayground",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://quizizz.com&size=128",
@@ -383,6 +406,7 @@
     },
     {
       "id": "turnitin",
+      "applicableTasks": [],
       "name": "Turnitin",
       "vendor": "Turnitin",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://turnitin.com&size=128",
@@ -400,6 +424,7 @@
     },
     {
       "id": "speechify",
+      "applicableTasks": [],
       "name": "Speechify",
       "vendor": "Speechify",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://speechify.com&size=128",
@@ -417,6 +442,7 @@
     },
     {
       "id": "nurture-ai",
+      "applicableTasks": [],
       "name": "Nurture AI",
       "vendor": "Nurture",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://nurture.education&size=128",
@@ -434,6 +460,7 @@
     },
     {
       "id": "perplexity",
+      "applicableTasks": [],
       "name": "Perplexity AI",
       "vendor": "Perplexity",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://perplexity.ai&size=128",
@@ -451,6 +478,7 @@
     },
     {
       "id": "gamma",
+      "applicableTasks": [],
       "name": "Gamma",
       "vendor": "Gamma",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://gamma.app&size=128",
@@ -468,6 +496,7 @@
     },
     {
       "id": "schoolai",
+      "applicableTasks": [],
       "name": "SchoolAI",
       "vendor": "SchoolAI",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://schoolai.com&size=128",
@@ -485,6 +514,7 @@
     },
     {
       "id": "eduaide",
+      "applicableTasks": [],
       "name": "EduAide.ai",
       "vendor": "EduAide",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://eduaide.ai&size=128",
@@ -502,6 +532,7 @@
     },
     {
       "id": "deepseek",
+      "applicableTasks": [],
       "name": "DeepSeek",
       "vendor": "DeepSeek",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://deepseek.com&size=128",
@@ -519,6 +550,7 @@
     },
     {
       "id": "capcut",
+      "applicableTasks": [],
       "name": "CapCut",
       "vendor": "ByteDance",
       "logo": "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://capcut.com&size=128",

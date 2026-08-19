@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "buckets": [
+      {
+        "id": "function",
+        "label": "Function",
+        "question": "Does it perform as meant?",
+        "criteria": [
+          {
+            "id": "brief",
+            "label": "Brief",
+            "question": "Did you get what you asked for?",
+            "max": 3,
+            "maxNote": "Rung 4 was stripped by the 2026-07-29 'excellence of its own descriptor' ruling and never re-spaced. Structural debt — it caps the overall at 3.83.",
+            "scaleWritten": true
+          },
+          {
+            "id": "purpose",
+            "label": "Purpose",
+            "question": "Can you actually use it?",
+            "max": 4,
+            "scaleWritten": true
+          }
+        ]
+      },
+      {
+        "id": "form",
+        "label": "Form",
+        "question": "Does it reach the senses right?",
+        "criteria": [
+          {
+            "id": "polish",
+            "label": "Polish",
+            "question": "Is it well made?",
+            "max": 4,
+            "scaleWritten": true
+          },
+          {
+            "id": "format",
+            "label": "Format",
+            "question": "Does the format work the way you'd actually use it?",
+            "max": 4,
+            "scaleWritten": true,
+            "nameNote": "Working name only (debt from 2026-07-29)."
+          }
+        ]
+      },
+      {
+        "id": "substance",
+        "label": "Substance",
+        "question": "Is the material correct — and any good?",
+        "criteria": [
+          {
+            "id": "coverage",
+            "label": "Coverage",
+            "question": "Did it cover the ground?",
+            "max": 4,
+            "scaleWritten": false
+          },
+          {
+            "id": "truth",
+            "label": "Truth",
+            "question": "Is it correct?",
+            "max": 4,
+            "scaleWritten": false
+          },
+          {
+            "id": "craft",
+            "label": "Craft",
+            "question": "Is it any good?",
+            "max": 4,
+            "scaleWritten": false
+          }
+        ]
+      }
+    ],
+    "bands": [
+      { "min": 3.5, "label": "glowing reference", "source": "owner" },
+      { "min": 3.0, "label": "use straight away", "source": "owner" },
+      { "min": 2.0, "label": "do some work", "source": "owner" },
+      { "min": 1.0, "label": "do a lot of work", "source": "owner" },
+      { "min": 0, "label": "start over", "source": "agent-drafted — UNRULED" }
+    ]
+  },
+  "scores": []
+}

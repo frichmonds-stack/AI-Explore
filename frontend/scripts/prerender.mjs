@@ -50,6 +50,7 @@ add('/foundations', foundations.title, foundations.description);
 add('/risks', risks.title, risks.description);
 add('/pedagogies', pedagogies.title, pedagogies.description);
 
+(tools.meta.explainers || []).forEach((e) => add(`/explainer/${e.id}`, e.title, e.description, 'article'));
 tools.tools.forEach((t) => add(`/tools/${t.id}`, t.name, t.description, 'article'));
 guides.guides.forEach((g) => add(`/guides/${g.id}`, g.title, g.summary, 'article'));
 articles.articles.forEach((a) => add(`/articles/${a.id}`, a.title, a.dek, 'article'));
