@@ -9,6 +9,7 @@
 | `Normal Close` | Checks + docs + continuity + final report; no commit or push. |
 | `Publish Close` | Normal Close work, then confidentiality pass, commit, push, **merge to `main` (deploys live)**, report. |
 | `Commit` / `Push` | Only that named git step, for approved completed work. |
+| `time out` | Follow `owner-time.md`. Stops owner timing only; no closeout or work-item change. |
 
 Rules:
 - Default after session start is planning/discussion mode.
@@ -104,6 +105,10 @@ git checkout claude/amazing-carson-5zucgf
 - **Confidentiality pass before commit:** no CEWA internal-sourced approval data, no internal wording, in anything staged or in `dist/` (see `owner-context.md` confidentiality gate).
 - If push fails with 403: retry up to 4 times with exponential backoff (2s, 4s, 8s, 16s).
 - Cloudflare Pages deploys from the branch — verify the deploy when the change should go live and timing allows (see `deploy.md`).
+
+## Owner time
+
+After a successful `execute now` batch (checks and docs included), or a successful `Publish Close` (push and merge included), run the matching completion hook in [`owner-time.md`](owner-time.md). Incomplete work preserves timer state.
 
 ## Final report — every close
 
